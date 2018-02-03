@@ -349,16 +349,21 @@ class WorldCreator(tk.Tk):
             image['world_z'] += z_move
             self.room_canvas.move(im_id, 0, y_move)
 
-    def drag_motion(self, event, scale=True):
+    def drag_motion_button1(self, event, scale=True):
         if self.moving_view is None:
             return
         im_id = self.moving_view
         if 'scalable' not in self.room_canvas.gettags(im_id):
             scale = False
         else:
-            # This is the event state that refers to Button1 (left mouse button)
-            if event.state == 256:
-                scale = True
+            scale = True
+        self.move_to(im_id, event.x, event.y, scale=scale)
+
+    def drag_motion_button3(self, event, scale=True):
+        if self.moving_view is None:
+            return
+        im_id = self.moving_view
+        scale = False
         self.move_to(im_id, event.x, event.y, scale=scale)
 
     def view_popup_menu(self, event):
@@ -452,11 +457,11 @@ class WorldCreator(tk.Tk):
 
     def set_canvas_bindings(self):
         self.room_canvas.tag_bind('scalable', '<Button-1>', self.drag_start)
-        self.room_canvas.tag_bind('scalable', '<B1-Motion>', lambda x: self.drag_motion(x, scale=True))
+        self.room_canvas.tag_bind('scalable', '<B1-Motion>', lambda x: self.drag_motion_button1(x, scale=True))
         self.room_canvas.tag_bind('scalable', '<Button-3>', self.drag_start)
-        self.room_canvas.tag_bind('scalable', '<B3-Motion>', lambda x: self.drag_motion(x, scale=False))
+        self.room_canvas.tag_bind('scalable', '<B3-Motion>', lambda x: self.drag_motion_button3(x, scale=False))
         self.room_canvas.tag_bind('view', '<Button-1>', self.drag_start)
-        self.room_canvas.tag_bind('view', '<B1-Motion>', lambda x: self.drag_motion(x, scale=False))
+        self.room_canvas.tag_bind('view', '<B1-Motion>', lambda x: self.drag_motion_button1(x, scale=False))
         self.room_canvas.tag_bind('view', '<ButtonRelease-3>', self.view_popup_menu)
 
     def build_menu_bar(self):

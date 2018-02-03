@@ -1,0 +1,15 @@
+room 27000
+   properties
+      picture	3001
+      east	27023 
+      flags	2
+   end
+end
+room 27023
+   properties
+      picture	3001
+      north	27012 
+      south	34 
+      east	24 
+   end
+end

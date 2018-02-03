@@ -1,0 +1,11 @@
+# Created by .ignore support plugin (hsz.mobi)
+.idea/
+PyFotoSCIop/.idea/
+PyFotoSCIop/PySCIs/__pycache__/
+PyFotoSCIop/TraduSCI/
+PyFotoSCIop/World_Creator_old/
+PyFotoSCIop/source/__pycache__/
+PyFotoSCIop/tags
+Resources/56_Files/
+Resources/stock_objects/__pycache__/
+build/

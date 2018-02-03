@@ -1,0 +1,10 @@
+#
+# Drags.zon.zon
+#
+name            "Drags.zon"
+roomName         "Nymertia"
+resetInterval   0
+maximumObjectAge 0
+allowCombat     1
+allowMagic      1
+worldFile       "../data/lib/world/dragn.wld"

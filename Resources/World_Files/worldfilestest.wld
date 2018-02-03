@@ -1,0 +1,9 @@
+room 1
+   properties
+      picture	3000
+   end
+   atpinfo
+      2742  513 123
+      66  330 321
+   end
+end

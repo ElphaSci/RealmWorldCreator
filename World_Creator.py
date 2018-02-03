@@ -30,9 +30,9 @@ def scale_image(pil_image: Image, y_depth: int, p56_info, race='default'):
         race_adjustment = {'default': 100, 'human': 100, 'giant': 110, 'elf': 90}
         scale_factor = (new_scale * race_adjustment[race]) / 100
     elif y_depth >= p56_info.front_y:
-        scale_factor = p56_info.frontsize / p56_info.frontsize
+        scale_factor = p56_info.frontPercent()
     else:
-        scale_factor = p56_info.backsize / p56_info.frontsize
+        scale_factor = p56_info.backPercent()
     # Scale the image based on the calculated scale_factor
     new_shape = (int(pil_image.width * scale_factor), int(pil_image.height * scale_factor))
     scaled_pil_im = pil_image.resize(new_shape)
@@ -694,6 +694,7 @@ class WorldCreator(tk.Tk):
         tags = tuple(tags)
         self.room_canvas.itemconfig(im_id, tags=tags)
         self.active_media['ids'][im_id]['v56'] = v56
+        return im_id
 
     def open_wld(self, filename):
         if filename is None:
@@ -869,7 +870,7 @@ class WorldCreator(tk.Tk):
                 scaled = True
             if view_file is None:
                 continue
-            self.draw_v56(view_file, loop=loop, x=int(atp_or_obj.x), y=int(atp_or_obj.y), z=int(atp_or_obj.z),
+            im_id = self.draw_v56(view_file, loop=loop, x=int(atp_or_obj.x), y=int(atp_or_obj.y), z=int(atp_or_obj.z),
                           scaled=scaled, mirror=mirror, transparent=transparent, polygon=polygon)
         # Hide the polygons, by default
         self.polygon_state = 'normal'

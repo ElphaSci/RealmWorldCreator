@@ -1,4 +1,5 @@
 from struct import *
+import os
 
 from PyFotoSCIop.source.palette import Palette
 from PyFotoSCIop.source.scicell import Cell, CellHeader

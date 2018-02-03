@@ -355,11 +355,11 @@ class WorldCreator(tk.Tk):
         im_id = self.moving_view
         if 'scalable' not in self.room_canvas.gettags(im_id):
             scale = False
-        else:
+            # else:
             # This is the event state that referse to Button1
             # TODO I don't think this ever changes anything?
-            if event.state == 256:
-                scale = True
+            # if event.state == 256:
+            #     scale = True
         self.move_to(im_id, event.x, event.y, scale=scale)
 
     def view_popup_menu(self, event):

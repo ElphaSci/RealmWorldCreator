@@ -660,8 +660,11 @@ class WorldCreator(tk.Tk):
         except Exception as e:
             self.errorbox('Unable to load v56 from file:'.format(v56_or_file))
             raise (e)
-        loop = v56._loops[loop]
-        cell = loop._cells[cell]
+        sci_loop = v56._loops[loop]
+        if sci_loop._basedOnLoop != -1:
+            mirror = (sci_loop._mirror if sci_loop._mirror is not None else False)
+            sci_loop = v56._loops[sci_loop._basedOnLoop]
+        sci_cell = sci_loop._cells[cell]
         if scaled:
             try:
                 atp = self.atps['view'][int(v56.id)]
@@ -676,7 +679,7 @@ class WorldCreator(tk.Tk):
         if x is not None: x = int(x)
         if y is not None: y = int(y)
         if z is not None: z = int(z)
-        im_id = self.draw_cell(cell, x=x, y=y, z=z, anchor=tk.S, scaled=scaled, transparent=transparent, mirror=mirror)
+        im_id = self.draw_cell(sci_cell, x=x, y=y, z=z, anchor=tk.S, scaled=scaled, transparent=transparent, mirror=mirror)
         if scaled:
             tags = ['view', 'scalable', ]
         else:
@@ -838,7 +841,7 @@ class WorldCreator(tk.Tk):
         depth_sorted_atps_objs.sort(key=lambda x: x[0])
         for atp_or_obj_info in depth_sorted_atps_objs:
             transparent, polygon = True, False
-            scaled = True  # p56_info.roomtype not in ['TOWN1INT', 'TOWN1', 'HOUSE', 'HOUSE1INT']
+            scaled = p56_info.roomtype not in ['TOWN1INT', 'TOWN1', 'HOUSE', 'HOUSE1INT']
             atp_or_obj = atp_or_obj_info[1]
             if isinstance(atp_or_obj, ATP):
                 loop = 0

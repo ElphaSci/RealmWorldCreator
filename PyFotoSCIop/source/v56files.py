@@ -1,7 +1,7 @@
 import os
 import struct
 import sys
-sys.path.append('..\\..\\')
+sys.path.append('../../')
 
 from PyFotoSCIop.source.palette import Palette
 from PyFotoSCIop.source.scicell import ViewCellHeader, Cell

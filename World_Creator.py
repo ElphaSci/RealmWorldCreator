@@ -227,7 +227,7 @@ class WorldCreator(tk.Tk):
     def set_worlds_by_zone(self):
         worlds_by_zone = {'Misc': []}
         for zon, path in self.media['zon'].items():
-            with open(path, 'r') as f:
+            with open(path, 'r', encoding='ISO-8859-1') as f:
                 lines = f.readlines()
             lines = [x for x in lines if 'worldFile' in x or 'title' in x]
             temp = {'title': '', 'worlds': []}

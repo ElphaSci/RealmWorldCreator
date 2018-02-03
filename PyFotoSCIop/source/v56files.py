@@ -1,5 +1,7 @@
 import os
 import struct
+import sys
+sys.path.append('C:\\Users\\caleb\\PycharmProjects\\World_Editor')
 
 from PyFotoSCIop.source.palette import Palette
 from PyFotoSCIop.source.scicell import ViewCellHeader, Cell
@@ -160,16 +162,13 @@ class V56file:
 
 
 if __name__ == '__main__':
-    v = V56file('../v56_files/41909.v56')
-    cell_ims = []
-    for loop in v._loops:
-        for c in loop._cells:
-            im = c.get_pil_image(draw=True)
-            cell_ims.append(im)
-            # import matplotlib.pyplot as plt
-            # fig, ax = plt.subplots()
-            # plt.ion()
-            # while True:
-            #     for im in cell_ims:
-            #         plt.imshow(im)
-            #         plt.pause(0.001)
+    from sys import argv
+    if len(argv) > 1:
+        file_name = argv[1]
+        loop = (0 if len(argv) < 3 else int(argv[2]))
+        cell = (0 if len(argv) < 4 else int(argv[3]))
+        v = V56file(file_name)
+        # TODO: handle _basedOnLoop and _mirror
+        sci_loop = v._loops[loop]
+        sci_cell = sci_loop._cells[cell]
+        im = sci_cell.get_pil_image(draw=True)

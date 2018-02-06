@@ -1,17 +1,26 @@
+import copy
+
 global ATP_INFO
 global ATP_CATEGORIES
 
 
 class ATPNode:
     def __init__(self, number=0, roomType=0, noun='', view=0, pCategory=0, pDescriber='', x=0, y=0, z=0, pPolygon=0,
-                 pDoScaler=True, priority=0, pVersion=1, pPlacement=0, pUncommon=0, pMsgFile=0):
+                 pDoScaler=None, priority=0, pVersion=1, pPlacement=0, pUncommon=0, pMsgFile=0):
         attributes = ['number', 'roomType', 'noun', 'view', 'pCategory', 'pDescriber', 'x', 'y', 'z', 'pPolygon',
                       'pDoScaler', 'priority', 'pVersion', 'pPlacement', 'pUncommon', 'pMsgFile']
         for attr in attributes:
+            if attr == 'pDoScaler' and eval('roomType') != 0 and eval(attr) is None:
+                setattr(self, attr, True)
+                continue
             setattr(self, attr, eval(attr))
         if number == 0:
             self.number = view - 1000
 
+    def set_room_type(self, roomType):
+        if self.pDoScaler is None:
+            self.pDoScaler = not roomType in ['TOWN1INT', 'TOWN1', 'HOUSE', 'HOUSE1INT']
+        self.roomType = roomType
 
 class Region(dict):
     def __init__(self, name, atp_categories):
@@ -1045,7 +1054,7 @@ Town1Windows = mySet = [ATPNode(view=3541, noun='WINARCH_T1_N', pDescriber="Dk-a
 
 for i, obj in enumerate(mySet):
     obj.pMsgFile = 102
-    obj.roomType = 'TOWN1'
+    obj.set_room_type('TOWN1')
     obj.pCategory = "Town Ext: Windows"
     obj.pPolygon = -1
 
@@ -1107,7 +1116,7 @@ for i, obj in enumerate(mySet):
 if not obj.pDescriber:
     obj.pDescriber = "Sign"
 
-Town1Shops = mySet = [ATPNode(view=1085, noun='CART_N', pDescriber="Cart"),
+Town1Shops = mySet = [ATPNode(view=1085, noun='CART_N', pDescriber="Cart", pDoScaler=True), # elpha - added pDoScaler=True
                       ATPNode(view=1086, noun='CART_STUFF_N', pDescriber="Food on Cart"),
                       ATPNode(view=3101, noun='COUNTER_T1_N', pDescriber="Counter-long-Dk"),
                       ATPNode(view=3102, noun='COUNTER_T1_N', pDescriber="Counter-long-Lt"),
@@ -1204,10 +1213,10 @@ for i, obj in enumerate(mySet):
 
 Town1Plants = mySet = [ATPNode(view=1112, noun='GRASS1_N', pDescriber="grass", pDoScaler=True, pPolygon=-1),
                        ATPNode(view=1113, noun='GRASS2_N', pDescriber="grass", pDoScaler=True, pPolygon=-1),
-                       ATPNode(view=1060, noun='BUSH_N', pDescriber="Bush"),
+                       ATPNode(view=1060, noun='BUSH_N', pDescriber="Bush", pDoScaler=True), # elpha - added pDoScaler=True
                        ATPNode(view=1063, noun='BUSH_PINK_N', pDescriber="Pink flowers", pDoScaler=True),
                        ATPNode(view=1064, noun='BUSH_YELLO_N', pDescriber="Yellow flowers", pDoScaler=True),
-                       ATPNode(view=1111, noun='GRASS2_N', pDescriber="grass"),
+                       ATPNode(view=1111, noun='GRASS2_N', pDescriber="grass", pDoScaler=True), # elpha - pDoScaler=True added
                        ATPNode(view=3711, noun='BUSH_SML_N', pDescriber="Grn sm bush"),
                        ATPNode(view=3712, noun='BUSH_SML_N', pDescriber="Bush"),
                        ATPNode(view=3716, noun='GRASS1_N', pDescriber="grass"),
@@ -1753,14 +1762,14 @@ for i, obj in enumerate(mySet):
     if not obj.pDescriber:
         obj.pDescriber = "Plant"
 
-SwampRocks = mySet = [ATPNode(view=7510, noun='PINE_SHORT_N', pDescriber="Chicken Rock", pDoScaler=False),
-                      ATPNode(view=7512, noun='PINE_SHORT_N', pDescriber="Huge Rock 1", pDoScaler=False),
-                      ATPNode(view=7513, noun='PINE_SHORT_N', pDescriber="Huge Rock 2", pDoScaler=False),
-                      ATPNode(view=7514, noun='PINE_SHORT_N', pDescriber="Big Rock", pDoScaler=False),
-                      ATPNode(view=7515, noun='PINE_SHORT_N', pDescriber="Flower Rock", pDoScaler=False),
-                      ATPNode(view=7528, noun='PINE_SHORT_N', pDescriber="Flower Rock 2", pDoScaler=False),
-                      ATPNode(view=7561, noun='PINE_SHORT_N', pDescriber="Huge Rock 3", pDoScaler=False),
-                      ATPNode(view=7562, noun='PINE_SHORT_N', pDescriber="Huge Rock 4", pDoScaler=False)]
+SwampRocks = mySet = [ATPNode(view=6510, noun='PINE_SHORT_N', pDescriber="Chicken Rock", pDoScaler=False),
+                      ATPNode(view=6512, noun='PINE_SHORT_N', pDescriber="Huge Rock 1", pDoScaler=False),
+                      ATPNode(view=6513, noun='PINE_SHORT_N', pDescriber="Huge Rock 2", pDoScaler=False),
+                      ATPNode(view=6514, noun='PINE_SHORT_N', pDescriber="Big Rock", pDoScaler=False),
+                      ATPNode(view=6515, noun='PINE_SHORT_N', pDescriber="Flower Rock", pDoScaler=False),
+                      ATPNode(view=6528, noun='PINE_SHORT_N', pDescriber="Flower Rock 2", pDoScaler=False),
+                      ATPNode(view=6561, noun='PINE_SHORT_N', pDescriber="Huge Rock 3", pDoScaler=False),
+                      ATPNode(view=6562, noun='PINE_SHORT_N', pDescriber="Huge Rock 4", pDoScaler=False)]
 
 for i, obj in enumerate(mySet):
     obj.pMsgFile = 101
@@ -1769,19 +1778,19 @@ for i, obj in enumerate(mySet):
     if not obj.pDescriber:
         obj.pDescriber = "Rock"
 
-SwampStumps = mySet = [ATPNode(view=7540, noun='PINE_SHORT_N', pDescriber="Hollow log", pDoScaler=False),
-                       ATPNode(view=7541, noun='PINE_SHORT_N', pDescriber="Log 1", pDoScaler=False),
-                       ATPNode(view=7542, noun='PINE_SHORT_N', pDescriber="Big log 1", pDoScaler=False),
-                       ATPNode(view=7550, noun='PINE_SHORT_N', pDescriber="Stump 1", pDoScaler=False),
-                       ATPNode(view=7551, noun='PINE_SHORT_N', pDescriber="Big Stump 1", pDoScaler=False),
-                       ATPNode(view=7552, noun='PINE_SHORT_N', pDescriber="Stump 2", pDoScaler=False),
-                       ATPNode(view=7553, noun='PINE_SHORT_N', pDescriber="Big Stump 2", pDoScaler=False),
-                       ATPNode(view=7554, noun='PINE_SHORT_N', pDescriber="Stump 3", pDoScaler=False),
-                       ATPNode(view=7555, noun='PINE_SHORT_N', pDescriber="Sm stump 1", pDoScaler=False),
-                       ATPNode(view=7556, noun='PINE_SHORT_N', pDescriber="Sm stump 2", pDoScaler=False),
-                       ATPNode(view=7557, noun='PINE_SHORT_N', pDescriber="Stump 4", pDoScaler=False),
-                       ATPNode(view=7559, noun='PINE_SHORT_N', pDescriber="Mossy stump 1", pDoScaler=False),
-                       ATPNode(view=7628, noun='PINE_SHORT_N', pDescriber="Mossy stump 2", pDoScaler=False)]
+SwampStumps = mySet = [ATPNode(view=6540, noun='PINE_SHORT_N', pDescriber="Hollow log", pDoScaler=False),
+                       ATPNode(view=6541, noun='PINE_SHORT_N', pDescriber="Log 1", pDoScaler=False),
+                       ATPNode(view=6542, noun='PINE_SHORT_N', pDescriber="Big log 1", pDoScaler=False),
+                       ATPNode(view=6550, noun='PINE_SHORT_N', pDescriber="Stump 1", pDoScaler=False),
+                       ATPNode(view=6551, noun='PINE_SHORT_N', pDescriber="Big Stump 1", pDoScaler=False),
+                       ATPNode(view=6552, noun='PINE_SHORT_N', pDescriber="Stump 2", pDoScaler=False),
+                       ATPNode(view=6553, noun='PINE_SHORT_N', pDescriber="Big Stump 2", pDoScaler=False),
+                       ATPNode(view=6554, noun='PINE_SHORT_N', pDescriber="Stump 3", pDoScaler=False),
+                       ATPNode(view=6555, noun='PINE_SHORT_N', pDescriber="Sm stump 1", pDoScaler=False),
+                       ATPNode(view=6556, noun='PINE_SHORT_N', pDescriber="Sm stump 2", pDoScaler=False),
+                       ATPNode(view=6557, noun='PINE_SHORT_N', pDescriber="Stump 4", pDoScaler=False),
+                       ATPNode(view=6559, noun='PINE_SHORT_N', pDescriber="Mossy stump 1", pDoScaler=False),
+                       ATPNode(view=6628, noun='PINE_SHORT_N', pDescriber="Mossy stump 2", pDoScaler=False)]
 
 for i, obj in enumerate(mySet):
     obj.pMsgFile = 101
@@ -1790,21 +1799,21 @@ for i, obj in enumerate(mySet):
     if not obj.pDescriber:
         obj.pDescriber = "Stump"
 
-SwampMidTrees = mySet = [ATPNode(view=7651, noun='PINE_SHORT_N', pDescriber="Mid tree 1", pDoScaler=False),
-                         ATPNode(view=7652, noun='PINE_SHORT_N', pDescriber="Mid tree 2", pDoScaler=False),
-                         ATPNode(view=7653, noun='PINE_SHORT_N', pDescriber="Mid tree 3", pDoScaler=False),
-                         ATPNode(view=7654, noun='PINE_SHORT_N', pDescriber="Mid tree 4", pDoScaler=False),
-                         ATPNode(view=7658, noun='PINE_SHORT_N', pDescriber="Mid tree 5", pDoScaler=False),
-                         ATPNode(view=7659, noun='PINE_SHORT_N', pDescriber="Mid tree 6", pDoScaler=False),
-                         ATPNode(view=7662, noun='PINE_SHORT_N', pDescriber="Mid tree 7", pDoScaler=False),
-                         ATPNode(view=7664, noun='PINE_SHORT_N', pDescriber="Mid tree 8", pDoScaler=False),
-                         ATPNode(view=7665, noun='PINE_SHORT_N', pDescriber="Mid tree 9", pDoScaler=False),
-                         ATPNode(view=7666, noun='PINE_SHORT_N', pDescriber="Mid tree 10", pDoScaler=False),
-                         ATPNode(view=7667, noun='PINE_SHORT_N', pDescriber="Mid tree 11", pDoScaler=False),
-                         ATPNode(view=7668, noun='PINE_SHORT_N', pDescriber="Mid tree 12", pDoScaler=False),
-                         ATPNode(view=7669, noun='PINE_SHORT_N', pDescriber="Mid tree 13", pDoScaler=False),
-                         ATPNode(view=7670, noun='PINE_SHORT_N', pDescriber="Mid tree 14", pDoScaler=False),
-                         ATPNode(view=7670, noun='PINE_SHORT_N', pDescriber="Mid tree 15", pDoScaler=False)]
+SwampMidTrees = mySet = [ATPNode(view=6651, noun='PINE_SHORT_N', pDescriber="Mid tree 1", pDoScaler=False),
+                         ATPNode(view=6652, noun='PINE_SHORT_N', pDescriber="Mid tree 2", pDoScaler=False),
+                         ATPNode(view=6653, noun='PINE_SHORT_N', pDescriber="Mid tree 3", pDoScaler=False),
+                         ATPNode(view=6654, noun='PINE_SHORT_N', pDescriber="Mid tree 4", pDoScaler=False),
+                         ATPNode(view=6658, noun='PINE_SHORT_N', pDescriber="Mid tree 5", pDoScaler=False),
+                         ATPNode(view=6659, noun='PINE_SHORT_N', pDescriber="Mid tree 6", pDoScaler=False),
+                         ATPNode(view=6662, noun='PINE_SHORT_N', pDescriber="Mid tree 7", pDoScaler=False),
+                         ATPNode(view=6664, noun='PINE_SHORT_N', pDescriber="Mid tree 8", pDoScaler=False),
+                         ATPNode(view=6665, noun='PINE_SHORT_N', pDescriber="Mid tree 9", pDoScaler=False),
+                         ATPNode(view=6666, noun='PINE_SHORT_N', pDescriber="Mid tree 10", pDoScaler=False),
+                         ATPNode(view=6667, noun='PINE_SHORT_N', pDescriber="Mid tree 11", pDoScaler=False),
+                         ATPNode(view=6668, noun='PINE_SHORT_N', pDescriber="Mid tree 12", pDoScaler=False),
+                         ATPNode(view=6669, noun='PINE_SHORT_N', pDescriber="Mid tree 13", pDoScaler=False),
+                         ATPNode(view=6670, noun='PINE_SHORT_N', pDescriber="Mid tree 14", pDoScaler=False),
+                         ATPNode(view=6670, noun='PINE_SHORT_N', pDescriber="Mid tree 15", pDoScaler=False)]
 
 for i, obj in enumerate(mySet):
     obj.pMsgFile = 101
@@ -1814,19 +1823,19 @@ for i, obj in enumerate(mySet):
         obj.pDescriber = "Tree"
 
 SwampBack = mySet = [ATPNode(view=1140, noun='0', pDescriber="distant-Tree", pPolygon=-1),
-                     ATPNode(view=7580, noun='0', pDescriber="Back spruce 1", pDoScaler=False),
-                     ATPNode(view=7581, noun='0', pDescriber="Back spruce 2", pDoScaler=False),
-                     ATPNode(view=7582, noun='0', pDescriber="Back spruce 3", pDoScaler=False),
-                     ATPNode(view=7629, noun='0', pDescriber="Swamp back", pDoScaler=False),
-                     ATPNode(view=7661, noun='0', pDescriber="Back trees", pDoScaler=False),
-                     ATPNode(view=7673, noun='0', pDescriber="Back tree 1", pDoScaler=False),
-                     ATPNode(view=7691, noun='PINE_SHORT_N', pDescriber="Back tree 2", pDoScaler=False),
-                     ATPNode(view=7692, noun='PINE_SHORT_N', pDescriber="Back tree 3", pDoScaler=False),
-                     ATPNode(view=7693, noun='PINE_SHORT_N', pDescriber="Back tree 4", pDoScaler=False),
-                     ATPNode(view=7695, noun='PINE_SHORT_N', pDescriber="Back tree 5", pDoScaler=False),
-                     ATPNode(view=7711, noun='PINE_SHORT_N', pDescriber="Back tree 6", pDoScaler=False),
-                     ATPNode(view=7711, noun='PINE_SHORT_N', pDescriber="Back tree 7", pDoScaler=False),
-                     ATPNode(view=7714, noun='PINE_SHORT_N', pDescriber="Background", pDoScaler=False)]
+                     ATPNode(view=6580, noun='0', pDescriber="Back spruce 1", pDoScaler=False),
+                     ATPNode(view=6581, noun='0', pDescriber="Back spruce 2", pDoScaler=False),
+                     ATPNode(view=6582, noun='0', pDescriber="Back spruce 3", pDoScaler=False),
+                     ATPNode(view=6629, noun='0', pDescriber="Swamp back", pDoScaler=False),
+                     ATPNode(view=6661, noun='0', pDescriber="Back trees", pDoScaler=False),
+                     ATPNode(view=6673, noun='0', pDescriber="Back tree 1", pDoScaler=False),
+                     ATPNode(view=6691, noun='PINE_SHORT_N', pDescriber="Back tree 2", pDoScaler=False),
+                     ATPNode(view=6692, noun='PINE_SHORT_N', pDescriber="Back tree 3", pDoScaler=False),
+                     ATPNode(view=6693, noun='PINE_SHORT_N', pDescriber="Back tree 4", pDoScaler=False),
+                     ATPNode(view=6695, noun='PINE_SHORT_N', pDescriber="Back tree 5", pDoScaler=False),
+                     ATPNode(view=6711, noun='PINE_SHORT_N', pDescriber="Back tree 6", pDoScaler=False),
+                     ATPNode(view=6711, noun='PINE_SHORT_N', pDescriber="Back tree 7", pDoScaler=False),
+                     ATPNode(view=6714, noun='PINE_SHORT_N', pDescriber="Background", pDoScaler=False)]
 
 for i, obj in enumerate(mySet):
     obj.pMsgFile = 101
@@ -1835,13 +1844,13 @@ for i, obj in enumerate(mySet):
     if not obj.pDescriber:
         obj.pDescriber = "Tree"
 
-SwampForeTrees = mySet = [ATPNode(view=7641, noun='PINE_SHORT_N', pDescriber="Fore tree 1", pDoScaler=False),
-                          ATPNode(view=7642, noun='PINE_SHORT_N', pDescriber="Fore tree 2", pDoScaler=False),
-                          ATPNode(view=7643, noun='PINE_SHORT_N', pDescriber="Fore tree 3", pDoScaler=False),
-                          ATPNode(view=7645, noun='PINE_SHORT_N', pDescriber="Fore tree 4", pDoScaler=False),
-                          ATPNode(view=7647, noun='PINE_SHORT_N', pDescriber="Fore tree 5", pDoScaler=False),
-                          ATPNode(view=7648, noun='PINE_SHORT_N', pDescriber="Fore tree 6", pDoScaler=False),
-                          ATPNode(view=7650, noun='PINE_SHORT_N', pDescriber="Fore tree 7", pDoScaler=False)]
+SwampForeTrees = mySet = [ATPNode(view=6641, noun='PINE_SHORT_N', pDescriber="Fore tree 1", pDoScaler=False),
+                          ATPNode(view=6642, noun='PINE_SHORT_N', pDescriber="Fore tree 2", pDoScaler=False),
+                          ATPNode(view=6643, noun='PINE_SHORT_N', pDescriber="Fore tree 3", pDoScaler=False),
+                          ATPNode(view=6645, noun='PINE_SHORT_N', pDescriber="Fore tree 4", pDoScaler=False),
+                          ATPNode(view=6647, noun='PINE_SHORT_N', pDescriber="Fore tree 5", pDoScaler=False),
+                          ATPNode(view=6648, noun='PINE_SHORT_N', pDescriber="Fore tree 6", pDoScaler=False),
+                          ATPNode(view=6650, noun='PINE_SHORT_N', pDescriber="Fore tree 7", pDoScaler=False)]
 
 for i, obj in enumerate(mySet):
     obj.pMsgFile = 101
@@ -1850,16 +1859,16 @@ for i, obj in enumerate(mySet):
     if not obj.pDescriber:
         obj.pDescriber = "Tree"
 
-SwampMiscTrees = mySet = [ATPNode(view=7558, noun='PINE_SHORT_N', pDescriber="Dead tree 1", pDoScaler=False),
-                          ATPNode(view=7590, noun='PINE_SHORT_N', pDescriber="Tree 1", pDoScaler=False),
-                          ATPNode(view=7593, noun='PINE_SHORT_N', pDescriber="Tree 2", pDoScaler=False),
-                          ATPNode(view=7594, noun='PINE_SHORT_N', pDescriber="Tree clump 1", pDoScaler=False),
-                          ATPNode(view=7595, noun='PINE_SHORT_N', pDescriber="Tree 3", pDoScaler=False),
-                          ATPNode(view=7649, noun='PINE_SHORT_N', pDescriber="Tree right", pDoScaler=False),
-                          ATPNode(view=7663, noun='PINE_SHORT_N', pDescriber="Dead tree 2", pDoScaler=False),
-                          ATPNode(view=7664, noun='PINE_SHORT_N', pDescriber="Suess willow", pDoScaler=False),
-                          ATPNode(view=7665, noun='PINE_SHORT_N', pDescriber="Suess & mush", pDoScaler=False),
-                          ATPNode(view=7671, noun='PINE_SHORT_N', pDescriber="Tree clump 2", pDoScaler=False)]
+SwampMiscTrees = mySet = [ATPNode(view=6558, noun='PINE_SHORT_N', pDescriber="Dead tree 1", pDoScaler=False),
+                          ATPNode(view=6590, noun='PINE_SHORT_N', pDescriber="Tree 1", pDoScaler=False),
+                          ATPNode(view=6593, noun='PINE_SHORT_N', pDescriber="Tree 2", pDoScaler=False),
+                          ATPNode(view=6594, noun='PINE_SHORT_N', pDescriber="Tree clump 1", pDoScaler=False),
+                          ATPNode(view=6595, noun='PINE_SHORT_N', pDescriber="Tree 3", pDoScaler=False),
+                          ATPNode(view=6649, noun='PINE_SHORT_N', pDescriber="Tree right", pDoScaler=False),
+                          ATPNode(view=6663, noun='PINE_SHORT_N', pDescriber="Dead tree 2", pDoScaler=False),
+                          ATPNode(view=6664, noun='PINE_SHORT_N', pDescriber="Suess willow", pDoScaler=False),
+                          ATPNode(view=6665, noun='PINE_SHORT_N', pDescriber="Suess & mush", pDoScaler=False),
+                          ATPNode(view=6671, noun='PINE_SHORT_N', pDescriber="Tree clump 2", pDoScaler=False)]
 
 for i, obj in enumerate(mySet):
     obj.pMsgFile = 101
@@ -1906,78 +1915,99 @@ for i, obj in enumerate(mySet):
     if not obj.pDescriber:
         obj.pDescriber = "Guild"
 
-ForestRegion = mySet = [Town1Trees, MidTrees, MidPlant, ForeTrees, BackTrees, MiscForest, Sky, Mountains, Ground, River,
+ForestRegion = [Town1Trees, MidTrees, MidPlant, ForeTrees, BackTrees, MiscForest, Sky, Mountains, Ground, River,
                         Lake, Road, Polygons, Transitions, Rocks]
-for i, atpSet in enumerate(mySet):
+for i, atpSet in enumerate(ForestRegion):
+    ForestRegion[i] = atpSet = copy.deepcopy(atpSet)
     for obj in atpSet:
-        obj.roomType = 'FOREST'
+        obj.set_room_type('FOREST')
 
-BeachRegion = mySet = [BeachStuff, Polygons, Transitions]
-for i, atpSet in enumerate(mySet):
+BeachRegion = [BeachStuff, Polygons, Transitions]
+for i, atpSet in enumerate(BeachRegion):
+    BeachRegion[i] = atpSet = copy.deepcopy(atpSet)
     for obj in atpSet:
-        obj.roomType = 'BEACH'
+        obj.set_room_type('BEACH')
 
-DesertRegion = mySet = [DesertBushes, DesertGrasses, DesertSagebrush, DesertPlants, DesertTrees, DesertDunes,
+DesertRegion = [DesertBushes, DesertGrasses, DesertSagebrush, DesertPlants, DesertTrees, DesertDunes,
                         DesertDirt, DesertRiver, TownRuins, Polygons, Transitions, MiscForest, MidPlant, Rocks, Road,
                         Ground]
-for i, atpSet in enumerate(mySet):
+for i, atpSet in enumerate(DesertRegion):
+    DesertRegion[i] = atpSet = copy.deepcopy(atpSet)
     for obj in atpSet:
-        obj.roomType = 'DESERT'
+        obj.set_room_type('DESERT')
 
-DarkForestRegion = mySet = []
-for i, atpSet in enumerate(mySet):
-    for obj in atpSet:
-        obj.pMsgFile = 104
-    obj.roomType = 'FOREST'
+# DarkForestRegion = []
+# for i, atpSet in enumerate(mySet):
+#     for obj in atpSet:
+#         obj.pMsgFile = 104
+#     obj.set_room_type('FOREST')
 
-DungeonRegion = mySet = [DungeonWalls, DungeonStalc, DungeonStalg, DungeonWebs, DungeonMush, DungeonMoss, DungeonMisc,
+DungeonRegion = [DungeonWalls, DungeonStalc, DungeonStalg, DungeonWebs, DungeonMush, DungeonMoss, DungeonMisc,
                          DungeonPassages, DungeonRocks, Polygons, Transitions]
-for i, atpSet in enumerate(mySet):
+for i, atpSet in enumerate(DungeonRegion):
+    DungeonRegion[i] = atpSet = copy.deepcopy(atpSet)
     for obj in atpSet:
-        obj.roomType = 'DUNGEON'
+        obj.set_room_type('DUNGEON')
 
-Town1Region = mySet = [Town1Walls, Town1Roofs, Town1Windows, Town1Shops, Town1Signs1, Town1Signs2, Town1Misc,
+Town1Region = [Town1Walls, Town1Roofs, Town1Windows, Town1Shops, Town1Signs1, Town1Signs2, Town1Misc,
                        Town1Beams, Town1Bkgd1, Town1Bkgd2, Town1RightEaves, Town1LeftEaves, Town1MiddleEaves,
                        Town1Corners, Town1Trees, Town1Plants, TownRuins, Sky, MidTrees, Polygons, Transitions, Rocks,
                        Road, DesertBushes, DesertGrasses, DesertSagebrush, DesertDirt, DesertTrees, DesertPlants,
                        RuinWalls, RuinRoof, RuinWindows, RuinTrim]
-for i, atpSet in enumerate(mySet):
+for i, atpSet in enumerate(Town1Region):
+    Town1Region[i] = atpSet = copy.deepcopy(atpSet)
     for obj in atpSet:
-        obj.roomType = 'TOWN1'
+        obj.set_room_type('TOWN1')
 
-Town1Interior = mySet = [Town1IntWalls, Town1IntWindows, Town1IntShelf, Town1IntMisc, Town1IntShops, GodStuff,
+Town1Interior = [Town1IntWalls, Town1IntWindows, Town1IntShelf, Town1IntMisc, Town1IntShops, GodStuff,
                          TempleColumns, TempleArches, TempleWalls, TempleWindows, Polygons]
-for i, atpSet in enumerate(mySet):
+for i, atpSet in enumerate(Town1Interior):
+    Town1Interior[i] = atpSet = copy.deepcopy(atpSet)
     for obj in atpSet:
-        obj.roomType = 'TOWN1INT'
+        obj.set_room_type('TOWN1INT')
 
-House1Region = mySet = [Town1Walls, Town1Windows, Town1Roofs, Town1LeftEaves, Town1RightEaves, Town1MiddleEaves,
+House1Region = [Town1Walls, Town1Windows, Town1Roofs, Town1LeftEaves, Town1RightEaves, Town1MiddleEaves,
                         Town1Beams, Town1Trees, Town1Plants, House1Misc, MidTrees, BackTrees, Transitions, Road]
-for i, atpSet in enumerate(mySet):
+for i, atpSet in enumerate(House1Region):
+    House1Region[i] = atpSet = copy.deepcopy(atpSet)
     for obj in atpSet:
-        obj.roomType = 'HOUSE1'
+        obj.set_room_type('HOUSE1')
 
-House1Interior = mySet = [Town1IntWalls, Town1IntWindows, House1IntMisc]
-for i, atpSet in enumerate(mySet):
+House1Interior = [Town1IntWalls, Town1IntWindows, House1IntMisc]
+for i, atpSet in enumerate(House1Interior):
+    House1Interior[i] = atpSet = copy.deepcopy(atpSet)
     for obj in atpSet:
-        obj.roomType = 'HOUSE1INT'
+        obj.set_room_type('HOUSE1INT')
 
-SwampRegion = mySet = [SwampPlants, SwampRocks, SwampStumps, SwampMidTrees, SwampForeTrees, SwampMiscTrees, SwampBack]
-for i, atpSet in enumerate(mySet):
+SwampRegion = [SwampPlants, SwampRocks, SwampStumps, SwampMidTrees, SwampForeTrees, SwampMiscTrees, SwampBack]
+for i, atpSet in enumerate(SwampRegion):
+    SwampRegion[i] = atpSet = copy.deepcopy(atpSet)
     for obj in atpSet:
-        obj.roomType = 'SWAMP'
+        obj.set_room_type('SWAMP')
 
-GuildRegion = mySet = [GuildExt, GuildInt, Town1IntShelf, Town1Shops]
-for i, atpSet in enumerate(mySet):
+GuildRegion = [GuildExt, GuildInt, Town1IntShelf, Town1Shops]
+for i, atpSet in enumerate(GuildRegion):
+    GuildRegion[i] = atpSet = copy.deepcopy(atpSet)
     for obj in atpSet:
-        obj.roomType = 'GUILD'
+        obj.set_room_type('GUILD')
 
-ATPList = {'SwampRegion': SwampRegion, 'DesertRegion': DesertRegion, 'ForestRegion': ForestRegion,
-           'Town1Region': Town1Region, 'Town1Interior': Town1Interior, 'House1Region': House1Region,
-           'House1Interior': House1Region, 'DungeonRegion': DungeonRegion, 'GuildRegion': GuildRegion}
+ATPList = {SwampRegion[0][0].roomType: SwampRegion, DesertRegion[0][0].roomType: DesertRegion,
+           ForestRegion[0][0].roomType: ForestRegion, Town1Region[0][0].roomType: Town1Region,
+           Town1Interior[0][0].roomType: Town1Interior, House1Region[0][0].roomType: House1Region,
+           House1Interior[0][0].roomType: House1Region, DungeonRegion[0][0].roomType: DungeonRegion,
+           GuildRegion[0][0].roomType: GuildRegion, BeachRegion[0][0].roomType: BeachRegion}
+
+
+ATP_BY_PIC = {}
+for roomType, region in ATPList.items():
+    ATP_BY_PIC[roomType] = {'view':{}, 'atp':{}}
+    for atp_set in region:
+        for atp in atp_set:
+            ATP_BY_PIC[roomType]['view'][atp.view] = atp
+            ATP_BY_PIC[roomType]['atp'][atp.number] = atp
+
 
 ATP_CATEGORIES = {}
-
 keys = list(ATPList.keys())
 for k in keys:
     v = ATPList[k]

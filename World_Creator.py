@@ -974,7 +974,7 @@ class WorldCreator(tk.Tk):
     def change_room_picture(self, room, picture=None, event=None):
         def callback(app, picture=None):
             if picture is None:
-                pic = listbox.get(listbox.curselection()[0])
+                pic = listbox.get(listbox.curselection()[0]).split('_')[-1]
                 room.picture = pic
                 app.map_button_callback(room)
                 app.top.destroy()
@@ -993,7 +993,8 @@ class WorldCreator(tk.Tk):
                 try:
                     pic_int = int(pic)
                     if pic_int in self.pics.keys():
-                        listbox.insert(tk.END, pic)
+                        pic_info = self.pics[pic_int]
+                        listbox.insert(tk.END, '{}_{}'.format(pic_info.roomtype, pic))
                 except Exception as e:
                     print(e)
                     pass

@@ -7,9 +7,9 @@ from PIL import Image, ImageTk, ImageOps
 from PyFotoSCIop.source.p56files import p56file32
 from PyFotoSCIop.source.v56files import V56file
 from Resources.stock_objects.stkobj7 import stkObjDict
-from atp_info import ATP_CATEGORIES
+from atp_info import ATP_CATEGORIES, ATP_BY_PIC
 from p56_info import PIC_INFO
-from world import WLD, ATP, WorldObject
+from world import WLD, ATP, WorldObject, Exits, Room
 
 
 def scale_image(pil_image: Image, y_depth: int, p56_info, race='default'):
@@ -77,7 +77,9 @@ class NestedOptionMenu(tk.Frame):
 
     def create_menu(self, top_info, top_menu, value_var, parent=''):
         if isinstance(top_info, dict):
-            for key, value in top_info.items():
+            alphabetical_info = [[k, v] for k,v in top_info.items()]
+            alphabetical_info.sort(key=lambda x: x[0])
+            for key, value in alphabetical_info:
                 menu = tk.Menu(top_menu)
                 if value:
                     top_menu.add_cascade(label=key, menu=menu)
@@ -87,6 +89,7 @@ class NestedOptionMenu(tk.Frame):
                     self.option_count += 1
             return
         else:
+            top_info.sort()
             for item in top_info:
                 if parent != '':
                     label_value = parent + ':' + item
@@ -132,12 +135,14 @@ class NestedOptionMenu(tk.Frame):
 
 
 class WorldCreator(tk.Tk):
-    def __init__(self, title='World Creator', atp_categories=None, pic_info=None, object_info=None):
+    def __init__(self, title='World Creator', atp_categories=None, pic_info=None, object_info=None, atps_by_pic=ATP_BY_PIC):
         tk.Tk.__init__(self)
-        # Store the ATPs, by category:
+        # Store the ATPs, by category, and by pic:
         self.atps = {'category': {}, 'atp': {}, 'view': {}}
         self.set_atps(atp_categories)
+        self.atps_by_pic = atps_by_pic
         # Store the p56 information
+        self.pic_atps = {}
         self.pics = pic_info
         # Store the object Info
         self.stk_objs = object_info
@@ -160,6 +165,7 @@ class WorldCreator(tk.Tk):
         self.rooms = {}
         self.active_room = None
         self.world = None
+        self.save_file = None
         # Build Category Canvas and children
         # Set the window title
         self.wm_title(title)
@@ -336,7 +342,7 @@ class WorldCreator(tk.Tk):
                 # update to reflect new location
                 image['x'] = x
                 image['y'] = y
-                image['world_z'] += y_move
+                image['world_z'] -= y_move
                 image['world_x'] += x_move
                 self.room_canvas.move(im_id, x_move, y_move)
                 return
@@ -346,7 +352,7 @@ class WorldCreator(tk.Tk):
             z_move = z - cur_z
             y_plus_z = image['y'] + z_move
             y_move = y_plus_z - cur_y
-            image['world_z'] += z_move
+            image['world_z'] -= z_move
             self.room_canvas.move(im_id, 0, y_move)
 
     def drag_motion_button1(self, event, scale=True):
@@ -363,20 +369,43 @@ class WorldCreator(tk.Tk):
         if self.moving_view is None:
             return
         im_id = self.moving_view
+        if 'object' in self.room_canvas.gettags(im_id):
+            return
         scale = False
         self.move_to(im_id, event.x, event.y, scale=scale)
 
     def view_popup_menu(self, event):
         im_id = self.image_under_cursor(event)
+        image_tags = self.room_canvas.gettags(im_id)
         view_popup = tk.Menu(self, tearoff=0)
         view_popup.add_command(label='Cell Properties', command=lambda: self.draw_properties_box(im_id))
         view_popup.add_command(label='Move To', command=lambda: self.xyz_entry_popup(im_id))
-        view_popup.add_command(label='Mirror', command=lambda: self.mirror_image(im_id))
+        if 'atp' in image_tags:
+            view_popup.add_command(label='Mirror', command=lambda: self.mirror_image(im_id))
+        elif 'object' in image_tags:
+            view_popup.add_command(label='Next Loop', command=lambda: self.next_loop(im_id))
         view_popup.add_command(label='Delete', command=lambda: self.delete_image(im_id))
-        try:
-            view_popup.tk_popup(event.x_root, event.y_root, 0)
-        finally:
-            view_popup.grab_release()
+        # try:
+        view_popup.tk_popup(event.x_root, event.y_root, 0)
+        # finally:
+        #     view_popup.grab_release()
+
+    def next_loop(self, im_id):
+        v56 = self.active_media['ids'][im_id]['v56']
+        x = self.active_media['ids'][im_id]['world_x']
+        y = self.active_media['ids'][im_id]['world_y']
+        z = self.active_media['ids'][im_id]['world_z']
+        max_loop = len(v56._loops) - 1
+        cur_loop = self.active_media['ids'][im_id]['loop']
+        if cur_loop == max_loop:
+            cur_loop = 0
+        else:
+            cur_loop += 1
+        new_im_id = self.draw_v56(v56, cur_loop, x=x, y=y, z=z)
+        self.active_media['ids'][new_im_id]['object'] = self.active_media['ids'][im_id]['object']
+        self.room_canvas.delete(im_id)
+        del self.active_media['ids'][im_id]
+        self.room_canvas.addtag_withtag('object', new_im_id)
 
     def mirror_image(self, image_id):
         image = self.active_media['ids'][image_id]
@@ -394,6 +423,8 @@ class WorldCreator(tk.Tk):
             tk_im = ImageTk.PhotoImage(mirror_pil)
             self.room_canvas.itemconfig(image_id, image=tk_im)
             image['tk_image'] = tk_im
+        # update the mirror state of the active view
+        self.active_media['ids'][image_id]['mirror'] = not self.active_media['ids'][image_id]['mirror']
 
     def delete_image(self, image_id):
         self.room_canvas.delete(image_id)
@@ -462,15 +493,12 @@ class WorldCreator(tk.Tk):
         self.room_canvas.tag_bind('scalable', '<B3-Motion>', lambda x: self.drag_motion_button3(x, scale=False))
         self.room_canvas.tag_bind('view', '<Button-1>', self.drag_start)
         self.room_canvas.tag_bind('view', '<B1-Motion>', lambda x: self.drag_motion_button1(x, scale=False))
-        self.room_canvas.tag_bind('view', '<ButtonRelease-3>', self.view_popup_menu)
+        self.room_canvas.tag_bind('view', '<Double-Button-1>', self.view_popup_menu)
 
     def build_menu_bar(self):
         # Create the File Cascading Menu
         file_menu = self.build_file_menu()
         self.menu.add_cascade(label='File', underline=0, menu=file_menu)
-        self.menu.add_command(label='Redraw')  # TODO , command=self.draw_cell)
-        self.menu.add_command(label='*Next Loop')  # TODO , command=self.next_loop)
-        self.menu.add_command(label='*Next Cell')  # TODO , command=self.next_cell)
         self.menu.add_command(label='Toggle Polygons', command=self.toggle_polygons)
         # update widgets dict
         self.widgets = {**self.widgets, **{self.menu: file_menu}}
@@ -487,7 +515,8 @@ class WorldCreator(tk.Tk):
         file_menu = tk.Menu(self.menu, tearoff=False)
         file_menu.add_command(label='Open', underline=1, command=self.open_sci_file)
         file_menu.add_command(label='Add Media', underline=1, command=self.add_media)
-        file_menu.add_command(label='Reset Media', underline=1)  # TODO, command=self.reset_media)
+        file_menu.add_command(label='Save', underline=1, command=self.save_world)
+        file_menu.add_command(label='Save As', underline=1, command=lambda: self.save_world(saveas=True))
         file_menu.add_command(label='Exit', underline=1, command=self.quit)
         return file_menu
 
@@ -497,6 +526,95 @@ class WorldCreator(tk.Tk):
         if foldername not in self.media['PATH']:
             self.media['PATH'].append(foldername)
         self.load_media()
+
+    def save_world(self, saveas=False):
+        base_file = self.save_file
+        with open(base_file, 'r') as base_wld:
+            base_data = base_wld.readlines()
+        if saveas == True:
+            self.save_file = None
+        if self.save_file is None:
+            wld = tk.filedialog.asksaveasfile(mode='w', defaultextension=".wld")
+            if wld is None:  # asksaveasfile return `None` if dialog closed with "cancel".
+                return
+            self.save_file = wld.name
+        else:
+            wld = open(self.save_file)
+        room_data = self.get_room_data()
+        room_data = [x + '\n' for x in room_data]
+        # insert room into base data
+        start_line = None
+        end_line = None
+        for i, line in enumerate([' '.join(x.split()) for x in base_data]):
+            if ' '.join(room_data[0].split()) in line and start_line is None:
+                start_line = i
+            elif 'room' in line and start_line is not None and end_line is None:
+                end_line = i-1
+        world_data = base_data[:]
+        world_data[start_line:end_line+1] = room_data
+        wld.writelines(world_data)
+        wld.close()
+
+    def get_room_data(self):
+        room = self.rooms[self.active_room]
+        room_data = []
+        room_data.append('room {}'.format(self.active_room))
+        room_data.append('\tproperties')
+        picture_number = room.picture
+        room_data.append('\t\tpicture\t{}'.format(picture_number))
+        for direction, exit in room.exits.items():
+            if exit not in [None, 'None', '']:
+                room_data.append('\t\t{}\t{}'.format(direction, exit))
+        if room.name:
+            room_data.append('\t\troomName\t"{}"'.format(room.name))
+        #TODO: Any other room properties
+        room_data.append('\tend')
+        room_data.append('\tatpinfo')
+        atp_data = []
+        object_data = []
+        object_dict = {}
+        for im_id in self.active_media['ids'].keys():
+            tags = self.room_canvas.gettags(im_id)
+            if 'view' in tags and 'object' not in tags:
+                view_num = self.active_media['ids'][im_id]['v56'].id
+                atp = self.atps['view'][int(view_num)]
+                atp_num = (atp.number + 32768 if self.active_media['ids'][im_id]['mirror'] else atp.number)
+                x = self.active_media['ids'][im_id]['world_x']
+                y = self.active_media['ids'][im_id]['world_y']
+                z = self.active_media['ids'][im_id]['world_z']
+                z = ('' if z in [None, 0, '0'] else z)
+                atp_data.append('\t\t{}\t{}\t{}{}'.format(atp_num, x, y, '\t{}'.format(z)))
+            if 'view' in tags and 'object' in tags:
+                obj = self.active_media['ids'][im_id]['object']
+                x = self.active_media['ids'][im_id]['world_x']
+                y = self.active_media['ids'][im_id]['world_y']
+                # z = self.active_media['ids'][im_id]['world_z']
+                # z = ('' if z in [None, 0, '0'] else z)
+                z = None
+                loop = self.active_media['ids'][im_id]['loop']
+                obj_class = obj.name
+                if obj_class not in object_dict.keys():
+                    object_dict[obj_class] = 0
+                else:
+                    object_dict[obj_class] += 1
+                obj_num = object_dict[obj_class]
+                obj_name = '{}{}{}-{}'.format(obj_class[0].lower(), obj_class[1:],self.active_room, obj_num)
+                object_data.append('\t\tobject {} of  {}'.format(obj_name, obj_class))
+                object_data.append('\t\t\tproperties')
+                props = (['x', 'y', 'z', 'loop'] if z else ['x', 'y', 'loop'])
+                vals = ([x, y, z, loop] if z else [x, y, loop])
+                for prop, val in zip(props, vals):
+                    object_data.append('\t\t\t\t{}\t{}'.format(prop, val))
+                object_data.append('\t\t\tend')
+                # TODO bases
+                object_data.append('\t\tend')
+        if len(object_data) > 0: object_data.append('\tend')
+        if len(object_data) > 1: object_data.insert(0, '\tobjects')
+        if len(atp_data) > 0: atp_data.append('\tend')
+        room_data += atp_data + object_data
+        room_data.append('end')
+        return room_data
+
 
     def load_media(self):
         for dir in self.media['PATH']:
@@ -518,7 +636,7 @@ class WorldCreator(tk.Tk):
         zone_option_menu.pack(fill=tk.X)
         # Create Listbox for selectable WLDs
         listbox = tk.Listbox(self.wld_canvas)
-        listbox.bind('<Double-Button-1>', lambda x: self.open_wld(self.get_wld_from_listbox()))
+        listbox.bind('<Double-Button-1>', lambda x: self.get_wld_from_listbox())
         listbox.pack(fill=tk.BOTH, expand=1)
         self.widgets[self.wld_canvas] = {'zone_header': zone_header, 'zone_option_menu': zone_option_menu,
                                          'wld_listbox': listbox}
@@ -538,7 +656,7 @@ class WorldCreator(tk.Tk):
         # Create listbox for selectable ATPs
         listbox = tk.Listbox(self.category_canvas)
         # bind listbox to double click, allowing for selection of atps
-        listbox.bind('<Double-Button-1>', lambda x: self.draw_v56(self.get_view_from_listbox()))
+        listbox.bind('<Double-Button-1>', lambda x: self.add_view_from_listbox())
         listbox.pack(fill=tk.BOTH, expand=1)
         # update widgets list
         new_widgets = {
@@ -583,18 +701,25 @@ class WorldCreator(tk.Tk):
                         text = '{}'.format(atp_num)
                     listbox.insert(tk.END, text.replace(' ', '_'))
 
-    def get_view_from_listbox(self):
+    def add_view_from_listbox(self):
         cur_category = self.widgets[self.category_canvas]['category_option_menu'].get()
         listbox = self.widgets[self.category_canvas]['atp_listbox']
         if 'Objects' not in cur_category:
             atp_description = listbox.get(listbox.curselection()[0])
             atp_num = atp_description.split('_')[-1]
             view_file, mirror = self.view_from_atp_number(int(atp_num))
+            tag = 'atp'
+            im_id = self.draw_v56(view_file)
         else:
             obj_description = listbox.get(listbox.curselection()[0])
             view_num = obj_description.split('_')[-1]
             view_file = self.media['v56'][view_num]
-        return view_file
+            tag = 'object'
+            im_id = self.draw_v56(view_file)
+            self.active_media['ids'][im_id]['object'] = self.stk_objs[obj_description.split('_')[0]]
+        self.room_canvas.addtag_withtag(tag, im_id)
+
+
 
     def get_wld_from_listbox(self):
         listbox = self.widgets[self.wld_canvas]['wld_listbox']
@@ -622,7 +747,7 @@ class WorldCreator(tk.Tk):
                 if x is None: x = int(background_im.width() / 2)
             tk_im, scaling_factor, scaled_pil_im = scale_image(pil_im, y, self.active_media['background']['info'])
             picture_coords = self.room_canvas.coords(self.active_media['background']['im_id'])
-            x_pos = picture_coords[0] + x + int(scaling_factor * cell._left)
+            x_pos = picture_coords[0] + x + int(scaling_factor * (cell._left if not mirror else -1*cell._left))
             y_pos = picture_coords[1] + y - z + int(scaling_factor * cell._top)
         else:
             if self.active_media['background']:
@@ -632,7 +757,7 @@ class WorldCreator(tk.Tk):
                     if y is None: y = int(background_im.height() * 3 / 4)
                     if x is None: x = int(background_im.width() / 2)
                 picture_coords = self.room_canvas.coords(self.active_media['background']['im_id'])
-                x_pos = picture_coords[0] + x + cell._left
+                x_pos = picture_coords[0] + x + (cell._left if not mirror else -1*cell._left)
                 y_pos = picture_coords[1] + y - z + cell._top
             else:
                 x_pos, y_pos = x, y
@@ -651,8 +776,9 @@ class WorldCreator(tk.Tk):
         cell = p56._cells[cell]
         im_id = self.draw_cell(cell, x=0, y=0, z=0, anchor=tk.NW, scaled=False, transparent=False, mirror=mirror)
         self.room_canvas.itemconfig(im_id, tags=('p56',))
-        # TODO: get p56_info
-        self.active_media['background'] = {'p56': p56, 'im_id': im_id, 'info': self.pics[int(p56.id)]}
+        pic_info = self.pics[int(p56.id)]
+        self.active_media['background'] = {'p56': p56, 'im_id': im_id, 'info': pic_info}
+        self.pic_atps = self.atps_by_pic[pic_info.roomtype]
         self.update()
 
     def draw_v56(self, v56_or_file, loop=0, cell=0, x=None, y=None, z=0, scaled=True, transparent=True, mirror=False,
@@ -672,7 +798,7 @@ class WorldCreator(tk.Tk):
         sci_cell = sci_loop._cells[cell]
         if scaled:
             try:
-                atp = self.atps['view'][int(v56.id)]
+                atp = self.pic_atps['view'][int(v56.id)]
                 if self.active_media['background']:
                     scaled = atp.pDoScaler
             except KeyError:
@@ -681,10 +807,12 @@ class WorldCreator(tk.Tk):
         else:
             atp = None
         # Create the tk_im object
-        if x is not None: x = int(x)
-        if y is not None: y = int(y)
+        x = (int(x) if x else 320 + sci_cell._width//2)
+        y = (int(y) if y else 250)
         if z is not None: z = int(z)
         im_id = self.draw_cell(sci_cell, x=x, y=y, z=z, anchor=tk.S, scaled=scaled, transparent=transparent, mirror=mirror)
+        self.active_media['ids'][im_id]['loop'] = loop
+        self.active_media['ids'][im_id]['mirror'] = mirror
         if scaled:
             tags = ['view', 'scalable', ]
         else:
@@ -701,6 +829,7 @@ class WorldCreator(tk.Tk):
             return
         world = WLD(filename)
         self.world = world
+        self.save_file = filename
         self.set_rooms()
 
     def map_button_callback(self, room):
@@ -726,23 +855,225 @@ class WorldCreator(tk.Tk):
                         else:
                             map_button.grid_forget()
 
-    def create_new_room(self):
-        ## TODO: Update surrounding rooms to include this as an exit direction look at cols,rows +/-1
-        ## TODO: remove potential button, and actual button
-        ## TODO: add to self.rooms
-        ## TODO: pic a p56 file
-        ## TODO: add a room number (How to know it's not taken?)
-        pass
+
+
+    def create_new_room(self, button_index, row, col):
+        # Get the map frame
+        map_frame = self.widgets[self.map_canvas]['map_frame']
+        # Find all Adjacent rooms
+        adjacent_rooms = {'West':(row, col-1), 'East':(row, col+1), 'North':(row-1, col), 'South':(row+1, col)}
+        empty_grid = []
+        for direction, grid_coords in adjacent_rooms.items():
+            adjacent_rooms[direction] = None
+            widgets_on_grid = map_frame.grid_slaves(grid_coords[0], grid_coords[1])
+            if len(widgets_on_grid) > 0:
+                if widgets_on_grid[0].room_id is not None:
+                    adjacent_rooms[direction] = widgets_on_grid[0]
+            else:
+                empty_grid.append(grid_coords)
+        # Calculate room number, set old room exits, get this rooms exits, get reference room info
+        exits = Exits()
+        reference_room = None
+        room_num = None
+        for direction in ['West', 'East', 'North', 'South']:
+            room_button = adjacent_rooms[direction]
+            if room_button:
+                if direction == 'West':
+                    room_num = (int(room_button.room_id) + 1 if room_num is None else room_num)
+                    adj_room =self.rooms[room_button.room_id]
+                    adj_room.exits['east'] = room_num
+                    reference_room = (adj_room if reference_room is None else reference_room)
+                    exits['west'] = room_button.room_id
+                elif direction == 'East':
+                    room_num = (int(room_button.room_id) - 1 if room_num is None else room_num)
+                    adj_room =self.rooms[room_button.room_id]
+                    adj_room.exits['west'] = room_num
+                    reference_room = (adj_room if reference_room is None else reference_room)
+                    exits['east'] = room_button.room_id
+                elif direction == 'North':
+                    room_num = (int(room_button.room_id) + 10 if room_num is None else room_num)
+                    adj_room =self.rooms[room_button.room_id]
+                    adj_room.exits['south'] = room_num
+                    reference_room = (adj_room if reference_room is None else reference_room)
+                    exits['north'] = room_button.room_id
+                elif direction == 'South':
+                    room_num = (int(room_button.room_id) - 10 if room_num is None else room_num)
+                    adj_room =self.rooms[room_button.room_id]
+                    adj_room.exits['north'] = room_num
+                    reference_room = (adj_room if reference_room is None else reference_room)
+                    exits['south'] = room_button.room_id
+        if room_num in self.widgets[self.map_canvas][map_frame].keys():
+            self.errorbox('Cannot add a room here, a room in this location already exists')
+            raise(Exception('Room Number already exists!'))
+        old_map_button = self.widgets[self.map_canvas][map_frame]['potential_rooms'][button_index]
+        old_map_button.grid_forget()
+        ## Create a new room object, add to self.rooms
+        new_room = Room(number=room_num, picture=reference_room.picture, exits=exits)
+        self.rooms[room_num] = new_room
+        ## create a map button for the room
+        map_button = MapButton(map_frame, room_num, width=5, height=1, background='LightCyan3',
+                               text=str(room_num), highlightcolor='black',
+                               command=lambda: self.map_button_callback(self.rooms[new_room.number]))
+        map_button.bind('<Button-3>', lambda x: self.map_popup_menu(x, map_button))
+        map_button.grid(row=row, column=col)
+        self.widgets[self.map_canvas][map_frame][room_num] = map_button
+        self.map_button_callback(new_room)
+        # Add the new_room buttons are any new rooms
+        for grid_coord in empty_grid:
+            # This probably won't always work. If it creates a possible new room in a place where a room exits from a
+            #   different WLD file, this should break things. I'll need to set up a global room manager at some point...
+            # TODO: global room manager for all WLD files.
+            self.add_potentail_room(grid_coord[0], grid_coord[1])
+        # TODO: pic a p56 file
+        # TODO: add a room number (How to know it's not taken?)
+
+    def map_popup_menu(self, event, map_button):
+        room_num = map_button.room_id
+        room = self.rooms[room_num]
+        map_popup = tk.Menu(self, tearoff=0)
+        map_popup.add_command(label='Change Room Number', command=lambda: self.change_room_number(room, map_button))
+        map_popup.add_command(label='Change Picture', command=lambda: self.change_room_picture(room))
+        map_popup.add_command(label='Change Exits', command=lambda: self.change_room_exits(room))
+        # map_popup.add_command(label='Delete', command=lambda: self.delete_room(room, map_button))
+        map_popup.tk_popup(event.x_root, event.y_root, 0)
+
+    def change_room_exits(self, room):
+        self.top = tk.Toplevel()
+        tk.Label(self.top, text='Exits').grid(row=0, column=0, columnspan=3)
+        exits = room.exits
+        new_directions = {}
+        for i, direction in enumerate(['north', 'south', 'east', 'west']):
+            exit = (exits[direction] if exits[direction] else 'No Exit')
+            tk.Label(self.top, text='{} :'.format(direction)).grid(row=i+1, column=0)
+            dir_entry = tk.Entry(self.top, justify=tk.RIGHT)
+            dir_entry.grid(row=i+1, column=1, columnspan=2)
+            dir_entry.insert(0, str(exit))
+            new_directions[direction] = dir_entry
+
+        def callback(app):
+            for k in room.exits.keys():
+                entry = new_directions[k].get()
+                if len(entry) > 0 and entry.lower() != 'No Exit'.lower():
+                    try:
+                        room_int = int(entry)
+                    except Exception as e:
+                        self.errorbox("Exit must be an integer, blank, or 'No Exit'!")
+                        raise(e)
+                else:
+                    entry = None
+                room.exits[k] = entry
+            app.top.destroy()
+
+        tk.Button(self.top, text='OK', command=lambda: callback(self)).grid(row=5, column=1)
+        x = self.winfo_pointerx()
+        y = self.winfo_pointery()
+        w = 230
+        h = 200  # self.top.winfo_height()
+        self.top.geometry("%dx%d+%d+%d" % (w, h, x + 50, y - 50))
+
+    def change_room_picture(self, room, picture=None, event=None):
+        def callback(app, picture=None):
+            if picture is None:
+                pic = listbox.get(listbox.curselection()[0])
+                room.picture = pic
+                app.map_button_callback(room)
+                app.top.destroy()
+            else:
+                room.picture = picture
+                app.map_button_callback(room)
+
+        if picture is None:
+            self.top = tk.Toplevel()
+            header = tk.Label(self.top, text='Select a P56')
+            header.pack(fill=tk.X)
+            listbox = tk.Listbox(self.top)
+            listbox.pack(fill=tk.BOTH, expand=1)
+            listbox.bind('<Double-Button-1>', lambda x: callback(self))
+            for pic in self.media['p56'].keys():
+                try:
+                    pic_int = int(pic)
+                    if pic_int in self.pics.keys():
+                        listbox.insert(tk.END, pic)
+                except Exception as e:
+                    print(e)
+                    pass
+            x = self.winfo_pointerx()
+            y = self.winfo_pointery()
+            w = 40 #self.top.winfo_width()
+            h = 300 #self.top.winfo_height()
+            self.top.geometry("%dx%d+%d+%d" % (w, h, x + 50, y - 200))
+        else:
+            callback(self, picture)
+
+
+    def change_room_number(self, room, map_button, new_room_number=None):
+        self.top = tk.Toplevel()
+        tk.Label(self.top, text='Room Number : ').grid(row=0, column=0)
+        room_num_entry = tk.Entry(self.top, justify=tk.RIGHT)
+        room_num_entry.grid(row=0, column=1, columnspan=2)
+        room_num_entry.insert(0, str(room.number))
+        x = self.winfo_pointerx()
+        y = self.winfo_pointery()
+        w = 230
+        h = 50  # self.top.winfo_height()
+        self.top.geometry("%dx%d+%d+%d" % (w, h, x + 50, y - 50))
+
+        def callback(app, new_room_number=None):
+            if new_room_number is None:
+                try:
+                    new_room_number = int(room_num_entry.get())
+                    if new_room_number in self.rooms.keys():
+                        self.errorbox("room number: {} already exists".format(new_room_number))
+                        return
+                except Exception as e:
+                    self.errorbox("New Room Number must be an integer.")
+                    raise (e)
+            # add updated room number entry
+            self.rooms[new_room_number] = room
+            # delete the old room number entry
+            try:
+                del self.rooms[room.number]
+            except Exception as e:
+                print(e)
+            # update the button key
+            map_frame = self.widgets[self.map_canvas]['map_frame']
+            self.widgets[self.map_canvas][map_frame][new_room_number] = map_button
+            try:
+                del self.widgets[self.map_canvas][map_frame][room.number]
+            except Exception as e:
+                print(e)
+            # update the room number in the room object
+            room.number = new_room_number
+            # Update the button text
+            map_button.configure(text=new_room_number)
+            map_button.room_id = new_room_number
+            app.top.destroy()
+
+        tk.Button(self.top, text='OK', command=lambda: callback(self, new_room_number)).grid(row=1, column=1)
+
+
+    def add_potentail_room(self, row, col):
+        map_frame = self.widgets[self.map_canvas]['map_frame']
+        if 'potential_rooms' not in self.widgets[self.map_canvas][map_frame].keys():
+            self.widgets[self.map_canvas][map_frame]['potential_rooms'] = []
+        button_index = len(self.widgets[self.map_canvas][map_frame]['potential_rooms'])
+        new_map_button = MapButton(map_frame, None, width=5, height=1, background='ivory2', highlightcolor='black',
+                                   text='New',
+                                   command=lambda: self.create_new_room(button_index, row, col))
+        new_map_button.grid(row=row, column=col)
+        self.widgets[self.map_canvas][map_frame]['potential_rooms'].append(new_map_button)
 
     def draw_map(self, room_num=None, direction=None, row=1000, col=1000, terminate=False):
+        map_frame = self.widgets[self.map_canvas]['map_frame']
         if not room_num and not terminate:
-            map_frame = self.widgets[self.map_canvas]['map_frame']
             self.widgets[self.map_canvas][map_frame] = {}
             self.active_room = None
             first_room_num = list(self.rooms.keys())[0]
+            room = self.rooms[first_room_num]
             map_button = MapButton(map_frame, first_room_num, width=5, height=1, background='LightCyan3',
                                    text=str(first_room_num), highlightcolor='black',
-                                   command=lambda: self.map_button_callback(self.rooms[first_room_num]))
+                                   command=lambda: self.map_button_callback(self.rooms[room.number]))
+            map_button.bind('<Button-3>', lambda x: self.map_popup_menu(x, map_button))
             map_button.grid(row=row, column=col)
             self.widgets[self.map_canvas][map_frame][first_room_num] = map_button
             for direction, exit in self.rooms[first_room_num].exits.items():
@@ -751,20 +1082,24 @@ class WorldCreator(tk.Tk):
                 elif not exit:
                     self.draw_map(exit, direction, row, col, terminate=True)
         else:
-            map_frame = self.widgets[self.map_canvas]['map_frame']
             side_dict = {'north': (-1, 0), 'south': (1, 0), 'east': (0, 1), 'west': (0, -1)}
             row, col = row + side_dict[direction][0], col + side_dict[direction][1]
+            if len(map_frame.grid_slaves(row, col)) > 0:
+                return
             if terminate:
-                map_button = MapButton(map_frame, None, width=5, height=1, background='ivory2', highlightcolor='black',
-                                       text='New', command=lambda: self.create_new_room())
-                map_button.grid(row=row, column=col)
                 if 'potential_rooms' not in self.widgets[self.map_canvas][map_frame].keys():
                     self.widgets[self.map_canvas][map_frame]['potential_rooms'] = []
+                button_index = len(self.widgets[self.map_canvas][map_frame]['potential_rooms'])
+                map_button = MapButton(map_frame, None, width=5, height=1, background='ivory2', highlightcolor='black',
+                                       text='New', command=lambda: self.create_new_room(button_index, row, col))
+                map_button.grid(row=row, column=col)
                 self.widgets[self.map_canvas][map_frame]['potential_rooms'].append(map_button)
             elif room_num in self.rooms.keys() and room_num not in self.widgets[self.map_canvas][map_frame].keys():
+                room = self.rooms[room_num]
                 map_button = MapButton(map_frame, room_num, width=5, height=1, background='LightCyan3',
                                        highlightcolor='black', text=str(room_num),
-                                       command=lambda: self.map_button_callback(self.rooms[room_num]))
+                                       command=lambda: self.map_button_callback(self.rooms[room.number]))
+                map_button.bind('<Button-3>', lambda x: self.map_popup_menu(x, map_button))
                 map_button.grid(row=row, column=col)
                 self.widgets[self.map_canvas][map_frame][room_num] = map_button
                 for direction, exit in self.rooms[room_num].exits.items():
@@ -791,6 +1126,7 @@ class WorldCreator(tk.Tk):
         self.draw_map()
         first_room_number = self.world.rooms[0].number
         self.draw_room(self.rooms[first_room_number])
+        self.active_room = first_room_number
         self.widgets[self.map_canvas][map_frame][first_room_number].configure(background='PaleTurquoise2')
         self.update()
 
@@ -847,7 +1183,8 @@ class WorldCreator(tk.Tk):
         depth_sorted_atps_objs.sort(key=lambda x: x[0])
         for atp_or_obj_info in depth_sorted_atps_objs:
             transparent, polygon = True, False
-            scaled = p56_info.roomtype not in ['TOWN1INT', 'TOWN1', 'HOUSE', 'HOUSE1INT']
+            additional_tag = None
+            scaled = True #p56_info.roomtype not in ['TOWN1INT', 'TOWN1', 'HOUSE', 'HOUSE1INT']
             atp_or_obj = atp_or_obj_info[1]
             if isinstance(atp_or_obj, ATP):
                 loop = 0
@@ -857,6 +1194,7 @@ class WorldCreator(tk.Tk):
                 reference_atp = self.reference_atp_num(atp_num)
                 if reference_atp in self.atps['category']['Polygons'].keys():
                     transparent, polygon = False, True
+                additional_tag = 'atp'
             elif isinstance(atp_or_obj, WorldObject):
                 mirror = False  # they are sometimes mirrored, but this is handled in the v56 structure for WorldObjects
                 obj = atp_or_obj
@@ -866,12 +1204,16 @@ class WorldCreator(tk.Tk):
                     view_file = self.media['v56'][str(view_num)]
                 except:
                     continue
-                # if view_num in [60029, 60330, 60129]:
                 scaled = True
+                additional_tag = 'object'
             if view_file is None:
                 continue
             im_id = self.draw_v56(view_file, loop=loop, x=int(atp_or_obj.x), y=int(atp_or_obj.y), z=int(atp_or_obj.z),
                           scaled=scaled, mirror=mirror, transparent=transparent, polygon=polygon)
+            if isinstance(atp_or_obj, WorldObject):
+                self.active_media['ids'][im_id]['object'] = self.stk_objs[obj.object_class]
+            if additional_tag:
+                self.room_canvas.addtag_withtag(additional_tag, im_id)
         # Hide the polygons, by default
         self.polygon_state = 'normal'
         self.toggle_polygons()

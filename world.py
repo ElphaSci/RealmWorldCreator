@@ -62,8 +62,8 @@ class Room:
         self.picture = picture
         self.name = name
         self.exits = exits
-        self.atpinfo = atpinfo
-        self.objects = objects
+        self.atpinfo = (atpinfo if atpinfo is not None else [])
+        self.objects = (objects if objects is not None else [])
         self.flags = flags
 
 

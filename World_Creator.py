@@ -9,7 +9,8 @@ from PyFotoSCIop.source.v56files import V56file
 from Resources.stock_objects.stkobj7 import stkObjDict
 from atp_info import ATP_CATEGORIES, ATP_BY_PIC
 from p56_info import PIC_INFO
-from world import WLD, ATP, WorldObject, Exits, Room
+from PyFotoSCIop.PySCIs.WLDInterpreter import ATP, WorldObject, Room
+import PyFotoSCIop.PySCIs.WLDInterpreter as WldInterp
 
 
 def scale_image(pil_image: Image, y_depth: int, p56_info, race='default'):
@@ -562,7 +563,7 @@ class WorldCreator(tk.Tk):
         room_data.append('\tproperties')
         picture_number = room.picture
         room_data.append('\t\tpicture\t{}'.format(picture_number))
-        for direction, exit in room.exits.items():
+        for direction, exit in room.properties['exits'].items():
             if exit not in [None, 'None', '']:
                 room_data.append('\t\t{}\t{}'.format(direction, exit))
         if room.name:
@@ -827,7 +828,7 @@ class WorldCreator(tk.Tk):
     def open_wld(self, filename):
         if filename is None:
             return
-        world = WLD(filename)
+        world = WldInterp.World(filename)
         self.world = world
         self.save_file = filename
         self.set_rooms()
@@ -872,7 +873,7 @@ class WorldCreator(tk.Tk):
             else:
                 empty_grid.append(grid_coords)
         # Calculate room number, set old room exits, get this rooms exits, get reference room info
-        exits = Exits()
+        exits = {'north':None, 'east':None, 'south':None, 'west':None}
         reference_room = None
         room_num = None
         for direction in ['West', 'East', 'North', 'South']:
@@ -881,25 +882,25 @@ class WorldCreator(tk.Tk):
                 if direction == 'West':
                     room_num = (int(room_button.room_id) + 1 if room_num is None else room_num)
                     adj_room =self.rooms[room_button.room_id]
-                    adj_room.exits['east'] = room_num
+                    adj_room.properties['exits']['east'] = room_num
                     reference_room = (adj_room if reference_room is None else reference_room)
                     exits['west'] = room_button.room_id
                 elif direction == 'East':
                     room_num = (int(room_button.room_id) - 1 if room_num is None else room_num)
                     adj_room =self.rooms[room_button.room_id]
-                    adj_room.exits['west'] = room_num
+                    adj_room.properties['exits']['west'] = room_num
                     reference_room = (adj_room if reference_room is None else reference_room)
                     exits['east'] = room_button.room_id
                 elif direction == 'North':
                     room_num = (int(room_button.room_id) + 10 if room_num is None else room_num)
                     adj_room =self.rooms[room_button.room_id]
-                    adj_room.exits['south'] = room_num
+                    adj_room.properties['exits']['south'] = room_num
                     reference_room = (adj_room if reference_room is None else reference_room)
                     exits['north'] = room_button.room_id
                 elif direction == 'South':
                     room_num = (int(room_button.room_id) - 10 if room_num is None else room_num)
                     adj_room =self.rooms[room_button.room_id]
-                    adj_room.exits['north'] = room_num
+                    adj_room.properties['exits']['north'] = room_num
                     reference_room = (adj_room if reference_room is None else reference_room)
                     exits['south'] = room_button.room_id
         if room_num in self.widgets[self.map_canvas][map_frame].keys():
@@ -908,7 +909,10 @@ class WorldCreator(tk.Tk):
         old_map_button = self.widgets[self.map_canvas][map_frame]['potential_rooms'][button_index]
         old_map_button.grid_forget()
         ## Create a new room object, add to self.rooms
-        new_room = Room(number=room_num, picture=reference_room.picture, exits=exits)
+        new_room = Room()
+        new_room.number = room_num
+        new_room.picture = reference_room.picture
+        new_room.properties['exits'] = exits
         self.rooms[room_num] = new_room
         ## create a map button for the room
         map_button = MapButton(map_frame, room_num, width=5, height=1, background='LightCyan3',
@@ -940,7 +944,7 @@ class WorldCreator(tk.Tk):
     def change_room_exits(self, room):
         self.top = tk.Toplevel()
         tk.Label(self.top, text='Exits').grid(row=0, column=0, columnspan=3)
-        exits = room.exits
+        exits = room.properties['exits']
         new_directions = {}
         for i, direction in enumerate(['north', 'south', 'east', 'west']):
             exit = (exits[direction] if exits[direction] else 'No Exit')
@@ -951,7 +955,7 @@ class WorldCreator(tk.Tk):
             new_directions[direction] = dir_entry
 
         def callback(app):
-            for k in room.exits.keys():
+            for k in room.properties['exits'].keys():
                 entry = new_directions[k].get()
                 if len(entry) > 0 and entry.lower() != 'No Exit'.lower():
                     try:
@@ -961,7 +965,7 @@ class WorldCreator(tk.Tk):
                         raise(e)
                 else:
                     entry = None
-                room.exits[k] = entry
+                room.properties['exits'][k] = entry
             app.top.destroy()
 
         tk.Button(self.top, text='OK', command=lambda: callback(self)).grid(row=5, column=1)
@@ -1000,8 +1004,8 @@ class WorldCreator(tk.Tk):
                     pass
             x = self.winfo_pointerx()
             y = self.winfo_pointery()
-            w = 40 #self.top.winfo_width()
-            h = 300 #self.top.winfo_height()
+            w = 40
+            h = 300
             self.top.geometry("%dx%d+%d+%d" % (w, h, x + 50, y - 200))
         else:
             callback(self, picture)
@@ -1077,7 +1081,7 @@ class WorldCreator(tk.Tk):
             map_button.bind('<Button-3>', lambda x: self.map_popup_menu(x, map_button))
             map_button.grid(row=row, column=col)
             self.widgets[self.map_canvas][map_frame][first_room_num] = map_button
-            for direction, exit in self.rooms[first_room_num].exits.items():
+            for direction, exit in self.rooms[first_room_num].properties['exits'].items():
                 if exit and exit in self.rooms.keys():
                     self.draw_map(exit, direction)
                 elif not exit:
@@ -1103,7 +1107,7 @@ class WorldCreator(tk.Tk):
                 map_button.bind('<Button-3>', lambda x: self.map_popup_menu(x, map_button))
                 map_button.grid(row=row, column=col)
                 self.widgets[self.map_canvas][map_frame][room_num] = map_button
-                for direction, exit in self.rooms[room_num].exits.items():
+                for direction, exit in self.rooms[room_num].properties['exits'].items():
                     if exit and exit in self.rooms.keys() and exit not in self.widgets[self.map_canvas][
                         map_frame].keys():
                         self.draw_map(exit, direction, row, col)
@@ -1179,21 +1183,23 @@ class WorldCreator(tk.Tk):
         pic = room.picture
         file_path = self.media['p56'][pic]
         self.open_sci_file(file_path)
-        p56_info = self.active_media['background']['info']
+
         depth_sorted_atps_objs = [[int(atp_or_obj.y), atp_or_obj] for atp_or_obj in room.atpinfo + room.objects]
         depth_sorted_atps_objs.sort(key=lambda x: x[0])
         for atp_or_obj_info in depth_sorted_atps_objs:
             transparent, polygon = True, False
             additional_tag = None
-            scaled = True #p56_info.roomtype not in ['TOWN1INT', 'TOWN1', 'HOUSE', 'HOUSE1INT']
+            scaled = True
             atp_or_obj = atp_or_obj_info[1]
             if isinstance(atp_or_obj, ATP):
                 loop = 0
                 atp = atp_or_obj
-                atp_num = int(atp.id)
-                view_file, mirror = self.view_from_atp_number(atp_num)
-                reference_atp = self.reference_atp_num(atp_num)
-                if reference_atp in self.atps['category']['Polygons'].keys():
+                atp.node = self.pic_atps['atp'][atp.reference_atp_num]
+                view_file = self.media['v56'][str(atp.node.view)]
+                mirror = atp.mirror
+                # view_file, mirror = self.view_from_atp_number(atp_num)
+                # reference_atp = self.reference_atp_num(atp_num)
+                if atp.reference_atp_num in self.atps['category']['Polygons'].keys():
                     transparent, polygon = False, True
                 additional_tag = 'atp'
             elif isinstance(atp_or_obj, WorldObject):
@@ -1222,4 +1228,7 @@ class WorldCreator(tk.Tk):
 
 
 if __name__ == '__main__':
-    w = WorldCreator(atp_categories=ATP_CATEGORIES, pic_info=PIC_INFO, object_info=stkObjDict)
+    try:
+        w = WorldCreator(atp_categories=ATP_CATEGORIES, pic_info=PIC_INFO, object_info=stkObjDict)
+    except Exception as e:
+        print(e)

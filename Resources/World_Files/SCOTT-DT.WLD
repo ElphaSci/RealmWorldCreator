@@ -1251,12 +1251,7 @@ room 6800
             loop	0
          end
          base described
-            text	"Lord of Darkness,\n Fill my heart with thy black glee,\nThe battle is upon us,\nMy steel grows hungry,\nMy he"
-"
-"
-"
-"
-            art	death."
+            text	"Lord of Darkness,\n Fill my heart with thy black glee,\nThe battle is upon us,\nMy steel grows hungry,\nMy heart	death."
          end
       end
       object simpleDoor6800-12 of SimpleDoor

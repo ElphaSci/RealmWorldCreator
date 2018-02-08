@@ -1,3 +1,5 @@
+import os
+
 procedure_keys = ['room', 'properties', 'atpinfo', 'objects', 'object', 'base', 'inventory', 'category', 'actions', 'special']
 
 def parse_wld_data(input_data=None, parent=None):
@@ -57,11 +59,8 @@ def process_wld_file(filename):
     with open(filename, 'r') as f:
         wld = f.readlines()
     if len(wld) == 0:
-        print("WLD File is empty!") #raise(Exception("WLD File is empty!"))
+        print("WLD File is empty!")
     wld, parsed_wld_data = parse_wld_data(wld)
-    # parsed_wld_data = [x for x in data if x != []]
-    # if len(parsed_wld_data) == 1:
-    #     parsed_wld_data = parsed_wld_data[0]
     return parsed_wld_data
 
 def create_room(room_list, parnet=None):
@@ -102,21 +101,20 @@ def get_room(room_list):
 
 
 class Room:
-    def __init__(self, room_info: dict):
-        try:
+    def __init__(self, room_info: dict=None):
+        self.number = None
+        self.picture = None
+        self.properties = {}
+        self.atpinfo = []
+        self.objects = []
+        if room_info:
             self.number = int(room_info['room'])
-            self.picture = None
-            self.properties = []
-            self.atpinfo = []
-            self.objects = []
             if 'properties' in room_info.keys():
                 self.properties = self.set_properties(room_info['properties'])
             if 'atpinfo' in room_info.keys():
-                self.atpinfo = room_info['atpinfo']
+                self.atpinfo = [ATP(*x) for x in room_info['atpinfo']]
             if 'objects' in room_info.keys():
                 self.objects = self.set_objects(room_info['objects'])
-        except Exception as e:
-            print(e)
 
     def set_properties(self, properties):
         props = {}
@@ -128,26 +126,29 @@ class Room:
             else:
                 props[x] = properties[x]
                 if x == 'picture':
-                    self.picture = int(properties[x])
+                    self.picture = properties[x]
         props['exits'] = exits
         return props
 
     def set_objects(self, objects):
         object_list = []
         for object_k, object_v in objects.items():
-            obj = {}
             obj_list = object_k.split()
             obj_name = obj_list[1]
             obj_class = obj_list[-1]
-            obj['name'] = obj_name
-            obj['class'] = obj_class
+            coords = [0,0]
+            loop = 0
+            properties = None
+            bases = []
             for obj_k, obj_v in object_v.items():
                 if 'properties' in obj_k:
-                    obj['properties'] = obj_v
+                    properties = obj_v
+                    coords = [obj_v['x'], obj_v['y']]
+                    if 'loop' in obj_v.keys():
+                        loop = obj_v['loop']
                 if 'base' in obj_k:
-                    if 'bases' not in obj.keys():
-                        obj['bases'] = []
-                    obj['bases'].append({obj_k:obj_v})
+                    bases.append({obj_k:obj_v})
+            obj = WorldObject(obj_name, obj_class, coords, loop, properties, bases)
             object_list.append(obj)
         return object_list
 
@@ -168,6 +169,46 @@ class World:
 
     def __repr__(self):
         return self.name
+
+class ATP:
+    """
+    contains id and coordinate of an ATP item for The Realm Online
+    """
+
+    def __init__(self, atp_num: int, x: int, y: int, z: int = 0):
+        """
+        :param id: integer corresponding to an atp id
+        :param coords: tuple of two integers, corresponding to the location of this atp object within a room.
+        """
+        self.atp_num = int(atp_num)
+        self.reference_atp_num = int((self.atp_num - 32768 if self.atp_num > 32768 else self.atp_num))
+        self.mirror = (True if int(atp_num) > 32768 else False)
+        self.node = None
+        self.x = x
+        self.y = y
+        self.z = z
+
+    def __repr__(self):
+        return 'ATP: {}{}'.format((self.atp_num - 32768 if self.atp_num > 32768 else self.atp_num), ('M' if self.atp_num > 32768 else ''))
+
+class WorldObject:
+    """
+    instance of a The Realm Online object in the WLD files.
+    """
+
+    def __init__(self, name, object_class, coords, loop=0, properites=None, bases=None):
+        self.name = name
+        self.object_class = object_class
+        self.x = int(coords[0])
+        self.y = int(coords[1])
+        self.z = 0
+        self.loop = int(loop)
+        self.properties = properites
+        self.bases = bases
+
+    def __repr__(self):
+        return "object {} of {}".format(self.name, self.object_class)
+
 
 
 

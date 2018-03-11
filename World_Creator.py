@@ -158,6 +158,7 @@ class WorldCreator(tk.Tk):
         default_wld_path = os.path.join('Resources', 'World_Files')
         self.add_media(default_56_path)
         self.add_media(default_wld_path)
+        self.room_directory = self.build_room_directory()
         # Store WLD, by Zone
         self.zones = self.set_worlds_by_zone()
         # Keep track of the object being dragged
@@ -264,6 +265,23 @@ class WorldCreator(tk.Tk):
                     worlds_by_zone['Misc'] = []
                 worlds_by_zone['Misc'].append(wld)
         return worlds_by_zone
+
+    def build_room_directory(self):
+        room_directory = {}
+        for wld, path in self.media['wld'].items():
+            with open(path, 'r') as f:
+                try:
+                    data = f.readlines()
+                except UnicodeDecodeError as e:
+                    print(path)
+            for line in data:
+                lower_line = line.lower()
+                if 'room\t' in lower_line or 'room ' in lower_line:
+                    num = line.split()[-1]
+                    if num.strip().isnumeric():
+                        room_directory[num] = wld
+        return room_directory
+
 
     def image_under_cursor(self, event):
         canv_x = self.room_canvas.canvasx(event.x)
@@ -1179,6 +1197,19 @@ class WorldCreator(tk.Tk):
         self.background = None
         self.room_canvas.delete("all")
         self.active_room = room
+        # check if we need to use a template
+        if 'template' in room.properties.keys():
+            template_room_num = room.properties['template']
+            template_room_wld_file = self.media['wld'][self.room_directory[template_room_num]]
+            template_room_wld = WldInterp.World(template_room_wld_file)
+            try:
+                template_room_num_int = int(template_room_num)
+                template_room = [x for x in template_room_wld.rooms if x.number == template_room_num_int][0]
+            except:
+                print("Template Room {} not found in current WLD files".format(template_room_num))
+            room.picture = template_room.picture
+            room.atpinfo += template_room.atpinfo
+            room.objects += template_room.objects
         pic = room.picture
         if room.active_background:
             pic = room.active_background
@@ -1215,4 +1246,4 @@ if __name__ == '__main__':
     try:
         w = WorldCreator(atp_categories=ATP_CATEGORIES, pic_info=PIC_INFO, object_info=stkObjDict)
     except Exception as e:
-        print(e)
+        raise(e)

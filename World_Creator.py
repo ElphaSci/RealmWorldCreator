@@ -1143,7 +1143,7 @@ class WorldCreator(tk.Tk):
         self.widgets[self.map_canvas]['map_frame'] = map_frame
         self.draw_map()
         first_room_number = self.world.rooms[0].number
-        self.draw_room(self.rooms[first_room_number])
+        self.map_button_callback(self.rooms[first_room_number])
         self.widgets[self.map_canvas][map_frame][first_room_number].configure(background='PaleTurquoise2')
         self.update()
 
@@ -1208,6 +1208,8 @@ class WorldCreator(tk.Tk):
             except:
                 print("Template Room {} not found in current WLD files".format(template_room_num))
             room.picture = template_room.picture
+            room.properties['picture'] = room.picture
+            del room.properties['template']
             room.atpinfo += template_room.atpinfo
             room.objects += template_room.objects
         pic = room.picture

@@ -425,6 +425,8 @@ class WorldObject:
                 new_v = getattr(self, k)
             elif k in ['mana', 'drop', 'special']:
                 new_v = ''
+            elif k in ['z', 'linkTo']:
+                continue
             else:
                 new_v = v
             datum = '\t{} {}'.format(k, new_v)
@@ -457,6 +459,9 @@ class WorldObject:
                             print('hmm')
                     data.append('\tend')
                 else:
+                    # TODO: handle linking to owner
+                    if k == 'owner':
+                        continue
                     datum = '\t{} {}'.format(k, v)
                     data.append(datum)
             data.append('end')

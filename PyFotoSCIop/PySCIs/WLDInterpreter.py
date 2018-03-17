@@ -357,6 +357,8 @@ class WorldObject:
         self.images = {'original_image': None, 'scaled_image': None, 'tk_image': None}
         self.canvas_coords = {'x':None, 'y': None}
         self.initial_coords = [None, None, None]
+        # Set loop
+        self.loop = loop
 
     @property
     def loop(self):
@@ -463,6 +465,8 @@ class WorldObject:
                     if k == 'owner':
                         continue
                     datum = '\t{} {}'.format(k, v)
+
+
                     data.append(datum)
             data.append('end')
         return data

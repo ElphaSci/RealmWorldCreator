@@ -163,12 +163,13 @@ class V56file:
 
 if __name__ == '__main__':
     from sys import argv
-    if len(argv) > 1:
-        file_name = argv[1]
-        loop = (0 if len(argv) < 3 else int(argv[2]))
-        cell = (0 if len(argv) < 4 else int(argv[3]))
+    import os
+    files = [os.path.join(argv[1], x) for x in os.listdir(argv[1])]
+    for file_name in files:
+        loop = 0 #(0 if len(argv) < 3 else int(argv[2]))
+        cell = 0 #(0 if len(argv) < 4 else int(argv[3]))
         v = V56file(file_name)
         # TODO: handle _basedOnLoop and _mirror
         sci_loop = v._loops[loop]
         sci_cell = sci_loop._cells[cell]
-        im = sci_cell.get_pil_image(draw=True)
+        im = sci_cell.get_pil_image(draw=False)

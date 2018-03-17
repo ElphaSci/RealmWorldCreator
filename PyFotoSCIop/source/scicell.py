@@ -229,10 +229,9 @@ class Cell:
                         color = next(pdata)
                         pal_entry = pal_data[color]
                         if color == self._skpColor and transparent:
-                            rgba = [pal_entry.red, pal_entry.green, pal_entry.blue, 0]
+                            rgba_im.extend([pal_entry.red, pal_entry.green, pal_entry.blue, 0] * (switch - 0x80) )
                         else:
-                            rgba = [pal_entry.red, pal_entry.green, pal_entry.blue, 255]
-                        rgba_im.extend(rgba * (switch - 0x80))
+                            rgba_im.extend([pal_entry.red, pal_entry.green, pal_entry.blue, 255] * (switch - 0x80) )
                         cur_width += switch - 0x80
                     elif switch >> 6 == 3:
                         if 255 != self._skpColor or not transparent:
@@ -245,10 +244,9 @@ class Cell:
                             col = next(pdata)
                             pal_entry = pal_data[col]
                             if col == self._skpColor and transparent:
-                                rgba = [pal_entry.red, pal_entry.green, pal_entry.blue, 0]
+                                rgba_im.extend([pal_entry.red, pal_entry.green, pal_entry.blue, 0])
                             else:
-                                rgba = [pal_entry.red, pal_entry.green, pal_entry.blue, 255]
-                            rgba_im.extend(rgba)
+                                rgba_im.extend([pal_entry.red, pal_entry.green, pal_entry.blue, 255])
                         cur_width += switch
             pil_im = Image.frombuffer('RGBA', (self._width, self._height), bytes(rgba_im), 'raw', 'RGBA', 0, 1)
             if draw:

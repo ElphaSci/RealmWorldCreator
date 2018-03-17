@@ -1,4 +1,5 @@
 import os
+import random
 import tkinter as tk
 from tkinter import filedialog, messagebox
 
@@ -138,6 +139,8 @@ class NestedOptionMenu(tk.Frame):
 class WorldCreator(tk.Tk):
     def __init__(self, title='World Creator', atp_categories=None, pic_info=None, object_info=None, atps_by_pic=ATP_BY_PIC):
         tk.Tk.__init__(self)
+        # cache for images
+        self.cached = {}
         # Store the ATPs, by category, and by pic:
         self.atps = {'category': {}, 'atp': {}, 'view': {}}
         self.set_atps(atp_categories)
@@ -480,7 +483,7 @@ class WorldCreator(tk.Tk):
         cell_attrs = ["_width", "_height", "_left", "_top", "_skpColor", "_compression", "_flags", "_imageSize",
                       "_packSize", "_cachedHeader", "_cached", "_changed", "_zDepth", "_xPos", "_yPos", "new_cell",
                       "old_cell"]
-        world_attrs = ['view_id', 'x', 'y', 'z']
+        world_attrs = ['view_id', 'x', 'y', 'z', 'loop']
         box_height = len(cell_attrs) + len(world_attrs)
         self.top = tk.Toplevel()
         view_properties_box = tk.Text(self.top, height=box_height, width=80)
@@ -491,7 +494,8 @@ class WorldCreator(tk.Tk):
             for attribute in attrs_list:
                 if attribute == 'view_id':
                     view_properties_box.insert(tk.END, '{}:\t{}\n'.format(attribute, obj.v56.id))
-
+                elif attribute == 'loop':
+                    view_properties_box.insert(tk.END, '{}:\t{}\n'.format(attribute, obj.loop))
                 elif isinstance(attrs_storage, dict):
                     view_properties_box.insert(tk.END, '{}:\t{}\n'.format(attribute, attrs_storage[attribute]))
                 else:
@@ -663,8 +667,13 @@ class WorldCreator(tk.Tk):
         wld_path = self.media['wld'][wld_name]
         self.open_wld(wld_path)
 
-    def draw_cell(self, cell, x=None, y=None, z=0, anchor=tk.S, scaled=True, transparent=True, mirror=False):
-        pil_im = cell.get_pil_image(transparent=transparent)
+    def draw_cell(self, cell, x=None, y=None, z=0, anchor=tk.S, scaled=True, transparent=True, mirror=False, cached=False):
+        # if cached is not None, is it a tuple of (v56_num, loop, cell)
+        if cached:
+            # Todo, this will always use the transparency and mirror of the first time this cell was drawn; fix to depend on transparent arg
+            pil_im = self.cached[cached]
+        else:
+            pil_im = cell.get_pil_image(transparent=transparent)
         if not x:
             x_pos = (int(self.room_canvas.cget('width')) - pil_im.width) / 2
         if not y:
@@ -744,7 +753,17 @@ class WorldCreator(tk.Tk):
         y = (int(y) if y else 250)
         if z is not None: z = int(z)
         world_coords = (x,y,z)
-        im_id, images, coords = self.draw_cell(sci_cell, x=x, y=y, z=z, anchor=tk.S, scaled=scaled, transparent=transparent, mirror=mirror)
+        #check if the v56 pil image is cached
+        cached = None
+        # will only cache non transparent, non-mirrored cells
+        if (v56.id, loop, cell) in self.cached.keys() and not transparent and not mirror:
+            cached = (v56.id, loop, cell)
+        im_id, images, coords = self.draw_cell(sci_cell, x=x, y=y, z=z, anchor=tk.S, scaled=scaled, transparent=transparent, mirror=mirror, cached=cached)
+        # if it isn't cached, cache it
+        if (v56.id, loop, cell) not in self.cached.keys() and not transparent and not mirror:
+            if len(self.cached) > 500:
+                self.cached.pop(random.choice(self.cached.keys()))
+            self.cached[(v56.id, loop, cell)] = images['original_image'].copy()
         if scaled:
             tags = ['view', 'scalable', ]
         else:
@@ -814,7 +833,11 @@ class WorldCreator(tk.Tk):
             if exit in buttons.keys():
                 adj_button = buttons[exit]
                 adj_button.configure(background='yellow')
+        import time
+        import sys
+        t1 = time.time()
         self.draw_room(room)
+        print(time.time() - t1, len(self.cached), sys.getsizeof(self.cached))
         self.active_room = room
 
     def clear_current_rooms(self):
@@ -1091,10 +1114,10 @@ class WorldCreator(tk.Tk):
                     row, col = 1000, 2000
                     first = not first
                 else:
-                    col += 1
-                    if col % 4 == 0:
-                        row += 1
-                        col -= 4
+                    row += 20
+                    if row % 40 == 0:
+                        col += 20
+                        row -= 40
                     self.draw_map(next_room_num, row=row, col=col)
         else:
             buttons = self.widgets[self.map_canvas][map_frame]
@@ -1119,8 +1142,6 @@ class WorldCreator(tk.Tk):
                 map_button.bind('<Button-3>', lambda x: self.map_popup_menu(x, map_button))
                 map_button.grid(row=row, column=col)
                 buttons[room_num] = map_button
-                if not direction:
-                    return
                 for direction, exit in self.rooms[room_num].properties['exits'].items():
                     if exit and exit in self.rooms.keys() and exit not in buttons.keys():
                         self.draw_map(exit, direction, row, col)

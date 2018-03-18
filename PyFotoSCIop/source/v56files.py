@@ -163,7 +163,6 @@ class V56file:
 
 if __name__ == '__main__':
     from sys import argv
-    import os
     files = [os.path.join(argv[1], x) for x in os.listdir(argv[1])]
     for file_name in files:
         loop = 0 #(0 if len(argv) < 3 else int(argv[2]))

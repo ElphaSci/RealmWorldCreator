@@ -1,6 +1,6 @@
 import struct
 
-import numpy as np
+
 from PIL import Image
 
 from PyFotoSCIop.source.bmp import BITMAPINFO
@@ -272,12 +272,16 @@ class Cell:
             return pil_im
 
     def displayPalette(self, draw=True):
+        # TODO: This has been changed, so it doesn't require numpy
+        # however, it isn't used atm, so I have not tested it since it's been changed
         flat_rgb_list = [[x.red, x.green, x.blue] for x in self._palette._palData]
-        flat_rgb_array = np.array(flat_rgb_list, dtype='uint8')
-        shaped_rgb_array = flat_rgb_array.reshape((16, 16, 3))
+        rgba_im = []
+        for x in flat_rgb_list:
+            rgba_im.extend(x)
+        pil_im = Image.frombuffer('RGB', (16, 16), bytes(rgba_im), 'raw', 'RGB', 0, 1)
         if draw:
             import matplotlib.pyplot as plt
-            plt.imshow(shaped_rgb_array, interpolation='none')
+            plt.imshow(pil_im, interpolation='none')
             plt.show()
         else:
-            return shaped_rgb_array
+            return pil_im

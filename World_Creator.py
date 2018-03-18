@@ -756,11 +756,11 @@ class WorldCreator(tk.Tk):
         #check if the v56 pil image is cached
         cached = None
         # will only cache non transparent, non-mirrored cells
-        if (v56.id, loop, cell) in self.cached.keys() and not transparent and not mirror:
+        if (v56.id, loop, cell) in self.cached.keys() and transparent and not mirror:
             cached = (v56.id, loop, cell)
         im_id, images, coords = self.draw_cell(sci_cell, x=x, y=y, z=z, anchor=tk.S, scaled=scaled, transparent=transparent, mirror=mirror, cached=cached)
         # if it isn't cached, cache it
-        if (v56.id, loop, cell) not in self.cached.keys() and not transparent and not mirror:
+        if (v56.id, loop, cell) not in self.cached.keys() and transparent and not mirror:
             if len(self.cached) > 500:
                 self.cached.pop(random.choice(self.cached.keys()))
             self.cached[(v56.id, loop, cell)] = images['original_image'].copy()
@@ -833,11 +833,7 @@ class WorldCreator(tk.Tk):
             if exit in buttons.keys():
                 adj_button = buttons[exit]
                 adj_button.configure(background='yellow')
-        import time
-        import sys
-        t1 = time.time()
         self.draw_room(room)
-        print(time.time() - t1, len(self.cached), sys.getsizeof(self.cached))
         self.active_room = room
 
     def clear_current_rooms(self):

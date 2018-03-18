@@ -838,16 +838,6 @@ room 5014
             isOpen	0
          end
       end
-      object crest5014-2 of Crest
-         properties
-            x	188
-            y	220
-            loop	0
-         end
-		base described
-			text "The crest reads: 'In Memory of Hyjinks (Scott Wochholz) 03/15/1956 – 09/20/2017. He started with creating the website “The Oracle” which had the best maps out there, and then he went on to buy The Realm Online. You were one dedicated player.  R.I.P. You will always be connected to this game.'"
-		end	
-		end
    end
 end
 room 5044
@@ -1900,82 +1890,6 @@ room 5028
             loop	0
          end
       end
-      object stand5028-12 of Stand
-         properties
-            x	97
-            y	316
-            loop	0
-         end
-      end
-      object SantaShop of Shop
-	     properties
-		     special
-		     loop 2
-		     name "Santa Claus"
-             x	92
-             y	315
-
-             girth 100
-		     height 80
-	        end
-
-	        base described
-		        text "Father Christmas himself\n\n"
-	        end
-
-	        base container
-                worn	SantaShirt
-                worn	SantaPants
-                worn	SantaBelt
-                worn	bLatexboot
-	            worn	SantaHat
-		        worn	SantaCowl
-	            worn	SantaBracers
-                head 	0 0 3 7 1 11 8 0 13 10 0 0 2 # Santa Claus
-            end
-
-	        base character
-		        title "Father Christmas"
-	        end
-
-	        base shop
-		        buyMarkup  50
-		        sellMarkup 100
-
-		        inventory
-			        category "December 2017" 52233
-                        object SantaHat
-                        object Menorah
-                        object XmasAngel
-                        object XmasBear
-                        object XmasClausFam
-                        object XmasDog
-                        object XmasDog2
-                        object XmasDog3
-                        object XmasDog4
-                        object XmasDog5
-                        object XmasElf
-                        object XmasIgloo
-                        object XmasMerrySign
-                        object XmasSanta
-                        object XmasSantaArch
-                        object XmasSantaClock
-                        object XmasSantaSleigh1
-                        object XmasSantaSleigh2
-                        object XmasSnowGlobe
-                        object XmasTeddy
-                        object XmasGrinchAndMax
-                        object XmasSignNorthPolePenguin
-                        object XmasLampNorthPole
-                        object XmasHolidayEntrance
-                        object XmasPolarBearGift
-                        object XmasSnowmanFamily
-                        object XmasChipmunk
-                        object XmasSignSantaStop
-                    end
-			    end
-	        end
-        end
    end
 end
 room 5043

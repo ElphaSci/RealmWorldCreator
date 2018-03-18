@@ -120,6 +120,7 @@ room 6081
          end
          base described
             text	"Fresh Veggies for sale.  Farmer's special - Buy vegetables and pick a pumpkin from our patch for only 10 gold"
+!"
          end
       end
    end
@@ -283,6 +284,7 @@ room 6085
          end
          base described
             text	"You see a dead Oak tree.  This tree was plowed from the fields and is now used as a seat for tired farmers."
+            	0
          end
       end
    end

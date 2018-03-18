@@ -1,5 +1,4 @@
 import os
-from atp_info import ATPNode
 
 
 class Exits(dict):
@@ -91,24 +90,18 @@ def parseWLDfile(filename):
             room_dict['number'] = line[1]
             while True:
                 line = lines.pop(0).split()
-                while len(line) == 0:
-                    line = lines.pop(0).split()
                 if 'end' in line:
                     break
                 level_2 = line[0]
                 if level_2 == 'properties':
                     while True:
                         line = lines.pop(0).split()
-                        while len(line) == 0:
-                            line = lines.pop(0).split()
                         if 'end' in line:
                             break
                         room_dict[line[0]] = line[1]
                 elif level_2 == 'atpinfo':
                     while True:
                         line = lines.pop(0).split()
-                        while len(line) == 0:
-                            line = lines.pop(0).split()
                         if 'end' in line:
                             break
                         if len(line) == 3:
@@ -122,8 +115,6 @@ def parseWLDfile(filename):
                 elif level_2 == 'objects':
                     while True:
                         line = lines.pop(0).split()
-                        while len(line) == 0:
-                            line = lines.pop(0).split()
                         if 'end' in line:
                             break
                         level_3 = line[0]
@@ -133,16 +124,12 @@ def parseWLDfile(filename):
                             object_dict = {'x': None, 'y': None, 'z': None, 'loop': None, 'color': None}
                             while True:
                                 line = lines.pop(0).split()
-                                while len(line) == 0:
-                                    line = lines.pop(0).split()
                                 if 'end' in line:
                                     break
                                 level_4 = line[0]
                                 if level_4 == 'properties':
                                     while True:
                                         line = lines.pop(0).split()
-                                        while len(line) == 0:
-                                            line = lines.pop(0).split()
                                         if 'end' in line:
                                             break
                                         object_dict[line[0]] = line[1]
@@ -151,24 +138,18 @@ def parseWLDfile(filename):
                                     object_dict[base] = {}
                                     while True:
                                         line = lines.pop(0).split()
-                                        while len(line) == 0:
-                                            line = lines.pop(0).split()
                                         if 'end' in line:
                                             break
                                         elif 'inventory' in line:
                                             inv = object_dict[base]['inventory'] = {}
                                             while True:
                                                 line = lines.pop(0).split()
-                                                while len(line) == 0:
-                                                    line = lines.pop(0).split()
                                                 if 'end' in line:
                                                     break
                                                 elif 'category' in line:
                                                     categ = inv[' '.join(line[1:])] = {'object': []}
                                                     while True:
                                                         line = lines.pop(0).split()
-                                                        while len(line) == 0:
-                                                            line = lines.pop(0).split()
                                                         if 'end' in line:
                                                             break
                                                         elif 'object' in line:
@@ -185,89 +166,89 @@ def parseWLDfile(filename):
     return rooms
 
 
-# def parseWLDFile(filename: str) -> list:
-#     with open(filename, 'r') as f:
-#         lines = f.readlines()
-#     rooms = []
-#     i = 0
-#     while i < len(lines):
-#         # print(i, len(lines))
-#         line = lines[i]
-#         if line[:4] == 'room':
-#             room_number = int(line.split()[-1])
-#             picture = None
-#             exits = Exits()
-#             room_name = None
-#             atpinfo = []
-#             objects = []
-#             while 'end' not in line:
-#                 i += 1
-#                 line = lines[i]
-#                 if 'properties' in line:
-#                     i += 1
-#                     line = lines[i]
-#                     while 'end' not in line:
-#                         # print('props')
-#                         prop = line.split()
-#                         if prop[0] == 'picture':
-#                             picture = int(prop[1])
-#                         elif prop[0] in ['north', 'south', 'east', 'west']:
-#                             exits[prop[0]] = int(prop[1])
-#                         elif prop[0] == 'name':
-#                             room_name = line[line.find('"'):]
-#                         i += 1
-#                         line = lines[i]
-#                     i += 1
-#                     line = lines[i]
-#                 if 'atpinfo' in line:
-#                     i += 1
-#                     line = lines[i]
-#                     while 'end' not in line:
-#                         # print('atpinfo')
-#                         atp = line.split()
-#                         atp = ATP(atp[0], (atp[1], atp[2]))
-#                         atpinfo.append(atp)
-#                         i += 1
-#                         line = lines[i]
-#                     i += 1
-#                     line = lines[i]
-#                 if 'objects' in line:
-#                     i += 1
-#                     line = lines[i]
-#                     while 'end' not in line:
-#                         if 'object' in line:
-#                             obj_info = line.split()
-#                             obj_name = obj_info[1]
-#                             obj_class = obj_info[-1]
-#                             i += 1
-#                             line = lines[i]
-#                             while 'end' not in line:
-#                                 if 'properties' in line:
-#                                     i += 1
-#                                     line = lines[i]
-#                                     while 'end' not in line:
-#                                         line_list = line.split()
-#                                         if line_list[0] == 'x':
-#                                             obj_x = line_list[1]
-#                                         elif line_list[0] == 'y':
-#                                             obj_y = line_list[1]
-#                                         elif line_list[0] == 'loop':
-#                                             obj_loop = line_list[1]
-#                                         i += 1
-#                                         line = lines[i]
-#                                     i += 1
-#                                     line = lines[i]
-#                             room_obj = WorldObject(obj_name, obj_class, (obj_x, obj_y), obj_loop)
-#                             objects.append(room_obj)
-#                             i += 1
-#                             line = lines[i]
-#                     i += 1
-#                     line = lines[i]
-#
-#             i += 1
-#             room = Room(room_number, room_name, exits, atpinfo, objects)
-#             rooms.append(room)
-#     return rooms
+def parseWLDFile(filename: str) -> list:
+    with open(filename, 'r') as f:
+        lines = f.readlines()
+    rooms = []
+    i = 0
+    while i < len(lines):
+        # print(i, len(lines))
+        line = lines[i]
+        if line[:4] == 'room':
+            room_number = int(line.split()[-1])
+            picture = None
+            exits = Exits()
+            room_name = None
+            atpinfo = []
+            objects = []
+            while 'end' not in line:
+                i += 1
+                line = lines[i]
+                if 'properties' in line:
+                    i += 1
+                    line = lines[i]
+                    while 'end' not in line:
+                        # print('props')
+                        prop = line.split()
+                        if prop[0] == 'picture':
+                            picture = int(prop[1])
+                        elif prop[0] in ['north', 'south', 'east', 'west']:
+                            exits[prop[0]] = int(prop[1])
+                        elif prop[0] == 'name':
+                            room_name = line[line.find('"'):]
+                        i += 1
+                        line = lines[i]
+                    i += 1
+                    line = lines[i]
+                if 'atpinfo' in line:
+                    i += 1
+                    line = lines[i]
+                    while 'end' not in line:
+                        # print('atpinfo')
+                        atp = line.split()
+                        atp = ATP(atp[0], (atp[1], atp[2]))
+                        atpinfo.append(atp)
+                        i += 1
+                        line = lines[i]
+                    i += 1
+                    line = lines[i]
+                if 'objects' in line:
+                    i += 1
+                    line = lines[i]
+                    while 'end' not in line:
+                        if 'object' in line:
+                            obj_info = line.split()
+                            obj_name = obj_info[1]
+                            obj_class = obj_info[-1]
+                            i += 1
+                            line = lines[i]
+                            while 'end' not in line:
+                                if 'properties' in line:
+                                    i += 1
+                                    line = lines[i]
+                                    while 'end' not in line:
+                                        line_list = line.split()
+                                        if line_list[0] == 'x':
+                                            obj_x = line_list[1]
+                                        elif line_list[0] == 'y':
+                                            obj_y = line_list[1]
+                                        elif line_list[0] == 'loop':
+                                            obj_loop = line_list[1]
+                                        i += 1
+                                        line = lines[i]
+                                    i += 1
+                                    line = lines[i]
+                            room_obj = WorldObject(obj_name, obj_class, (obj_x, obj_y), obj_loop)
+                            objects.append(room_obj)
+                            i += 1
+                            line = lines[i]
+                    i += 1
+                    line = lines[i]
+
+            i += 1
+            room = Room(room_number, room_name, exits, atpinfo, objects)
+            rooms.append(room)
+    return rooms
 
 
 class WLD:

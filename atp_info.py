@@ -16,14 +16,6 @@ class ATPNode:
             setattr(self, attr, eval(attr))
         if number == 0:
             self.number = view - 1000
-        elif number > 32768:
-            self.number = number - 32768
-            self.mirror = True
-
-    def view(self):
-        if self.view == 0:
-            return self.number + 1000
-        return self.view
 
     def set_room_type(self, roomType):
         if self.pDoScaler is None:
@@ -1739,29 +1731,29 @@ for i, obj in enumerate(mySet):
     if not obj.pDescriber:
         obj.pDescriber = "Misc"
 
-SwampPlants = mySet = [ATPNode(view=6520, noun='PINE_SHORT_N', pDescriber="Flower moss 1", pDoScaler=True),
-                       ATPNode(view=6521, noun='PINE_SHORT_N', pDescriber="Flower moss 2", pDoScaler=True),
-                       ATPNode(view=6522, noun='PINE_SHORT_N', pDescriber="Red flowers", pDoScaler=True),
-                       ATPNode(view=6525, noun='PINE_SHORT_N', pDescriber="Plale flowers", pDoScaler=True),
-                       ATPNode(view=6543, noun='PINE_SHORT_N', pDescriber="Grass bank", pDoScaler=True),
-                       ATPNode(view=6563, noun='PINE_SHORT_N', pDescriber="Grass 1", pDoScaler=True),
-                       ATPNode(view=6566, noun='PINE_SHORT_N', pDescriber="Bush & mush 1", pDoScaler=True),
-                       ATPNode(view=6571, noun='PINE_SHORT_N', pDescriber="Fern 2", pDoScaler=True),
-                       ATPNode(view=6572, noun='PINE_SHORT_N', pDescriber="Fern 3", pDoScaler=True),
-                       ATPNode(view=6573, noun='PINE_SHORT_N', pDescriber="Fern 4", pDoScaler=True),
-                       ATPNode(view=6574, noun='PINE_SHORT_N', pDescriber="Fern 5", pDoScaler=True),
-                       ATPNode(view=6583, noun='PINE_SHORT_N', pDescriber="Spruce bush 1", pDoScaler=True),
-                       ATPNode(view=6584, noun='PINE_SHORT_N', pDescriber="Spruce bush 2", pDoScaler=True),
-                       ATPNode(view=6586, noun='PINE_SHORT_N', pDescriber="Spruce clump", pDoScaler=True),
-                       ATPNode(view=6589, noun='PINE_SHORT_N', pDescriber="Bush clump", pDoScaler=True),
-                       ATPNode(view=6596, noun='PINE_SHORT_N', pDescriber="Bush 1", pDoScaler=True),
-                       ATPNode(view=6597, noun='PINE_SHORT_N', pDescriber="Bush & mush 2", pDoScaler=True),
-                       ATPNode(view=6598, noun='PINE_SHORT_N', pDescriber="Bush 2", pDoScaler=True),
-                       ATPNode(view=6621, noun='PINE_SHORT_N', pDescriber="Grass 1", pDoScaler=True),
-                       ATPNode(view=6622, noun='PINE_SHORT_N', pDescriber="Grass & mush", pDoScaler=True),
-                       ATPNode(view=6627, noun='PINE_SHORT_N', pDescriber="Ivy", pDoScaler=True),
-                       ATPNode(view=6694, noun='PINE_SHORT_N', pDescriber="Back bush", pDoScaler=True),
-                       ATPNode(view=6713, noun='PINE_SHORT_N', pDescriber="Bush clump 2", pDoScaler=True)]
+SwampPlants = mySet = [ATPNode(view=6520, noun='PINE_SHORT_N', pDescriber="Flower moss 1", pDoScaler=False),
+                       ATPNode(view=6521, noun='PINE_SHORT_N', pDescriber="Flower moss 2", pDoScaler=False),
+                       ATPNode(view=6522, noun='PINE_SHORT_N', pDescriber="Red flowers", pDoScaler=False),
+                       ATPNode(view=6525, noun='PINE_SHORT_N', pDescriber="Plale flowers", pDoScaler=False),
+                       ATPNode(view=6543, noun='PINE_SHORT_N', pDescriber="Grass bank", pDoScaler=False),
+                       ATPNode(view=6563, noun='PINE_SHORT_N', pDescriber="Grass 1", pDoScaler=False),
+                       ATPNode(view=6566, noun='PINE_SHORT_N', pDescriber="Bush & mush 1", pDoScaler=False),
+                       ATPNode(view=6571, noun='PINE_SHORT_N', pDescriber="Fern 2", pDoScaler=False),
+                       ATPNode(view=6572, noun='PINE_SHORT_N', pDescriber="Fern 3", pDoScaler=False),
+                       ATPNode(view=6573, noun='PINE_SHORT_N', pDescriber="Fern 4", pDoScaler=False),
+                       ATPNode(view=6574, noun='PINE_SHORT_N', pDescriber="Fern 5", pDoScaler=False),
+                       ATPNode(view=6583, noun='PINE_SHORT_N', pDescriber="Spruce bush 1", pDoScaler=False),
+                       ATPNode(view=6584, noun='PINE_SHORT_N', pDescriber="Spruce bush 2", pDoScaler=False),
+                       ATPNode(view=6586, noun='PINE_SHORT_N', pDescriber="Spruce clump", pDoScaler=False),
+                       ATPNode(view=6589, noun='PINE_SHORT_N', pDescriber="Bush clump", pDoScaler=False),
+                       ATPNode(view=6596, noun='PINE_SHORT_N', pDescriber="Bush 1", pDoScaler=False),
+                       ATPNode(view=6597, noun='PINE_SHORT_N', pDescriber="Bush & mush 2", pDoScaler=False),
+                       ATPNode(view=6598, noun='PINE_SHORT_N', pDescriber="Bush 2", pDoScaler=False),
+                       ATPNode(view=6621, noun='PINE_SHORT_N', pDescriber="Grass 1", pDoScaler=False),
+                       ATPNode(view=6622, noun='PINE_SHORT_N', pDescriber="Grass & mush", pDoScaler=False),
+                       ATPNode(view=6627, noun='PINE_SHORT_N', pDescriber="Ivy", pDoScaler=False),
+                       ATPNode(view=6694, noun='PINE_SHORT_N', pDescriber="Back bush", pDoScaler=False),
+                       ATPNode(view=6713, noun='PINE_SHORT_N', pDescriber="Bush clump 2", pDoScaler=False)]
 
 for i, obj in enumerate(mySet):
     obj.pMsgFile = 101
@@ -1770,14 +1762,14 @@ for i, obj in enumerate(mySet):
     if not obj.pDescriber:
         obj.pDescriber = "Plant"
 
-SwampRocks = mySet = [ATPNode(view=6510, noun='PINE_SHORT_N', pDescriber="Chicken Rock", pDoScaler=True),
-                      ATPNode(view=6512, noun='PINE_SHORT_N', pDescriber="Huge Rock 1", pDoScaler=True),
-                      ATPNode(view=6513, noun='PINE_SHORT_N', pDescriber="Huge Rock 2", pDoScaler=True),
-                      ATPNode(view=6514, noun='PINE_SHORT_N', pDescriber="Big Rock", pDoScaler=True),
-                      ATPNode(view=6515, noun='PINE_SHORT_N', pDescriber="Flower Rock", pDoScaler=True),
-                      ATPNode(view=6528, noun='PINE_SHORT_N', pDescriber="Flower Rock 2", pDoScaler=True),
-                      ATPNode(view=6561, noun='PINE_SHORT_N', pDescriber="Huge Rock 3", pDoScaler=True),
-                      ATPNode(view=6562, noun='PINE_SHORT_N', pDescriber="Huge Rock 4", pDoScaler=True)]
+SwampRocks = mySet = [ATPNode(view=6510, noun='PINE_SHORT_N', pDescriber="Chicken Rock", pDoScaler=False),
+                      ATPNode(view=6512, noun='PINE_SHORT_N', pDescriber="Huge Rock 1", pDoScaler=False),
+                      ATPNode(view=6513, noun='PINE_SHORT_N', pDescriber="Huge Rock 2", pDoScaler=False),
+                      ATPNode(view=6514, noun='PINE_SHORT_N', pDescriber="Big Rock", pDoScaler=False),
+                      ATPNode(view=6515, noun='PINE_SHORT_N', pDescriber="Flower Rock", pDoScaler=False),
+                      ATPNode(view=6528, noun='PINE_SHORT_N', pDescriber="Flower Rock 2", pDoScaler=False),
+                      ATPNode(view=6561, noun='PINE_SHORT_N', pDescriber="Huge Rock 3", pDoScaler=False),
+                      ATPNode(view=6562, noun='PINE_SHORT_N', pDescriber="Huge Rock 4", pDoScaler=False)]
 
 for i, obj in enumerate(mySet):
     obj.pMsgFile = 101
@@ -1786,19 +1778,19 @@ for i, obj in enumerate(mySet):
     if not obj.pDescriber:
         obj.pDescriber = "Rock"
 
-SwampStumps = mySet = [ATPNode(view=6540, noun='PINE_SHORT_N', pDescriber="Hollow log", pDoScaler=True),
-                       ATPNode(view=6541, noun='PINE_SHORT_N', pDescriber="Log 1", pDoScaler=True),
-                       ATPNode(view=6542, noun='PINE_SHORT_N', pDescriber="Big log 1", pDoScaler=True),
-                       ATPNode(view=6550, noun='PINE_SHORT_N', pDescriber="Stump 1", pDoScaler=True),
-                       ATPNode(view=6551, noun='PINE_SHORT_N', pDescriber="Big Stump 1", pDoScaler=True),
-                       ATPNode(view=6552, noun='PINE_SHORT_N', pDescriber="Stump 2", pDoScaler=True),
-                       ATPNode(view=6553, noun='PINE_SHORT_N', pDescriber="Big Stump 2", pDoScaler=True),
-                       ATPNode(view=6554, noun='PINE_SHORT_N', pDescriber="Stump 3", pDoScaler=True),
-                       ATPNode(view=6555, noun='PINE_SHORT_N', pDescriber="Sm stump 1", pDoScaler=True),
-                       ATPNode(view=6556, noun='PINE_SHORT_N', pDescriber="Sm stump 2", pDoScaler=True),
-                       ATPNode(view=6557, noun='PINE_SHORT_N', pDescriber="Stump 4", pDoScaler=True),
-                       ATPNode(view=6559, noun='PINE_SHORT_N', pDescriber="Mossy stump 1", pDoScaler=True),
-                       ATPNode(view=6628, noun='PINE_SHORT_N', pDescriber="Mossy stump 2", pDoScaler=True)]
+SwampStumps = mySet = [ATPNode(view=6540, noun='PINE_SHORT_N', pDescriber="Hollow log", pDoScaler=False),
+                       ATPNode(view=6541, noun='PINE_SHORT_N', pDescriber="Log 1", pDoScaler=False),
+                       ATPNode(view=6542, noun='PINE_SHORT_N', pDescriber="Big log 1", pDoScaler=False),
+                       ATPNode(view=6550, noun='PINE_SHORT_N', pDescriber="Stump 1", pDoScaler=False),
+                       ATPNode(view=6551, noun='PINE_SHORT_N', pDescriber="Big Stump 1", pDoScaler=False),
+                       ATPNode(view=6552, noun='PINE_SHORT_N', pDescriber="Stump 2", pDoScaler=False),
+                       ATPNode(view=6553, noun='PINE_SHORT_N', pDescriber="Big Stump 2", pDoScaler=False),
+                       ATPNode(view=6554, noun='PINE_SHORT_N', pDescriber="Stump 3", pDoScaler=False),
+                       ATPNode(view=6555, noun='PINE_SHORT_N', pDescriber="Sm stump 1", pDoScaler=False),
+                       ATPNode(view=6556, noun='PINE_SHORT_N', pDescriber="Sm stump 2", pDoScaler=False),
+                       ATPNode(view=6557, noun='PINE_SHORT_N', pDescriber="Stump 4", pDoScaler=False),
+                       ATPNode(view=6559, noun='PINE_SHORT_N', pDescriber="Mossy stump 1", pDoScaler=False),
+                       ATPNode(view=6628, noun='PINE_SHORT_N', pDescriber="Mossy stump 2", pDoScaler=False)]
 
 for i, obj in enumerate(mySet):
     obj.pMsgFile = 101
@@ -1807,21 +1799,21 @@ for i, obj in enumerate(mySet):
     if not obj.pDescriber:
         obj.pDescriber = "Stump"
 
-SwampMidTrees = mySet = [ATPNode(view=6651, noun='PINE_SHORT_N', pDescriber="Mid tree 1", pDoScaler=True),
-                         ATPNode(view=6652, noun='PINE_SHORT_N', pDescriber="Mid tree 2", pDoScaler=True),
-                         ATPNode(view=6653, noun='PINE_SHORT_N', pDescriber="Mid tree 3", pDoScaler=True),
-                         ATPNode(view=6654, noun='PINE_SHORT_N', pDescriber="Mid tree 4", pDoScaler=True),
-                         ATPNode(view=6658, noun='PINE_SHORT_N', pDescriber="Mid tree 5", pDoScaler=True),
-                         ATPNode(view=6659, noun='PINE_SHORT_N', pDescriber="Mid tree 6", pDoScaler=True),
-                         ATPNode(view=6662, noun='PINE_SHORT_N', pDescriber="Mid tree 7", pDoScaler=True),
-                         ATPNode(view=6664, noun='PINE_SHORT_N', pDescriber="Mid tree 8", pDoScaler=True),
-                         ATPNode(view=6665, noun='PINE_SHORT_N', pDescriber="Mid tree 9", pDoScaler=True),
-                         ATPNode(view=6666, noun='PINE_SHORT_N', pDescriber="Mid tree 10", pDoScaler=True),
-                         ATPNode(view=6667, noun='PINE_SHORT_N', pDescriber="Mid tree 11", pDoScaler=True),
-                         ATPNode(view=6668, noun='PINE_SHORT_N', pDescriber="Mid tree 12", pDoScaler=True),
-                         ATPNode(view=6669, noun='PINE_SHORT_N', pDescriber="Mid tree 13", pDoScaler=True),
-                         ATPNode(view=6670, noun='PINE_SHORT_N', pDescriber="Mid tree 14", pDoScaler=True),
-                         ATPNode(view=6670, noun='PINE_SHORT_N', pDescriber="Mid tree 15", pDoScaler=True)]
+SwampMidTrees = mySet = [ATPNode(view=6651, noun='PINE_SHORT_N', pDescriber="Mid tree 1", pDoScaler=False),
+                         ATPNode(view=6652, noun='PINE_SHORT_N', pDescriber="Mid tree 2", pDoScaler=False),
+                         ATPNode(view=6653, noun='PINE_SHORT_N', pDescriber="Mid tree 3", pDoScaler=False),
+                         ATPNode(view=6654, noun='PINE_SHORT_N', pDescriber="Mid tree 4", pDoScaler=False),
+                         ATPNode(view=6658, noun='PINE_SHORT_N', pDescriber="Mid tree 5", pDoScaler=False),
+                         ATPNode(view=6659, noun='PINE_SHORT_N', pDescriber="Mid tree 6", pDoScaler=False),
+                         ATPNode(view=6662, noun='PINE_SHORT_N', pDescriber="Mid tree 7", pDoScaler=False),
+                         ATPNode(view=6664, noun='PINE_SHORT_N', pDescriber="Mid tree 8", pDoScaler=False),
+                         ATPNode(view=6665, noun='PINE_SHORT_N', pDescriber="Mid tree 9", pDoScaler=False),
+                         ATPNode(view=6666, noun='PINE_SHORT_N', pDescriber="Mid tree 10", pDoScaler=False),
+                         ATPNode(view=6667, noun='PINE_SHORT_N', pDescriber="Mid tree 11", pDoScaler=False),
+                         ATPNode(view=6668, noun='PINE_SHORT_N', pDescriber="Mid tree 12", pDoScaler=False),
+                         ATPNode(view=6669, noun='PINE_SHORT_N', pDescriber="Mid tree 13", pDoScaler=False),
+                         ATPNode(view=6670, noun='PINE_SHORT_N', pDescriber="Mid tree 14", pDoScaler=False),
+                         ATPNode(view=6670, noun='PINE_SHORT_N', pDescriber="Mid tree 15", pDoScaler=False)]
 
 for i, obj in enumerate(mySet):
     obj.pMsgFile = 101
@@ -1830,20 +1822,20 @@ for i, obj in enumerate(mySet):
     if not obj.pDescriber:
         obj.pDescriber = "Tree"
 
-SwampBack = mySet = [ATPNode(view=1140, noun='0', pDescriber="distant-Tree", pPolygon=-1, pDoScaler=False),
-                     ATPNode(view=6580, noun='0', pDescriber="Back spruce 1", pDoScaler=True),
-                     ATPNode(view=6581, noun='0', pDescriber="Back spruce 2", pDoScaler=True),
-                     ATPNode(view=6582, noun='0', pDescriber="Back spruce 3", pDoScaler=True),
-                     ATPNode(view=6629, noun='0', pDescriber="Swamp back", pDoScaler=True),
-                     ATPNode(view=6661, noun='0', pDescriber="Back trees", pDoScaler=True),
-                     ATPNode(view=6673, noun='0', pDescriber="Back tree 1", pDoScaler=True),
-                     ATPNode(view=6691, noun='PINE_SHORT_N', pDescriber="Back tree 2", pDoScaler=True),
-                     ATPNode(view=6692, noun='PINE_SHORT_N', pDescriber="Back tree 3", pDoScaler=True),
-                     ATPNode(view=6693, noun='PINE_SHORT_N', pDescriber="Back tree 4", pDoScaler=True),
-                     ATPNode(view=6695, noun='PINE_SHORT_N', pDescriber="Back tree 5", pDoScaler=True),
-                     ATPNode(view=6711, noun='PINE_SHORT_N', pDescriber="Back tree 6", pDoScaler=True),
-                     ATPNode(view=6711, noun='PINE_SHORT_N', pDescriber="Back tree 7", pDoScaler=True),
-                     ATPNode(view=6714, noun='PINE_SHORT_N', pDescriber="Background", pDoScaler=True)]
+SwampBack = mySet = [ATPNode(view=1140, noun='0', pDescriber="distant-Tree", pPolygon=-1),
+                     ATPNode(view=6580, noun='0', pDescriber="Back spruce 1", pDoScaler=False),
+                     ATPNode(view=6581, noun='0', pDescriber="Back spruce 2", pDoScaler=False),
+                     ATPNode(view=6582, noun='0', pDescriber="Back spruce 3", pDoScaler=False),
+                     ATPNode(view=6629, noun='0', pDescriber="Swamp back", pDoScaler=False),
+                     ATPNode(view=6661, noun='0', pDescriber="Back trees", pDoScaler=False),
+                     ATPNode(view=6673, noun='0', pDescriber="Back tree 1", pDoScaler=False),
+                     ATPNode(view=6691, noun='PINE_SHORT_N', pDescriber="Back tree 2", pDoScaler=False),
+                     ATPNode(view=6692, noun='PINE_SHORT_N', pDescriber="Back tree 3", pDoScaler=False),
+                     ATPNode(view=6693, noun='PINE_SHORT_N', pDescriber="Back tree 4", pDoScaler=False),
+                     ATPNode(view=6695, noun='PINE_SHORT_N', pDescriber="Back tree 5", pDoScaler=False),
+                     ATPNode(view=6711, noun='PINE_SHORT_N', pDescriber="Back tree 6", pDoScaler=False),
+                     ATPNode(view=6711, noun='PINE_SHORT_N', pDescriber="Back tree 7", pDoScaler=False),
+                     ATPNode(view=6714, noun='PINE_SHORT_N', pDescriber="Background", pDoScaler=False)]
 
 for i, obj in enumerate(mySet):
     obj.pMsgFile = 101
@@ -1852,13 +1844,13 @@ for i, obj in enumerate(mySet):
     if not obj.pDescriber:
         obj.pDescriber = "Tree"
 
-SwampForeTrees = mySet = [ATPNode(view=6641, noun='PINE_SHORT_N', pDescriber="Fore tree 1", pDoScaler=True),
-                          ATPNode(view=6642, noun='PINE_SHORT_N', pDescriber="Fore tree 2", pDoScaler=True),
-                          ATPNode(view=6643, noun='PINE_SHORT_N', pDescriber="Fore tree 3", pDoScaler=True),
-                          ATPNode(view=6645, noun='PINE_SHORT_N', pDescriber="Fore tree 4", pDoScaler=True),
-                          ATPNode(view=6647, noun='PINE_SHORT_N', pDescriber="Fore tree 5", pDoScaler=True),
-                          ATPNode(view=6648, noun='PINE_SHORT_N', pDescriber="Fore tree 6", pDoScaler=True),
-                          ATPNode(view=6650, noun='PINE_SHORT_N', pDescriber="Fore tree 7", pDoScaler=True)]
+SwampForeTrees = mySet = [ATPNode(view=6641, noun='PINE_SHORT_N', pDescriber="Fore tree 1", pDoScaler=False),
+                          ATPNode(view=6642, noun='PINE_SHORT_N', pDescriber="Fore tree 2", pDoScaler=False),
+                          ATPNode(view=6643, noun='PINE_SHORT_N', pDescriber="Fore tree 3", pDoScaler=False),
+                          ATPNode(view=6645, noun='PINE_SHORT_N', pDescriber="Fore tree 4", pDoScaler=False),
+                          ATPNode(view=6647, noun='PINE_SHORT_N', pDescriber="Fore tree 5", pDoScaler=False),
+                          ATPNode(view=6648, noun='PINE_SHORT_N', pDescriber="Fore tree 6", pDoScaler=False),
+                          ATPNode(view=6650, noun='PINE_SHORT_N', pDescriber="Fore tree 7", pDoScaler=False)]
 
 for i, obj in enumerate(mySet):
     obj.pMsgFile = 101
@@ -1867,16 +1859,16 @@ for i, obj in enumerate(mySet):
     if not obj.pDescriber:
         obj.pDescriber = "Tree"
 
-SwampMiscTrees = mySet = [ATPNode(view=6558, noun='PINE_SHORT_N', pDescriber="Dead tree 1", pDoScaler=True),
-                          ATPNode(view=6590, noun='PINE_SHORT_N', pDescriber="Tree 1", pDoScaler=True),
-                          ATPNode(view=6593, noun='PINE_SHORT_N', pDescriber="Tree 2", pDoScaler=True),
-                          ATPNode(view=6594, noun='PINE_SHORT_N', pDescriber="Tree clump 1", pDoScaler=True),
-                          ATPNode(view=6595, noun='PINE_SHORT_N', pDescriber="Tree 3", pDoScaler=True),
-                          ATPNode(view=6649, noun='PINE_SHORT_N', pDescriber="Tree right", pDoScaler=True),
-                          ATPNode(view=6663, noun='PINE_SHORT_N', pDescriber="Dead tree 2", pDoScaler=True),
-                          ATPNode(view=6664, noun='PINE_SHORT_N', pDescriber="Suess willow", pDoScaler=True),
-                          ATPNode(view=6665, noun='PINE_SHORT_N', pDescriber="Suess & mush", pDoScaler=True),
-                          ATPNode(view=6671, noun='PINE_SHORT_N', pDescriber="Tree clump 2", pDoScaler=True)]
+SwampMiscTrees = mySet = [ATPNode(view=6558, noun='PINE_SHORT_N', pDescriber="Dead tree 1", pDoScaler=False),
+                          ATPNode(view=6590, noun='PINE_SHORT_N', pDescriber="Tree 1", pDoScaler=False),
+                          ATPNode(view=6593, noun='PINE_SHORT_N', pDescriber="Tree 2", pDoScaler=False),
+                          ATPNode(view=6594, noun='PINE_SHORT_N', pDescriber="Tree clump 1", pDoScaler=False),
+                          ATPNode(view=6595, noun='PINE_SHORT_N', pDescriber="Tree 3", pDoScaler=False),
+                          ATPNode(view=6649, noun='PINE_SHORT_N', pDescriber="Tree right", pDoScaler=False),
+                          ATPNode(view=6663, noun='PINE_SHORT_N', pDescriber="Dead tree 2", pDoScaler=False),
+                          ATPNode(view=6664, noun='PINE_SHORT_N', pDescriber="Suess willow", pDoScaler=False),
+                          ATPNode(view=6665, noun='PINE_SHORT_N', pDescriber="Suess & mush", pDoScaler=False),
+                          ATPNode(view=6671, noun='PINE_SHORT_N', pDescriber="Tree clump 2", pDoScaler=False)]
 
 for i, obj in enumerate(mySet):
     obj.pMsgFile = 101

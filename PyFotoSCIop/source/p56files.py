@@ -1,5 +1,5 @@
-import os
 from struct import *
+import os
 
 from PyFotoSCIop.source.palette import Palette
 from PyFotoSCIop.source.scicell import Cell, CellHeader
@@ -166,6 +166,8 @@ class p56file32:
 
 
 if __name__ == '__main__':
+    import os
+
     for f in [x for x in os.listdir('../p56_files') if '.p56' in x]:
         print(f)
         p = p56file32('../p56_files/' + f)  # '../p56_files/3.p56')

@@ -36,7 +36,8 @@ pics = [PicInfo(picture=3000, roomtype='FOREST'), PicInfo(picture=3001, roomtype
         PicInfo(picture=3201, roomtype='HOUSE1', horizon=90, back_y=160, backsize=80, front_y=320, frontsize=80),
         PicInfo(picture=3300, roomtype='HOUSE1INT', horizon=90, back_y=160, backsize=80, front_y=320, frontsize=80),
         PicInfo(picture=3071, roomtype='DUNGEON', back_y=160, backsize=112, front_y=320, frontsize=112),
-        PicInfo(picture=6500, roomtype='SWAMP', horizon=130, back_y=1, backsize=80)]
+        PicInfo(picture=6500, roomtype='SWAMP', horizon=130, back_y=1, backsize=80),
+        PicInfo(picture=6501, roomtype='SWAMP')]
 
 global PIC_INFO
 PIC_INFO = {}

@@ -1,6 +1,8 @@
 import os
 
-procedure_keys = ['room', 'properties', 'atpinfo', 'objects', 'object', 'base', 'inventory', 'category', 'actions'] #, 'special']
+procedure_keys = ['room', 'properties', 'atpinfo', 'objects', 'object', 'base', 'inventory', 'category',
+                  'actions']  # , 'special']
+
 
 def parse_wld_data(input_data=None, parent=None):
     # Now process all the lines
@@ -11,7 +13,8 @@ def parse_wld_data(input_data=None, parent=None):
             if len(wld) == 0:
                 break
             if len(line) > 0:
-                if line[0] in procedure_keys and not (line[0] == 'object' and len(line) == 2) and parent != ['base', 'entry']:
+                if line[0] in procedure_keys and not (line[0] == 'object' and len(line) == 2) and parent != ['base',
+                                                                                                             'entry']:
                     wld, data = parse_wld_data(input_data=wld, parent=line)
                     data = [(''.join(line) if len(line) == 1 else ' '.join(line)), data]
                     # data.insert(0, (''.join(line) if len(line) == 1 else ' '.join(line)))
@@ -24,9 +27,8 @@ def parse_wld_data(input_data=None, parent=None):
                     break
             line, wld = get_next_line(wld)
     except Exception as e:
-        print (e)
+        print(e)
     return wld, data_list
-
 
 
 def get_next_line(wld):
@@ -54,14 +56,15 @@ def get_next_line(wld):
         line[first:second + 1] = [' '.join(line[first:second + 1]).replace('" ', '"').replace(' "', '"')]
     return line, wld
 
-def process_wld_file(filename):
 
+def process_wld_file(filename):
     with open(filename, 'r', encoding='utf8') as f:
         wld = f.readlines()
     if len(wld) == 0:
         print("WLD File is empty!")
     wld, parsed_wld_data = parse_wld_data(wld)
     return parsed_wld_data
+
 
 def create_room(room_list, parnet=None):
     room_dict = {}
@@ -92,6 +95,7 @@ def create_room(room_list, parnet=None):
             print(e)
     return room_dict
 
+
 def get_room(room_list):
     header = room_list[0]
     room_info = room_list[1]
@@ -101,7 +105,7 @@ def get_room(room_list):
 
 
 class Room:
-    def __init__(self, room_info: dict=None):
+    def __init__(self, room_info: dict = None):
         self.number = None
         self.picture = None
         self.properties = {}
@@ -172,14 +176,12 @@ class Room:
         data = ['{}\n'.format(x) for x in data]
         return data
 
-
     def reset(self):
         for im_id in self.active_views[:]:
             self.remove(im_id)
         for atp_obj in self.atpinfo + self.objects:
             atp_obj.reset()
         self.active_background = None
-
 
     def remove(self, instance_or_id):
         if isinstance(instance_or_id, int):
@@ -193,7 +195,7 @@ class Room:
 
     def set_properties(self, properties):
         props = {}
-        exits = {'north':None, 'east':None, 'south':None, 'west':None}
+        exits = {'north': None, 'east': None, 'south': None, 'west': None}
         for x in properties.keys():
             if x in exits.keys():
                 # TODO: sometimes an exit is recorded as a list of number. not usre what this means, but atm i only use the first number
@@ -211,7 +213,7 @@ class Room:
             obj_list = object_k.split()
             obj_name = obj_list[1]
             obj_class = obj_list[-1]
-            coords = [0,0]
+            coords = [0, 0]
             loop = 0
             properties = None
             bases = []
@@ -222,7 +224,7 @@ class Room:
                     if 'loop' in obj_v.keys():
                         loop = obj_v['loop']
                 if 'base' in obj_k:
-                    bases.append({obj_k:obj_v})
+                    bases.append({obj_k: obj_v})
             obj = WorldObject(obj_class, coords, obj_name, loop, properties, bases)
             object_list.append(obj)
         return object_list
@@ -230,17 +232,20 @@ class Room:
     def __repr__(self):
         return 'Room {}'.format(self.number)
 
+
 class World:
     """
     representation of The Realm Online's .WLD file, for representing world structure.
     """
+
     def __init__(self, filename=None, rooms=None):
-        self.name = filename[filename.rfind(os.sep)+1:]
+        self.name = filename[filename.rfind(os.sep) + 1:]
         if rooms is not None:
             self.rooms = rooms
         if filename is not None:
             parsed_world = process_wld_file(filename)
             self.rooms = [Room(get_room(r)) for r in parsed_world]
+
     @property
     def realm_representation(self):
         data = []
@@ -251,12 +256,13 @@ class World:
     def __repr__(self):
         return self.name
 
+
 class ATP:
     """
     contains id and coordinate of an ATP item for The Realm Online
     """
 
-    def __init__(self, atp_num: int, x: int=None, y: int=None, z: int = 0):
+    def __init__(self, atp_num: int, x: int = None, y: int = None, z: int = 0):
         """
         :param id: integer corresponding to an atp id
         :param coords: tuple of two integers, corresponding to the location of this atp object within a room.
@@ -265,7 +271,7 @@ class ATP:
         self.initial_coords = [None, None, None]
         self.im_id = None
         self.v56 = None
-        self.images = {'original_image': None, 'scaled_image':None, 'tk_image':None}
+        self.images = {'original_image': None, 'scaled_image': None, 'tk_image': None}
         self.canvas_coords = {'x': None, 'y': None}
         self.atp_num = int(atp_num)
         self.reference_atp_num = int((self.atp_num - 32768 if self.atp_num > 32768 else self.atp_num))
@@ -274,7 +280,6 @@ class ATP:
         self.x = (int(x) if x else None)
         self.y = (int(y) if y else None)
         self.z = (int(z) if z else 0)
-
 
     @property
     def mirror(self):
@@ -336,7 +341,9 @@ class ATP:
         self.z = self.initial_coords[2]
 
     def __repr__(self):
-        return 'ATP: {}{}'.format((self.atp_num - 32768 if self.atp_num > 32768 else self.atp_num), ('M' if self.atp_num > 32768 else ''))
+        return 'ATP: {}{}'.format((self.atp_num - 32768 if self.atp_num > 32768 else self.atp_num),
+                                  ('M' if self.atp_num > 32768 else ''))
+
 
 class WorldObject:
     """
@@ -355,7 +362,7 @@ class WorldObject:
         self.im_id = None
         self.v56 = None
         self.images = {'original_image': None, 'scaled_image': None, 'tk_image': None}
-        self.canvas_coords = {'x':None, 'y': None}
+        self.canvas_coords = {'x': None, 'y': None}
         self.initial_coords = [None, None, None]
         # Set loop
         self.loop = loop
@@ -422,7 +429,7 @@ class WorldObject:
     def realm_representation(self):
         data = []
         data.append('properties')
-        for k,v in self.properties.items():
+        for k, v in self.properties.items():
             if k in ['x', 'y', 'loop']:
                 new_v = getattr(self, k)
             elif k in ['mana', 'drop', 'special']:
@@ -466,7 +473,6 @@ class WorldObject:
                         continue
                     datum = '\t{} {}'.format(k, v)
 
-
                     data.append(datum)
             data.append('end')
         return data
@@ -480,11 +486,6 @@ class WorldObject:
         return "object {} of {}".format(self.name, self.object_class)
 
 
-
-
 if __name__ == '__main__':
-    import os
     f = 'C:\\Users\\caleb\\PycharmProjects\\World_Editor\\Resources\\World_Files\\Leineast.wld'
     world = World(f)
-    pass
-

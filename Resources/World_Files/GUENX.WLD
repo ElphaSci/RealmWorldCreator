@@ -620,7 +620,7 @@ room 5502
             name	Darjel
          end
          base talk
-            talkTreeID
+            talkTreeID err
          end
          base character
             properName	"Darjel (NPC)"

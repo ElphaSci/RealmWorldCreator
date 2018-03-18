@@ -222,8 +222,7 @@ room 6911
             loop	0
          end
          base described
-            text	"The harder the challenge,\nthe more glorious the victory.\nWhat is easily obtained,\nis often lightly esteeme"
-d."
+            text	"The harder the challenge,\nthe more glorious the victory.\nWhat is easily obtained,\nis often lightly esteemed."
          end
       end
       object torch6911-12 of Torch

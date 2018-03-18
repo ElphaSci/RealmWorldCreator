@@ -1,6 +1,6 @@
 import struct
 
-import numpy as np
+
 from PIL import Image
 
 from PyFotoSCIop.source.bmp import BITMAPINFO
@@ -213,40 +213,40 @@ class Cell:
 
     def get_pil_image(self, draw=False, transparent=True):
         if self._compression != 0:
-            ptags = list(self._image[:])
-            pdata = list(self._pack[:])
+            ptags = iter(self._image)
+            pdata = iter(self._pack)
             pal_data = self._palette._palData
             rgba_im = []
+            last_pal_entry = pal_data[255]
+            # this is typically the transparent color, if not, it will set that below
+            last_rgba = [last_pal_entry.red, last_pal_entry.green, last_pal_entry.blue, 0]
+            last_rgba_opaque = [last_pal_entry.red, last_pal_entry.green, last_pal_entry.blue, 255]
             for i in range(self._height):
                 cur_width = 0
                 while cur_width < self._width:
-                    switch = ptags.pop(0)
+                    switch = next(ptags)
                     if switch >> 6 == 2:
-                        color = pdata.pop(0)
-                        alpha = 255
-                        if color == self._skpColor and transparent:
-                            alpha = 0
+                        color = next(pdata)
                         pal_entry = pal_data[color]
-                        rgba = [pal_entry.red, pal_entry.green, pal_entry.blue, alpha]
-                        rgba_im += rgba * (switch - 0x80)
+                        if color == self._skpColor and transparent:
+                            rgba_im.extend([pal_entry.red, pal_entry.green, pal_entry.blue, 0] * (switch - 0x80) )
+                        else:
+                            rgba_im.extend([pal_entry.red, pal_entry.green, pal_entry.blue, 255] * (switch - 0x80) )
                         cur_width += switch - 0x80
                     elif switch >> 6 == 3:
-                        alpha = 255
-                        if 255 == self._skpColor and transparent:
-                            alpha = 0
-                        pal_entry = pal_data[255]
-                        rgba = [pal_entry.red, pal_entry.green, pal_entry.blue, alpha]
-                        rgba_im += rgba * (switch - 0xC0)
+                        if 255 != self._skpColor or not transparent:
+                            rgba_im.extend(last_rgba_opaque * (switch - 0xC0))
+                        else:
+                            rgba_im.extend(last_rgba * (switch - 0xC0))
                         cur_width += switch - 0xC0
                     else:
-                        for col in pdata[:switch]:
-                            alpha = 255
-                            if col == self._skpColor and transparent:
-                                alpha = 0
+                        for j in range(switch):
+                            col = next(pdata)
                             pal_entry = pal_data[col]
-                            rgba = [pal_entry.red, pal_entry.green, pal_entry.blue, alpha]
-                            rgba_im += rgba
-                        pdata = pdata[switch:]
+                            if col == self._skpColor and transparent:
+                                rgba_im.extend([pal_entry.red, pal_entry.green, pal_entry.blue, 0])
+                            else:
+                                rgba_im.extend([pal_entry.red, pal_entry.green, pal_entry.blue, 255])
                         cur_width += switch
             pil_im = Image.frombuffer('RGBA', (self._width, self._height), bytes(rgba_im), 'raw', 'RGBA', 0, 1)
             if draw:
@@ -272,12 +272,16 @@ class Cell:
             return pil_im
 
     def displayPalette(self, draw=True):
+        # TODO: This has been changed, so it doesn't require numpy
+        # however, it isn't used atm, so I have not tested it since it's been changed
         flat_rgb_list = [[x.red, x.green, x.blue] for x in self._palette._palData]
-        flat_rgb_array = np.array(flat_rgb_list, dtype='uint8')
-        shaped_rgb_array = flat_rgb_array.reshape((16, 16, 3))
+        rgba_im = []
+        for x in flat_rgb_list:
+            rgba_im.extend(x)
+        pil_im = Image.frombuffer('RGB', (16, 16), bytes(rgba_im), 'raw', 'RGB', 0, 1)
         if draw:
             import matplotlib.pyplot as plt
-            plt.imshow(shaped_rgb_array, interpolation='none')
+            plt.imshow(pil_im, interpolation='none')
             plt.show()
         else:
-            return shaped_rgb_array
+            return pil_im

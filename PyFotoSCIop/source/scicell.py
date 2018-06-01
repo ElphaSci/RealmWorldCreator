@@ -135,14 +135,11 @@ class Cell:
         self._flags = cell_header.flags
 
         if isView:
-            self._zDepth = 0
-            self._xPos = 0
-            self._yPos = 0
+            self._zDepth, self._xPos, self._yPos = 0, 0, 0
         else:
             self._zDepth = cell_header.zDepth
             self._xPos = cell_header.xPos
             self._yPos = cell_header.yPos
-
         if self._compression:
             self._imageSize = cell_header.imageSize
             self._packSize = cell_header.imageandPackSize - self._imageSize
@@ -151,48 +148,11 @@ class Cell:
             self._packSize = 0
 
     def get_pil_image(self, draw=False, transparent=True):
-        if self._compression != 0:
-            ptags = iter(self._image)
-            pdata = iter(self._pack)
-            pal_data = self._palette._palData
-            rgba_im = []
-            last_pal_entry = pal_data[255]
-            # this is typically the transparent color, if not, it will set that below
-            last_rgba = [last_pal_entry.red, last_pal_entry.green, last_pal_entry.blue, 0]
-            last_rgba_opaque = [last_pal_entry.red, last_pal_entry.green, last_pal_entry.blue, 255]
-            for i in range(self._height):
-                cur_width = 0
-                while cur_width < self._width:
-                    switch = next(ptags)
-                    if switch >> 6 == 2:
-                        color = next(pdata)
-                        pal_entry = pal_data[color]
-                        if color == self._skpColor and transparent:
-                            rgba_im.extend([pal_entry.red, pal_entry.green, pal_entry.blue, 0] * (switch - 0x80))
-                        else:
-                            rgba_im.extend([pal_entry.red, pal_entry.green, pal_entry.blue, 255] * (switch - 0x80))
-                        cur_width += switch - 0x80
-                    elif switch >> 6 == 3:
-                        if 255 != self._skpColor or not transparent:
-                            rgba_im.extend(last_rgba_opaque * (switch - 0xC0))
-                        else:
-                            rgba_im.extend(last_rgba * (switch - 0xC0))
-                        cur_width += switch - 0xC0
-                    else:
-                        for j in range(switch):
-                            col = next(pdata)
-                            pal_entry = pal_data[col]
-                            if col == self._skpColor and transparent:
-                                rgba_im.extend([pal_entry.red, pal_entry.green, pal_entry.blue, 0])
-                            else:
-                                rgba_im.extend([pal_entry.red, pal_entry.green, pal_entry.blue, 255])
-                        cur_width += switch
+        if self._compression:
+            rgba_im = self.decompress_image(transparent)
             pil_im = Image.frombuffer('RGBA', (self._width, self._height), bytes(rgba_im), 'raw', 'RGBA', 0, 1)
-            if draw:
-                import matplotlib.pyplot as plt
-                plt.imshow(pil_im, interpolation='none')
-                plt.show()
-            return pil_im
+            if not draw:
+                return pil_im
         else:
             image = self._image
             pal_data = self._palette._palData
@@ -204,11 +164,49 @@ class Cell:
                 rgba_im += color
             width = int(len(rgba_im) / (self._height * 4))
             pil_im = Image.frombuffer('RGBA', (width, self._height), bytes(rgba_im), 'raw', 'RGBA', 0, 1)
-            if draw:
-                import matplotlib.pyplot as plt
-                plt.imshow(pil_im, interpolation='none')
-                plt.show()
-            return pil_im
+            if not draw:
+                return pil_im
+        import matplotlib.pyplot as plt
+        plt.imshow(pil_im, interpolation='none')
+        plt.show()
+
+    def decompress_image(self, transparent):
+        ptags = iter(self._image)
+        pdata = iter(self._pack)
+        pal_data = self._palette._palData
+        rgba_im = []
+        last_pal_entry = pal_data[255]
+        # this is typically the transparent color, if not, it will set that below
+        last_rgba = [last_pal_entry.red, last_pal_entry.green, last_pal_entry.blue, 0]
+        last_rgba_opaque = [last_pal_entry.red, last_pal_entry.green, last_pal_entry.blue, 255]
+        for i in range(self._height):
+            cur_width = 0
+            while cur_width < self._width:
+                switch = next(ptags)
+                if switch >> 6 == 2:
+                    color = next(pdata)
+                    pal_entry = pal_data[color]
+                    if color == self._skpColor and transparent:
+                        rgba_im.extend([pal_entry.red, pal_entry.green, pal_entry.blue, 0] * (switch - 0x80))
+                    else:
+                        rgba_im.extend([pal_entry.red, pal_entry.green, pal_entry.blue, 255] * (switch - 0x80))
+                    cur_width += switch - 0x80
+                elif switch >> 6 == 3:
+                    if 255 != self._skpColor or not transparent:
+                        rgba_im.extend(last_rgba_opaque * (switch - 0xC0))
+                    else:
+                        rgba_im.extend(last_rgba * (switch - 0xC0))
+                    cur_width += switch - 0xC0
+                else:
+                    for j in range(switch):
+                        col = next(pdata)
+                        pal_entry = pal_data[col]
+                        if col == self._skpColor and transparent:
+                            rgba_im.extend([pal_entry.red, pal_entry.green, pal_entry.blue, 0])
+                        else:
+                            rgba_im.extend([pal_entry.red, pal_entry.green, pal_entry.blue, 255])
+                    cur_width += switch
+        return rgba_im
 
     def displayPalette(self, draw=True):
         # TODO: This has been changed, so it doesn't require numpy

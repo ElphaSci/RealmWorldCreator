@@ -1,6 +1,7 @@
 import os
 import struct
 import sys
+
 sys.path.append('../../')
 
 from PyFotoSCIop.source.palette import Palette
@@ -13,41 +14,23 @@ V56PATCH84 = 0x008480
 
 class V56HEAD:
     def __init__(self, binary_data=None, offset=0):
-        self.LoopTblOff = None  # unsigned short
-        self.LoopCount = None  # unsigned char
-        self.Unk1 = None  # char
-        self.Compressed = None  # bool
-        self.ViewSize = None  # char
-        self.CellsCount = None  # unsigned short
-        self.PalOffset = None  # unsigned long
-        self.LoopRecSize = None  # unsigned char
-        self.CellRecSize = None  # unsigned char
-        self.ResolutionX = None  # unsigned short
-        self.ResolutionY = None  # unsigned short
+        self._attribute_fields = ["LoopTblOff", "LoopCount", "Unk1", "Compressed", "ViewSize", "CellsCount",
+                                  "PalOffset", "LoopRecSize", "CellRecSize", "ResolutionX", "ResolutionY"]
 
-        self.format = 'HBb?BHIBBHH'
+        self._format = 'HBb?BHIBBHH'
         if binary_data:
             self.unpack(binary_data, offset)
 
     def size(self):
-        return struct.calcsize(self.format)
+        return struct.calcsize(self._format)
 
     def unpack(self, binary_data, offset=0):
         start = offset
         end = start + self.size()
         binary_slice = binary_data[start:end]
-        args = struct.unpack(self.format, binary_slice)
-        self.LoopTblOff = args[0]
-        self.LoopCount = args[1]
-        self.Unk1 = args[2]
-        self.Compressed = args[3]
-        self.ViewSize = args[4]
-        self.CellsCount = args[5]
-        self.PalOffset = args[6]
-        self.LoopRecSize = args[7]
-        self.CellRecSize = args[8]
-        self.ResolutionX = args[9]
-        self.ResolutionY = args[10]
+        args = struct.unpack(self._format, binary_slice)
+        for i,x in enumerate(self._attribute_fields):
+            self.__setattr__(x, args[i])
 
 
 class V56file:
@@ -163,10 +146,11 @@ class V56file:
 
 if __name__ == '__main__':
     from sys import argv
+
     files = [os.path.join(argv[1], x) for x in os.listdir(argv[1])]
     for file_name in files:
-        loop = 0 #(0 if len(argv) < 3 else int(argv[2]))
-        cell = 0 #(0 if len(argv) < 4 else int(argv[3]))
+        loop = 0  # (0 if len(argv) < 3 else int(argv[2]))
+        cell = 0  # (0 if len(argv) < 4 else int(argv[3]))
         v = V56file(file_name)
         # TODO: handle _basedOnLoop and _mirror
         sci_loop = v._loops[loop]

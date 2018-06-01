@@ -1,6 +1,5 @@
 import struct
 
-
 from PIL import Image
 
 from PyFotoSCIop.source.bmp import BITMAPINFO
@@ -9,24 +8,9 @@ from PyFotoSCIop.source.palette import Palette
 
 class CellHeader:
     def __init__(self, binary_data=None, offset=0):
-        self.width = None  # short
-        self.height = None  # short
-        self.xShift = None  # short
-        self.yShift = None  # short
-        self.transparentClr = None  # char
-        self.compression = None  # char
-        self.flags = None  # short
-        self.imageandPackSize = None  # unsigned long
-        self.imageSize = None  # unsigned long
-        self.paletteOffs = None  # unsigned long
-
-        # IMPORTANT WHEN EDITING OR LOADING CHECK IF != 0
-        self.imageOffs = None  # unsigned long
-        self.packDataOffs = None  # unsigned long
-        self.linesOffs = None  # unsigned long
-        self.zDepth = None  # short
-        self.xPos = None  # short
-        self.yPos = None  # short
+        self._attribute_fields = ["width", "height", "xShift", "yShift", "transparentClr", "compression", "flags",
+                                  "imageandPackSize", "imageSize", "paletteOffs", "imageOffs", "packDataOffs",
+                                  "linesOffs", "zDepth", "xPos", "yPos"]
 
         # format to use to unpack this data from bytes:
         # TODO: Test this, I use unsigned int here, even though c++ struct used ulong. I think uint is right.
@@ -43,48 +27,18 @@ class CellHeader:
         start_idx = offset
         end_idx = offset + self.size()
         args = struct.unpack(self.format, binary_data[start_idx:end_idx])
-        self.width = args[0]
-        self.height = args[1]
-        self.xShift = args[2]
-        self.yShift = args[3]
-        self.transparentClr = args[4]
-        self.compression = args[5]
-        self.flags = args[6]
-        self.imageandPackSize = args[7]
-        self.imageSize = args[8]
-        self.paletteOffs = args[9]
-
-        # IMPORTANT WHEN EDITING args
-        self.imageOffs = args[10]
-        self.packDataOffs = args[11]
-        self.linesOffs = args[12]
-        self.zDepth = args[13]
-        self.xPos = args[14]
-        self.yPos = args[15]
-        pass
+        for attr, val in zip(self._attribute_fields, args):
+            self.__setattr__(attr, val)
 
 
 class ViewCellHeader:
     def __init__(self, binary_data=None, offset=0):
-        self.width = None  # short
-        self.height = None  # short
-        self.xShift = None  # short
-        self.yShift = None  # short
-        self.transparentClr = None  # char
-        self.compression = None  # char
-        self.flags = None  # short
-        self.imageandPackSize = None  # unsigned long
-        self.imageSize = None  # unsigned long
-        self.paletteOffs = None  # unsigned long
-
-        # IMPORTANT WHEN EDITING OR LOADING CHECK IF != 0
-        self.imageOffs = None  # unsigned long
-        self.packDataOffs = None  # unsigned long
-        self.linesOffs = None  # unsigned long
+        self._attribute_fields = ["width", "height", "xShift", "yShift", "transparentClr", "compression", "flags",
+                                  "imageandPackSize", "imageSize", "paletteOffs", "imageOffs", "packDataOffs",
+                                  "linesOffs"]
 
         # format to use to unpack this data from bytes:
         # TODO: Test this, I use unsigned int here, even though c++ struct used ulong. I think uint is right.
-        # self.format = 'hhhhbbhIIIIII'
         self.format = '4h2Bh6I'
 
         if binary_data is not None:
@@ -97,23 +51,8 @@ class ViewCellHeader:
         start_idx = offset
         end_idx = offset + self.size()
         args = struct.unpack(self.format, binary_data[start_idx:end_idx])
-        self.width = args[0]
-        self.height = args[1]
-        self.xShift = args[2]
-        self.yShift = args[3]
-        self.transparentClr = args[4]
-        self.compression = args[5]
-        self.flags = args[6]
-        self.imageandPackSize = args[7]
-        self.imageSize = args[8]
-        self.paletteOffs = args[9]
-
-        # IMPORTANT WHEN EDITING args
-        self.imageOffs = args[10]
-        self.packDataOffs = args[11]
-        self.linesOffs = args[12]
-        # self.zDepth = args[13]
-
+        for attr, val in zip(self._attribute_fields, args):
+            self.__setattr__(attr, val)
 
 class Cell:
     def __init__(self):
@@ -229,9 +168,9 @@ class Cell:
                         color = next(pdata)
                         pal_entry = pal_data[color]
                         if color == self._skpColor and transparent:
-                            rgba_im.extend([pal_entry.red, pal_entry.green, pal_entry.blue, 0] * (switch - 0x80) )
+                            rgba_im.extend([pal_entry.red, pal_entry.green, pal_entry.blue, 0] * (switch - 0x80))
                         else:
-                            rgba_im.extend([pal_entry.red, pal_entry.green, pal_entry.blue, 255] * (switch - 0x80) )
+                            rgba_im.extend([pal_entry.red, pal_entry.green, pal_entry.blue, 255] * (switch - 0x80))
                         cur_width += switch - 0x80
                     elif switch >> 6 == 3:
                         if 255 != self._skpColor or not transparent:

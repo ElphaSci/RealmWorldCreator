@@ -1,3 +1,4 @@
 ```mermaid
-does->this->work?
+does->this
+this->->work?
 ```

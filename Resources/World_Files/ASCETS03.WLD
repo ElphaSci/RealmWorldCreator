@@ -1326,6 +1326,7 @@ end
 room 21132
    properties
       picture	3404
+      east	10355
       south	21136 
       west	21131 
       flags	2
@@ -1346,6 +1347,8 @@ end
 room 21137
    properties
       picture	3405
+      north	10355
+      east	10366
       south	21142 
       west	21136 
    end
@@ -1382,6 +1385,7 @@ end
 room 21143
    properties
       picture	3405
+      north	10366
       south	21200 
       east	21144 
       west	21142 
@@ -1418,6 +1422,8 @@ end
 room 21144
    properties
       picture	3405
+      north	10367
+      east	10376
       south	21201 
       west	21143 
       flags	2

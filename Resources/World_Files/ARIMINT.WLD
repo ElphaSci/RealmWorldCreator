@@ -699,7 +699,7 @@ room 6813
             title	"the owner"
          end
          base shop
-            buyMarkup	50
+            buyMarkup	40
             sellMarkup	100
          end
          base container
@@ -1199,7 +1199,7 @@ room 6800
             properName	"Aldonzo (NPC)"
          end
          base shop
-            buyMarkup	50
+            buyMarkup	40
             sellMarkup	100
          end
          base container

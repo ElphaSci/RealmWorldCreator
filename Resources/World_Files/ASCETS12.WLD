@@ -203,6 +203,7 @@ room 21581
       picture	3405
       north	21575 
       south	21586 
+      east	10722
       west	21580 
       flags	2
    end
@@ -323,7 +324,9 @@ end
 room 21587
    properties
       picture	3404
+      north	10722
       south	21593 
+      east	10725
       west	21586 
       flags	2
    end
@@ -409,6 +412,7 @@ end
 room 21599
    properties
       picture	3405
+      north	10727
       south	21905 
       west	21598 
    end
@@ -1196,6 +1200,7 @@ room 21575
       picture	3405
       north	21569 
       south	21581 
+      east	10718
       west	21574 
    end
    atpinfo
@@ -2381,7 +2386,9 @@ end
 room 21569
    properties
       picture	3404
+      north	10708
       south	21575 
+      east	10714
       west	21568 
       flags	2
    end
@@ -2685,6 +2692,7 @@ room 21593
       picture	3405
       north	21587 
       south	21598 
+      east	10727
       west	21592 
    end
    atpinfo
@@ -2731,7 +2739,9 @@ end
 room 21553
    properties
       picture	3405
+      north	10681
       south	21557 
+      east	10692
       west	21552 
    end
    atpinfo
@@ -2772,7 +2782,9 @@ end
 room 21558
    properties
       picture	3405
+      north	10692
       south	21563 
+      east	10701
       west	21557 
    end
    atpinfo
@@ -2828,6 +2840,7 @@ room 21563
       picture	3404
       north	21558 
       south	21568 
+      east	10708
       west	21562 
    end
    atpinfo

@@ -2610,7 +2610,7 @@ room 72046
 			base described
 			end
 		end
-		object RandomMegaTreasure-72046-16 of RandomMegaTreasure
+		object DungeonTreasure-72046-16 of DungeonTreasure
 			properties
 				x	-200
 				y	-200

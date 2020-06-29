@@ -1,6 +1,5 @@
 import struct
 
-
 from PIL import Image
 
 from PyFotoSCIop.source.bmp import BITMAPINFO
@@ -22,9 +21,9 @@ class CellHeader:
 
         # IMPORTANT WHEN EDITING OR LOADING CHECK IF != 0
         self.imageOffs = None  # unsigned long
-        self.packDataOffs = None  # unsigned long
-        self.linesOffs = None  # unsigned long
-        self.zDepth = None  # short
+        self.packDataOffs = None  # unsigned long; color offset?
+        self.linesOffs = None  # unsigned long; row table offest?
+        self.zDepth = None  # short; priority?
         self.xPos = None  # short
         self.yPos = None  # short
 
@@ -66,6 +65,7 @@ class CellHeader:
 
 class ViewCellHeader:
     def __init__(self, binary_data=None, offset=0):
+        self.cellOffset = None
         self.width = None  # short
         self.height = None  # short
         self.xShift = None  # short
@@ -81,11 +81,13 @@ class ViewCellHeader:
         self.imageOffs = None  # unsigned long
         self.packDataOffs = None  # unsigned long
         self.linesOffs = None  # unsigned long
+        self.linkTableOffset = None  # Int32
+        self.linkNumber = None  # UInt16
 
         # format to use to unpack this data from bytes:
         # TODO: Test this, I use unsigned int here, even though c++ struct used ulong. I think uint is right.
         # self.format = 'hhhhbbhIIIIII'
-        self.format = '4h2Bh6I'
+        self.format = '4h2Bh6IIh'
 
         if binary_data is not None:
             self.unpack(binary_data, offset)
@@ -94,6 +96,7 @@ class ViewCellHeader:
         return struct.calcsize(self.format)
 
     def unpack(self, binary_data, offset=0):
+        self.cellOffset = offset
         start_idx = offset
         end_idx = offset + self.size()
         args = struct.unpack(self.format, binary_data[start_idx:end_idx])
@@ -112,11 +115,15 @@ class ViewCellHeader:
         self.imageOffs = args[10]
         self.packDataOffs = args[11]
         self.linesOffs = args[12]
-        # self.zDepth = args[13]
+        self.linkTableOffset = args[13]
+        self.linkNumber = args[14]
+        pass
 
 
 class Cell:
     def __init__(self):
+        self._links = []
+        self.header: ViewCellHeader = None
         self._width = None  # ushort
         self._height = None  # ushort
         self._left = None  # short
@@ -138,6 +145,23 @@ class Cell:
         self._palette = Palette()
         self.new_cell = None  # CellHeader
         self.old_cell = None  # ViewCellHeader
+
+    def setLinks(self, links):
+        self._links = links
+
+    def serialize(self) -> dict:
+        info = {}
+        info["width"] = self._width
+        info["height"] = self._height
+        info["left"] = self._left
+        info["top"] = self._top
+        info["transparentPalIdx"] = self._skpColor
+        info["zDepth"] = self._zDepth
+        info["xPos"] = self._xPos
+        info["yPos"] = self._yPos
+        if len(self._links) > 0:
+            info['links'] = self._links
+        return info
 
     def union(self, new_cell_header, old_cell_header):
         self.new_cell = new_cell_header
@@ -182,7 +206,8 @@ class Cell:
             self._cachedHeader = None
             self._cached = None
 
-    def LoadCell(self, cell_header, image, pack, lines, isView):
+    def LoadCell(self, cell_header: ViewCellHeader, image, pack, lines, isView):
+        self.header = cell_header
         self._image = image
         self._pack = pack
         self._lines = lines
@@ -211,7 +236,7 @@ class Cell:
             self._imageSize = cell_header.height * cell_header.width
             self._packSize = 0
 
-    def get_pil_image(self, draw=False, transparent=True):
+    def get_pil_image(self, draw=False, transparent=True) -> Image:
         if self._compression != 0:
             ptags = iter(self._image)
             pdata = iter(self._pack)
@@ -229,9 +254,9 @@ class Cell:
                         color = next(pdata)
                         pal_entry = pal_data[color]
                         if color == self._skpColor and transparent:
-                            rgba_im.extend([pal_entry.red, pal_entry.green, pal_entry.blue, 0] * (switch - 0x80) )
+                            rgba_im.extend([pal_entry.red, pal_entry.green, pal_entry.blue, 0] * (switch - 0x80))
                         else:
-                            rgba_im.extend([pal_entry.red, pal_entry.green, pal_entry.blue, 255] * (switch - 0x80) )
+                            rgba_im.extend([pal_entry.red, pal_entry.green, pal_entry.blue, 255] * (switch - 0x80))
                         cur_width += switch - 0x80
                     elif switch >> 6 == 3:
                         if 255 != self._skpColor or not transparent:

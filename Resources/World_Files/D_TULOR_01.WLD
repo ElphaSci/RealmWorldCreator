@@ -1739,7 +1739,7 @@ room 85313
 			base described
 			end
 		end
-		object RandomMonsterBauble-85313-41 of RandomMonsterBauble
+		object DungeonTreasure-85313-41 of DungeonTreasure
 			properties
 				x	-200
 				y	-200

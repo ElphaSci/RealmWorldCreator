@@ -95,10 +95,10 @@ room 6013
             title	"the Bartender"
          end
          base talk
-            talkTreeID	6013
+                talkTreeID 6013
          end
          base shop
-            buyMarkup	50
+            buyMarkup	40
             sellMarkup	100
          end
          base container

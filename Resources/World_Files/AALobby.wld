@@ -190,6 +190,9 @@ room 98000
             sex	0
             properName	"Tooch (NPC)"
          end
+         base talk
+		      talkTreeID	99599
+	      end
          base container
             worn	maInvulPlate
             worn	BlackPants

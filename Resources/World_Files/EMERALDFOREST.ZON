@@ -4,6 +4,7 @@ worldFile "../data/lib/world/EMFOR1.WLD"
 worldFile "../data/lib/world/EMFOR2.WLD"
 worldFile "../data/lib/world/EMFOR3.WLD"
 worldFile "../data/lib/world/EMFOR4.WLD"
+worldFile "../data/lib/world/EMFOR5.WLD"
 resetInterval 9000000 
 maximumObjectAge 0 
 allowCombat 3

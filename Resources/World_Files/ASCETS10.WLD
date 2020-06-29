@@ -1984,6 +1984,7 @@ room 21495
    properties
       picture	3405
       north	21491 
+      south	5806
       east	21496 
       west	5802 
    end

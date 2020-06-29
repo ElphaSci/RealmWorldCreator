@@ -4568,7 +4568,7 @@ room 78127
 			base described
 			end
 		end
-		object RandomArmorShirt-78127-9 of RandomArmorShirt
+		object DungeonTreasure-78127-9 of DungeonTreasure
 			properties
 				x	-200
 				y	-200

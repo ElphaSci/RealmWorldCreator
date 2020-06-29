@@ -1040,6 +1040,7 @@ room 9232
    properties
       picture	3001
       north	9226 
+      south	29000
       east	9233 
       west	9231 
       flags	2
@@ -1103,6 +1104,7 @@ room 9233
    properties
       picture	3001
       north	9227 
+      south	29001
       east	9234 
       west	9232 
    end
@@ -1156,6 +1158,7 @@ room 9234
    properties
       picture	3001
       north	9228 
+      south	29002
       east	9235 
       west	9233 
       flags	2
@@ -1662,7 +1665,8 @@ end
 room 9235
    properties
       picture	3001
-      north	9229 
+      north	9229
+      south	29003
       east	9330 
       west	9234 
    end

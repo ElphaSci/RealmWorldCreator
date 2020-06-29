@@ -1,5 +1,9 @@
 import os
 from struct import *
+from os.path import realpath
+
+import PIL
+from PIL.Image import Image
 
 from PyFotoSCIop.source.palette import Palette
 from PyFotoSCIop.source.scicell import Cell, CellHeader
@@ -160,15 +164,31 @@ class p56file32:
                         print("Compressed! Do This!")
                         pass
                     temp_cell = Cell()
+                    temp_cell.header = cellHeader
                     temp_cell.setPalette(self._palSCI)
                     temp_cell.LoadCell(cellHeader, im, pk, ln, False)
                     self._cells[i] = temp_cell
 
 
 if __name__ == '__main__':
-    for f in [x for x in os.listdir('../p56_files') if '.p56' in x]:
-        print(f)
-        p = p56file32('../p56_files/' + f)  # '../p56_files/3.p56')
+    in_dir = '../../Resources/56_Files'
+    out_dir = '../../Resources/pictures'
+    import json
+    try:
+        os.mkdir(realpath(out_dir))
+    except FileExistsError:
+        pass
+    for f in [x for x in os.listdir(in_dir) if x.lower().endswith('.p56')]:
+        p : p56file32 = p56file32(f"{in_dir}/{f}")
         c = p._cells[0]
-        c.get_pil_image(draw=True)
-        #     c.displayPalette()
+        info = {"cells": {}}
+        info['cells'][0] = c.serialize()
+        cell_info = info['cells'][0]
+        cell_info['spriteX'] = 0
+        cell_info['spriteY'] = 0
+        img : Image = c.get_pil_image(draw=False)
+        img.save(f"{out_dir}/{f[:f.find('.p56')]}.png")
+        pal : Image = c.displayPalette(False)
+        pal.save(f"{out_dir}/{f[:f.find('.p56')]}_pal.png")
+        with open(f"{out_dir}/{f[:f.find('.p56')]}.json", "w") as json_out:
+            json.dump(info, json_out, indent=2)

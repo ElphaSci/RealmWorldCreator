@@ -1,9 +1,9 @@
 name "mines02"
-title "I Me Mine"
+title "I Me Mines"
 worldFile "../data/lib/world/mine02.wld"
-resetInterval 1000000 
-maximumObjectAge 0 
 allowCombat 3
-midiFile 29
 isDungeon 1
 entrance movingRock12407-0
+midiFile 29
+groupChance 30
+

@@ -1331,7 +1331,7 @@ room 86081
 			base described
 			end
 		end
-		object RandomMonsterMegaTreasure-86081-7 of RandomMonsterMegaTreasure
+		object RandomNewGear-86081-7 of RandomNewGear
 			properties
 				x	-200
 				y	-200
@@ -1355,7 +1355,7 @@ room 86081
 			base described
 			end
 		end
-		object RandomMegaMoney-86081-9 of RandomMegaMoney
+		object RandomNewGear-86081-9 of RandomNewGear
 			properties
 				x	-200
 				y	-200

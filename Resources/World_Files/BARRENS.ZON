@@ -19,6 +19,10 @@ monster EarthElemental 10
 monster FireElemental 10
 monster Kilrog 100
 monster PaladinB 230
+monster nDragonWizA 75
+monster nDragonWizB 75
+monster nDragonWizC 50
+monster nDragonWizD 50
 monster WardenHA11 50
 monster WaterElemental 10
 monsterGroup 4 2 Kilrog 1 DaemonKing

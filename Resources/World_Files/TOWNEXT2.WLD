@@ -646,7 +646,7 @@ room 5028
             properName	"Reginald (NPC)"
          end
          base shop
-            buyMarkup	50
+            buyMarkup	40
             sellMarkup	100
          end
          base described

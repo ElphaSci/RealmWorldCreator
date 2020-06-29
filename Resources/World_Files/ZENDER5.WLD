@@ -1825,6 +1825,7 @@ room 4380
    properties
       picture	3001
       north	4372 
+#      south	29141
       east	4381 
       west	4379 
       flags	2
@@ -2407,6 +2408,7 @@ room 4381
    properties
       picture	3001
       north	4373 
+#      south	29142
       east	4382 
       west	4380 
    end
@@ -2512,6 +2514,7 @@ room 4350
    properties
       picture	3001
       north	4193 
+      south	5100
       east	4351 
       west	4306 
    end
@@ -2606,6 +2609,9 @@ end
 room 4382
    properties
       picture	3001
+      north	29130
+#      south	29143
+#      east	29140
       west	4381 
       flags	2
    end
@@ -2682,6 +2688,7 @@ room 4373
       picture	3001
       north	4367 
       south	4381 
+      east	29130
       west	4372 
       flags	2
    end
@@ -2751,6 +2758,7 @@ room 4367
       picture	3001
       north	4361 
       south	4373 
+      east	29120
       west	4366 
    end
    atpinfo
@@ -2807,6 +2815,7 @@ room 4361
       picture	3001
       north	4247 
       south	4367 
+      east	29110
       west	4360 
       flags	2
    end

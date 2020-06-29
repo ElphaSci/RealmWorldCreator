@@ -2184,7 +2184,7 @@ room 76567
 			base described
 			end
 		end
-		object RandomWand-76567-6 of RandomWand
+		object DungeonTreasure-76567-6 of DungeonTreasure
 			properties
 				x	-200
 				y	-200
@@ -2416,7 +2416,7 @@ room 76548
 			base described
 			end
 		end
-		object RandomJunk-76548-7 of RandomJunk
+		object DungeonTreasure-76548-7 of DungeonTreasure
 			properties
 				x	-200
 				y	-200

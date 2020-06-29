@@ -7,9 +7,9 @@ global ATP_CATEGORIES
 class ATPNode:
     def __init__(self, number=0, roomType=0, noun='', view=0, pCategory=0, pDescriber='', x=0, y=0, z=0, pPolygon=0,
                  pDoScaler=None, priority=0, pVersion=1, pPlacement=0, pUncommon=0, pMsgFile=0):
-        attributes = ['number', 'roomType', 'noun', 'view', 'pCategory', 'pDescriber', 'x', 'y', 'z', 'pPolygon',
-                      'pDoScaler', 'priority', 'pVersion', 'pPlacement', 'pUncommon', 'pMsgFile']
-        for attr in attributes:
+        self.attributes = ['number', 'roomType', 'noun', 'view', 'pCategory', 'pDescriber', 'x', 'y', 'z', 'pPolygon',
+                           'pDoScaler', 'priority', 'pVersion', 'pPlacement', 'pUncommon', 'pMsgFile']
+        for attr in self.attributes:
             if attr == 'pDoScaler' and eval('roomType') != 0 and eval(attr) is None:
                 setattr(self, attr, True)
                 continue
@@ -29,6 +29,7 @@ class ATPNode:
         if self.pDoScaler is None:
             self.pDoScaler = not roomType in ['TOWN1INT', 'TOWN1', 'HOUSE', 'HOUSE1INT']
         self.roomType = roomType
+
 
 class Region(dict):
     def __init__(self, name, atp_categories):
@@ -1124,7 +1125,8 @@ for i, obj in enumerate(mySet):
 if not obj.pDescriber:
     obj.pDescriber = "Sign"
 
-Town1Shops = mySet = [ATPNode(view=1085, noun='CART_N', pDescriber="Cart", pDoScaler=True), # elpha - added pDoScaler=True
+Town1Shops = mySet = [ATPNode(view=1085, noun='CART_N', pDescriber="Cart", pDoScaler=True),
+                      # elpha - added pDoScaler=True
                       ATPNode(view=1086, noun='CART_STUFF_N', pDescriber="Food on Cart"),
                       ATPNode(view=3101, noun='COUNTER_T1_N', pDescriber="Counter-long-Dk"),
                       ATPNode(view=3102, noun='COUNTER_T1_N', pDescriber="Counter-long-Lt"),
@@ -1221,10 +1223,12 @@ for i, obj in enumerate(mySet):
 
 Town1Plants = mySet = [ATPNode(view=1112, noun='GRASS1_N', pDescriber="grass", pDoScaler=True, pPolygon=-1),
                        ATPNode(view=1113, noun='GRASS2_N', pDescriber="grass", pDoScaler=True, pPolygon=-1),
-                       ATPNode(view=1060, noun='BUSH_N', pDescriber="Bush", pDoScaler=True), # elpha - added pDoScaler=True
+                       ATPNode(view=1060, noun='BUSH_N', pDescriber="Bush", pDoScaler=True),
+                       # elpha - added pDoScaler=True
                        ATPNode(view=1063, noun='BUSH_PINK_N', pDescriber="Pink flowers", pDoScaler=True),
                        ATPNode(view=1064, noun='BUSH_YELLO_N', pDescriber="Yellow flowers", pDoScaler=True),
-                       ATPNode(view=1111, noun='GRASS2_N', pDescriber="grass", pDoScaler=True), # elpha - pDoScaler=True added
+                       ATPNode(view=1111, noun='GRASS2_N', pDescriber="grass", pDoScaler=True),
+                       # elpha - pDoScaler=True added
                        ATPNode(view=3711, noun='BUSH_SML_N', pDescriber="Grn sm bush"),
                        ATPNode(view=3712, noun='BUSH_SML_N', pDescriber="Bush"),
                        ATPNode(view=3716, noun='GRASS1_N', pDescriber="grass"),
@@ -1924,7 +1928,7 @@ for i, obj in enumerate(mySet):
         obj.pDescriber = "Guild"
 
 ForestRegion = [Town1Trees, MidTrees, MidPlant, ForeTrees, BackTrees, MiscForest, Sky, Mountains, Ground, River,
-                        Lake, Road, Polygons, Transitions, Rocks]
+                Lake, Road, Polygons, Transitions, Rocks]
 for i, atpSet in enumerate(ForestRegion):
     ForestRegion[i] = atpSet = copy.deepcopy(atpSet)
     for obj in atpSet:
@@ -1937,8 +1941,8 @@ for i, atpSet in enumerate(BeachRegion):
         obj.set_room_type('BEACH')
 
 DesertRegion = [DesertBushes, DesertGrasses, DesertSagebrush, DesertPlants, DesertTrees, DesertDunes,
-                        DesertDirt, DesertRiver, TownRuins, Polygons, Transitions, MiscForest, MidPlant, Rocks, Road,
-                        Ground]
+                DesertDirt, DesertRiver, TownRuins, Polygons, Transitions, MiscForest, MidPlant, Rocks, Road,
+                Ground]
 for i, atpSet in enumerate(DesertRegion):
     DesertRegion[i] = atpSet = copy.deepcopy(atpSet)
     for obj in atpSet:
@@ -1951,31 +1955,31 @@ for i, atpSet in enumerate(DesertRegion):
 #     obj.set_room_type('FOREST')
 
 DungeonRegion = [DungeonWalls, DungeonStalc, DungeonStalg, DungeonWebs, DungeonMush, DungeonMoss, DungeonMisc,
-                         DungeonPassages, DungeonRocks, Polygons, Transitions]
+                 DungeonPassages, DungeonRocks, Polygons, Transitions]
 for i, atpSet in enumerate(DungeonRegion):
     DungeonRegion[i] = atpSet = copy.deepcopy(atpSet)
     for obj in atpSet:
         obj.set_room_type('DUNGEON')
 
 Town1Region = [Town1Walls, Town1Roofs, Town1Windows, Town1Shops, Town1Signs1, Town1Signs2, Town1Misc,
-                       Town1Beams, Town1Bkgd1, Town1Bkgd2, Town1RightEaves, Town1LeftEaves, Town1MiddleEaves,
-                       Town1Corners, Town1Trees, Town1Plants, TownRuins, Sky, MidTrees, Polygons, Transitions, Rocks,
-                       Road, DesertBushes, DesertGrasses, DesertSagebrush, DesertDirt, DesertTrees, DesertPlants,
-                       RuinWalls, RuinRoof, RuinWindows, RuinTrim]
+               Town1Beams, Town1Bkgd1, Town1Bkgd2, Town1RightEaves, Town1LeftEaves, Town1MiddleEaves,
+               Town1Corners, Town1Trees, Town1Plants, TownRuins, Sky, MidTrees, Polygons, Transitions, Rocks,
+               Road, DesertBushes, DesertGrasses, DesertSagebrush, DesertDirt, DesertTrees, DesertPlants,
+               RuinWalls, RuinRoof, RuinWindows, RuinTrim]
 for i, atpSet in enumerate(Town1Region):
     Town1Region[i] = atpSet = copy.deepcopy(atpSet)
     for obj in atpSet:
         obj.set_room_type('TOWN1')
 
 Town1Interior = [Town1IntWalls, Town1IntWindows, Town1IntShelf, Town1IntMisc, Town1IntShops, GodStuff,
-                         TempleColumns, TempleArches, TempleWalls, TempleWindows, Polygons]
+                 TempleColumns, TempleArches, TempleWalls, TempleWindows, Polygons]
 for i, atpSet in enumerate(Town1Interior):
     Town1Interior[i] = atpSet = copy.deepcopy(atpSet)
     for obj in atpSet:
         obj.set_room_type('TOWN1INT')
 
 House1Region = [Town1Walls, Town1Windows, Town1Roofs, Town1LeftEaves, Town1RightEaves, Town1MiddleEaves,
-                        Town1Beams, Town1Trees, Town1Plants, House1Misc, MidTrees, BackTrees, Transitions, Road]
+                Town1Beams, Town1Trees, Town1Plants, House1Misc, MidTrees, BackTrees, Transitions, Road]
 for i, atpSet in enumerate(House1Region):
     House1Region[i] = atpSet = copy.deepcopy(atpSet)
     for obj in atpSet:
@@ -2005,20 +2009,25 @@ ATPList = {SwampRegion[0][0].roomType: SwampRegion, DesertRegion[0][0].roomType:
            House1Interior[0][0].roomType: House1Region, DungeonRegion[0][0].roomType: DungeonRegion,
            GuildRegion[0][0].roomType: GuildRegion, BeachRegion[0][0].roomType: BeachRegion}
 
-
 ATP_BY_PIC = {}
 for roomType, region in ATPList.items():
-    ATP_BY_PIC[roomType] = {'view':{}, 'atp':{}}
+    ATP_BY_PIC[roomType] = {'view': {}, 'atp': {}}
     for atp_set in region:
         for atp in atp_set:
             ATP_BY_PIC[roomType]['view'][atp.view] = atp
             ATP_BY_PIC[roomType]['atp'][atp.number] = atp
 
+import json
+
+json_dir = "/home/caleb/Git/Realm_World_Creator/Resources/atpinfo"
 
 ATP_CATEGORIES = {}
 keys = list(ATPList.keys())
 for k in keys:
+    info = {"roomType": k}
     v = ATPList[k]
+    atps = {}
+    info['atps'] = atps
     for region in v:
         for atp in region:
             ATPList[atp.number] = atp
@@ -2026,3 +2035,8 @@ for k in keys:
             if atp.pCategory not in ATP_CATEGORIES.keys():
                 ATP_CATEGORIES[atp.pCategory] = {}
             ATP_CATEGORIES[atp.pCategory][atp.number] = atp
+            atps[atp.number] = {}
+            for atr in atp.attributes:
+                atps[atp.number][atr] = getattr(atp, atr)
+    with open(json_dir + f"/{k}.json", "w") as f:
+        json.dump(info, f, indent=2)

@@ -1257,7 +1257,7 @@ room 86047
 				riddleFile	"../data/riddles/riddle04.txt"
 			end
 		end
-		object RandomMegaTreasure-86047-3 of RandomMegaTreasure
+		object RandomNewGear-86047-3 of RandomNewGear
 			properties
 				x	-200
 				y	-200
@@ -1305,7 +1305,7 @@ room 86047
 			base described
 			end
 		end
-		object RandomMonsterMegaTreasure-86047-7 of RandomMonsterMegaTreasure
+		object RandomNewGear-86047-7 of RandomNewGear
 			properties
 				x	-200
 				y	-200

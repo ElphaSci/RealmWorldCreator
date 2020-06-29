@@ -1,0 +1,90 @@
+{
+  "loops": {
+    "0": {
+      "cells": {
+        "0": {
+          "width": 311,
+          "height": 262,
+          "left": 2,
+          "top": 9,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "links": [
+            {
+              "link_x": 279,
+              "link_y": 252,
+              "position_type": 0,
+              "priority": -1
+            },
+            {
+              "link_x": 26,
+              "link_y": 259,
+              "position_type": 1,
+              "priority": -1
+            },
+            {
+              "link_x": 25,
+              "link_y": 208,
+              "position_type": 2,
+              "priority": -1
+            },
+            {
+              "link_x": 281,
+              "link_y": 216,
+              "position_type": 3,
+              "priority": -1
+            }
+          ],
+          "spriteX": 0,
+          "spriteY": 0
+        }
+      }
+    },
+    "1": {
+      "cells": {
+        "0": {
+          "width": 311,
+          "height": 262,
+          "left": 2,
+          "top": 9,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "links": [
+            {
+              "link_x": 279,
+              "link_y": 252,
+              "position_type": 0,
+              "priority": -1
+            },
+            {
+              "link_x": 26,
+              "link_y": 259,
+              "position_type": 1,
+              "priority": -1
+            },
+            {
+              "link_x": 25,
+              "link_y": 208,
+              "position_type": 2,
+              "priority": -1
+            },
+            {
+              "link_x": 281,
+              "link_y": 216,
+              "position_type": 3,
+              "priority": -1
+            }
+          ],
+          "spriteX": 0,
+          "spriteY": 262
+        }
+      },
+      "mirror": true,
+      "basedOn": 0
+    }
+  }
+}

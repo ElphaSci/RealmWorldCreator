@@ -1,0 +1,136 @@
+{
+  "loops": {
+    "0": {
+      "cells": {
+        "0": {
+          "width": 131,
+          "height": 144,
+          "left": -65,
+          "top": 0,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 0,
+          "spriteY": 0
+        }
+      }
+    },
+    "1": {
+      "cells": {
+        "0": {
+          "width": 131,
+          "height": 144,
+          "left": -65,
+          "top": 0,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 0,
+          "spriteY": 144
+        }
+      },
+      "mirror": true,
+      "basedOn": 0
+    },
+    "2": {
+      "cells": {
+        "0": {
+          "width": 120,
+          "height": 144,
+          "left": -59,
+          "top": 0,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 0,
+          "spriteY": 288
+        }
+      }
+    },
+    "3": {
+      "cells": {
+        "0": {
+          "width": 100,
+          "height": 157,
+          "left": 50,
+          "top": 0,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 0,
+          "spriteY": 432
+        }
+      }
+    },
+    "4": {
+      "cells": {
+        "0": {
+          "width": 5,
+          "height": 5,
+          "left": 0,
+          "top": 0,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 0,
+          "spriteY": 589
+        }
+      }
+    },
+    "5": {
+      "cells": {
+        "0": {
+          "width": 5,
+          "height": 5,
+          "left": 0,
+          "top": 0,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 0,
+          "spriteY": 594
+        }
+      },
+      "mirror": true,
+      "basedOn": 4
+    },
+    "6": {
+      "cells": {
+        "0": {
+          "width": 5,
+          "height": 5,
+          "left": 0,
+          "top": 0,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 0,
+          "spriteY": 599
+        }
+      }
+    },
+    "7": {
+      "cells": {
+        "0": {
+          "width": 5,
+          "height": 5,
+          "left": 0,
+          "top": 0,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 0,
+          "spriteY": 604
+        }
+      }
+    }
+  }
+}

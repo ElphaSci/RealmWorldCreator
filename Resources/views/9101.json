@@ -1,0 +1,124 @@
+{
+  "loops": {
+    "0": {
+      "cells": {
+        "0": {
+          "width": 197,
+          "height": 29,
+          "left": 98,
+          "top": 28,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 0,
+          "spriteY": 0
+        }
+      }
+    },
+    "1": {
+      "cells": {
+        "0": {
+          "width": 55,
+          "height": 16,
+          "left": 27,
+          "top": 15,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 0,
+          "spriteY": 29
+        },
+        "1": {
+          "width": 55,
+          "height": 16,
+          "left": 27,
+          "top": 15,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 55,
+          "spriteY": 29
+        }
+      }
+    },
+    "2": {
+      "cells": {
+        "0": {
+          "width": 42,
+          "height": 17,
+          "left": 21,
+          "top": 16,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 0,
+          "spriteY": 45
+        },
+        "1": {
+          "width": 42,
+          "height": 17,
+          "left": 21,
+          "top": 16,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 42,
+          "spriteY": 45
+        }
+      }
+    },
+    "3": {
+      "cells": {
+        "0": {
+          "width": 174,
+          "height": 177,
+          "left": 84,
+          "top": 175,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 0,
+          "spriteY": 62
+        }
+      }
+    },
+    "4": {
+      "cells": {
+        "0": {
+          "width": 130,
+          "height": 221,
+          "left": 62,
+          "top": 220,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 0,
+          "spriteY": 239
+        }
+      }
+    },
+    "5": {
+      "cells": {
+        "0": {
+          "width": 59,
+          "height": 68,
+          "left": -1,
+          "top": 0,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 0,
+          "spriteY": 460
+        }
+      }
+    }
+  }
+}

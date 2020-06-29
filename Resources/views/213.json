@@ -1,0 +1,102 @@
+{
+  "loops": {
+    "0": {
+      "cells": {
+        "0": {
+          "width": 141,
+          "height": 176,
+          "left": -41,
+          "top": 12,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "links": [
+            {
+              "link_x": 86,
+              "link_y": 56,
+              "position_type": 1,
+              "priority": -1
+            }
+          ],
+          "spriteX": 0,
+          "spriteY": 0
+        }
+      }
+    },
+    "1": {
+      "cells": {
+        "0": {
+          "width": 141,
+          "height": 176,
+          "left": -41,
+          "top": 12,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "links": [
+            {
+              "link_x": 86,
+              "link_y": 56,
+              "position_type": 1,
+              "priority": -1
+            }
+          ],
+          "spriteX": 0,
+          "spriteY": 176
+        }
+      },
+      "mirror": true,
+      "basedOn": 0
+    },
+    "2": {
+      "cells": {
+        "0": {
+          "width": 117,
+          "height": 190,
+          "left": -37,
+          "top": 8,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "links": [
+            {
+              "link_x": 65,
+              "link_y": 54,
+              "position_type": 1,
+              "priority": -1
+            }
+          ],
+          "spriteX": 0,
+          "spriteY": 352
+        }
+      }
+    },
+    "3": {
+      "cells": {
+        "0": {
+          "width": 105,
+          "height": 185,
+          "left": 29,
+          "top": 5,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "links": [
+            {
+              "link_x": 49,
+              "link_y": 55,
+              "position_type": 1,
+              "priority": -1
+            }
+          ],
+          "spriteX": 0,
+          "spriteY": 542
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "loops": {
+    "0": {
+      "cells": {
+        "0": {
+          "width": 36,
+          "height": 45,
+          "left": 0,
+          "top": 12,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 0,
+          "spriteY": 0
+        }
+      }
+    },
+    "1": {
+      "cells": {
+        "0": {
+          "width": 36,
+          "height": 45,
+          "left": 0,
+          "top": 12,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 0,
+          "spriteY": 45
+        }
+      },
+      "mirror": true,
+      "basedOn": 0
+    },
+    "2": {
+      "cells": {
+        "0": {
+          "width": 43,
+          "height": 46,
+          "left": 0,
+          "top": 8,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 0,
+          "spriteY": 90
+        }
+      }
+    },
+    "3": {
+      "cells": {
+        "0": {
+          "width": 42,
+          "height": 50,
+          "left": 1,
+          "top": 15,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 0,
+          "spriteY": 136
+        }
+      }
+    }
+  }
+}

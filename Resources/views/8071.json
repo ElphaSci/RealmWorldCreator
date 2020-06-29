@@ -1,0 +1,200 @@
+{
+  "loops": {
+    "0": {
+      "cells": {
+        "0": {
+          "width": 64,
+          "height": 64,
+          "left": 32,
+          "top": 63,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 0,
+          "spriteY": 0
+        },
+        "1": {
+          "width": 65,
+          "height": 64,
+          "left": 32,
+          "top": 63,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 64,
+          "spriteY": 0
+        },
+        "2": {
+          "width": 64,
+          "height": 64,
+          "left": 32,
+          "top": 63,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 129,
+          "spriteY": 0
+        },
+        "3": {
+          "width": 64,
+          "height": 64,
+          "left": 32,
+          "top": 63,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 193,
+          "spriteY": 0
+        },
+        "4": {
+          "width": 64,
+          "height": 64,
+          "left": 32,
+          "top": 63,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 257,
+          "spriteY": 0
+        },
+        "5": {
+          "width": 65,
+          "height": 65,
+          "left": 31,
+          "top": 64,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 321,
+          "spriteY": 0
+        },
+        "6": {
+          "width": 64,
+          "height": 64,
+          "left": 32,
+          "top": 63,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 386,
+          "spriteY": 0
+        },
+        "7": {
+          "width": 64,
+          "height": 65,
+          "left": 32,
+          "top": 64,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 450,
+          "spriteY": 0
+        },
+        "8": {
+          "width": 64,
+          "height": 65,
+          "left": 32,
+          "top": 64,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 514,
+          "spriteY": 0
+        },
+        "9": {
+          "width": 64,
+          "height": 65,
+          "left": 32,
+          "top": 63,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 578,
+          "spriteY": 0
+        },
+        "10": {
+          "width": 64,
+          "height": 64,
+          "left": 32,
+          "top": 63,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 642,
+          "spriteY": 0
+        },
+        "11": {
+          "width": 65,
+          "height": 64,
+          "left": 32,
+          "top": 63,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 706,
+          "spriteY": 0
+        },
+        "12": {
+          "width": 64,
+          "height": 64,
+          "left": 32,
+          "top": 63,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 771,
+          "spriteY": 0
+        },
+        "13": {
+          "width": 65,
+          "height": 65,
+          "left": 32,
+          "top": 64,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 835,
+          "spriteY": 0
+        },
+        "14": {
+          "width": 64,
+          "height": 64,
+          "left": 32,
+          "top": 63,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 900,
+          "spriteY": 0
+        },
+        "15": {
+          "width": 64,
+          "height": 64,
+          "left": 32,
+          "top": 63,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 964,
+          "spriteY": 0
+        }
+      }
+    }
+  }
+}

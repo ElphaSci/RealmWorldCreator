@@ -1,0 +1,60 @@
+{
+  "loops": {
+    "0": {
+      "cells": {
+        "0": {
+          "width": 13,
+          "height": 18,
+          "left": 0,
+          "top": 8,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 0,
+          "spriteY": 0
+        },
+        "1": {
+          "width": 12,
+          "height": 18,
+          "left": 0,
+          "top": 8,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 13,
+          "spriteY": 0
+        }
+      }
+    },
+    "1": {
+      "cells": {
+        "0": {
+          "width": 13,
+          "height": 18,
+          "left": 0,
+          "top": 8,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 0,
+          "spriteY": 18
+        },
+        "1": {
+          "width": 12,
+          "height": 18,
+          "left": 0,
+          "top": 8,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 13,
+          "spriteY": 18
+        }
+      }
+    }
+  }
+}

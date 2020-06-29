@@ -1,0 +1,38 @@
+{
+  "loops": {
+    "0": {
+      "cells": {
+        "0": {
+          "width": 144,
+          "height": 144,
+          "left": 39,
+          "top": 143,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 0,
+          "spriteY": 0
+        }
+      }
+    },
+    "1": {
+      "cells": {
+        "0": {
+          "width": 144,
+          "height": 144,
+          "left": 39,
+          "top": 143,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 0,
+          "spriteY": 144
+        }
+      },
+      "mirror": true,
+      "basedOn": 0
+    }
+  }
+}

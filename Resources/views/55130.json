@@ -1,0 +1,32 @@
+{
+  "loops": {
+    "0": {
+      "cells": {
+        "0": {
+          "width": 143,
+          "height": 73,
+          "left": -16,
+          "top": 0,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 0,
+          "spriteY": 0
+        },
+        "1": {
+          "width": 149,
+          "height": 118,
+          "left": -10,
+          "top": 0,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 143,
+          "spriteY": 0
+        }
+      }
+    }
+  }
+}

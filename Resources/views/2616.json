@@ -1,0 +1,114 @@
+{
+  "loops": {
+    "0": {
+      "cells": {
+        "0": {
+          "width": 148,
+          "height": 55,
+          "left": -13,
+          "top": 49,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "links": [
+            {
+              "link_x": 144,
+              "link_y": 43,
+              "position_type": 0,
+              "priority": -1
+            },
+            {
+              "link_x": 49,
+              "link_y": 43,
+              "position_type": 1,
+              "priority": -1
+            },
+            {
+              "link_x": 7,
+              "link_y": 15,
+              "position_type": 2,
+              "priority": -1
+            },
+            {
+              "link_x": 64,
+              "link_y": 14,
+              "position_type": 3,
+              "priority": -1
+            },
+            {
+              "link_x": 84,
+              "link_y": 3,
+              "position_type": 4,
+              "priority": -1
+            },
+            {
+              "link_x": 90,
+              "link_y": 3,
+              "position_type": 5,
+              "priority": -1
+            }
+          ],
+          "spriteX": 0,
+          "spriteY": 0
+        }
+      }
+    },
+    "1": {
+      "cells": {
+        "0": {
+          "width": 148,
+          "height": 55,
+          "left": -13,
+          "top": 49,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "links": [
+            {
+              "link_x": 144,
+              "link_y": 43,
+              "position_type": 0,
+              "priority": -1
+            },
+            {
+              "link_x": 49,
+              "link_y": 43,
+              "position_type": 1,
+              "priority": -1
+            },
+            {
+              "link_x": 7,
+              "link_y": 15,
+              "position_type": 2,
+              "priority": -1
+            },
+            {
+              "link_x": 64,
+              "link_y": 14,
+              "position_type": 3,
+              "priority": -1
+            },
+            {
+              "link_x": 84,
+              "link_y": 3,
+              "position_type": 4,
+              "priority": -1
+            },
+            {
+              "link_x": 90,
+              "link_y": 3,
+              "position_type": 5,
+              "priority": -1
+            }
+          ],
+          "spriteX": 0,
+          "spriteY": 55
+        }
+      },
+      "mirror": true,
+      "basedOn": 0
+    }
+  }
+}

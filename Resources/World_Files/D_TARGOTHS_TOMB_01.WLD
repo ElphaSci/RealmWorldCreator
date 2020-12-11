@@ -3273,7 +3273,7 @@ room 76056
 			end
 			actions
 				vBeActivated unlock DungeonBackDoor-76049-4
-				vBeActivated castSpell 25 dobj
+				#vBeActivated castSpell 25 dobj
 				vBeDisarmed clearAffect 1
 			end
 			base described

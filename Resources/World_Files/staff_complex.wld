@@ -776,6 +776,7 @@ room 4065
 						category "Thaumaturgy" 51083
 							object spbLightDart
 							object spbNimbility
+                     object spbFlurry
 							object spbEmpower
 							object spbMissileResistance
 							object spbHeal
@@ -1778,6 +1779,7 @@ room 4068
 						category "Thaumaturgy" 51083
 							object spbLightDart
 							object spbNimbility
+                     object spbFlurry
 							object spbEmpower
 							object spbMissileResistance
 							object spbHeal
@@ -2936,6 +2938,7 @@ room 4069
 						category "Thaumaturgy" 51083
 							object spbLightDart
 							object spbNimbility
+                     object spbFlurry
 							object spbEmpower
 							object spbMissileResistance
 							object spbHeal

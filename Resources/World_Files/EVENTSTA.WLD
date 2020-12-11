@@ -463,6 +463,7 @@ room 6069
 						category "Thaumaturgy" 51083
 							object spbLightDart
 							object spbNimbility
+							object spbFlurry
 							object spbEmpower
 							object spbMissileResistance
 							object spbHeal

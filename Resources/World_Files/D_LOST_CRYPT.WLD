@@ -369,7 +369,7 @@ room 94226
 		flags	248
 	end
 	objects
-		object RandomCastleNPC-94226-0 of RandomCastleNPC
+		object RCastle-94226-0 of RCastle
 			properties
 				x	129
 				y	279
@@ -389,7 +389,7 @@ room 94226
 			base character
 			end
 		end
-        object RandomCastleNPC-94226-2 of RandomCastleNPC
+        object RCastle-94226-2 of RCastle
 			properties
 				x	89
 				y	268
@@ -534,7 +534,7 @@ room 94053
 		flags	248
 	end
 	objects
-		object RandomCastleNPC-94053-0 of RandomCastleNPC
+		object RCastle-94053-0 of RCastle
 			properties
 				x	252
 				y	302
@@ -544,7 +544,7 @@ room 94053
 			base character
 			end
 		end
-		object RandomCastleNPC-94053-1 of RandomCastleNPC
+		object RCastle-94053-1 of RCastle
 			properties
 				x	485
 				y	300
@@ -554,7 +554,7 @@ room 94053
 			base character
 			end
 		end
-		object RandomCastleNPC-94053-2 of RandomCastleNPC
+		object RCastle-94053-2 of RCastle
 			properties
 				x	323
 				y	279
@@ -659,7 +659,7 @@ room 94050
 			base character
 			end
 		end
-		object RandomCastleNPC-94050-2 of RandomCastleNPC
+		object RCastle-94050-2 of RCastle
 			properties
 				x	294
 				y	279
@@ -1602,7 +1602,7 @@ room 94022
 		flags	248
 	end
 	objects
-		object RandomCastleNPC-94022-0 of RandomCastleNPC
+		object RCastle-94022-0 of RCastle
 			properties
 				x	308
 				y	304
@@ -1631,7 +1631,7 @@ room 94024
 		flags	248
 	end
 	objects
-		object RandomCastleNPC-94024-0 of RandomCastleNPC
+		object RCastle-94024-0 of RCastle
 			properties
 				x	359
 				y	240
@@ -1678,7 +1678,7 @@ room 94011
 		flags	248
 	end
 	objects
-		object RandomCastleNPC-94011-0 of RandomCastleNPC
+		object RCastle-94011-0 of RCastle
 			properties
 				x	273
 				y	277
@@ -1688,7 +1688,7 @@ room 94011
 			base character
 			end
 		end
-		object RandomCastleNPC-94011-1 of RandomCastleNPC
+		object RCastle-94011-1 of RCastle
 			properties
 				x	121
 				y	277
@@ -1698,7 +1698,7 @@ room 94011
 			base character
 			end
 		end
-		object RandomCastleNPC-94011-2 of RandomCastleNPC
+		object RCastle-94011-2 of RCastle
 			properties
 				x	193
 				y	277
@@ -1708,7 +1708,7 @@ room 94011
 			base character
 			end
 		end
-		object RandomCastleNPC-94011-3 of RandomCastleNPC
+		object RCastle-94011-3 of RCastle
 			properties
 				x	406
 				y	277
@@ -1754,7 +1754,7 @@ room 94048
 		flags	248
 	end
 	objects
-		object RandomCastleNPC-94048-0 of RandomCastleNPC
+		object RCastle-94048-0 of RCastle
 			properties
 				x	336
 				y	307
@@ -1836,7 +1836,7 @@ room 94048
 				loop	0
 			end
 			actions
-				vBeActivated castSpell 58 dobj 
+				#vBeActivated castSpell 58 dobj 
 				vBeActivated summon 94048 1 4 GooA 200 200 1 GooD 201 201 1 GooF 250 250 1 GooT 100 100 1 
 				vBeActivated clearActions self vBeActivated 
 			end
@@ -1979,7 +1979,7 @@ room 94003
 			base described
 			end
 		end
-		object RandomCastleNPC-94003-0 of RandomCastleNPC
+		object RCastle-94003-0 of RCastle
 			properties
 				x	181
 				y	248
@@ -1989,7 +1989,7 @@ room 94003
 			base character
 			end
 		end
-		object RandomCastleNPC-94003-1 of RandomCastleNPC
+		object RCastle-94003-1 of RCastle
 			properties
 				x	326
 				y	253
@@ -1999,7 +1999,7 @@ room 94003
 			base character
 			end
 		end
-		object RandomCastleNPC-94003-2 of RandomCastleNPC
+		object RCastle-94003-2 of RCastle
 			properties
 				x	454
 				y	232
@@ -2060,7 +2060,7 @@ room 94002
 			base character
 			end
 		end
-		object RandomCastleNPC-94002-0 of RandomCastleNPC
+		object RCastle-94002-0 of RCastle
 			properties
 				x	142
 				y	254
@@ -2070,7 +2070,7 @@ room 94002
 			base character
 			end
 		end
-		object RandomCastleNPC-94002-1 of RandomCastleNPC
+		object RCastle-94002-1 of RCastle
 			properties
 				x	550
 				y	243
@@ -2570,7 +2570,7 @@ room 94008
 			base character
 			end
 		end
-        object RandomCastleNPC-94008-0 of RandomCastleNPC
+        object RCastle-94008-0 of RCastle
 			properties
 				x	180
 				y	257
@@ -3421,7 +3421,7 @@ room 94038
 		flags	248
 	end
 	objects
-		object RandomCastleNPC-94038-0 of RandomCastleNPC
+		object RCastle-94038-0 of RCastle
 			properties
 				x	274
 				y	273
@@ -3431,7 +3431,7 @@ room 94038
 			base character
 			end
 		end
-		object RandomCastleNPC-94038-1 of RandomCastleNPC
+		object RCastle-94038-1 of RCastle
 			properties
 				x	274
 				y	273
@@ -3441,7 +3441,7 @@ room 94038
 			base character
 			end
 		end
-		object RandomCastleNPC-94038-2 of RandomCastleNPC
+		object RCastle-94038-2 of RCastle
 			properties
 				x	274
 				y	273
@@ -3451,7 +3451,7 @@ room 94038
 			base character
 			end
 		end
-		object RandomCastleNPC-94038-3 of RandomCastleNPC
+		object RCastle-94038-3 of RCastle
 			properties
 				x	274
 				y	273
@@ -3461,7 +3461,7 @@ room 94038
 			base character
 			end
 		end
-		object RandomCastleNPC-94038-4 of RandomCastleNPC
+		object RCastle-94038-4 of RCastle
 			properties
 				x	274
 				y	273

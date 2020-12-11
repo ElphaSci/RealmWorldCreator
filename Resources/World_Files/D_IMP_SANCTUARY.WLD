@@ -153,14 +153,14 @@ room 10002
 		1780 371 394 
 	end
 	objects
-		object RandomCastleNPC10002-0 of RandomCastleNPC
+		object RCastle10002-0 of RCastle
 			properties
 				loop 0
 				x 127
 				y 223
 			end
 		end
-		object RandomCastleNPC10002-1 of RandomCastleNPC
+		object RCastle10002-1 of RCastle
 			properties
 				loop 0
 				x 191
@@ -346,7 +346,7 @@ room 10005
 				y 302
 			end
 		end
-		object RandomCastleNPC10005-0 of RandomCastleNPC
+		object RCastle10005-0 of RCastle
 			properties
 				loop 0
 				x 443
@@ -391,21 +391,21 @@ room 10006
 		1780 536 346 
 	end
 	objects
-		object RandomCastleNPC10006-0 of RandomCastleNPC
+		object RCastle10006-0 of RCastle
 			properties
 				loop 0
 				x 160
 				y 246
 			end
 		end
-		object RandomCastleNPC10006-1 of RandomCastleNPC
+		object RCastle10006-1 of RCastle
 			properties
 				loop 0
 				x 111
 				y 279
 			end
 		end
-		object RandomCastleNPC10006-2 of RandomCastleNPC
+		object RCastle10006-2 of RCastle
 			properties
 				loop 0
 				x 64
@@ -447,14 +447,14 @@ room 10007
 		1783 43 333 
 	end
 	objects
-		object RandomCastleNPC10007-0 of RandomCastleNPC
+		object RCastle10007-0 of RCastle
 			properties
 				loop 0
 				x 473
 				y 234
 			end
 		end
-		object RandomCastleNPC10007-1 of RandomCastleNPC
+		object RCastle10007-1 of RCastle
 			properties
 				loop 0
 				x 519
@@ -523,7 +523,7 @@ room 10008
 				y 240
 			end
 		end
-		object RandomCastleNPC10008-0 of RandomCastleNPC
+		object RCastle10008-0 of RCastle
 			properties
 				loop 0
 				x 160
@@ -578,7 +578,7 @@ room 10009
 				y 208
 			end
 		end
-		object RandomCastleNPC10009-0 of RandomCastleNPC
+		object RCastle10009-0 of RCastle
 			properties
 				loop 0
 				x 182
@@ -749,7 +749,7 @@ room 10012
 				y 261
 			end
 		end
-		object RandomCastleNPC10012-0 of RandomCastleNPC
+		object RCastle10012-0 of RCastle
 			properties
 				loop 0
 				x 352
@@ -866,7 +866,7 @@ room 10014
 		40672 504 395 
 	end
 	objects
-		object RandomCastleNPC10014-0 of RandomCastleNPC
+		object RCastle10014-0 of RCastle
 			properties
 				loop 0
 				x 150
@@ -1015,7 +1015,7 @@ room 10016
 				y 261
 			end
 		end
-		object RandomCastleNPC10016-0 of RandomCastleNPC
+		object RCastle10016-0 of RCastle
 			properties
 				loop 0
 				x 426
@@ -1058,7 +1058,7 @@ room 10017
 		1780 540 356 
 	end
 	objects
-		object RandomCastleNPC10017-0 of RandomCastleNPC
+		object RCastle10017-0 of RCastle
 			properties
 				loop 0
 				x 164
@@ -1278,14 +1278,14 @@ room 10020
 				y 229
 			end
 		end
-		object RandomCastleNPC10020-0 of RandomCastleNPC
+		object RCastle10020-0 of RCastle
 			properties
 				loop 0
 				x 484
 				y 299
 			end
 		end
-		object RandomCastleNPC10020-1 of RandomCastleNPC
+		object RCastle10020-1 of RCastle
 			properties
 				loop 0
 				x 398
@@ -1354,7 +1354,7 @@ room 10021
 				y 302
 			end
 		end
-		object RandomCastleNPC10021-0 of RandomCastleNPC
+		object RCastle10021-0 of RCastle
 			properties
 				loop 0
 				x 552
@@ -1429,7 +1429,7 @@ room 10022
 				y 271
 			end
 		end
-		object RandomCastleNPC10022-0 of RandomCastleNPC
+		object RCastle10022-0 of RCastle
 			properties
 				loop 0
 				x 447
@@ -1494,7 +1494,7 @@ room 10023
 				y 214
 			end
 		end
-		object RandomCastleNPC10023-0 of RandomCastleNPC
+		object RCastle10023-0 of RCastle
 			properties
 				loop 0
 				x 458
@@ -1617,7 +1617,7 @@ room 10025
 				y 259
 			end
 		end
-		object RandomCastleNPC10025-0 of RandomCastleNPC
+		object RCastle10025-0 of RCastle
 			properties
 				loop 0
 				x 501
@@ -1662,7 +1662,7 @@ room 10026
 		1780 536 346 
 	end
 	objects
-		object RandomCastleNPC10026-0 of RandomCastleNPC
+		object RCastle10026-0 of RCastle
 			properties
 				loop 0
 				x 143
@@ -1683,7 +1683,7 @@ room 10026
 				y 297
 			end
 		end
-		object RandomCastleNPC10026-1 of RandomCastleNPC
+		object RCastle10026-1 of RCastle
 			properties
 				loop 0
 				x 89
@@ -1804,14 +1804,14 @@ room 10028
 				y 248
 			end
 		end
-		object RandomCastleNPC10028-0 of RandomCastleNPC
+		object RCastle10028-0 of RCastle
 			properties
 				loop 0
 				x 492
 				y 285
 			end
 		end
-		object RandomCastleNPC10028-1 of RandomCastleNPC
+		object RCastle10028-1 of RCastle
 			properties
 				loop 0
 				x 352
@@ -2146,7 +2146,7 @@ room 10034
 				y 239
 			end
 		end
-		object RandomCastleNPC10034-0 of RandomCastleNPC
+		object RCastle10034-0 of RCastle
 			properties
 				loop 0
 				x 316
@@ -2210,7 +2210,7 @@ room 10035
 				y 241
 			end
 		end
-		object RandomCastleNPC10035-0 of RandomCastleNPC
+		object RCastle10035-0 of RCastle
 			properties
 				loop 0
 				x 441
@@ -2252,7 +2252,7 @@ room 10036
 				y 238
 			end
 		end
-		object RandomCastleNPC10036-0 of RandomCastleNPC
+		object RCastle10036-0 of RCastle
 			properties
 				loop 0
 				x 238
@@ -2326,7 +2326,7 @@ room 10037
 				y 253
 			end
 		end
-		object RandomCastleNPC10037-0 of RandomCastleNPC
+		object RCastle10037-0 of RCastle
 			properties
 				loop 0
 				x 521
@@ -2504,21 +2504,21 @@ room 10040
 		1770 358 331 
 	end
 	objects
-		object RandomCastleNPC10040-0 of RandomCastleNPC
+		object RCastle10040-0 of RCastle
 			properties
 				loop 0
 				x 216
 				y 234
 			end
 		end
-		object RandomCastleNPC10040-1 of RandomCastleNPC
+		object RCastle10040-1 of RCastle
 			properties
 				loop 0
 				x 340
 				y 238
 			end
 		end
-		object RandomCastleNPC10040-2 of RandomCastleNPC
+		object RCastle10040-2 of RCastle
 			properties
 				loop 0
 				x 441
@@ -2601,7 +2601,7 @@ room 10041
 				y 207
 			end
 		end
-		object RandomCastleNPC10041-0 of RandomCastleNPC
+		object RCastle10041-0 of RCastle
 			properties
 				loop 0
 				x 93
@@ -2637,7 +2637,7 @@ room 10042
 		1780 613 330 
 	end
 	objects
-		object RandomCastleNPC10042-0 of RandomCastleNPC
+		object RCastle10042-0 of RCastle
 			properties
 				loop 0
 				x 375
@@ -2696,7 +2696,7 @@ room 10043
 				y 212
 			end
 		end
-		object RandomCastleNPC10043-0 of RandomCastleNPC
+		object RCastle10043-0 of RCastle
 			properties
 				loop 0
 				x 488
@@ -2837,7 +2837,7 @@ room 10045
 				y 235
 			end
 		end
-		object RandomCastleNPC10045-0 of RandomCastleNPC
+		object RCastle10045-0 of RCastle
 			properties
 				loop 0
 				x 146
@@ -2895,14 +2895,14 @@ room 10046
 				y 208
 			end
 		end
-		object RandomCastleNPC10046-0 of RandomCastleNPC
+		object RCastle10046-0 of RCastle
 			properties
 				loop 0
 				x 271
 				y 221
 			end
 		end
-		object RandomCastleNPC10046-1 of RandomCastleNPC
+		object RCastle10046-1 of RCastle
 			properties
 				loop 0
 				x 346
@@ -3004,7 +3004,7 @@ room 10048
 				y 231
 			end
 		end
-		object RandomCastleNPC10048-0 of RandomCastleNPC
+		object RCastle10048-0 of RCastle
 			properties
 				loop 0
 				x 283
@@ -3145,7 +3145,7 @@ room 10050
 				y 242
 			end
 		end
-		object RandomCastleNPC10050-0 of RandomCastleNPC
+		object RCastle10050-0 of RCastle
 			properties
 				loop 0
 				x 408
@@ -3367,14 +3367,14 @@ room 10054
 		1850 658 333 
 	end
 	objects
-		object RandomCastleNPC10054-0 of RandomCastleNPC
+		object RCastle10054-0 of RCastle
 			properties
 				loop 0
 				x 439
 				y 185
 			end
 		end
-		object RandomCastleNPC10054-1 of RandomCastleNPC
+		object RCastle10054-1 of RCastle
 			properties
 				loop 0
 				x 479
@@ -3478,7 +3478,7 @@ room 10055
 				y 220
 			end
 		end
-		object RandomCastleNPC10055-0 of RandomCastleNPC
+		object RCastle10055-0 of RCastle
 			properties
 				loop 0
 				x 463
@@ -3542,7 +3542,7 @@ room 10056
 		34548 77 416 
 	end
 	objects
-		object RandomCastleNPC10056-0 of RandomCastleNPC
+		object RCastle10056-0 of RCastle
 			properties
 				loop 0
 				x 437
@@ -3563,7 +3563,7 @@ room 10056
 				y 236
 			end
 		end
-		object RandomCastleNPC10056-1 of RandomCastleNPC
+		object RCastle10056-1 of RCastle
 			properties
 				loop 0
 				x 521
@@ -3628,7 +3628,7 @@ room 10057
 				y 203
 			end
 		end
-		object RandomCastleNPC10057-0 of RandomCastleNPC
+		object RCastle10057-0 of RCastle
 			properties
 				loop 0
 				x 394
@@ -3751,14 +3751,14 @@ room 10059
 				y 249
 			end
 		end
-		object RandomCastleNPC10059-0 of RandomCastleNPC
+		object RCastle10059-0 of RCastle
 			properties
 				loop 0
 				x 234
 				y 263
 			end
 		end
-		object RandomCastleNPC10059-1 of RandomCastleNPC
+		object RCastle10059-1 of RCastle
 			properties
 				loop 0
 				x 161
@@ -3826,7 +3826,7 @@ room 10060
 				y 279
 			end
 		end
-		object RandomCastleNPC10060-0 of RandomCastleNPC
+		object RCastle10060-0 of RCastle
 			properties
 				loop 0
 				x 408
@@ -3889,7 +3889,7 @@ room 10061
 				y 289
 			end
 		end
-		object RandomCastleNPC10061-0 of RandomCastleNPC
+		object RCastle10061-0 of RCastle
 			properties
 				loop 0
 				x 75
@@ -3953,14 +3953,14 @@ room 10062
 				y 258
 			end
 		end
-		object RandomCastleNPC10062-0 of RandomCastleNPC
+		object RCastle10062-0 of RCastle
 			properties
 				loop 0
 				x 86
 				y 305
 			end
 		end
-		object RandomCastleNPC10062-1 of RandomCastleNPC
+		object RCastle10062-1 of RCastle
 			properties
 				loop 0
 				x 446
@@ -4034,7 +4034,7 @@ room 10063
 				y 241
 			end
 		end
-		object RandomCastleNPC10063-0 of RandomCastleNPC
+		object RCastle10063-0 of RCastle
 			properties
 				loop 0
 				x 440
@@ -4069,7 +4069,7 @@ room 10064
 		7907 596 632 300
 	end
 	objects
-		object RandomCastleNPC10064-0 of RandomCastleNPC
+		object RCastle10064-0 of RCastle
 			properties
 				loop 0
 				x 119
@@ -4229,7 +4229,7 @@ room 10066
 				y 237
 			end
 		end
-		object RandomCastleNPC10066-0 of RandomCastleNPC
+		object RCastle10066-0 of RCastle
 			properties
 				loop 0
 				x 526
@@ -4343,14 +4343,14 @@ room 10068
 		1850 411 337 6
 	end
 	objects
-		object RandomCastleNPC10068-0 of RandomCastleNPC
+		object RCastle10068-0 of RCastle
 			properties
 				loop 0
 				x 179
 				y 240
 			end
 		end
-		object RandomCastleNPC10068-1 of RandomCastleNPC
+		object RCastle10068-1 of RCastle
 			properties
 				loop 0
 				x 262
@@ -4405,14 +4405,14 @@ room 10076
 				y 238
 			end
 		end
-		object RandomCastleNPC10076-0 of RandomCastleNPC
+		object RCastle10076-0 of RCastle
 			properties
 				loop 2
 				x 281
 				y 239
 			end
 		end
-		object RandomCastleNPC10076-1 of RandomCastleNPC
+		object RCastle10076-1 of RCastle
 			properties
 				loop 2
 				x 490
@@ -4529,14 +4529,14 @@ room 10069
 				y 230
 			end
 		end
-		object RandomCastleNPC10069-0 of RandomCastleNPC
+		object RCastle10069-0 of RCastle
 			properties
 				loop 0
 				x 112
 				y 258
 			end
 		end
-		object RandomCastleNPC10069-1 of RandomCastleNPC
+		object RCastle10069-1 of RCastle
 			properties
 				loop 0
 				x 526
@@ -4607,14 +4607,14 @@ room 10070
 				y 257
 			end
 		end
-		object RandomCastleNPC10070-0 of RandomCastleNPC
+		object RCastle10070-0 of RCastle
 			properties
 				loop 0
 				x 116
 				y 311
 			end
 		end
-		object RandomCastleNPC10070-1 of RandomCastleNPC
+		object RCastle10070-1 of RCastle
 			properties
 				loop 0
 				x 446
@@ -4680,7 +4680,7 @@ room 10071
 				y 299
 			end
 		end
-		object RandomCastleNPC10071-0 of RandomCastleNPC
+		object RCastle10071-0 of RCastle
 			properties
 				loop 0
 				x 432
@@ -4792,14 +4792,14 @@ room 10073
 		1780 162 354 
 	end
 	objects
-		object RandomCastleNPC10073-0 of RandomCastleNPC
+		object RCastle10073-0 of RCastle
 			properties
 				loop 0
 				x 237
 				y 262
 			end
 		end
-		object RandomCastleNPC10073-1 of RandomCastleNPC
+		object RCastle10073-1 of RCastle
 			properties
 				loop 0
 				x 320
@@ -4882,7 +4882,7 @@ room 10074
 				y 208
 			end
 		end
-		object RandomCastleNPC10074-0 of RandomCastleNPC
+		object RCastle10074-0 of RCastle
 			properties
 				loop 0
 				x 230
@@ -4926,7 +4926,7 @@ room 10075
 		34640 250 358 
 	end
 	objects
-		object RandomCastleNPC10075-0 of RandomCastleNPC
+		object RCastle10075-0 of RCastle
 			properties
 				loop 0
 				x 464
@@ -5205,21 +5205,21 @@ room 10088
 				y 220
 			end
 		end
-		object RandomCastleNPC10088-0 of RandomCastleNPC
+		object RCastle10088-0 of RCastle
 			properties
 				loop 0
 				x 111
 				y 269
 			end
 		end
-		object RandomCastleNPC10088-1 of RandomCastleNPC
+		object RCastle10088-1 of RCastle
 			properties
 				loop 0
 				x 230
 				y 225
 			end
 		end
-		object RandomCastleNPC10088-2 of RandomCastleNPC
+		object RCastle10088-2 of RCastle
 			properties
 				loop 0
 				x 88
@@ -5349,7 +5349,7 @@ room 10086
 				y 245
 			end
 		end
-		object RandomCastleNPC10086-0 of RandomCastleNPC
+		object RCastle10086-0 of RCastle
 			properties
 				loop 0
 				x 236
@@ -5694,7 +5694,7 @@ room 10081
 				y 245
 			end
 		end
-		object RandomCastleNPC10081-0 of RandomCastleNPC
+		object RCastle10081-0 of RCastle
 			properties
 				loop 0
 				x 107
@@ -6100,7 +6100,7 @@ room 10093
 				y 226
 			end
 		end
-		object RandomCastleNPC10093-0 of RandomCastleNPC
+		object RCastle10093-0 of RCastle
 			properties
 				loop 0
 				x 429
@@ -6259,7 +6259,7 @@ room 10095
 				y 259
 			end
 		end
-		object RandomCastleNPC10095-0 of RandomCastleNPC
+		object RCastle10095-0 of RCastle
 			properties
 				loop 0
 				x 481
@@ -6361,14 +6361,14 @@ room 10097
 				y 227
 			end
 		end
-		object RandomCastleNPC10097-0 of RandomCastleNPC
+		object RCastle10097-0 of RCastle
 			properties
 				loop 0
 				x 298
 				y 228
 			end
 		end
-		object RandomCastleNPC10097-1 of RandomCastleNPC
+		object RCastle10097-1 of RCastle
 			properties
 				loop 0
 				x 379
@@ -6476,7 +6476,7 @@ room 10099
 				y 307
 			end
 		end
-		object RandomCastleNPC10099-0 of RandomCastleNPC
+		object RCastle10099-0 of RCastle
 			properties
 				loop 0
 				x 98
@@ -6602,7 +6602,7 @@ room 10100
 				y 234
 			end
 		end
-		object RandomCastleNPC10100-0 of RandomCastleNPC
+		object RCastle10100-0 of RCastle
 			properties
 				loop 0
 				x 253

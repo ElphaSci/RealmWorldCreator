@@ -1927,29 +1927,29 @@ room 92003
 				sellMarkup 100
 				inventory
 					category "Exotic Dyes" 15133
-						object dFinvarra
-                  object dLightFinvarra
-                  object dLighterFinvarra
-                  object dLightestFinvarra
-                  object dDarkestPharlap
-                  object dBlackBrown
-                  object dDarkestSilk
-                  object dNaturalBrown
-                  object dBrownGlow
-                  object dDarkBrownGlow
-                  object dSatori
-                  object dPaleYellow
-                  object dPrussianBlue
-                  object dBlackLatex
-                  object dDeepSkyBlue
-                  object dDarkBlackGlow
-                  object dBrightWhite
-                  object dDarkMudBrown
-                  object dShiftingBlack
-                  object dShiftingLime
-                  object hdShiftingWhite
-                  object hdShiftingAllWhite
-                  object dShiftingLightestChrome
+						object dsFinvarra
+                  object dsLightFinvarra
+                  object dsLighterFinvarra
+                  object dsLightestFinvarra
+                  object dsDarkestPharlap
+                  object dsBlackBrown
+                  object dsDarkestSilk
+                  object dsNaturalBrown
+                  object dsBrownGlow
+                  object dsDarkBrownGlow
+                  object dsSatori
+                  object dsPaleYellow
+                  object dsPrussianBlue
+                  object dsBlackLatex
+                  object dsDeepSkyBlue
+                  object dsDarkBlackGlow
+                  object dsBrightWhite
+                  object dsDarkMudBrown
+                  object dsShiftingBlack
+                  object dsShiftingLime
+                  object dsShiftingWhite
+                  object dsShiftingAllWhite
+                  object dsShiftingLightestChrome
 					end
                category "Color Baldrics" 94031
 					   object bdNaturalBrown

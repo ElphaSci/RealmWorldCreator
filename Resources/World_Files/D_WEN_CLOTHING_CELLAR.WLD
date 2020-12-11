@@ -795,6 +795,7 @@ room 74515
                                 skill 7 5
                                 skill 8 5
                                 skill 10 5
+		skill 24 5
                         end
 
                         base container
@@ -805,7 +806,7 @@ room 74515
                         end
 
                         actions
-                             vBeBorn changeSpellResistance self 90 0 1 2 3 4
+                             #vBeBorn changeSpellResistance self 90 0 1 2 3 4
                         end
 
 			base described

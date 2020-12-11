@@ -3838,8 +3838,8 @@ room 100030
 				loop	0
 			end
 			actions
-				vBeActivated castSpell 127 dobj 
-				vBeActivated castSpell 58 dobj 
+				#vBeActivated castSpell 127 dobj 
+				#vBeActivated castSpell 58 dobj 
 				vBeActivated summon 100030 1 6 BabyDragon 205 205 1 BabyDragon 205 205 1 BabyDragon 205 205 1 BabyDragon 205 205 1 BabyDragon 205 205 1 BabyDragon 205 205 1
 				vBeActivated clearActions Button-100030-7 vBeActivated 
 			end
@@ -4042,7 +4042,7 @@ room 100038
 				loop	0
 			end
 			actions
-				vBeActivated castSpell 54 dobj 
+				#vBeActivated castSpell 54 dobj 
 				vBeActivated summon 100038 1 4 LavaSerpent 200 200 1 HellSnake 201 201 1 BabyDragon 250 250 1 Cobra 100 100 1 
 				vBeActivated clearActions self vBeActivated 
 			end
@@ -4073,7 +4073,7 @@ room 100038
 			actions
 				vBeActivated clearActions SittingRock-100034-5 vBeSatOn 
 				vBeActivated addAction SittingRock-100034-5 vBeStoodUpOn teleport dobj 100054 
-				vBeActivated castSpell 18 dobj 
+				##vBeActivated castSpell 18 dobj 
 				vBeActivated clearActions self vBeActivated 
 			end
 			base described
@@ -4393,9 +4393,9 @@ room 100040
 				loop	0
 			end
 			actions
-				vBeActivated castSpell  44 dobj 
-				vBeActivated castSpell 44 dobj 
-				vBeActivated castSpell 44 dobj 
+				#vBeActivated castSpell  44 dobj 
+				##vBeActivated castSpell 44 dobj 
+				##vBeActivated castSpell 44 dobj 
 				vBeActivated enable ButtonDisabled-100040-3 
 			end
 			base described
@@ -4583,7 +4583,7 @@ room 100043
 				loop	1
 			end
 			actions
-				vBeSatOn castSpell 125 dobj 
+				vBeSatOn castSpell 54 dobj 
 				vBeSatOn unlock LockedChest-100043-0 
 				vBeStoodUpOn lock LockedChest-100043-0 
 			end

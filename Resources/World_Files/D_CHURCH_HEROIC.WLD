@@ -1,0 +1,3154 @@
+room 71016
+	properties
+		flags	255
+		east 71015
+		south 71017
+		picture 3071
+	end
+	atpinfo
+		1752 466 215 
+		34520 78 216 
+		7906 478 222 
+		34518 206 227 
+		1750 607 235 
+		7906 185 235 
+		1751 320 239 
+		7901 594 242 
+		7901 354 246 
+		34520 -2 248 
+		7906 252 251 
+		7906 70 259 
+		7906 37 290 
+		1752 -59 292 
+		1770 98 318 
+		7906 7 318 
+		1850 -31 319 
+		7904 65 328 
+	end
+	objects
+		object randomStuff71016-0 of RandomStuff
+			properties
+				x -200
+				y -200
+				loop 0
+			end
+			base carryable
+			end
+			base described
+			end
+		end
+		object randomJunk71016-0 of RandomJunk
+			properties
+				x -200
+				y -200
+				loop 0
+			end
+			base carryable
+			end
+			base described
+			end
+		end
+		object randomBelt71016-0 of RandomBelt
+			properties
+				x -200
+				y -200
+				loop 0
+			end
+			base carryable
+			end
+			base described
+			end
+		end
+		object randomStuff71016-1 of RandomStuff
+			properties
+				x 197
+				y 247
+				loop 0
+			end
+			base described
+			end
+		end
+		object randomPants71016-0 of RandomPants
+			properties
+				x 179
+				y 249
+				loop 0
+			end
+			base described
+			end
+		end
+		object randomMaterial71016-0 of RandomMaterial
+			properties
+				x 221
+				y 263
+				loop 0
+			end
+			base described
+			end
+		end
+		object bones71016-0 of Bones
+			properties
+				x 122
+				y 268
+				loop 0
+			end
+			base described
+			end
+		end
+		object randomStuff71016-2 of RandomStuff
+			properties
+				x 112
+				y 274
+				loop 0
+			end
+			base described
+			end
+		end
+		object randomBoots71016-0 of RandomBoots
+			properties
+				x 199
+				y 275
+				loop 0
+			end
+			base described
+			end
+		end
+		object randomShirt71016-0 of RandomShirt
+			properties
+				x 130
+				y 275
+				loop 0
+			end
+			base described
+			end
+		end
+		object randomStuff71016-3 of RandomStuff
+			properties
+				x 158
+				y 282
+				loop 0
+			end
+			base described
+			end
+		end
+		object randomWeapon71016-0 of RandomWeapon
+			properties
+				x 174
+				y 285
+				loop 0
+			end
+			base described
+			end
+		end
+		object randomCowl71016-0 of RandomCowl
+			properties
+				x 215
+				y 286
+				loop 0
+			end
+			base described
+			end
+		end
+		object shroom371016-0 of Shroom3
+			properties
+				x 46
+				y 292
+				loop 0
+			end
+			base described
+			end
+		end
+		object randomMaterial71016-1 of RandomMaterial
+			properties
+				x 158
+				y 301
+				loop 0
+			end
+			base described
+			end
+		end
+		object shroom371016-1 of Shroom3
+			properties
+				x 18
+				y 302
+				loop 0
+			end
+			base described
+			end
+		end
+		object rock171016-0 of Rock1
+			properties
+				x 38
+				y 310
+				loop 0
+			end
+			base described
+			end
+		end
+		object kingKilrog71016-0 of KingKilrog
+			properties
+				loop 0
+				x 481
+				y 249
+			end
+		end
+		object kingKilrog71016-1 of KingKilrog
+			properties
+				loop 0
+				x 349
+				y 250
+			end
+		end
+		object kingKilrog71016-2 of KingKilrog
+			properties
+				loop 0
+				x 217
+				y 242
+			end
+		end
+		object kingKilrog71016-3 of KingKilrog
+			properties
+				loop 0
+				x 415
+				y 251
+			end
+		end
+		object kingKilrog71016-4 of KingKilrog
+			properties
+				loop 0
+				x 267
+				y 250
+			end
+		end
+		object evilWizard71016-0 of EvilWizard
+			properties
+				loop 0
+				x 337
+				y 317
+			end
+		end
+	end
+end
+room 71015
+	properties
+		flags	255
+		east 71014
+		west 71016
+		picture 3071
+	end
+	atpinfo
+		1754 608 92 
+		1754 329 214 
+		7900 450 221 
+		7906 267 221 
+		1752 83 225 
+		1751 577 226 
+		7900 75 233 
+		7901 548 233 
+		1874 58 274 
+		1872 247 280 
+		34641 517 286 
+		7907 271 287 277
+		7907 54 317 
+		7902 516 322 
+		7902 246 330 
+		1771 505 330 
+		1770 358 331 
+	end
+	objects
+		object torch71015-0 of Torch
+			properties
+				x 78
+				y 227
+				loop 0
+			end
+			base described
+			end
+		end
+		object kingKilrog71015-0 of KingKilrog
+			properties
+				loop 0
+				x 158
+				y 264
+			end
+		end
+		object kingKilrog71015-1 of KingKilrog
+			properties
+				loop 0
+				x 246
+				y 265
+			end
+		end
+		object kingKilrog71015-2 of KingKilrog
+			properties
+				loop 0
+				x 340
+				y 268
+			end
+		end
+		object kingKilrog71015-3 of KingKilrog
+			properties
+				loop 0
+				x 440
+				y 272
+			end
+		end
+	end
+end
+room 71014
+	properties
+		flags	255
+		west 71015
+		picture 3071
+	end
+	atpinfo
+		1752 180 229 
+		34518 41 232 
+		1750 322 236 
+		7901 176 246 13
+		34519 426 248 
+		7901 42 253 13
+		7906 290 256 14
+		34518 523 259 
+		7901 393 267 13
+		1900 382 269 
+		1751 623 274 
+		34642 320 277 
+		34640 131 278 
+		1873 505 282 
+		7906 498 300 36
+		40673 579 305 
+		7902 134 321 
+		1850 655 323 6
+		7902 412 324 
+	end
+	objects
+		object dungeonBackDoor71014-0 of DungeonBackDoor
+			properties
+				x 174
+				y 230
+				loop 0
+			end
+			base lockable
+			end
+			base described
+			end
+		end
+	end
+end
+room 71017
+	properties
+		flags	255
+		north 71016
+		south 71018
+		picture 3071
+	end
+	atpinfo
+		1750 442 223 
+		1751 196 224 
+		1751 656 225 
+		1831 383 228 
+		7906 465 229 
+		1750 299 234 
+		34598 345 235 
+		1780 625 237 
+		1750 100 241 
+		7900 266 241 
+		7909 150 249 
+		34598 91 260 
+		7906 77 263 
+		34548 634 284 
+		1750 30 298 12
+		1771 649 312 
+		1751 -14 317 -2
+		34540 27 317 
+		1772 81 318 
+		1772 20 318 277
+		34539 589 319 
+		1770 114 319 
+		7906 597 320 
+		7906 50 320 
+		1780 608 324 
+		7907 571 325 
+		34548 587 345 
+	end
+	objects
+		object evilWizard71017-0 of EvilWizard
+			properties
+				loop 0
+				x 203
+				y 262
+			end
+		end
+		object evilWizard71017-1 of EvilWizard
+			properties
+				loop 0
+				x 438
+				y 275
+			end
+		end
+		object dragon71017-0 of Dragon
+			properties
+				loop 0
+				x 310
+				y 265
+			end
+		end
+		object kingKilrog71017-0 of KingKilrog
+			properties
+				loop 0
+				x 142
+				y 267
+			end
+		end
+		object kingKilrog71017-1 of KingKilrog
+			properties
+				loop 0
+				x 540
+				y 273
+			end
+		end
+	end
+end
+room 71011
+	properties
+		flags	255
+		east 71010
+		south 71012
+		picture 3071
+	end
+	atpinfo
+		1752 451 229 
+		7906 453 237 
+		1751 297 246 
+		34518 583 248 
+		7906 366 252 
+		1752 131 254 
+		7906 293 255 
+		7906 221 259 
+		1751 62 274 
+		7907 125 295 16
+		1750 35 305 
+		7907 61 320 16
+		1850 14 328 
+		1850 649 330 
+		7907 41 337 16
+		7907 631 337 16
+		7908 627 341 76
+		7906 565 347 92
+	end
+	objects
+		object randomStuff71011-0 of RandomStuff
+			properties
+				x -200
+				y -200
+				loop 0
+			end
+			base carryable
+			end
+			base described
+			end
+		end
+		object randomStuff71011-1 of RandomStuff
+			properties
+				x -200
+				y -200
+				loop 0
+			end
+			base carryable
+			end
+			base described
+			end
+		end
+		object torch71011-0 of Torch
+			properties
+				x 462
+				y 230
+				loop 0
+			end
+			base described
+			end
+		end
+		object fireB71011-0 of FireB
+			properties
+				x 474
+				y 257
+				loop 0
+			end
+			base described
+			end
+		end
+		object dungeonDoor71011-0 of DungeonDoor
+			properties
+				x 582
+				y 257
+				loop 0
+			end
+		end
+		object embers71011-0 of Embers
+			properties
+				x 481
+				y 261
+				loop 0
+			end
+			base described
+			end
+		end
+		object kingKilrog71011-0 of KingKilrog
+			properties
+				loop 0
+				x 304
+				y 273
+			end
+		end
+		object stool71011-0 of Stool
+			properties
+				x 425
+				y 278
+				loop 0
+			end
+			base described
+			end
+		end
+		object stool71011-1 of Stool
+			properties
+				x 271
+				y 285
+				loop 0
+			end
+			base described
+			end
+		end
+		object kingKilrog71011-1 of KingKilrog
+			properties
+				loop 0
+				x 472
+				y 288
+			end
+		end
+		object kingKilrog71011-2 of KingKilrog
+			properties
+				loop 0
+				x 180
+				y 289
+			end
+		end
+		object smoke171011-0 of Smoke1
+			properties
+				x 340
+				y 290
+				loop 0
+			end
+			base described
+			end
+		end
+		object randomStuff71011-2 of RandomStuff
+			properties
+				x 270
+				y 292
+				loop 0
+			end
+			base described
+			end
+		end
+		object stoneBench71011-0 of StoneBench
+			properties
+				x 344
+				y 296
+				loop 0
+			end
+			base described
+			end
+		end
+	end
+end
+room 71010
+	properties
+		flags	255
+		east 71009
+		west 71011
+		picture 3071
+	end
+	atpinfo
+		1752 97 224 
+		34520 545 228 
+		1750 238 229 
+		7900 505 236 
+		7906 168 236 
+		1750 431 239 
+		1751 348 249 
+		7909 470 249 
+		7906 404 256 
+		7901 313 256 
+		1750 57 259 
+		7908 83 279 17
+		7908 27 279 17
+		1874 56 282 
+		34640 263 284 
+		1873 501 286 
+		7907 45 314 294
+		7907 333 318 
+		7902 516 329 
+		7902 133 331 
+	end
+	objects
+		object web171010-0 of Web1
+			properties
+				x 147
+				y 228
+				loop 0
+			end
+			base described
+			end
+		end
+		object web271010-0 of Web2
+			properties
+				x 173
+				y 228
+				loop 0
+			end
+			base described
+			end
+		end
+		object torch71010-0 of Torch
+			properties
+				x 542
+				y 232
+				loop 0
+			end
+			base described
+			end
+		end
+		object kingKilrog71010-0 of KingKilrog
+			properties
+				loop 0
+				x 54
+				y 277
+			end
+		end
+		object kingKilrog71010-1 of KingKilrog
+			properties
+				loop 0
+				x 182
+				y 282
+			end
+		end
+		object kingKilrog71010-2 of KingKilrog
+			properties
+				loop 0
+				x 453
+				y 285
+			end
+		end
+		object kingKilrog71010-3 of KingKilrog
+			properties
+				loop 0
+				x 560
+				y 280
+			end
+		end
+		object evilWizard71010-0 of EvilWizard
+			properties
+				loop 0
+				x 323
+				y 278
+			end
+		end
+	end
+end
+room 71009
+	properties
+		flags 72
+		east 71008
+		west 71010
+		picture 3071
+	end
+	atpinfo
+		1754 608 92 
+		1754 329 214 
+		7900 450 221 
+		7906 267 221 
+		1752 83 225 
+		1751 577 226 
+		7900 75 233 
+		7901 548 233 
+		1874 58 274 
+		1872 247 280 
+		34641 517 286 
+		7907 271 287 277
+		7907 54 317 
+		7902 516 322 
+		7902 246 330 
+		1771 505 330 
+		1770 358 331 
+	end
+	objects
+		object randomSkillbook71009-0 of RandomSkillbook
+			properties
+				x -200
+				y -200
+				loop 0
+			end
+			base carryable
+			end
+			base described
+			end
+		end
+		object torch71009-0 of Torch
+			properties
+				x 256
+				y 222
+				loop 0
+			end
+			base described
+			end
+		end
+		object altar71009-0 of Altar
+			properties
+				x 448
+				y 224
+				loop 0
+			end
+			base described
+			end
+		end
+		object torch71009-1 of Torch
+			properties
+				x 448
+				y 224
+				loop 0
+			end
+			base described
+			end
+		end
+		object altar71009-1 of Altar
+			properties
+				x 257
+				y 225
+				loop 0
+			end
+			base described
+			end
+		end
+		object altar71009-2 of Altar
+			properties
+				x 352
+				y 225
+				loop 0
+			end
+			base described
+			end
+		end
+		object dragon71009-0 of Dragon
+			properties
+				loop 0
+				x 88
+				y 250
+			end
+		end
+		object evilWizard71009-0 of EvilWizard
+			properties
+				loop 0
+				x 196
+				y 252
+			end
+		end
+		object dragon71009-1 of Dragon
+			properties
+				loop 0
+				x 576
+				y 256
+			end
+		end
+		object evilWizard71009-1 of EvilWizard
+			properties
+				loop 0
+				x 502
+				y 258
+			end
+		end
+	end
+end
+room 71008
+	properties
+		flags	255
+		south 71007
+		west 71009
+		picture 3071
+	end
+	atpinfo
+		1770 116 25 
+		34618 406 211 
+		1750 479 212 
+		34518 329 214 
+		1876 385 217 
+		1830 447 219 
+		1752 103 221 
+		1750 270 221 
+		7906 183 226 
+		7901 369 227 
+		1831 215 229 
+		7906 221 234 
+		7901 508 235 
+		1751 587 259 
+		7907 527 265 
+		1750 18 266 
+		7907 529 294 
+		7907 33 299 
+		34518 -18 305 
+		7907 478 310 286
+		1850 614 317 
+		1770 48 318 
+		7901 588 318 
+		7907 4 319 
+		7907 59 323 50
+		7901 42 332 104
+	end
+	objects
+		object devil71008-0 of Devil
+			properties
+				loop 0
+				x 127
+				y 252
+			end
+		end
+		object evilWizard71008-0 of EvilWizard
+			properties
+				loop 0
+				x 282
+				y 258
+			end
+		end
+		object devil71008-1 of Devil
+			properties
+				loop 0
+				x 204
+				y 260
+			end
+		end
+		object devil71008-2 of Devil
+			properties
+				loop 0
+				x 442
+				y 261
+			end
+		end
+		object devil71008-3 of Devil
+			properties
+				loop 0
+				x 361
+				y 261
+			end
+		end
+	end
+end
+room 71018
+	properties
+		flags	255
+		north 71017
+		south 71019
+		picture 3071
+	end
+	atpinfo
+		1750 149 235 
+		1750 435 241 
+		1831 369 242 
+		1830 205 243 
+		7906 194 248 
+		34519 47 250 
+		34548 421 256 
+		7907 411 258 
+		1750 506 266 
+		1780 455 277 
+		7907 86 286 
+		1751 20 287 
+		1850 542 304 
+		34548 510 310 
+		34618 622 317 -21
+		1850 23 318 
+		7906 48 318 
+		7906 438 319 38
+		7906 496 320 
+		34538 389 323 
+		34539 435 324 
+		7906 371 324 77
+		1771 526 325 
+		1770 574 326 
+		7906 105 328 76
+		1780 536 346 
+	end
+	objects
+		object randomStuff71018-0 of RandomStuff
+			properties
+				x 429
+				y 293
+				loop 0
+			end
+			base described
+			end
+		end
+		object kingKilrog71018-0 of KingKilrog
+			properties
+				loop 0
+				x 144
+				y 266
+			end
+		end
+		object kingKilrog71018-1 of KingKilrog
+			properties
+				loop 0
+				x 386
+				y 278
+			end
+		end
+		object kingKilrog71018-2 of KingKilrog
+			properties
+				loop 0
+				x 208
+				y 267
+			end
+		end
+		object kingKilrog71018-3 of KingKilrog
+			properties
+				loop 0
+				x 329
+				y 272
+			end
+		end
+	end
+end
+room 71013
+	properties
+		flags	255
+		east 71012
+		picture 3071
+	end
+	atpinfo
+		1752 466 215 
+		34520 78 216 
+		7901 57 221 
+		7906 477 222 
+		1750 212 228 
+		1750 607 235 
+		7901 209 236 
+		1751 322 241 
+		7901 601 242 
+		7907 267 242 
+		7901 350 246 
+		1750 -9 265 
+		1872 113 272 
+		1873 370 279 
+		1874 565 280 
+		7906 17 303 
+		7907 93 317 
+		7902 223 322 
+		7902 502 324 
+		1850 -26 332 
+	end
+	objects
+		object dungeonBackDoor71013-0 of DungeonBackDoor
+			properties
+				x 477
+				y 217
+				loop 0
+			end
+			base lockable
+				isLocked 1
+				unlockValue 1013
+			end
+			base described
+			end
+		end
+	end
+end
+room 71012
+	properties
+		flags	255
+		north 71011
+		west 71013
+		picture 3071
+	end
+	atpinfo
+		1783 518 74 
+		1782 65 75 
+		34551 259 77 
+		1782 361 82 
+		1750 203 229 
+		1751 429 231 
+		7901 193 235 
+		7906 485 236 
+		7901 395 240 
+		1850 609 317 
+		1850 21 329 
+		7907 52 329 
+		7907 596 329 
+	end
+	objects
+		object slime71012-0 of Slime
+			properties
+				loop 0
+				x 206
+				y 198
+			end
+		end
+		object slime71012-1 of Slime
+			properties
+				loop 0
+				x 431
+				y 198
+			end
+		end
+		object seraphQueen71012-0 of SeraphQueen
+			properties
+				loop 0
+				x 320
+				y 237
+			end
+		end
+		object devil71012-0 of Devil
+			properties
+				loop 0
+				x 523
+				y 265
+			end
+		end
+		object devil71012-1 of Devil
+			properties
+				loop 0
+				x 89
+				y 275
+			end
+		end
+		object randomStuff71012-0 of RandomStuff
+			properties
+				x 515
+				y 306
+				loop 0
+			end
+			base described
+			end
+		end
+		object stoneBench71012-0 of StoneBench
+			properties
+				x 468
+				y 319
+				loop 0
+			end
+			base described
+			end
+		end
+		object stoneBench71012-1 of StoneBench
+			properties
+				x 182
+				y 319
+				loop 0
+			end
+			base described
+			end
+		end
+		object dungeonBackDoor71012-0 of DungeonBackDoor
+			properties
+				x 314
+				y 348
+				loop 0
+			end
+			base lockable
+			end
+			base described
+			end
+		end
+	end
+end
+room 71007
+	properties
+		flags	255
+		north 71008
+		picture 3071
+	end
+	atpinfo
+		1871 -90 199 
+		34638 143 200 
+		1870 363 202 
+		1752 82 207 
+		1783 108 210 -1
+		7901 155 213 
+		1751 406 219 
+		1752 636 219 
+		7906 339 223 
+		34551 414 229 
+		1750 508 230 
+		34548 39 235 
+		34550 550 241 
+		1781 462 242 
+		1782 381 251 
+		7907 368 256 
+		7909 412 262 24
+		34549 103 276 
+		7907 134 279 
+		34640 353 280 
+		1873 157 286 
+		7904 81 300 
+		7907 121 317 
+		7906 47 320 
+		7900 522 321 
+		7902 312 322 
+		1771 48 328 
+		1770 506 330 
+		1782 39 340 
+		34548 494 345 
+		1901 337 250 
+	end
+	objects
+		object randomBand71007-0 of RandomBand
+			properties
+				x -200
+				y -200
+				loop 0
+			end
+			base carryable
+			end
+			base described
+			end
+		end
+		object randomPants71007-0 of RandomPants
+			properties
+				x -200
+				y -200
+				loop 0
+			end
+			base carryable
+			end
+			base described
+			end
+		end
+		object randomPants71007-1 of RandomPants
+			properties
+				x -200
+				y -200
+				loop 0
+			end
+			base carryable
+			end
+			base described
+			end
+		end
+		object randomStuff71007-0 of RandomStuff
+			properties
+				x -200
+				y -200
+				loop 0
+			end
+			base carryable
+			end
+			base described
+			end
+		end
+		object randomShield71007-0 of RandomShield
+			properties
+				x -200
+				y -200
+				loop 0
+			end
+			base carryable
+			end
+			base described
+			end
+		end
+		object randomPotion71007-0 of RandomPotion
+			properties
+				x -200
+				y -200
+				loop 0
+			end
+			base carryable
+			end
+			base described
+			end
+		end
+		object web571007-0 of Web5
+			properties
+				x 62
+				y 210
+				loop 0
+			end
+			base described
+			end
+		end
+		object web571007-1 of Web5
+			properties
+				x 638
+				y 219
+				loop 0
+			end
+			base described
+			end
+		end
+		object web671007-0 of Web6
+			properties
+				x 574
+				y 222
+				loop 0
+			end
+			base described
+			end
+		end
+		object randomStuff71007-1 of RandomStuff
+			properties
+				x 249
+				y 223
+				loop 0
+			end
+			base described
+			end
+		end
+		object randomMaterial71007-0 of RandomMaterial
+			properties
+				x 266
+				y 239
+				loop 0
+			end
+			base described
+			end
+		end
+		object shroom271007-0 of Shroom2
+			properties
+				x 67
+				y 244
+				loop 0
+			end
+			base described
+			end
+		end
+		object randomShirt71007-0 of RandomShirt
+			properties
+				x 7
+				y 245
+				loop 0
+			end
+			base described
+			end
+		end
+		object randomPants71007-2 of RandomPants
+			properties
+				x 29
+				y 246
+				loop 0
+			end
+			base described
+			end
+		end
+		object bones71007-0 of Bones
+			properties
+				x 199
+				y 248
+				loop 0
+			end
+			base described
+			end
+		end
+		object sign71007-0 of Sign
+			properties
+				x 135
+				y 249
+				loop 0
+			end
+			base described
+				text "The Dump"
+			end
+		end
+		object randomShirt71007-1 of RandomShirt
+			properties
+				x 531
+				y 250
+				loop 0
+			end
+			base described
+			end
+		end
+		object randomBoots71007-0 of RandomBoots
+			properties
+				x 314
+				y 253
+				loop 0
+			end
+			base described
+			end
+		end
+		object randomStuff71007-2 of RandomStuff
+			properties
+				x 232
+				y 253
+				loop 0
+			end
+			base described
+			end
+		end
+		object fuloran71007-0 of Fuloran
+			properties
+				loop 0
+				x 254
+				y 255
+			end
+		end
+		object randomCowl71007-0 of RandomCowl
+			properties
+				x 475
+				y 257
+				loop 0
+			end
+			base described
+			end
+		end
+		object randomBelt71007-0 of RandomBelt
+			properties
+				x 210
+				y 260
+				loop 0
+			end
+			base described
+			end
+		end
+		object evilWizard71007-0 of EvilWizard
+			properties
+				loop 0
+				x 111
+				y 260
+			end
+		end
+		object randomBoots71007-1 of RandomBoots
+			properties
+				x 378
+				y 262
+				loop 0
+			end
+			base described
+			end
+		end
+		object evilWizard71007-1 of EvilWizard
+			properties
+				loop 0
+				x 340
+				y 262
+			end
+		end
+		object randomJunk71007-0 of RandomJunk
+			properties
+				x 264
+				y 266
+				loop 0
+			end
+			base described
+			end
+		end
+		object randomPotion71007-1 of RandomPotion
+			properties
+				x 297
+				y 266
+				loop 0
+			end
+			base described
+			end
+		end
+		object randomCowl71007-1 of RandomCowl
+			properties
+				x 210
+				y 267
+				loop 0
+			end
+			base described
+			end
+		end
+		object kingKilrog71007-0 of KingKilrog
+			properties
+				loop 0
+				x 308
+				y 267
+			end
+		end
+		object bones71007-1 of Bones
+			properties
+				x 36
+				y 268
+				loop 0
+			end
+			base described
+			end
+		end
+		object kingKilrog71007-1 of KingKilrog
+			properties
+				loop 0
+				x 167
+				y 268
+			end
+		end
+		object randomStuff71007-3 of RandomStuff
+			properties
+				x 278
+				y 269
+				loop 0
+			end
+			base described
+			end
+		end
+		object randomMaterial71007-1 of RandomMaterial
+			properties
+				x 219
+				y 269
+				loop 0
+			end
+			base described
+			end
+		end
+		object randomRing71007-0 of RandomRing
+			properties
+				x 310
+				y 272
+				loop 0
+			end
+			base described
+			end
+		end
+		object randomMaterial71007-2 of RandomMaterial
+			properties
+				x 338
+				y 272
+				loop 0
+			end
+			base described
+			end
+		end
+		object randomWeapon71007-0 of RandomWeapon
+			properties
+				x 232
+				y 273
+				loop 0
+			end
+			base described
+			end
+		end
+		object randomBoots71007-2 of RandomBoots
+			properties
+				x 32
+				y 274
+				loop 0
+			end
+			base described
+			end
+		end
+		object randomStuff71007-4 of RandomStuff
+			properties
+				x 354
+				y 276
+				loop 0
+			end
+			base described
+			end
+		end
+		object randomWeapon71007-1 of RandomWeapon
+			properties
+				x 336
+				y 277
+				loop 0
+			end
+			base described
+			end
+		end
+		object bones71007-2 of Bones
+			properties
+				x 524
+				y 278
+				loop 0
+			end
+			base described
+			end
+		end
+		object skull71007-0 of Skull
+			properties
+				x 410
+				y 281
+				loop 0
+			end
+			base described
+			end
+		end
+		object randomStuff71007-5 of RandomStuff
+			properties
+				x 376
+				y 282
+				loop 0
+			end
+			base described
+			end
+		end
+		object column71007-0 of Column
+			properties
+				x 632
+				y 297
+				loop 0
+			end
+			base described
+			end
+		end
+		object randomMaterial71007-3 of RandomMaterial
+			properties
+				x 540
+				y 303
+				loop 0
+			end
+			base described
+			end
+		end
+		object randomStuff71007-6 of RandomStuff
+			properties
+				x 9
+				y 303
+				loop 0
+			end
+			base described
+			end
+		end
+		object randomWeapon71007-2 of RandomWeapon
+			properties
+				x 593
+				y 305
+				loop 0
+			end
+			base described
+			end
+		end
+		object shroom371007-0 of Shroom3
+			properties
+				x 560
+				y 317
+				loop 0
+			end
+			base described
+			end
+		end
+	end
+end
+room 71000
+	properties
+		flags	255
+		south 71004
+		picture 3071
+	end
+	atpinfo
+		1754 292 209 
+		34518 148 227 
+		7906 162 233 
+		34518 435 241 
+		7907 289 247 223
+		1751 47 250 
+		1780 421 256 
+		7908 210 265 48
+		34518 506 266 
+		7906 279 267 51
+		1751 1 272 
+		34548 455 277 
+		7906 387 284 66
+		40672 393 284 
+		34618 542 304 
+		1780 510 310 
+		7904 87 313 
+		1850 622 317 -21
+		34618 23 318 
+		34538 392 319 
+		7906 46 319 
+		34539 431 323 
+		1770 573 326 
+		1771 499 330 
+		7906 451 337 51
+		34548 540 356 
+		40672 508 370 
+	end
+	objects
+		object dungeonBackUp71000-0 of DungeonBackUp
+			properties
+				x 297
+				y 217
+				loop 0
+			end
+			base lockable
+			end
+			base described
+			end
+		end
+		object torch71000-0 of Torch
+			properties
+				x 156
+				y 228
+				loop 0
+			end
+			base described
+			end
+		end
+		object gargoyle71000-0 of Gargoyle
+			properties
+				loop 0
+				x 193
+				y 249
+			end
+		end
+		object gargoyle71000-1 of Gargoyle
+			properties
+				loop 0
+				x 366
+				y 256
+			end
+		end
+	end
+end
+room 71019
+	properties
+		flags	255
+		north 71018
+		south 71021
+		picture 3071
+	end
+	atpinfo
+		1750 148 237 
+		1750 435 241 
+		1831 369 242 
+		1830 205 243 
+		7906 369 248 
+		7901 167 249 
+		34519 47 250 
+		34548 421 256 
+		7909 392 261 
+		1750 506 266 
+		1780 455 277 
+		1751 20 287 
+		1850 542 304 
+		34548 510 310 
+		1770 154 316 
+		34618 622 317 -21
+		1850 23 318 
+		1771 520 324 
+		34538 392 325 
+		7904 90 329 
+		1770 579 330 
+		40673 491 332 
+		34539 437 333 
+		1780 540 356 
+	end
+	objects
+		object kingKilrog71019-0 of KingKilrog
+			properties
+				loop 0
+				x 169
+				y 278
+			end
+		end
+		object kingKilrog71019-1 of KingKilrog
+			properties
+				loop 0
+				x 246
+				y 281
+			end
+		end
+		object kingKilrog71019-2 of KingKilrog
+			properties
+				loop 0
+				x 321
+				y 282
+			end
+		end
+		object kingKilrog71019-3 of KingKilrog
+			properties
+				loop 0
+				x 406
+				y 280
+			end
+		end
+		object kingKilrog71019-4 of KingKilrog
+			properties
+				loop 0
+				x 280
+				y 283
+			end
+		end
+	end
+end
+room 71004
+	properties
+		flags	255
+		north 71000
+		south 71001
+		picture 3071
+	end
+	atpinfo
+		1831 379 228 
+		1830 204 231 
+		7906 379 232 
+		1750 442 236 
+		34548 469 238 
+		34643 467 244 
+		7907 417 248 
+		1751 122 251 
+		1751 548 267 
+		7907 488 270 
+		1875 581 277 
+		1750 121 281 
+		7909 543 284 
+		7906 145 285 
+		7907 505 286 267
+		7905 132 287 
+		7906 200 289 58
+		7906 92 303 
+		34539 562 304 
+		7907 129 312 
+		34519 38 315 
+		1771 641 316 
+		34538 510 316 
+		1772 106 317 
+		1850 23 318 
+		1770 132 319 
+		34539 271 319 
+		7906 594 320 
+		7906 3 322 
+		1780 615 331 
+		34548 110 349 
+	end
+	objects
+		object web171004-0 of Web1
+			properties
+				x 166
+				y 236
+				loop 0
+			end
+			base described
+			end
+		end
+		object torch71004-0 of Torch
+			properties
+				x 151
+				y 238
+				loop 0
+			end
+			base described
+			end
+		end
+		object shroom171004-0 of Shroom1
+			properties
+				x 167
+				y 247
+				loop 0
+			end
+			base described
+			end
+		end
+		object shroom371004-0 of Shroom3
+			properties
+				x 135
+				y 254
+				loop 0
+			end
+			base described
+			end
+		end
+		object shroom371004-1 of Shroom3
+			properties
+				x 172
+				y 254
+				loop 0
+			end
+			base described
+			end
+		end
+		object shroom171004-1 of Shroom1
+			properties
+				x 119
+				y 256
+				loop 0
+			end
+			base described
+			end
+		end
+		object shroom371004-2 of Shroom3
+			properties
+				x 150
+				y 264
+				loop 0
+			end
+			base described
+			end
+		end
+		object sittingMushroom71004-0 of SittingMushroom
+			properties
+				x 204
+				y 277
+				loop 0
+			end
+			base described
+			end
+		end
+		object devil71004-0 of Devil
+			properties
+				loop 0
+				x 428
+				y 283
+			end
+		end
+		object neutralWizard71004-0 of NeutralWizard
+			properties
+				loop 0
+				x 338
+				y 286
+			end
+		end
+		object devil71004-1 of Devil
+			properties
+				loop 0
+				x 252
+				y 286
+			end
+		end
+	end
+end
+room 71021
+	properties
+		flags	255
+		north 71019
+		south 71023
+		picture 3071
+	end
+	atpinfo
+		1831 379 228 
+		1830 204 231 
+		7906 379 232 
+		1750 442 236 
+		34548 469 238 
+		34643 467 244 
+		7907 417 248 
+		1751 122 251 
+		1751 548 267 
+		7907 488 270 
+		1875 581 277 
+		1750 121 281 
+		7909 543 284 
+		7906 145 285 
+		7907 505 286 267
+		7905 132 287 
+		7906 200 289 58
+		7906 92 303 
+		34539 562 304 
+		7907 129 312 
+		34519 38 315 
+		1771 641 316 
+		34538 510 316 
+		1772 106 317 
+		1850 23 318 
+		1770 132 319 
+		34539 271 319 
+		7906 594 320 
+		7906 3 322 
+		1780 615 331 
+		34548 110 349 
+	end
+	objects
+		object jawBone71021-0 of JawBone
+			properties
+				x 544
+				y 301
+				loop 0
+			end
+			base described
+			end
+		end
+		object shroom371021-0 of Shroom3
+			properties
+				x 531
+				y 302
+				loop 0
+			end
+			base described
+			end
+		end
+		object kingKilrog71021-0 of KingKilrog
+			properties
+				loop 0
+				x 222
+				y 272
+			end
+		end
+		object kingKilrog71021-1 of KingKilrog
+			properties
+				loop 0
+				x 293
+				y 273
+			end
+		end
+		object kingKilrog71021-2 of KingKilrog
+			properties
+				loop 0
+				x 364
+				y 272
+			end
+		end
+		object kingKilrog71021-3 of KingKilrog
+			properties
+				loop 0
+				x 443
+				y 269
+			end
+		end
+	end
+end
+room 71447
+	properties
+		flags	255
+		east 71006
+		picture 3071
+	end
+	atpinfo
+		1752 466 215 
+		34520 78 216 
+		7901 57 221 
+		7906 477 222 
+		1750 212 228 
+		1750 607 235 
+		7901 209 236 
+		1751 322 241 
+		7901 601 242 
+		7907 267 242 
+		7901 350 246 
+		1750 -9 265 
+		1872 113 272 
+		1873 370 279 
+		1874 565 280 
+		7906 17 303 
+		7907 93 317 
+		7902 223 322 
+		7902 502 324 
+		1850 -26 332 
+	end
+	objects
+		object randomWeapon71447-0 of RandomWeapon
+			properties
+				x -200
+				y -200
+				loop 0
+			end
+			base carryable
+			end
+			base described
+			end
+		end
+		object randomArmorShirt71447-0 of RandomArmorShirt
+			properties
+				x -200
+				y -200
+				loop 0
+			end
+			base carryable
+			end
+			base described
+			end
+		end
+		object randomScroll71447-0 of RandomScroll
+			properties
+				x -200
+				y -200
+				loop 0
+			end
+			base carryable
+			end
+			base described
+			end
+		end
+		object randomPotion71447-0 of RandomPotion
+			properties
+				x -200
+				y -200
+				loop 0
+			end
+			base carryable
+			end
+			base described
+			end
+		end
+		object randomMoreMoney71447-0 of RandomMoreMoney
+			properties
+				x -200
+				y -200
+				loop 0
+			end
+			base carryable
+			end
+			base described
+			end
+		end
+		object lockedChest71447-0 of LockedChest
+			properties
+				x 165
+				y 272
+				loop 0
+			end
+			base lockable
+			end
+			base described
+			end
+		end
+		object kingKilrog71447-0 of KingKilrog
+			properties
+				loop 0
+				x 531
+				y 254
+			end
+		end
+		object kingKilrog71447-1 of KingKilrog
+			properties
+				loop 0
+				x 65
+				y 246
+			end
+		end
+		object spittingCobra71447-0 of SpittingCobra
+			properties
+				loop 0
+				x 516
+				y 245
+			end
+		end
+		object spittingCobra71447-1 of SpittingCobra
+			properties
+				loop 0
+				x 240
+				y 247
+			end
+		end
+		object tulorTheTerrible71447-0 of TulorTheTerrible
+			properties
+				loop 0
+				x 293
+				y 274
+			end
+		end
+		object goodWizard71447-0 of GoodWizard
+			properties
+				loop 0
+				x 358
+				y 279
+			end
+		end
+		object goodWizard71447-1 of GoodWizard
+			properties
+				loop 0
+				x 226
+				y 282
+			end
+		end
+	end
+end
+room 71006
+	properties
+		flags	255
+		east 71005
+		west 71447
+		picture 3071
+	end
+	atpinfo
+		1752 320 223 
+		1750 579 231 
+		1752 511 238 
+		34519 70 238 
+		34518 184 242 
+		7900 492 243 
+		7901 176 245 
+		1876 599 248 
+		7907 312 264 249
+		34642 314 271 
+		34640 126 276 
+		1873 499 280 
+		34519 -19 290 
+		7902 -63 297 
+		1772 120 303 
+		7909 60 304 
+		7906 310 318 86
+		1850 654 323 6
+		7902 176 326 
+		7902 455 327 
+		7902 640 327 
+		7906 35 329 86
+		7906 596 329 86
+		1771 88 331 
+	end
+	objects
+		object dungeonBackDown71006-0 of DungeonBackDown
+			properties
+				x 473
+				y 217
+				loop 0
+			end
+			base lockable
+			end
+			base described
+			end
+		end
+		object daemonKing71006-0 of DaemonKing
+			properties
+				x 386
+				y 265
+				loop 0
+				color 784
+			end
+			base character
+			end
+		end
+		object plagueRat71006-0 of PlagueRat
+			properties
+				x 280
+				y 266
+				loop 0
+				color 82
+			end
+			base character
+			end
+		end
+		object plagueRat71006-1 of PlagueRat
+			properties
+				x 520
+				y 270
+				loop 0
+				color 82
+			end
+			base character
+			end
+		end
+		object sign71006-0 of Sign
+			properties
+				x 253
+				y 281
+				loop 0
+			end
+			base described
+				text "One Way Ride"
+			end
+		end
+		object demonRat71006-0 of DemonRat
+			properties
+				x 438
+				y 284
+				loop 0
+				color 771
+			end
+			base character
+			end
+		end
+		object lever71006-0 of Lever
+			properties
+				x 311
+				y 285
+				loop 0
+			end
+			base described
+			end
+		end
+		object smoke171006-0 of Smoke1
+			properties
+				x 490
+				y 333
+				loop 0
+			end
+			base described
+			end
+		end
+		object smoke271006-0 of Smoke2
+			properties
+				x 158
+				y 337
+				loop 0
+			end
+			base described
+			end
+		end
+		object smoke271006-1 of Smoke2
+			properties
+				x 359
+				y 339
+				loop 0
+			end
+			base described
+			end
+		end
+		object smoke271006-2 of Smoke2
+			properties
+				x 529
+				y 345
+				loop 0
+			end
+			base described
+			end
+		end
+	end
+end
+room 71005
+	properties
+		flags	255
+		east 71003
+		west 71006
+		picture 3071
+	end
+	atpinfo
+		1752 560 222 
+		7901 553 227 
+		1752 183 229 
+		34518 45 233 
+		1750 324 236 
+		34519 426 248 
+		7901 456 252 
+		7906 313 253 
+		34642 320 277 
+		34640 131 278 
+		1873 505 282 
+		7907 42 317 
+		7902 499 319 
+		7902 219 322 
+		1850 33 323 6
+		7900 130 333 91
+	end
+	objects
+		object torch71005-0 of Torch
+			properties
+				x 183
+				y 232
+				loop 0
+			end
+			base described
+			end
+		end
+		object column71005-0 of Column
+			properties
+				x 437
+				y 269
+				loop 0
+			end
+			base described
+			end
+		end
+		object stalagmite471005-0 of Stalagmite4
+			properties
+				x 428
+				y 270
+				loop 0
+			end
+			base described
+			end
+		end
+		object stalagmite171005-0 of Stalagmite1
+			properties
+				x 410
+				y 275
+				loop 0
+			end
+			base described
+			end
+		end
+		object stalagmite171005-1 of Stalagmite1
+			properties
+				x 456
+				y 285
+				loop 0
+			end
+			base described
+			end
+		end
+		object stalagmite471005-1 of Stalagmite4
+			properties
+				x 397
+				y 287
+				loop 0
+			end
+			base described
+			end
+		end
+		object stalagmite271005-0 of Stalagmite2
+			properties
+				x 458
+				y 291
+				loop 0
+			end
+			base described
+			end
+		end
+		object stalagmite371005-0 of Stalagmite3
+			properties
+				x 420
+				y 294
+				loop 0
+			end
+			base described
+			end
+		end
+		object smokeB71005-0 of SmokeB
+			properties
+				x 217
+				y 338
+				loop 0
+			end
+			base described
+			end
+		end
+		object smoke271005-0 of Smoke2
+			properties
+				x 425
+				y 342
+				loop 0
+			end
+			base described
+			end
+		end
+		object smoke271005-1 of Smoke2
+			properties
+				x 524
+				y 342
+				loop 0
+			end
+			base described
+			end
+		end
+	end
+end
+room 71003
+	properties
+		flags	255
+		east 71002
+		west 71005
+		picture 3071
+	end
+	atpinfo
+		1754 608 92 
+		1754 329 214 
+		7900 450 221 
+		7906 267 221 
+		1752 83 225 
+		1751 577 226 
+		7900 75 233 
+		7901 548 233 
+		1874 58 274 
+		1872 247 280 
+		34641 517 286 
+		7907 271 287 277
+		7907 54 317 
+		7902 516 322 
+		7902 246 330 
+		1771 505 330 
+		1770 358 331 
+	end
+	objects
+		object dungeonBackDoor71003-0 of DungeonBackDoor
+			properties
+				x 347
+				y 216
+				loop 0
+			end
+			base lockable
+			end
+			base described
+			end
+		end
+		object smoke171003-0 of Smoke1
+			properties
+				x 283
+				y 334
+				loop 0
+			end
+			base described
+			end
+		end
+		object smokeB71003-0 of SmokeB
+			properties
+				x 500
+				y 339
+				loop 0
+			end
+			base described
+			end
+		end
+		object smoke271003-0 of Smoke2
+			properties
+				x 118
+				y 342
+				loop 0
+			end
+			base described
+			end
+		end
+		object smokeB71003-1 of SmokeB
+			properties
+				x 283
+				y 343
+				loop 0
+			end
+			base described
+			end
+		end
+		object smoke171003-1 of Smoke1
+			properties
+				x 24
+				y 359
+				loop 0
+			end
+			base described
+			end
+		end
+	end
+end
+room 71002
+	properties
+		flags	255
+		east 71001
+		west 71003
+		picture 3071
+	end
+	atpinfo
+		1754 608 92 
+		1754 340 215 
+		7900 450 221 
+		7906 267 221 
+		1752 83 225 
+		1751 577 226 
+		7900 75 233 
+		7901 548 233 
+		1874 58 274 
+		1872 247 280 
+		34641 517 286 
+		7907 271 287 277
+		7907 54 317 
+		7902 516 322 
+		7902 246 330 
+		1771 505 330 
+		1770 358 331 
+	end
+	objects
+		object torch71002-0 of Torch
+			properties
+				x 324
+				y 229
+				loop 0
+			end
+			base described
+			end
+		end
+		object gargoyle71002-0 of Gargoyle
+			properties
+				loop 0
+				x 115
+				y 249
+			end
+		end
+		object apophis71002-0 of Apophis
+			properties
+				loop 0
+				x 422
+				y 255
+			end
+		end
+		object gargoyle71002-1 of Gargoyle
+			properties
+				loop 0
+				x 551
+				y 257
+			end
+		end
+		object smoke171002-0 of Smoke1
+			properties
+				x 263
+				y 317
+				loop 0
+			end
+			base described
+			end
+		end
+		object smokeB71002-0 of SmokeB
+			properties
+				x 269
+				y 340
+				loop 0
+			end
+			base described
+			end
+		end
+		object smokeB71002-1 of SmokeB
+			properties
+				x 488
+				y 340
+				loop 0
+			end
+			base described
+			end
+		end
+		object smokeB71002-2 of SmokeB
+			properties
+				x 124
+				y 344
+				loop 0
+			end
+			base described
+			end
+		end
+		object smoke171002-1 of Smoke1
+			properties
+				x 571
+				y 368
+				loop 0
+			end
+			base described
+			end
+		end
+	end
+end
+room 71001
+	properties
+		flags	255
+		north 71004
+		west 71002
+		picture 3071
+	end
+	atpinfo
+		1752 554 220 
+		34518 431 226 
+		1752 151 228 
+		7908 405 232 
+		7901 199 234 
+		1751 526 237 
+		7901 493 245 
+		34518 39 254 
+		1751 641 254 
+		7901 41 259 
+		1874 288 278 
+		1872 476 282 
+		1873 91 289 
+		34518 627 293 
+		7907 55 317 
+		1850 646 327 
+		7902 243 329 
+		7902 502 332 
+		34640 250 358 
+		7906 582 379 78
+	end
+	objects
+		object devil71001-0 of Devil
+			properties
+				loop 0
+				x 153
+				y 250
+			end
+		end
+		object devil71001-1 of Devil
+			properties
+				loop 0
+				x 109
+				y 253
+			end
+		end
+		object servant71001-0 of Servant
+			properties
+				loop 0
+				x 309
+				y 260
+			end
+		end
+		object evilWizard71001-0 of EvilWizard
+			properties
+				loop 0
+				x 543
+				y 270
+			end
+		end
+		object rock171001-0 of Rock1
+			properties
+				x 418
+				y 284
+				loop 0
+			end
+			base described
+			end
+		end
+		object smoke171001-0 of Smoke1
+			properties
+				x 62
+				y 327
+				loop 0
+			end
+			base described
+			end
+		end
+		object smoke271001-0 of Smoke2
+			properties
+				x 294
+				y 341
+				loop 0
+			end
+			base described
+			end
+		end
+		object smoke271001-1 of Smoke2
+			properties
+				x 99
+				y 344
+				loop 0
+			end
+			base described
+			end
+		end
+		object smoke271001-2 of Smoke2
+			properties
+				x 497
+				y 350
+				loop 0
+			end
+			base described
+			end
+		end
+	end
+end
+room 71023
+	properties
+		flags	255
+		north 71021
+		east 71024
+		picture 3071
+	end
+	atpinfo
+		1871 -85 46 
+		1871 -103 182 
+		34638 142 205 
+		34518 611 219 
+		34520 89 221 3
+		34519 256 223 
+		7900 656 225 
+		7906 326 231 
+		7906 210 234 
+		1780 112 281 
+		1872 403 284 
+		34642 609 285 
+		7906 127 286 
+		1873 152 292 
+		7906 33 321 
+		7902 498 327 
+		1770 447 328 
+		7902 223 330 
+		1771 137 333 
+	end
+	objects
+		object web571023-0 of Web5
+			properties
+				x 26
+				y 221
+				loop 0
+			end
+			base described
+			end
+		end
+		object cryptBat71023-0 of cryptBat
+			properties
+				x 234
+				y 254
+				loop 0
+				color 73
+			end
+			base character
+			end
+		end
+		object flyingRat71023-0 of FlyingRat
+			properties
+				x 367
+				y 265
+				loop 0
+				color 89
+			end
+			base character
+			end
+		end
+		object column71023-0 of Column
+			properties
+				x -27
+				y 265
+				loop 0
+			end
+			base described
+			end
+		end
+		object bat71023-0 of Bat
+			properties
+				x 299
+				y 274
+				loop 0
+				color 98
+			end
+			base character
+			end
+		end
+		object stalagmite471023-0 of Stalagmite4
+			properties
+				x -9
+				y 321
+				loop 0
+			end
+			base described
+			end
+		end
+	end
+end
+room 71024
+	properties
+		flags	255
+		south 71025
+		west 71023
+		picture 3071
+	end
+	atpinfo
+		34639 762 208 
+		1870 501 209 
+		1752 210 209 
+		34550 349 210 
+		34644 246 213 
+		34551 199 214 
+		1876 547 218 
+		1783 393 218 
+		7906 261 220 
+		1781 342 225 
+		1782 476 225 
+		34520 51 228 
+		1780 446 231 
+		1875 408 233 
+		7900 72 235 
+		7900 439 238 
+		34540 195 246 
+		1772 397 260 
+		7907 26 319 
+		1771 471 326 
+		1770 381 330 
+		40672 577 332 
+		1850 -6 333 
+	end
+	objects
+		object spring71024-0 of Spring
+			properties
+				x 467
+				y 81
+				loop 0
+			end
+			base described
+			end
+		end
+		object spring71024-1 of Spring
+			properties
+				x 329
+				y 87
+				loop 0
+			end
+			base described
+			end
+		end
+		object spring71024-2 of Spring
+			properties
+				x 308
+				y 103
+				loop 0
+			end
+			base described
+			end
+		end
+		object spring71024-3 of Spring
+			properties
+				x 520
+				y 110
+				loop 0
+			end
+			base described
+			end
+		end
+		object spring71024-4 of Spring
+			properties
+				x 315
+				y 134
+				loop 0
+			end
+			base described
+			end
+		end
+		object spring71024-5 of Spring
+			properties
+				x 570
+				y 138
+				loop 0
+			end
+			base described
+			end
+		end
+		object fatColumn71024-0 of FatColumn
+			properties
+				x 418
+				y 139
+				loop 0
+			end
+			base described
+			end
+		end
+		object spring71024-6 of Spring
+			properties
+				x 316
+				y 166
+				loop 0
+			end
+			base described
+			end
+		end
+		object spring71024-7 of Spring
+			properties
+				x 584
+				y 166
+				loop 0
+			end
+			base described
+			end
+		end
+		object spring71024-8 of Spring
+			properties
+				x 554
+				y 186
+				loop 0
+			end
+			base described
+			end
+		end
+		object spring71024-9 of Spring
+			properties
+				x 376
+				y 191
+				loop 0
+			end
+			base described
+			end
+		end
+		object spring71024-10 of Spring
+			properties
+				x 503
+				y 196
+				loop 0
+			end
+			base described
+			end
+		end
+		object spring71024-11 of Spring
+			properties
+				x 438
+				y 199
+				loop 0
+			end
+			base described
+			end
+		end
+		object randomStuff71024-0 of RandomStuff
+			properties
+				x 271
+				y 226
+				loop 0
+			end
+			base described
+			end
+		end
+		object column71024-0 of Column
+			properties
+				x 587
+				y 235
+				loop 0
+			end
+			base described
+			end
+		end
+		object vampireBat71024-0 of vampireBat
+			properties
+				x 519
+				y 307
+				loop 0
+				color 48
+			end
+			base character
+			end
+		end
+		object cryptKeeper71024-0 of CryptKeeper
+			properties
+				loop 0
+				x 326
+				y 275
+			end
+		end
+		object devil71024-0 of Devil
+			properties
+				loop 0
+				x 387
+				y 293
+			end
+		end
+		object devil71024-1 of Devil
+			properties
+				loop 0
+				x 352
+				y 250
+			end
+		end
+		object devil71024-2 of Devil
+			properties
+				loop 0
+				x 470
+				y 273
+			end
+		end
+		object devil71024-3 of Devil
+			properties
+				loop 0
+				x 271
+				y 277
+			end
+		end
+	end
+end
+room 71025
+	properties
+		flags	255
+		north 71024
+		east 71026
+		picture 3071
+	end
+	atpinfo
+		1752 466 215 
+		7906 478 221 
+		1750 214 226 
+		7906 174 233 
+		1750 607 235 
+		1751 320 239 
+		7901 602 241 
+		7906 381 244 
+		7901 285 247 
+		1750 -9 265 
+		7901 -18 268 
+		1872 113 272 
+		1873 370 279 
+		1874 565 280 
+		7907 42 306 
+		7906 -39 319 
+		7902 223 322 
+		7902 499 324 
+		1771 142 330 
+		1850 -26 332 
+	end
+	objects
+		object devil71025-0 of Devil
+			properties
+				loop 0
+				x 156
+				y 273
+			end
+		end
+		object devil71025-1 of Devil
+			properties
+				loop 0
+				x 263
+				y 286
+			end
+		end
+		object devil71025-2 of Devil
+			properties
+				loop 0
+				x 362
+				y 292
+			end
+		end
+		object devil71025-3 of Devil
+			properties
+				loop 0
+				x 445
+				y 289
+			end
+		end
+		object devil71025-4 of Devil
+			properties
+				loop 0
+				x 512
+				y 287
+			end
+		end
+		object hellSoul71025-0 of HellSoul
+			properties
+				loop 0
+				x 310
+				y 255
+			end
+		end
+	end
+end
+room 71026
+	properties
+		flags	255
+		east 71027
+		west 71025
+		picture 3071
+	end
+	atpinfo
+		1752 560 222 
+		7901 553 227 
+		1752 183 229 
+		34518 45 233 
+		1750 324 236 
+		34519 426 248 
+		7901 456 252 
+		7906 313 253 
+		34642 320 277 
+		34640 131 278 
+		1873 505 282 
+		7907 42 317 
+		7902 499 319 
+		7902 219 322 
+		1850 33 323 6
+		7900 130 333 91
+	end
+	objects
+		object evilMinion71026-0 of EvilMinion
+			properties
+				loop 0
+				x 352
+				y 250
+			end
+		end
+		object evilMinion71026-1 of EvilMinion
+			properties
+				loop 0
+				x 146
+				y 242
+			end
+		end
+		object evilMinion71026-2 of EvilMinion
+			properties
+				loop 0
+				x 236
+				y 253
+			end
+		end
+		object evilMinion71026-3 of EvilMinion
+			properties
+				loop 0
+				x 540
+				y 253
+			end
+		end
+		object mistCreature71026-0 of MistCreature
+			properties
+				loop 0
+				x 447
+				y 290
+			end
+		end
+		object mistCreature71026-1 of MistCreature
+			properties
+				loop 0
+				x 265
+				y 284
+			end
+		end
+	end
+end
+room 71027
+	properties
+		flags	255
+		east 71028
+		west 71026
+		picture 3071
+	end
+	atpinfo
+		1752 320 223 
+		1750 579 231 
+		1752 511 238 
+		34519 70 238 
+		34518 184 242 
+		7900 492 243 
+		7901 176 245 
+		1876 599 248 
+		7907 312 264 249
+		34642 314 271 
+		34640 126 276 
+		1873 499 280 
+		34519 -19 290 
+		7902 -63 297 
+		1772 120 303 
+		7909 60 304 
+		7906 310 318 86
+		1850 654 323 6
+		7902 176 326 
+		7902 455 327 
+		7902 640 327 
+		7906 35 329 86
+		7906 596 329 86
+		1771 88 331 
+	end
+	objects
+		object torch71027-0 of Torch
+			properties
+				x 316
+				y 228
+				loop 0
+			end
+			base described
+			end
+		end
+		object randomStuff71027-0 of RandomStuff
+			properties
+				x 270
+				y 236
+				loop 0
+			end
+			base described
+			end
+		end
+		object berserker71027-0 of Berserker
+			properties
+				loop 0
+				x 361
+				y 267
+			end
+		end
+	end
+end
+room 71028
+	properties
+		flags	255
+		west 71027
+		picture 3071
+	end
+	atpinfo
+		1752 180 229 
+		34518 41 232 
+		1750 322 236 
+		7901 176 246 13
+		34519 426 248 
+		7901 42 253 13
+		7906 290 256 14
+		34518 523 259 
+		7901 393 267 13
+		1751 623 274 
+		34642 320 277 
+		34640 131 278 
+		1873 505 282 
+		7906 498 300 36
+		40673 579 305 
+		7902 134 321 
+		1850 655 323 6
+		7902 412 324 
+	end
+	objects
+		object dungeonBackUp71028-0 of DungeonBackUp
+			properties
+				x 175
+				y 230
+				loop 0
+			end
+			base lockable
+			end
+			base described
+			end
+		end
+	end
+end

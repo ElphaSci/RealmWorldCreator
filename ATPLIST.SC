@@ -16,7 +16,7 @@
 ;;; The information on the ATP list is in following format:
 ;;;		<atp#> <roomType#> <noun#> <view#> 
 ;;;
-;;; 
+;;;
 
 (module# ATPLIST)
 

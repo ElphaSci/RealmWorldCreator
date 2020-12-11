@@ -921,6 +921,7 @@ room 8108
          base character
             properName	"Aimie (NPC)"
             title	"the Tavern Wench"
+            sex 1
          end
          base container
             worn	BlueCowl

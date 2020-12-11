@@ -3,137 +3,20 @@ import random
 import tkinter as tk
 from tkinter import filedialog, messagebox
 
-from PIL import Image, ImageTk, ImageOps
+from PIL import ImageTk, ImageOps
 
-from PyFotoSCIop.source.p56files import p56file32
-from PyFotoSCIop.source.v56files import V56file
+from scires.KaitaiSCI.picture import Picture
+from scires.KaitaiSCI.ressci import Ressci, ResType
+from scires.KaitaiSCI.view import View
 from Resources.stock_objects.stkobj7 import stkObjDict
 from atp_info import ATP_CATEGORIES, ATP_BY_PIC
-from p56_info import PIC_INFO, PicInfo
-from PyFotoSCIop.PySCIs.WLDInterpreter import ATP, WorldObject, Room
-import PyFotoSCIop.PySCIs.WLDInterpreter as WldInterp
-
-
-def scale_image(pil_image: Image, y_depth: int, p56_info: PicInfo, race='default'):
-    """
-    Scales pil_im to the appropriate size, using the scaling parameters from pic_info, and given the y_depth
-
-    :param pil_image: PIL Image to be scaled
-    :param y_depth: new y-depth to scale pil_image to
-    :param p56_info: information regarding the scaling with respect to the current background pic
-
-    returns a scaled ImageTk, a scaling factor, and a scaled PIL Image
-    """
-    # Handle 3 cases of scaling; there is a back and front limit for scaling, based on the p56 background
-    if p56_info.back_y < y_depth < p56_info.front_y:
-        slope = p56_info.slope()
-        const = p56_info.scale_constant()
-        new_scale = slope * y_depth + const
-        race_adjustment = {'default': 100, 'human': 100, 'giant': 110, 'elf': 90}
-        scale_factor = (new_scale * race_adjustment[race]) / 100
-    elif y_depth >= p56_info.front_y:
-        scale_factor = p56_info.frontPercent()
-    else:
-        scale_factor = p56_info.backPercent()
-    # Scale the image based on the calculated scale_factor
-    new_shape = (int(pil_image.width * scale_factor), int(pil_image.height * scale_factor))
-    scaled_pil_im = pil_image.resize(new_shape)
-    tk_im = ImageTk.PhotoImage(scaled_pil_im)
-    return tk_im, scale_factor, scaled_pil_im
-
-
-class MapButton(tk.Button):
-    def __init__(self, root, room_id, *args, **kwargs):
-        """
-        tkinter Button subclass that stores the id of the Realm room that it corresponds too
-
-        :param root: parent, tkinter widget
-        :param room_id: int, number of room for this map button
-        :param args:
-        :param kwargs:
-        """
-        tk.Button.__init__(self, root, *args, **kwargs)
-        self.room_id = room_id
-
-
-class NestedOptionMenu(tk.Frame):
-    def __init__(self, app, parent, top_info, callback=None):
-        tk.Frame.__init__(self, parent)
-        self.callback = callback
-        self.app = app
-        self.top_info = {}
-        if isinstance(top_info, list):
-            self.convert_to_dict(top_info)
-        else:
-            self.top_info = top_info
-        self.the_value = tk.StringVar()
-        self.menubutton = tk.Menubutton(self, textvariable=self.the_value, indicatoron=True)
-        self.top_menu = tk.Menu(self.menubutton, tearoff=False)
-        self.menubutton.configure(menu=self.top_menu)
-        self.the_value.set(self.set_the_value(self.top_info))
-        self.option_count = 0
-        self.create_menu(self.top_info, self.top_menu, self.the_value)
-        self.top_menu.entryconfigure(self.option_count // 3, columnbreak=1)
-        self.top_menu.entryconfigure(self.option_count * 2 // 3, columnbreak=2)
-        self.menubutton.pack()
-
-    def create_menu(self, top_info, top_menu, value_var, parent=''):
-        if isinstance(top_info, dict):
-            alphabetical_info = [[k, v] for k,v in top_info.items()]
-            alphabetical_info.sort(key=lambda x: x[0])
-            for key, value in alphabetical_info:
-                menu = tk.Menu(top_menu)
-                if value:
-                    top_menu.add_cascade(label=key, menu=menu)
-                    self.create_menu(value, menu, value_var, parent=key)
-                else:
-                    top_menu.add_radiobutton(label=key, variable=value_var, value=key, command=self.callback)
-                    self.option_count += 1
-            return
-        else:
-            top_info.sort()
-            for item in top_info:
-                if parent != '':
-                    label_value = parent + ':' + item
-                else:
-                    label_value = item
-                top_menu.add_radiobutton(label=item, variable=value_var, value=label_value,
-                                         command=self.app.set_category_atps)
-                self.option_count += 1
-            return
-
-    def set_the_value(self, top_info):
-        if isinstance(top_info, dict):
-            first_key = list(top_info.keys())[0]
-            first_value = top_info[first_key]
-            if first_value is None:
-                return first_key
-            return first_key + ':' + self.set_the_value(first_value)
-        elif isinstance(top_info, str):
-            return top_info
-        elif isinstance(top_info, list):
-            return top_info[0]
-
-    def get(self):
-        return self.the_value.get()
-
-    def convert_to_dict(self, top_info):
-        for item in top_info:
-            if ':' in item:
-                item_list = item.split(':')
-                key = item_list[0]
-                value = item_list[1:]
-                if len(value) > 1:
-                    new_dict = {key: {}}
-                    self.top_info = {**self.top_info, **new_dict}
-                    self.convert_to_dict(':'.join(value))
-                else:
-                    if key in self.top_info.keys():
-                        self.top_info[key].append(value[0])
-                    else:
-                        self.top_info[key] = [value[0]]
-            else:
-                self.top_info[item] = None
+from p56_info import PIC_INFO
+from realm.WLDInterpreter import ATP, WorldObject, Room
+import realm.WLDInterpreter as WldInterp
+from scires.legacy.p56files import p56file32
+from scires.legacy.v56files import V56file
+from ui.components import NestedOptionMenu, MapButton
+from utils import scale_image
 
 
 class WorldCreator(tk.Tk):
@@ -154,11 +37,13 @@ class WorldCreator(tk.Tk):
         # dictionary to hold all non-top level widgets; keys are the parent widgets
         self.widgets = {}
         # Storage for access to media files
-        self.media = {'v56': {}, 'p56': {}, 'wld': {}, 'zon': {}, 'PATH': []}
+        self.media = {'resources': {}, 'v56': {}, 'p56': {}, 'wld': {}, 'zon': {}, 'PATH': []}
         self.background = None
         # Build default media paths
         default_56_path = os.path.join('Resources', '56_Files')
+        default_ressci_path = os.path.join('Resources', 'ressci')
         default_wld_path = os.path.join('Resources', 'World_Files')
+        self.add_media(default_ressci_path)
         self.add_media(default_56_path)
         self.add_media(default_wld_path)
         self.room_directory = self.build_room_directory()
@@ -410,7 +295,7 @@ class WorldCreator(tk.Tk):
         x = obj.x
         y = obj.y
         z = obj.z
-        max_loop = len(v56._loops) - 1
+        max_loop = len(v56.loops) - 1
         cur_loop = obj.loop
         if cur_loop == max_loop:
             cur_loop = 0
@@ -475,32 +360,39 @@ class WorldCreator(tk.Tk):
             if new_z == cur_z:
                 new_z = None
             app.move_to(im_id, x_pos, y_pos, new_z, scale=True)
-            app.top.destroy()
+            app.y_shift.destroy()
 
         tk.Button(self.top, text='OK', command=lambda: callback(self)).grid(row=3, column=1)
 
     def draw_properties_box(self, image_id):
-        cell_attrs = ["_width", "_height", "_left", "_top", "_skpColor", "_compression", "_flags", "_imageSize",
-                      "_packSize", "_cachedHeader", "_cached", "_changed", "_zDepth", "_xPos", "_yPos", "new_cell",
-                      "old_cell"]
+        cell_attrs = ["width", "height", "x_shift", "y_shift", "transparent_color"]
         world_attrs = ['view_id', 'x', 'y', 'z', 'loop']
         box_height = len(cell_attrs) + len(world_attrs)
         self.top = tk.Toplevel()
-        view_properties_box = tk.Text(self.top, height=box_height, width=80)
-        view_properties_box.pack()
         obj = self.active_room.view_from_image[image_id]
-        cell = obj.v56._loops[obj.loop]._cells[0]
+        cell = obj.v56.loops[obj.loop].cells[0]
+        grid_row = 0
+
+        def add_row(idx, k, v):
+            label = tk.Label(self.top, text=k)
+            label.grid(row=idx)
+            entry = tk.Entry(self.top)
+            entry.insert(0, str(v) if v is not None else "")
+            entry.grid(row=idx, column=1)
+
         for attrs_list, attrs_storage in zip([world_attrs, cell_attrs], [obj, cell]):
             for attribute in attrs_list:
                 if attribute == 'view_id':
-                    view_properties_box.insert(tk.END, '{}:\t{}\n'.format(attribute, obj.v56.id))
+                    add_row(grid_row, attribute, obj.v56.id)
                 elif attribute == 'loop':
-                    view_properties_box.insert(tk.END, '{}:\t{}\n'.format(attribute, obj.loop))
+                    add_row(grid_row, attribute, obj.loop)
                 elif isinstance(attrs_storage, dict):
-                    view_properties_box.insert(tk.END, '{}:\t{}\n'.format(attribute, attrs_storage[attribute]))
+                    if attribute in attrs_storage.keys():
+                        add_row(grid_row, attribute, attrs_storage[attribute])
                 else:
-                    view_properties_box.insert(tk.END,
-                                               '{}:\t{}\n'.format(attribute, str(getattr(attrs_storage, attribute))))
+                    if hasattr(attrs_storage, attribute):
+                        add_row(grid_row, attribute, str(getattr(attrs_storage, attribute)))
+                grid_row += 1
         self.update()
         self.wait_window(self.top)
 
@@ -564,13 +456,25 @@ class WorldCreator(tk.Tk):
     def load_media(self):
         for dir in self.media['PATH']:
             for f in os.listdir(dir):
+                full_path = os.path.join(dir, f)
                 name, extension = os.path.splitext(f)
-                if extension.lower()[1:] in ['p56', 'v56', 'wld', 'zon']:
-                    full_path = os.path.join(dir, f)
+                name, extension = os.path.splitext(f)
+                if extension.lower() in ['.p56', '.v56', '.wld', '.zon']:
                     if extension.lower() == '.wld':
                         self.media[extension.lower()[1:]][name + extension] = full_path
                     else:
                         self.media[extension.lower()[1:]][name] = full_path
+                elif name.lower() in ["resource", "ressci"]:
+                    self.load_packed_resource(full_path)
+
+    def load_packed_resource(self, ressci_path : str):
+        if ressci_path in self.media["resources"].keys():
+            return
+        try:
+            resources = Ressci.from_file(ressci_path)
+            self.media["resources"][ressci_path] = resources
+        except:
+            pass
 
     def build_wld_canvas(self, categories):
         # Create header label
@@ -633,12 +537,14 @@ class WorldCreator(tk.Tk):
         if 'Objects' in category:
             obj_catg = category.split(':')[-1].strip()
             for obj in self.obj_bases[obj_catg]:
-                if str(obj.view) in self.media['v56'].keys():
-                    listbox.insert(tk.END, '{}_{}'.format(obj.name, obj.view))
+                view_num = obj.view
+                if self.view_found_in_media(view_num):
+                    listbox.insert(tk.END, '{}_{}'.format(obj.name, view_num))
+
         else:
             for atp_num, atp in self.atps['category'][category].items():
-                view_id = self.view_num_from_atp_num(atp_num)[0]
-                if str(view_id) in self.media['v56'].keys():
+                view_num = self.view_num_from_atp_num(atp_num)[0]
+                if self.view_found_in_media(view_num):
                     if atp.pDescriber:
                         text = '{} {}'.format(atp.pDescriber, atp_num)
                     elif atp.noun:
@@ -646,6 +552,23 @@ class WorldCreator(tk.Tk):
                     else:
                         text = '{}'.format(atp_num)
                     listbox.insert(tk.END, text.replace(' ', '_'))
+
+    def view_found_in_media(self, num : int):
+        if str(num) in self.media['v56'].keys():
+            return True
+        for res in self.media["resources"].values():
+            if res.has_resource(ResType.view, num):
+                return True
+        return False
+
+    def get_resource(self, restype : ResType, num : int):
+        res : Ressci
+        for res in self.media["resources"].values():
+            if res.has_resource(restype, num):
+                if restype == ResType.view:
+                    return res.get_view(num)
+                elif restype == ResType.pic:
+                    return res.get_pic(num)
 
     def add_view_from_listbox(self):
         cur_category = self.widgets[self.category_canvas]['category_option_menu'].get()
@@ -692,8 +615,8 @@ class WorldCreator(tk.Tk):
                 if x is None: x = int(background_im.width() / 2)
             tk_im, scaling_factor, scaled_pil_im = scale_image(pil_im, y, self.background['info'])
             picture_coords = self.room_canvas.coords(self.background['im_id'])
-            x_pos = picture_coords[0] + x + int(scaling_factor * (cell._left if not mirror else -1*cell._left))
-            y_pos = picture_coords[1] + y - z + int(scaling_factor * cell._top)
+            x_pos = picture_coords[0] + x + int(scaling_factor * (cell.x_shift if not mirror else -1 * cell.x_shift))
+            y_pos = picture_coords[1] + y - z + int(scaling_factor * cell.y_shift)
         else:
             if self.background:
                 if y is None or x is None:
@@ -702,8 +625,8 @@ class WorldCreator(tk.Tk):
                     if y is None: y = int(background_im.height() * 3 / 4)
                     if x is None: x = int(background_im.width() / 2)
                 picture_coords = self.room_canvas.coords(self.background['im_id'])
-                x_pos = picture_coords[0] + x + (cell._left if not mirror else -1*cell._left)
-                y_pos = picture_coords[1] + y - z + cell._top
+                x_pos = picture_coords[0] + x + (cell.x_shift if not mirror else -1 * cell.x_shift)
+                y_pos = picture_coords[1] + y - z + cell.y_shift
             else:
                 x_pos, y_pos = x, y
             tk_im, scaled_pil_im = ImageTk.PhotoImage(pil_im), None
@@ -711,11 +634,11 @@ class WorldCreator(tk.Tk):
         return im_id, {'original_image': pil_im, 'scaled_image': scaled_pil_im, 'tk_image': tk_im},{'x': x_pos, 'y': y_pos}
 
     def set_background(self, p56_or_file, cell=0, mirror=False):
-        if not isinstance(p56_or_file, p56file32):
-            p56 = p56file32(p56_or_file)
+        if not isinstance(p56_or_file, (p56file32, Picture)):
+            p56 = Picture.from_file(p56_or_file)
         else:
             p56 = p56_or_file
-        cell = p56._cells[cell]
+        cell = p56.cells[cell]
         im_id, images, coords = self.draw_cell(cell, x=0, y=0, z=0, anchor=tk.NW, scaled=False, transparent=False, mirror=mirror)
         self.room_canvas.itemconfig(im_id, tags=('p56',))
         pic_info = self.pics[int(p56.id)]
@@ -723,21 +646,20 @@ class WorldCreator(tk.Tk):
         self.pic_atps = self.atps_by_pic[pic_info.roomtype]
         self.update()
 
-    def draw_v56(self, v56_or_file, loop=0, cell=0, x=None, y=None, z=0, scaled=True, transparent=True, mirror=False,
-                 polygon=False):
+    def draw_v56(self, v56_or_file, loop=0, cell=0, x=None, y=None, z=0, scaled=True, transparent=True, mirror=False, polygon=False):
         try:
-            if not isinstance(v56_or_file, V56file):
-                v56 = V56file(v56_or_file)
+            if not isinstance(v56_or_file, (V56file, View)):
+                v56 = View.from_file(v56_or_file)
             else:
                 v56 = v56_or_file
         except Exception as e:
             self.errorbox('Unable to load v56 from file:'.format(v56_or_file))
             raise (e)
-        sci_loop = v56._loops[loop]
-        if sci_loop._basedOnLoop != -1:
-            mirror = (sci_loop._mirror if sci_loop._mirror is not None else False)
-            sci_loop = v56._loops[sci_loop._basedOnLoop]
-        sci_cell = sci_loop._cells[cell]
+        sci_loop = v56.loops[loop]
+        if sci_loop.based_on_loop != -1:
+            mirror = (sci_loop.mirror if sci_loop.mirror is not None else False)
+            sci_loop = v56.loops[sci_loop.based_on_loop]
+        sci_cell = sci_loop.cells[cell]
         if scaled:
             try:
                 atp = self.pic_atps['view'][int(v56.id)]
@@ -749,7 +671,7 @@ class WorldCreator(tk.Tk):
         else:
             atp = None
         # Create the tk_im object
-        x = (int(x) if x else 320 + sci_cell._width//2)
+        x = (int(x) if x else 320 + sci_cell.width // 2)
         y = (int(y) if y else 250)
         if z is not None: z = int(z)
         world_coords = (x,y,z)
@@ -774,7 +696,7 @@ class WorldCreator(tk.Tk):
         self.room_canvas.itemconfig(im_id, tags=tags)
         return im_id, images, coords, loop, mirror, v56, world_coords
 
-    def draw_atp(self, atp, transparent=True, polygon=False):
+    def draw_atp(self, atp : ATP, transparent=True, polygon=False):
         add_tag = 'atp'
         mirror = atp.mirror
         try:
@@ -782,10 +704,12 @@ class WorldCreator(tk.Tk):
         except KeyError as e:
             print("ATP Node {} not in current pic, must be added in ATPLIST.SC to work in game".format(atp.reference_atp_num))
             atp.node = self.atps['atp'][atp.reference_atp_num]
-        view_file = self.media['v56'][str(atp.node.view)]
-        im_id, images, coords, loop, mirror, v56, world_cords = self.draw_v56(view_file, x=atp.x, y=atp.y, z=atp.z,
+        view = self.get_view_resource(atp.node.view)
+        im_id, images, coords, loop, mirror, v56, world_cords = self.draw_v56(view, x=atp.x, y=atp.y, z=atp.z,
                                                                  mirror=mirror, transparent=transparent,
                                                                  polygon=polygon)
+        atp.loop = 0
+        atp.cell = 0
         atp.im_id = im_id
         atp.images = images
         atp.canvas_coords = coords
@@ -800,8 +724,9 @@ class WorldCreator(tk.Tk):
         add_tag = 'object'
         loop = (int(obj.loop) if obj.loop else 0)
         view_num = self.stk_objs[obj.object_class].view
-        view_file = self.media['v56'][str(view_num)]
-        im_id, images, coords, loop, mirror, v56, world_cords = self.draw_v56(view_file, loop=loop, x=obj.x, y=obj.y)
+
+        view = self.get_view_resource(view_num)
+        im_id, images, coords, loop, mirror, v56, world_cords = self.draw_v56(view, loop=loop, x=obj.x, y=obj.y)
         obj.im_id = im_id
         obj.images = images
         obj.canvas_coords = coords
@@ -811,6 +736,18 @@ class WorldCreator(tk.Tk):
         self.room_canvas.addtag_withtag(add_tag, im_id)
         self.active_room.active_views.append(obj)
         self.active_room.view_from_image[im_id] = obj
+
+    def get_view_resource(self, view_num):
+        view = self.get_resource(ResType.view, view_num)
+        if view is None:
+            view = self.media['v56'][str(view_num)]
+        return view
+
+    def get_pic_resource(self, pic_num):
+        pic = self.get_resource(ResType.pic, pic_num)
+        if pic is None:
+            pic = self.media['p56'][str(pic_num)]
+        return pic
 
     def open_wld(self, filename):
         if filename is None:
@@ -980,7 +917,7 @@ class WorldCreator(tk.Tk):
                 else:
                     entry = None
                 room.properties['exits'][k] = entry
-            app.top.destroy()
+            app.y_shift.destroy()
 
         tk.Button(self.top, text='OK', command=lambda: callback(self)).grid(row=5, column=1)
         x = self.winfo_pointerx()
@@ -995,7 +932,7 @@ class WorldCreator(tk.Tk):
                 pic = listbox.get(listbox.curselection()[0]).split('_')[-1]
                 room.active_background = pic
                 app.map_button_callback(room)
-                app.top.destroy()
+                app.y_shift.destroy()
             else:
                 room.active_background = picture
                 app.map_button_callback(room)
@@ -1007,11 +944,16 @@ class WorldCreator(tk.Tk):
             listbox = tk.Listbox(self.top)
             listbox.pack(fill=tk.BOTH, expand=1)
             listbox.bind('<Double-Button-1>', lambda x: callback(self))
-            for pic in self.media['p56'].keys():
+            resources : list[Ressci] = self.media["resources"].values
+            pic_nums_from_res = []
+            for x in resources:
+                pics : list[Ressci.Resource] = x.resource_map[ResType.pic]
+                pic_nums_from_res += [x.number for x in pics]
+            pics_from_p56 = [int(p) for p in self.media['p56'].keys()]
+            for pic in pics_from_p56 + pic_nums_from_res:
                 try:
-                    pic_int = int(pic)
-                    if pic_int in self.pics.keys():
-                        pic_info = self.pics[pic_int]
+                    if pic in self.pics.keys():
+                        pic_info = self.pics[pic]
                         listbox.insert(tk.END, '{}_{}'.format(pic_info.roomtype, pic))
                 except Exception as e:
                     print(e)
@@ -1065,7 +1007,7 @@ class WorldCreator(tk.Tk):
             # Update the button text
             map_button.configure(text=new_room_number)
             map_button.room_id = new_room_number
-            app.top.destroy()
+            app.y_shift.destroy()
 
         tk.Button(self.top, text='OK', command=lambda: callback(self, new_room_number)).grid(row=1, column=1)
 
@@ -1174,11 +1116,15 @@ class WorldCreator(tk.Tk):
         if extension.lower() == '.wld':
             self.open_wld(filename)
         if extension.lower() == '.v56':
-            v56 = V56file(filename)
+            # v56 = V56file(filename)
+            v56 = View.from_file(filename)
             self.draw_v56(v56)
         if extension.lower() == '.p56':
-            p56 = p56file32(filename)
+            p56 = Picture.from_file(filename)
+            # p56 = p56file32(filename)
             self.set_background(p56)
+        if name.lower in ["resource", "ressc"]:
+            self.load_packed_resource(filename)
 
     def reference_atp_num(self, atp_num):
         if int(atp_num) > 32768:
@@ -1200,10 +1146,10 @@ class WorldCreator(tk.Tk):
 
     def view_from_atp_number(self, atp_num):
         view_id, mirror = self.view_num_from_atp_num(atp_num)
-        if str(view_id) not in self.media['v56']:
+        if not self.view_found_in_media(view_id):
             return None, mirror
-        view_file = self.media['v56'][str(view_id)]
-        return view_file, mirror
+        view = self.get_view_resource(view_id)
+        return view, mirror
 
     def reset_room(self, room):
         room.reset()
@@ -1232,8 +1178,8 @@ class WorldCreator(tk.Tk):
         pic = room.picture
         if room.active_background:
             pic = room.active_background
-        file_path = self.media['p56'][pic]
-        self.open_sci_file(file_path)
+        pic_res = self.get_pic_resource(int(pic))
+        self.set_background(pic_res)
         if len(self.active_room.active_views) > 0:
             depth_sorted_atps_objs = [[int(atp_or_obj.y), atp_or_obj] for atp_or_obj in room.active_views]
             room.active_views = []

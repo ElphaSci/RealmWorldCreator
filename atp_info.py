@@ -2038,5 +2038,5 @@ for k in keys:
             atps[atp.number] = {}
             for atr in atp.attributes:
                 atps[atp.number][atr] = getattr(atp, atr)
-    with open(json_dir + f"/{k}.json", "w") as f:
-        json.dump(info, f, indent=2)
+    # with open(json_dir + f"/{k}.json_output", "w") as f:
+    #     json_output.dump(info, f, indent=2)

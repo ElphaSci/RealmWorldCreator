@@ -1,9 +1,0 @@
-#
-# Drags.zon
-#
-name            "Drags"
-roomName         ""
-resetInterval   0
-maximumObjectAge 0
-allowCombat     0
-allowMagic      0

@@ -205,6 +205,29 @@ room 6044
             head        1 0 1 3 8 1 14 2 6 4 12 3 
          end
       end
+      object exoticClothesShop6044-2 of ExoticClothesShop
+         properties
+            name        "ClothExchange"
+            x  35
+            y  264
+            loop  2
+         end
+         base talk
+                talkTreeID 30000
+         end
+         base character
+            sex   1
+            properName  "ClothExchange"
+         end
+         base container
+            worn        PurpleCowl
+            worn        BlueShirt
+            worn        PurpleLongSkirt
+            worn        BlueLowBoots
+            worn        GoldBelt
+            head        1 0 1 3 8 1 14 2 6 4 12 3 
+         end
+      end
    end
 end
 room 6002

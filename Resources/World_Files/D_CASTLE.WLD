@@ -1,157 +1,248 @@
 room 24762
-   properties
-      picture	4000
-      east	24750 
-      flags 248
-   end
-   atpinfo
-      2382  209 130
-      2382  533 130
-      7900  34 140
-      2380  629 131
-      2382  51 131
-      2382  372 131
-      7900  542 140
-      2382  248 483
-      2382  -72 156
-      2359  296 132 11
-      2359  485 132 11
-      2359  92 132 11
-      2358  92 132 61
-      2358  296 132 61
-      2358  485 132 61
-      2358  296 132 41
-      2358  92 132 41
-      2358  485 132 41
-      2361  92 132 81
-      2361  296 132 81
-      2361  485 132 81
-      2358  296 132 21
-      2358  92 132 21
-      2358  485 132 21
-      7908  17 315
-      7902  124 322
-      7902  345 322
-      2382  -72 325
-      7902  498 326
-      2382  88 483
-      2382  409 483
-      2382  568 483
-      7900  289 140
-   end
-   objects
-      object fountainA24762-4 of FountainA
-         properties
-            x	382
-            y	149
-            loop	0
-         end
-      end
-      object stool24762-5 of Stool
-         properties
-            x	457
-            y	157
-            loop	0
-         end
-      end
-      object stool24762-6 of Stool
-         properties
-            x	122
-            y	278
-            loop	0
-         end
-      end
-      object stool24762-7 of Stool
-         properties
-            x	61
-            y	229
-            loop	0
-         end
-      end
-      object stool24762-8 of Stool
-         properties
-            x	70
-            y	272
-            loop	0
-         end
-      end
-      object stool24762-9 of Stool
-         properties
-            x	453
-            y	289
-            loop	0
-         end
-      end
-      object fountainA24762-10 of FountainA
-         properties
-            x	382
-            y	290
-            loop	0
-         end
-      end
-   end
+	properties
+		picture 4000
+		flags 248
+		east 24750
+	end
+	atpinfo
+		2382 209 130 
+		2382 533 130 
+		2380 629 131 
+		2382 51 131 
+		2382 372 131 
+		2359 296 132 11
+		2359 485 132 11
+		2359 92 132 11
+		2358 92 132 61
+		2358 296 132 61
+		2358 485 132 61
+		2358 296 132 41
+		2358 92 132 41
+		2358 485 132 41
+		2361 92 132 81
+		2361 296 132 81
+		2361 485 132 81
+		2358 296 132 21
+		2358 92 132 21
+		2358 485 132 21
+		7900 34 140 
+		7900 542 140 
+		7900 289 140 
+		2382 -72 156 
+		7908 17 315 
+		7902 124 322 
+		7902 345 322 
+		2382 -72 325 
+		7902 498 326 
+		2382 248 483 
+		2382 88 483 
+		2382 409 483 
+		2382 568 483 
+	end
+	objects
+		object fountainA24762-0 of FountainA
+			properties
+				x 382
+				y 149
+				loop 0
+			end
+		end
+		object stool24762-0 of Stool
+			properties
+				x 457
+				y 157
+				loop 0
+			end
+		end
+		object RCastle24762-0 of RCastle
+			properties
+				loop 0
+				x 48
+				y 231
+			end
+		end
+		object stool24762-1 of Stool
+			properties
+				x 61
+				y 229
+				loop 0
+			end
+		end
+		object RCastle24762-1 of RCastle
+			properties
+				loop 0
+				x 58
+				y 278
+			end
+		end
+		object RCastle24762-2 of RCastle
+			properties
+				loop 0
+				x 112
+				y 283
+			end
+		end
+		object stool24762-2 of Stool
+			properties
+				x 70
+				y 272
+				loop 0
+			end
+		end
+		object stool24762-3 of Stool
+			properties
+				x 122
+				y 278
+				loop 0
+			end
+		end
+		object stool24762-4 of Stool
+			properties
+				x 453
+				y 289
+				loop 0
+			end
+		end
+		object fountainA24762-1 of FountainA
+			properties
+				x 382
+				y 290
+				loop 0
+			end
+		end
+		object RCastle24762-3 of RCastle
+			properties
+				loop 2
+				x 451
+				y 162
+			end
+		end
+		object RCastle24762-4 of RCastle
+			properties
+				loop 2
+				x 447
+				y 291
+			end
+		end
+	end
 end
 room 24750
-   properties
-      picture	4000
-      east	24751 
-      west	24762 
-      flags 248
-   end
-   atpinfo
-      2382  90 130
-      2382  636 130
-      2382  453 130
-      2382  270 130
-      2340  60 447
-      2340  169 447
-      2340  276 447
-      2340  386 447
-      2340  495 447
-      2340  605 447
-      2390  66 457 150
-      2390  175 457 150
-      2390  282 457 150
-      2390  390 457 150
-      2390  500 457 150
-      2390  609 457 150
-      2241  133 140
-      2241  215 140
-      2241  430 140
-      2241  510 140
-      2390  50 457 150
-      2340  14 447
-      7902  133 321
-      7902  328 321
-      7902  499 322
-      7  310 290
-      7  310 290
-      7900  500 143
-      7900  23 139
-      7900  140 139
-      7  310 290
-   end
-   objects
-      object torch24750-0 of Torch
-         properties
-            x	173
-            y	149
-            loop	0
-         end
-      end
-      object torch24750-1 of Torch
-         properties
-            x	473
-            y	150
-            loop	0
-         end
-      end
-      object door24750-2 of Door
+	properties
+		picture 4000
+		flags 248
+		east 24751
+		west 24762
+	end
+	atpinfo
+		2382 90 130 
+		2382 636 130 
+		2382 453 130 
+		2382 270 130 
+		7900 23 139 
+		7900 140 139 
+		2241 133 140 
+		2241 215 140 
+		2241 430 140 
+		2241 510 140 
+		7900 500 143 
+		7 310 290 
+		7 310 290 
+		7 310 290 
+		7902 133 321 
+		7902 328 321 
+		7902 499 322 
+		2340 60 447 
+		2340 169 447 
+		2340 276 447 
+		2340 386 447 
+		2340 495 447 
+		2340 605 447 
+		2340 14 447 
+		2390 66 457 150
+		2390 175 457 150
+		2390 282 457 150
+		2390 390 457 150
+		2390 500 457 150
+		2390 609 457 150
+		2390 50 457 150
+	end
+	objects
+		object torch24750-0 of Torch
+			properties
+				x 173
+				y 149
+				loop 0
+			end
+		end
+		object torch24750-1 of Torch
+			properties
+				x 473
+				y 150
+				loop 0
+			end
+		end
+		object RCastle24750-0 of RCastle
+			properties
+				loop 1
+				x 386
+				y 153
+			end
+		end
+		object RCastle24750-1 of RCastle
+			properties
+				loop 1
+				x 451
+				y 155
+			end
+		end
+		object RCastle24750-2 of RCastle
+			properties
+				loop 1
+				x 518
+				y 157
+			end
+		end
+		object RCastle24750-3 of RCastle
+			properties
+				loop 0
+				x 68
+				y 162
+			end
+		end
+		object RCastle24750-4 of RCastle
+			properties
+				loop 0
+				x 154
+				y 165
+			end
+		end
+		object RCastle24750-5 of RCastle
+			properties
+				loop 0
+				x 233
+				y 167
+			end
+		end
+		object RCastle24750-6 of RCastle
+			properties
+				loop 1
+				x 484
+				y 216
+			end
+		end
+		object RCastle24750-7 of RCastle
+			properties
+				loop 0
+				x 112
+				y 226
+			end
+		end
+		object door24750-2 of Door
          properties
 				x	322
 				y	134
 				loop	2
-				linkTo	plankDoor24749-3
+				linkTo	plankDoor7102-0
 			end
 			actions
 			end
@@ -162,510 +253,1031 @@ room 24750
 				text	"Exit The Castle"
 			end
 		end
-   end
+	end
 end
 room 24751
-   properties
-      picture	4000
-      south	24752 
-      east	24754 
-      west	24750 
-      flags 248
-   end
-   atpinfo
-      35106  87 140
-      2340  321 140
-      2340  226 141
-      2340  512 142
-      2340  130 143
-      2340  417 143
-      2338  564 144
-      2338  564 207
-      2340  514 208
-      2340  419 209
-      2340  227 209
-      2340  322 209
-      2340  131 210
-      35106  87 210
-      7900  398 233
-      7900  222 234
-      14  105 241
-      32782  530 239
-      2389  318 210 50
-      2389  136 303 200
-      2389  504 303 200
-      2390  49 319
-      2390  144 319
-      2390  438 319
-      2390  494 319
-      2390  590 319
-      2390  206 319
-      2162  317 212 60
-      7902  516 333
-      7902  105 334
-      2162  503 344 250
-      2162  136 344 250
-      2310  393 513
-      2310  239 512
-   end
+	properties
+		picture 4000
+		flags 248
+		east 24754
+		south 24752
+		west 24750
+	end
+	atpinfo
+		35106 87 140 
+		2340 321 140 
+		2340 226 141 
+		2340 512 142 
+		2340 130 143 
+		2340 417 143 
+		2338 564 144 
+		2338 564 207 
+		2340 514 208 
+		2340 419 209 
+		2340 227 209 
+		2340 322 209 
+		2340 131 210 
+		35106 87 210 
+		2389 318 210 50
+		2162 317 212 60
+		7900 398 233 
+		7900 222 234 
+		32782 530 239 
+		14 105 241 
+		2389 136 303 200
+		2389 504 303 200
+		2390 49 319 
+		2390 144 319 
+		2390 438 319 
+		2390 494 319 
+		2390 590 319 
+		2390 206 319 
+		7902 516 333 
+		7902 105 334 
+		2162 503 344 250
+		2162 136 344 250
+		2310 239 512 
+		2310 393 513 
+	end
+	objects
+		object RCastle24751-0 of RCastle
+			properties
+				loop 2
+				x 198
+				y 223
+			end
+		end
+		object RCastle24751-1 of RCastle
+			properties
+				loop 2
+				x 117
+				y 228
+			end
+		end
+		object RCastle24751-2 of RCastle
+			properties
+				loop 2
+				x 271
+				y 229
+			end
+		end
+		object RCastle24751-3 of RCastle
+			properties
+				loop 2
+				x 367
+				y 224
+			end
+		end
+		object RCastle24751-4 of RCastle
+			properties
+				loop 2
+				x 439
+				y 223
+			end
+		end
+		object RCastle24751-5 of RCastle
+			properties
+				loop 2
+				x 504
+				y 228
+			end
+		end
+	end
 end
 room 24754
-   properties
-      picture	4000
-      east	24755 
-      west	24751 
-      flags 248
-   end
-   atpinfo
-      2382  552 130
-      2382  75 131
-      2382  235 131
-      2382  395 131
-      2380  651 132
-      2109  75 143
-      2109  564 143
-      2109  402 143
-      2109  235 143
-      2121  246 144
-      2119  568 144
-      2118  400 144
-      2120  74 144
-      7900  493 146
-      7900  311 147
-      7900  99 148
-      34887  560 144 34
-      34889  236 144 34
-      34888  71 144 32
-      34886  401 144 34
-      2118  404 143 63
-      2119  569 144 63
-      2121  246 144 63
-      2120  76 144 63
-      2109  320 247
-      7907  305 247
-      7907  334 250
-      2125  321 248 5
-      2129  320 248 30
-      2395  609 308
-      7907  307 313
-      7902  495 322
-      7902  129 323
-      2340  45 446
-      2340  141 446
-      2340  236 446
-      2340  331 446
-      2340  424 446
-      2340  518 446
-      2340  610 446
-      2390  47 455 150
-      2390  155 455 150
-      2390  263 455 150
-      2390  372 455 150
-      2390  479 455 150
-      2390  589 455 150
-   end
-   objects
-      object torch24754-0 of Torch
-         properties
-            x	162
-            y	137
-            loop	0
-         end
-      end
-      object torch24754-1 of Torch
-         properties
-            x	487
-            y	137
-            loop	0
-         end
-      end
-   end
+	properties
+		picture 4000
+		flags 248
+		east 24755
+		west 24751
+	end
+	atpinfo
+		2382 552 130 
+		2382 75 131 
+		2382 235 131 
+		2382 395 131 
+		2380 651 132 
+		2109 75 143 
+		2109 564 143 
+		2109 402 143 
+		2109 235 143 
+		2118 404 143 63
+		2121 246 144 
+		2119 568 144 
+		2118 400 144 
+		2120 74 144 
+		34887 560 144 34
+		34889 236 144 34
+		34888 71 144 32
+		34886 401 144 34
+		2119 569 144 63
+		2121 246 144 63
+		2120 76 144 63
+		7900 493 146 
+		7900 311 147 
+		7900 99 148 
+		2109 320 247 
+		7907 305 247 
+		2125 321 248 5
+		2129 320 248 30
+		7907 334 250 
+		2395 609 308 
+		7907 307 313 
+		7902 495 322 
+		7902 129 323 
+		2340 45 446 
+		2340 141 446 
+		2340 236 446 
+		2340 331 446 
+		2340 424 446 
+		2340 518 446 
+		2340 610 446 
+		2390 47 455 150
+		2390 155 455 150
+		2390 263 455 150
+		2390 372 455 150
+		2390 479 455 150
+		2390 589 455 150
+	end
+	objects
+		object torch24754-0 of Torch
+			properties
+				x 162
+				y 137
+				loop 0
+			end
+		end
+		object torch24754-1 of Torch
+			properties
+				x 487
+				y 137
+				loop 0
+			end
+		end
+		object RCastle24754-0 of RCastle
+			properties
+				loop 0
+				x 261
+				y 167
+			end
+		end
+		object RCastle24754-1 of RCastle
+			properties
+				loop 0
+				x 86
+				y 175
+			end
+		end
+		object RCastle24754-2 of RCastle
+			properties
+				loop 2
+				x 309
+				y 277
+			end
+		end
+		object RCastle24754-3 of RCastle
+			properties
+				loop 2
+				x 132
+				y 278
+			end
+		end
+		object RCastle24754-4 of RCastle
+			properties
+				loop 2
+				x 510
+				y 274
+			end
+		end
+		object RCastle24754-5 of RCastle
+			properties
+				loop 1
+				x 542
+				y 182
+			end
+		end
+		object RCastle24754-6 of RCastle
+			properties
+				loop 1
+				x 410
+				y 168
+			end
+		end
+	end
 end
 room 24755
-   properties
-      picture	4000
-      south	24756 
-      west	24754 
-      flags 248
-   end
-   atpinfo
-      2382  446 125
-      2382  285 125
-      2382  132 125
-      2382  -19 126
-      2244  102 133
-      2106  57 134
-      7900  135 135
-      2241  167 135
-      7900  387 135
-      2109  402 137
-      2125  406 138 5
-      2128  56 134 65
-      2221  569 143
-      2126  400 138 34
-      14  667 174
-      2109  402 137 60
-      2382  726 195
-      2124  401 138 63
-      7903  285 255
-      2600  289 261
-      2122  328 263 55
-      2123  242 262 55
-      7908  650 325
-      2382  726 341
-   end
+	properties
+		picture 4000
+		flags 248
+		south 24756
+		west 24754
+	end
+	atpinfo
+		2382 446 125 
+		2382 285 125 
+		2382 132 125 
+		2382 -19 126 
+		2244 102 133 
+		2106 57 134 
+		2128 56 134 65
+		7900 135 135 
+		2241 167 135 
+		7900 387 135 
+		2109 402 137 
+		2109 402 137 60
+		2125 406 138 5
+		2126 400 138 34
+		2124 401 138 63
+		2221 569 143 
+		14 667 174 
+		2382 726 195 
+		7903 285 255 
+		2600 289 261 
+		2123 242 262 55
+		2122 328 263 55
+		7908 650 325 
+		2382 726 341 
+	end
+	objects
+		object RCastle24755-0 of RCastle
+			properties
+				loop 0
+				x 56
+				y 203
+			end
+		end
+		object RCastle24755-1 of RCastle
+			properties
+				loop 2
+				x 284
+				y 236
+			end
+		end
+		object RCastle24755-2 of RCastle
+			properties
+				loop 1
+				x 556
+				y 311
+			end
+		end
+		object RCastle24755-3 of RCastle
+			properties
+				loop 1
+				x 601
+				y 237
+			end
+		end
+		object RCastle24755-4 of RCastle
+			properties
+				loop 1
+				x 492
+				y 167
+			end
+		end
+		object RCastle24755-5 of RCastle
+			properties
+				loop 2
+				x 248
+				y 156
+			end
+		end
+		object RCastle24755-6 of RCastle
+			properties
+				loop 1
+				x 133
+				y 172
+			end
+		end
+	end
 end
 room 24756
-   properties
-      picture	4000
-      north	24755 
-      south	24757 
-      flags 248
-   end
-   atpinfo
-      2340  -37 140
-      2382  709 170
-      2382  709 339
-      2340  -36 403
-      2600  494 242
-      2600  164 242
-      2340  -37 272
-      7908  13 324
-      7908  619 329
-   end
-   objects
-      object stool24756-2 of Stool
-         properties
-            x	135
-            y	196
-            loop	0
-         end
-      end
-      object stool24756-3 of Stool
-         properties
-            x	228
-            y	196
-            loop	0
-         end
-      end
-      object stool24756-4 of Stool
-         properties
-            x	546
-            y	197
-            loop	0
-         end
-      end
-      object stool24756-6 of Stool
-         properties
-            x	464
-            y	192
-            loop	0
-         end
-      end
-   end
+	properties
+		picture 4000
+		flags 248
+		north 24755
+		south 24757
+	end
+	atpinfo
+		2340 -37 140 
+		2382 709 170 
+		2600 494 242 
+		2600 164 242 
+		2340 -37 272 
+		7908 13 324 
+		7908 619 329 
+		2382 709 339 
+		2340 -36 403 
+	end
+	objects
+		object stool24756-0 of Stool
+			properties
+				x 464
+				y 192
+				loop 0
+			end
+		end
+		object stool24756-1 of Stool
+			properties
+				x 135
+				y 196
+				loop 0
+			end
+		end
+		object stool24756-2 of Stool
+			properties
+				x 228
+				y 196
+				loop 0
+			end
+		end
+		object stool24756-3 of Stool
+			properties
+				x 546
+				y 197
+				loop 0
+			end
+		end
+		object RCastle24756-0 of RCastle
+			properties
+				loop 0
+				x 53
+				y 303
+			end
+		end
+		object RCastle24756-1 of RCastle
+			properties
+				loop 2
+				x 223
+				y 213
+			end
+		end
+		object RCastle24756-2 of RCastle
+			properties
+				loop 2
+				x 124
+				y 215
+			end
+		end
+		object RCastle24756-3 of RCastle
+			properties
+				loop 1
+				x 584
+				y 312
+			end
+		end
+		object RCastle24756-4 of RCastle
+			properties
+				loop 2
+				x 541
+				y 214
+			end
+		end
+		object RCastle24756-5 of RCastle
+			properties
+				loop 2
+				x 455
+				y 216
+			end
+		end
+	end
 end
 room 24757
-   properties
-      picture	4000
-      north	24756 
-      west	24758 
-      flags 248
-   end
-   atpinfo
-      35106  67 148
-      2310  81 164
-      14  115 184
-      2346  83 174 10
-      2382  694 174
-      2346  85 185 175
-      2395  35 282
-      7902  319 276
-      7902  534 276
-      7902  134 276
-      7908  611 264
-      2382  694 334
-      2382  543 450
-      2382  384 450
-      2382  226 450
-      2382  68 452
-      2390  597 474 200
-      2390  275 474 200
-      2390  383 474 200
-      2390  166 474 200
-      2390  490 474 200
-      2390  56 474 200
-   end
+	properties
+		picture 4000
+		flags 248
+		north 24756
+		west 24758
+	end
+	atpinfo
+		35106 67 148 
+		2310 81 164 
+		2346 83 174 10
+		2382 694 174 
+		14 115 184 
+		2346 85 185 175
+		7908 611 264 
+		7902 319 276 
+		7902 534 276 
+		7902 134 276 
+		2395 35 282 
+		2382 694 334 
+		2382 543 450 
+		2382 384 450 
+		2382 226 450 
+		2382 68 452 
+		2390 597 474 200
+		2390 275 474 200
+		2390 383 474 200
+		2390 166 474 200
+		2390 490 474 200
+		2390 56 474 200
+	end
+	objects
+		object RCastle24757-0 of RCastle
+			properties
+				loop 0
+				x 161
+				y 118
+			end
+		end
+		object RCastle24757-1 of RCastle
+			properties
+				loop 0
+				x 127
+				y 150
+			end
+		end
+		object RCastle24757-2 of RCastle
+			properties
+				loop 0
+				x 87
+				y 210
+			end
+		end
+		object RCastle24757-3 of RCastle
+			properties
+				loop 0
+				x 461
+				y 233
+			end
+		end
+		object RCastle24757-4 of RCastle
+			properties
+				loop 1
+				x 528
+				y 119
+			end
+		end
+		object RCastle24757-5 of RCastle
+			properties
+				loop 1
+				x 571
+				y 153
+			end
+		end
+		object RCastle24757-6 of RCastle
+			properties
+				loop 1
+				x 499
+				y 252
+			end
+		end
+	end
 end
 room 24758
-   properties
-      picture	4000
-      east	24757 
-      west	24753 
-      flags 248
-   end
-   atpinfo
-      2340  504 138
-      2340  409 138
-      2340  315 138
-      2340  224 138
-      2340  129 138
-      2340  35 138
-      7902  296 146
-      7902  548 146
-      7902  44 146
-      7902  126 313
-      7902  497 314
-      7902  292 315
-      2382  557 468
-      2382  239 467
-      2382  80 467
-      2382  398 467
-      2390  586 495 200
-      2390  477 494 200
-      2390  369 494 200
-      2390  264 494 200
-      2390  154 494 200
-      2390  46 494 200
-      2395  604 300
-      2340  599 138
-   end
+	properties
+		picture 4000
+		flags 248
+		east 24757
+		west 24753
+	end
+	atpinfo
+		2340 504 138 
+		2340 409 138 
+		2340 315 138 
+		2340 224 138 
+		2340 129 138 
+		2340 35 138 
+		2340 599 138 
+		7902 296 146 
+		7902 548 146 
+		7902 44 146 
+		2395 604 300 
+		7902 126 313 
+		7902 497 314 
+		7902 292 315 
+		2382 239 467 
+		2382 80 467 
+		2382 398 467 
+		2382 557 468 
+		2390 477 494 200
+		2390 369 494 200
+		2390 264 494 200
+		2390 154 494 200
+		2390 46 494 200
+		2390 586 495 200
+	end
+	objects
+		object RCastle24758-0 of RCastle
+			properties
+				loop 0
+				x 444
+				y 168
+			end
+		end
+		object RCastle24758-1 of RCastle
+			properties
+				loop 0
+				x 92
+				y 169
+			end
+		end
+		object RCastle24758-2 of RCastle
+			properties
+				loop 0
+				x 265
+				y 181
+			end
+		end
+		object RCastle24758-3 of RCastle
+			properties
+				loop 1
+				x 501
+				y 160
+			end
+		end
+		object RCastle24758-4 of RCastle
+			properties
+				loop 1
+				x 324
+				y 178
+			end
+		end
+		object RCastle24758-5 of RCastle
+			properties
+				loop 1
+				x 145
+				y 161
+			end
+		end
+	end
 end
 room 24753
-   properties
-      picture	4000
-      north	24752 
-      east	24758 
-      west	24759 
-      flags 248
-   end
-   atpinfo
-      2340  -22 135
-      2340  88 135
-      2340  647 135
-      2340  546 135
-      2382  -1 488
-      2315  263 142
-      35083  384 142
-      2382  184 488
-      2338  400 149
-      35106  245 149
-      2310  261 159
-      2310  382 159
-      14  286 185
-      32782  357 186
-      2346  261 263 250
-      35114  382 263 250
-      7902  39 326
-      7902  304 328
-      7902  499 329
-      2382  550 488
-      2382  368 488
-      7900  16 151
-      7900  620 153
-   end
-   objects
-      object torch24753-0 of Torch
-         properties
-            x	64
-            y	147
-            loop	0
-         end
-      end
-      object torch24753-1 of Torch
-         properties
-            x	566
-            y	147
-            loop	0
-         end
-      end
-      object stool24753-6 of Stool
-         properties
-            x	109
-            y	229
-            loop	0
-         end
-      end
-      object stool24753-7 of Stool
-         properties
-            x	549
-            y	236
-            loop	0
-         end
-      end
-      object stool24753-8 of Stool
-         properties
-            x	148
-            y	253
-            loop	0
-         end
-      end
-      object stool24753-9 of Stool
-         properties
-            x	512
-            y	263
-            loop	0
-         end
-      end
-      object stool24753-10 of Stool
-         properties
-            x	463
-            y	274
-            loop	0
-         end
-      end
-      object stool24753-11 of Stool
-         properties
-            x	203
-            y	275
-            loop	0
-         end
-      end
-   end
+	properties
+		picture 4000
+		flags 248
+		north 24752
+		east 24758
+		west 24759
+	end
+	atpinfo
+		2340 -22 135 
+		2340 88 135 
+		2340 647 135 
+		2340 546 135 
+		2315 263 142 
+		35083 384 142 
+		2338 400 149 
+		35106 245 149 
+		7900 16 151 
+		7900 620 153 
+		2310 261 159 
+		2310 382 159 
+		14 286 185 
+		32782 357 186 
+		2346 261 263 250
+		35114 382 263 250
+		7902 39 326 
+		7902 304 328 
+		7902 499 329 
+		2382 -1 488 
+		2382 184 488 
+		2382 550 488 
+		2382 368 488 
+	end
+	objects
+		object torch24753-0 of Torch
+			properties
+				x 64
+				y 147
+				loop 0
+			end
+		end
+		object torch24753-1 of Torch
+			properties
+				x 566
+				y 147
+				loop 0
+			end
+		end
+		object stool24753-0 of Stool
+			properties
+				x 109
+				y 229
+				loop 0
+			end
+		end
+		object RCastle24753-0 of RCastle
+			properties
+				loop 0
+				x 97
+				y 235
+			end
+		end
+		object stool24753-1 of Stool
+			properties
+				x 549
+				y 236
+				loop 0
+			end
+		end
+		object stool24753-2 of Stool
+			properties
+				x 148
+				y 253
+				loop 0
+			end
+		end
+		object RCastle24753-1 of RCastle
+			properties
+				loop 0
+				x 138
+				y 262
+			end
+		end
+		object stool24753-3 of Stool
+			properties
+				x 512
+				y 263
+				loop 0
+			end
+		end
+		object stool24753-4 of Stool
+			properties
+				x 463
+				y 274
+				loop 0
+			end
+		end
+		object stool24753-5 of Stool
+			properties
+				x 203
+				y 275
+				loop 0
+			end
+		end
+		object RCastle24753-2 of RCastle
+			properties
+				loop 0
+				x 192
+				y 287
+			end
+		end
+		object RCastle24753-3 of RCastle
+			properties
+				loop 1
+				x 460
+				y 285
+			end
+		end
+		object RCastle24753-4 of RCastle
+			properties
+				loop 1
+				x 508
+				y 273
+			end
+		end
+		object RCastle24753-5 of RCastle
+			properties
+				loop 1
+				x 548
+				y 248
+			end
+		end
+	end
 end
 room 24752
-   properties
-      picture	4000
-      north	24751 
-      south	24753 
-      flags 248
-   end
-   atpinfo
-      2340  621 119
-      2340  526 127
-      2340  109 130
-      2315  263 130
-      35083  380 130
-      2340  14 131
-      2338  399 140
-      35106  245 143
-      2310  261 146
-      35078  382 146
-      2109  98 149
-      2109  540 149
-      7903  550 150
-      2129  99 150
-      7903  87 154
-      32782  351 170
-      14  289 171
-      34897  100 150 31
-      2130  97 150 67
-      2129  541 150 60
-      2340  672 198
-      34898  539 150 35
-      2340  -39 237
-      7900  534 580
-      2130  541 150 3
-      2598  323 243
-      7908  637 316
-      7908  8 325
-      2340  672 337
-      35108  -30 341
-      7900  87 577
-      2340  643 434
-      2338  117 440
-      35106  504 436
-      2340  59 436
-      2340  554 436
-      2392  172 496 200
-      2390  -16 498 200
-      2390  65 498 200
-      2391  459 493 200
-      2390  560 494 200
-      2390  610 494 200
-   end
+	properties
+		picture 4000
+		flags 248
+		north 24751
+		south 24753
+	end
+	atpinfo
+		2340 621 119 
+		2340 526 127 
+		2340 109 130 
+		2315 263 130 
+		35083 380 130 
+		2340 14 131 
+		2338 399 140 
+		35106 245 143 
+		2310 261 146 
+		35078 382 146 
+		2109 98 149 
+		2109 540 149 
+		7903 550 150 
+		2129 99 150 
+		34897 100 150 31
+		2130 97 150 67
+		2129 541 150 60
+		34898 539 150 35
+		2130 541 150 3
+		7903 87 154 
+		32782 351 170 
+		14 289 171 
+		2340 672 198 
+		2340 -39 237 
+		2598 323 243 
+		7908 637 316 
+		7908 8 325 
+		2340 672 337 
+		35108 -30 341 
+		2340 643 434 
+		35106 504 436 
+		2340 59 436 
+		2340 554 436 
+		2338 117 440 
+		2391 459 493 200
+		2390 560 494 200
+		2390 610 494 200
+		2392 172 496 200
+		2390 -16 498 200
+		2390 65 498 200
+		7900 87 577 
+		7900 534 580 
+	end
+	objects
+		object RCastle24752-0 of RCastle
+			properties
+				loop 0
+				x 53
+				y 174
+			end
+		end
+		object RCastle24752-1 of RCastle
+			properties
+				loop 0
+				x 127
+				y 195
+			end
+		end
+		object RCastle24752-2 of RCastle
+			properties
+				loop 0
+				x 52
+				y 231
+			end
+		end
+		object RCastle24752-3 of RCastle
+			properties
+				loop 0
+				x 155
+				y 260
+			end
+		end
+		object RCastle24752-4 of RCastle
+			properties
+				loop 0
+				x 59
+				y 288
+			end
+		end
+		object RCastle24752-5 of RCastle
+			properties
+				loop 2
+				x 321
+				y 216
+			end
+		end
+		object RCastle24752-6 of RCastle
+			properties
+				loop 1
+				x 475
+				y 190
+			end
+		end
+		object RCastle24752-7 of RCastle
+			properties
+				loop 1
+				x 516
+				y 250
+			end
+		end
+		object RCastle24752-8 of RCastle
+			properties
+				loop 1
+				x 586
+				y 273
+			end
+		end
+		object RCastle24752-9 of RCastle
+			properties
+				loop 1
+				x 591
+				y 232
+			end
+		end
+		object RCastle24752-10 of RCastle
+			properties
+				loop 1
+				x 590
+				y 188
+			end
+		end
+	end
 end
 room 24759
-   properties
-      picture	4000
-      east	24753 
-      west	24760 
-      flags 248
-   end
-   atpinfo
-      2340  490 134
-      35108  389 135
-      35108  280 135
-      35108  171 135
-      35108  90 135
-      7902  404 139
-      7902  152 139
-      35106  643 148
-      2338  -26 150
-      32782  -11 172
-      14  672 171
-      7903  315 159
-      2600  316 161
-      2315  118 189
-      35083  510 189
-      2310  116 206
-      35078  512 206
-      35114  510 210 200
-      2346  117 211 200
-      7909  511 214
-      7909  115 218
-      7902  492 316
-      7902  128 319
-      7902  365 319
-      2382  638 476
-      2382  275 475
-      2382  92 474
-      2382  455 475
-   end
-   objects
-      object torch24759-3 of Torch
-         properties
-            x	315
-            y	138
-            loop	0
-         end
-      end
-      object torch24759-9 of Torch
-         properties
-            x	511
-            y	209
-            loop	0
-         end
-      end
-      object torch24759-10 of Torch
-         properties
-            x	117
-            y	209
-            loop	0
-         end
-      end
-   end
+	properties
+		picture 4000
+		flags 248
+		east 24753
+		west 24760
+	end
+	atpinfo
+		2340 490 134 
+		35108 389 135 
+		35108 280 135 
+		35108 171 135 
+		35108 90 135 
+		7902 404 139 
+		7902 152 139 
+		35106 643 148 
+		2338 -26 150 
+		7903 315 159 
+		2600 316 161 
+		14 672 171 
+		32782 -11 172 
+		2315 118 189 
+		35083 510 189 
+		2310 116 206 
+		35078 512 206 
+		35114 510 210 200
+		2346 117 211 200
+		7909 511 214 
+		7909 115 218 
+		7902 492 316 
+		7902 128 319 
+		7902 365 319 
+		2382 92 474 
+		2382 275 475 
+		2382 455 475 
+		2382 638 476 
+	end
+	objects
+		object torch24759-0 of Torch
+			properties
+				x 315
+				y 138
+				loop 0
+			end
+		end
+		object RCastle24759-0 of RCastle
+			properties
+				loop 0
+				x 508
+				y 171
+			end
+		end
+		object RCastle24759-1 of RCastle
+			properties
+				loop 0
+				x 117
+				y 181
+			end
+		end
+		object torch24759-1 of Torch
+			properties
+				x 511
+				y 209
+				loop 0
+			end
+		end
+		object torch24759-2 of Torch
+			properties
+				x 117
+				y 209
+				loop 0
+			end
+		end
+		object RCastle24759-2 of RCastle
+			properties
+				loop 2
+				x 269
+				y 185
+			end
+		end
+		object RCastle24759-3 of RCastle
+			properties
+				loop 2
+				x 335
+				y 184
+			end
+		end
+		object RCastle24759-4 of RCastle
+			properties
+				loop 2
+				x 399
+				y 184
+			end
+		end
+		object RCastle24759-5 of RCastle
+			properties
+				loop 2
+				x 509
+				y 233
+			end
+		end
+		object RCastle24759-6 of RCastle
+			properties
+				loop 2
+				x 118
+				y 237
+			end
+		end
+		object RCastle24759-7 of RCastle
+			properties
+				loop 2
+				x 207
+				y 182
+			end
+		end
+	end
 end
 room 24760
-   properties
-      picture	4000
-      east	24759 
-      flags 248
-   end
-   atpinfo
-      2340  39 97
-      2340  134 97
-      2340  230 97
-      2340  333 97
-      2340  423 97
-      2340  516 97
-      7902  154 105
-      7902  499 284
-      7909  332 107
-      2340  -32 228
-      7907  310 275
-      7908  22 336
-      2340  -33 369
-      2382  239 458
-      2382  396 458
-      2382  81 458
-      2382  555 458
-      7900  502 107
-      7900  123 572
-      2380  654 458
-      2340  611 97
-   end
-   objects
-      object PlankDoor24760-0 of PlankDoor
+	properties
+		picture 4000
+		flags 248
+		east 24759
+	end
+	atpinfo
+		2340 39 97 
+		2340 134 97 
+		2340 230 97 
+		2340 333 97 
+		2340 423 97 
+		2340 516 97 
+		2340 611 97 
+		7902 154 105 
+		7909 332 107 
+		7900 502 107 
+		2340 -32 228 
+		7907 310 275 
+		7902 499 284 
+		7908 22 336 
+		2340 -33 369 
+		2382 239 458 
+		2382 396 458 
+		2382 81 458 
+		2382 555 458 
+		2380 654 458 
+		7900 123 572 
+	end
+	objects
+		object RCastle24760-0 of RCastle
+			properties
+				loop 2
+				x 404
+				y 113
+			end
+		end
+		object RCastle24760-1 of RCastle
+			properties
+				loop 2
+				x 480
+				y 115
+			end
+		end
+		object RCastle24760-2 of RCastle
+			properties
+				loop 2
+				x 173
+				y 140
+			end
+		end
+		object torch24760-0 of Torch
+			properties
+				x 68
+				y 161
+				loop 0
+			end
+		end
+		object torch24760-1 of Torch
+			properties
+				x 567
+				y 164
+				loop 0
+			end
+		end
+		object RCastle24760-3 of RCastle
+			properties
+				loop 1
+				x 242
+				y 172
+			end
+		end
+		object RCastle24760-4 of RCastle
+			properties
+				loop 0
+				x 110
+				y 185
+			end
+		end
+		object RCastle24760-5 of RCastle
+			properties
+				loop 1
+				x 211
+				y 240
+			end
+		end
+		object RCastle24760-6 of RCastle
+			properties
+				loop 0
+				x 140
+				y 243
+			end
+		end
+		object PlankDoor24760-0 of PlankDoor
          properties
             x	329
             y	103
@@ -679,51 +1291,37 @@ room 24760
             isOpen	1
          end
       end
-      object torch24760-9 of Torch
-         properties
-            x	68
-            y	161
-            loop	0
-         end
-      end
-      object torch24760-10 of Torch
-         properties
-            x	567
-            y	164
-            loop	0
-         end
-      end
-   end
+	end
 end
 room 24761
-   properties
-      picture	4000
-      flags 248
-   end
-   atpinfo
-      7902  120 92
-      2382  459 93
-      2382  618 93
-      7902  520 93
-      2382  7 94
-      2382  166 95
-      2381  311 117
-      2380  625 225
-      2382  -64 255
-      7908  631 322
-      7908  -1 325
-      7907  318 325
-      2380  625 332
-      7902  484 333
-      7902  156 334
-      2382  -64 410
-      2382  108 492
-      2382  290 492
-      2382  472 492
-      2382  655 492
-   end
-   objects
-      object button24761-0 of Button
+	properties
+		picture 4000
+		flags 248
+	end
+	atpinfo
+		7902 120 92 
+		2382 459 93 
+		2382 618 93 
+		7902 520 93 
+		2382 7 94 
+		2382 166 95 
+		2381 311 117 
+		2380 625 225 
+		2382 -64 255 
+		7908 631 322 
+		7908 -1 325 
+		7907 318 325 
+		2380 625 332 
+		7902 484 333 
+		7902 156 334 
+		2382 -64 410 
+		2382 108 492 
+		2382 290 492 
+		2382 472 492 
+		2382 655 492 
+	end
+	objects
+		object button24761-0 of Button
          properties
             x	30
             y	106
@@ -734,91 +1332,101 @@ room 24761
             vBeDeactivated teleport dobj 24082
          end
       end
-      object bones24761-1 of Bones
-         properties
-            x	522
-            y	108
-            loop	0
+		object bones24761-0 of Bones
+			properties
+				x 522
+				y 108
+				loop 0
+			end
+		end
+		object bones24761-1 of Bones
+			properties
+				x 578
+				y 111
+				loop 0
+			end
+		end
+		object bones24761-2 of Bones
+			properties
+				x 85
+				y 111
+				loop 0
+			end
+		end
+		object bones24761-3 of Bones
+			properties
+				x 57
+				y 118
+				loop 0
+			end
+		end
+		object bones24761-4 of Bones
+			properties
+				x 547
+				y 119
+				loop 0
+			end
+		end
+		object bones24761-5 of Bones
+			properties
+				x 109
+				y 126
+				loop 0
+			end
+		end
+		object bones24761-6 of Bones
+			properties
+				x 541
+				y 296
+				loop 0
+			end
+		end
+		object bones24761-7 of Bones
+			properties
+				x 97
+				y 299
+				loop 0
+			end
+		end
+		object bones24761-8 of Bones
+			properties
+				x 56
+				y 304
+				loop 0
+			end
+		end
+		object bones24761-9 of Bones
+			properties
+				x 572
+				y 305
+				loop 0
+			end
+		end
+		object bones24761-10 of Bones
+			properties
+				x 518
+				y 305
+				loop 0
+			end
+		end
+		object bones24761-11 of Bones
+			properties
+				x 129
+				y 308
+				loop 0
+			end
+		end
+		object crest24761-0 of Crest
+			properties
+				loop 2
+				x 441
+				y 97
+			end
+         base described
+            text "The Castle Created by: StoneMcCloud\n\n\nStone suffered from a massive stroke which nearly took his life, but he was a fighter and punched death in the dick. You gave em hell, bud.\n\n"
          end
-      end
-      object bones24761-2 of Bones
-         properties
-            x	578
-            y	111
-            loop	0
-         end
-      end
-      object bones24761-3 of Bones
-         properties
-            x	85
-            y	111
-            loop	0
-         end
-      end
-      object bones24761-4 of Bones
-         properties
-            x	57
-            y	118
-            loop	0
-         end
-      end
-      object bones24761-5 of Bones
-         properties
-            x	547
-            y	119
-            loop	0
-         end
-      end
-      object bones24761-6 of Bones
-         properties
-            x	109
-            y	126
-            loop	0
-         end
-      end
-      object bones24761-7 of Bones
-         properties
-            x	541
-            y	296
-            loop	0
-         end
-      end
-      object bones24761-8 of Bones
-         properties
-            x	97
-            y	299
-            loop	0
-         end
-      end
-      object bones24761-9 of Bones
-         properties
-            x	56
-            y	304
-            loop	0
-         end
-      end
-      object bones24761-10 of Bones
-         properties
-            x	572
-            y	305
-            loop	0
-         end
-      end
-      object bones24761-11 of Bones
-         properties
-            x	518
-            y	305
-            loop	0
-         end
-      end
-      object bones24761-12 of Bones
-         properties
-            x	129
-            y	308
-            loop	0
-         end
-      end
-      object lockedChest24761-13 of LockedChest
+		end
+		object lockedChest24761-13 of LockedChest
          properties
             x	76
             y	129
@@ -906,45 +1514,45 @@ room 24761
 				owner	lockedChest24761-16
 			end
 		end
-   end
+	end
 end
 room 24070
-   properties
-      picture	4000
-      east	24071 
-      flags 248
-   end
-   atpinfo
-      2382  93 478
-      2382  275 478
-      2382  458 478
-      2382  640 478
-      2382  -59 306
-      2382  -59 161
-      2340  49 93
-      2340  158 93
-      2340  266 93
-      2340  378 93
-      2340  488 93
-      2340  597 93
-      2269  52 182 20
-      2260  88 176
-      2262  52 181
-      2261  89 177 55
-      7908  27 314
-      7900  146 107
-      7900  501 107
-      7902  165 317
-      7902  501 320
-      7902  315 318
-      1  76 183
-      1  64 184
-      1  49 184
-      1  37 185
-      1  50 165
-   end
-   objects
-      object door24070-0 of Door
+	properties
+		picture 4000
+		flags 248
+		east 24071
+	end
+	atpinfo
+		2340 49 93 
+		2340 158 93 
+		2340 266 93 
+		2340 378 93 
+		2340 488 93 
+		2340 597 93 
+		7900 146 107 
+		7900 501 107 
+		2382 -59 161 
+		1 50 165 
+		2260 88 176 
+		2261 89 177 55
+		2262 52 181 
+		2269 52 182 20
+		1 76 183 
+		1 64 184 
+		1 49 184 
+		1 37 185 
+		2382 -59 306 
+		7908 27 314 
+		7902 165 317 
+		7902 315 318 
+		7902 501 320 
+		2382 93 478 
+		2382 275 478 
+		2382 458 478 
+		2382 640 478 
+	end
+	objects
+		object door24070-0 of Door
          properties
             x	326
             y	94
@@ -955,548 +1563,1144 @@ room 24070
             isOpen	1
          end
       end
-      object torch24070-1 of Torch
-         properties
-            x	120
-            y	133
-            loop	0
-         end
-      end
-      object torch24070-2 of Torch
-         properties
-            x	556
-            y	133
-            loop	0
-         end
-      end
-      object stoneBench24070-3 of StoneBench
-         properties
-            x	426
-            y	108
-            loop	0
-         end
-      end
-      object stoneBench24070-4 of StoneBench
-         properties
-            x	492
-            y	108
-            loop	0
-         end
-      end
-      object stoneBench24070-5 of StoneBench
-         properties
-            x	495
-            y	287
-            loop	0
-         end
-      end
-      object stoneBench24070-6 of StoneBench
-         properties
-            x	428
-            y	288
-            loop	0
-         end
-      end
-   end
+		object stoneBench24070-0 of StoneBench
+			properties
+				x 426
+				y 108
+				loop 0
+			end
+		end
+		object stoneBench24070-1 of StoneBench
+			properties
+				x 492
+				y 108
+				loop 0
+			end
+		end
+		object RCastle24070-0 of RCastle
+			properties
+				loop 2
+				x 494
+				y 116
+			end
+		end
+		object RCastle24070-1 of RCastle
+			properties
+				loop 2
+				x 427
+				y 116
+			end
+		end
+		object RCastle24070-2 of RCastle
+			properties
+				loop 0
+				x 150
+				y 126
+			end
+		end
+		object torch24070-0 of Torch
+			properties
+				x 120
+				y 133
+				loop 0
+			end
+		end
+		object torch24070-1 of Torch
+			properties
+				x 556
+				y 133
+				loop 0
+			end
+		end
+		object RCastle24070-3 of RCastle
+			properties
+				loop 0
+				x 185
+				y 201
+			end
+		end
+		object RCastle24070-4 of RCastle
+			properties
+				loop 0
+				x 111
+				y 234
+			end
+		end
+		object RCastle24070-5 of RCastle
+			properties
+				loop 0
+				x 62
+				y 278
+			end
+		end
+		object stoneBench24070-2 of StoneBench
+			properties
+				x 495
+				y 287
+				loop 0
+			end
+		end
+		object stoneBench24070-3 of StoneBench
+			properties
+				x 428
+				y 288
+				loop 0
+			end
+		end
+		object RCastle24070-6 of RCastle
+			properties
+				loop 2
+				x 495
+				y 292
+			end
+		end
+		object RCastle24070-7 of RCastle
+			properties
+				loop 2
+				x 429
+				y 294
+			end
+		end
+	end
 end
 room 24071
-   properties
-      picture	4000
-      east	24072 
-      west	24070 
-      flags 248
-   end
-   atpinfo
-      2382  84 478
-      2382  265 478
-      2382  448 478
-      2382  631 478
-      2340  437 126
-      2338  -1 155
-      2339  643 155
-      2340  332 126
-      2340  225 125
-      2339  547 140
-      2338  95 141
-      7902  136 318
-      7902  499 319
-      7902  314 319
-      7900  315 137
-      14  585 170
-      14  651 181
-      32782  90 169
-      32782  -13 183
-   end
-   objects
-      object bed24071-0 of Bed
-         properties
-            x	301
-            y	139
-            loop	2
-         end
-      end
-      object torch24071-1 of Torch
-         properties
-            x	604
-            y	155
-            loop	0
-         end
-      end
-      object torch24071-2 of Torch
-         properties
-            x	74
-            y	155
-            loop	0
-         end
-      end
-      object torch24071-3 of Torch
-         properties
-            x	405
-            y	131
-            loop	0
-         end
-      end
-   end
+	properties
+		picture 4000
+		flags 248
+		east 24072
+		west 24070
+	end
+	atpinfo
+		2340 225 125 
+		2340 437 126 
+		2340 332 126 
+		7900 315 137 
+		2339 547 140 
+		2338 95 141 
+		2338 -1 155 
+		2339 643 155 
+		32782 90 169 
+		14 585 170 
+		14 651 181 
+		32782 -13 183 
+		7902 136 318 
+		7902 499 319 
+		7902 314 319 
+		2382 84 478 
+		2382 265 478 
+		2382 448 478 
+		2382 631 478 
+	end
+	objects
+		object torch24071-0 of Torch
+			properties
+				x 405
+				y 131
+				loop 0
+			end
+		end
+		object bed24071-0 of Bed
+			properties
+				x 301
+				y 139
+				loop 0
+			end
+		end
+		object RCastle24071-0 of RCastle
+			properties
+				loop 1
+				x 473
+				y 151
+			end
+		end
+		object torch24071-1 of Torch
+			properties
+				x 604
+				y 155
+				loop 0
+			end
+		end
+		object torch24071-2 of Torch
+			properties
+				x 74
+				y 155
+				loop 0
+			end
+		end
+		object RCastle24071-1 of RCastle
+			properties
+				loop 2
+				x 393
+				y 158
+			end
+		end
+		object RCastle24071-2 of RCastle
+			properties
+				loop 0
+				x 173
+				y 163
+			end
+		end
+		object RCastle24071-3 of RCastle
+			properties
+				loop 1
+				x 545
+				y 164
+			end
+		end
+		object RCastle24071-4 of RCastle
+			properties
+				loop 2
+				x 255
+				y 165
+			end
+		end
+		object RCastle24071-5 of RCastle
+			properties
+				loop 2
+				x 331
+				y 173
+			end
+		end
+		object RCastle24071-6 of RCastle
+			properties
+				loop 0
+				x 106
+				y 177
+			end
+		end
+	end
 end
 room 24072
-   properties
-      picture	4000
-      east	24073 
-      west	24071 
-      flags 248
-   end
-   atpinfo
-      2382  91 478
-      2382  274 478
-      2382  638 478
-      2382  457 478
-      2340  48 221
-      35107  107 222
-      35107  203 207
-      35107  299 192
-      35107  395 177
-      35107  491 163
-      2340  637 147
-      2340  49 143
-      35107  108 152
-      35107  205 147
-      35107  302 122
-      35107  397 66
-      35107  491 116
-      2290  430 222 50
-      2291  417 209 50
-      2254  379 191
-      2271  506 213 50
-      2305  593 152
-      32782  480 194
-      32782  331 219
-      32782  264 171
-      32782  198 240
-      7908  636 161
-      7902  125 318
-      7902  296 320
-      7902  500 318
-      7900  61 231
-   end
-   objects
-      object torch24072-0 of Torch
-         properties
-            x	616
-            y	153
-            loop	0
-         end
-      end
-      object torch24072-1 of Torch
-         properties
-            x	46
-            y	230
-            loop	0
-         end
-      end
-   end
+	properties
+		picture 4000
+		flags 248
+		east 24073
+		west 24071
+	end
+	atpinfo
+		35107 397 66 
+		35107 491 116 
+		35107 302 122 
+		2340 49 143 
+		2340 637 147 
+		35107 205 147 
+		35107 108 152 
+		2305 593 152 
+		7908 636 161 
+		35107 491 163 
+		32782 264 171 
+		35107 395 177 
+		2254 379 191 
+		35107 299 192 
+		32782 480 194 
+		35107 203 207 
+		2291 417 209 50
+		2271 506 213 50
+		32782 331 219 
+		2340 48 221 
+		35107 107 222 
+		2290 430 222 50
+		7900 61 231 
+		32782 198 240 
+		7902 125 318 
+		7902 500 318 
+		7902 296 320 
+		2382 91 478 
+		2382 274 478 
+		2382 638 478 
+		2382 457 478 
+	end
+	objects
+		object torch24072-0 of Torch
+			properties
+				x 616
+				y 153
+				loop 0
+			end
+		end
+		object RCastle24072-0 of RCastle
+			properties
+				loop 1
+				x 547
+				y 169
+			end
+		end
+		object RCastle24072-1 of RCastle
+			properties
+				loop 1
+				x 470
+				y 180
+			end
+		end
+		object RCastle24072-2 of RCastle
+			properties
+				loop 0
+				x 346
+				y 200
+			end
+		end
+		object RCastle24072-3 of RCastle
+			properties
+				loop 0
+				x 282
+				y 208
+			end
+		end
+		object RCastle24072-4 of RCastle
+			properties
+				loop 0
+				x 218
+				y 221
+			end
+		end
+		object torch24072-1 of Torch
+			properties
+				x 46
+				y 230
+				loop 0
+			end
+		end
+		object RCastle24072-5 of RCastle
+			properties
+				loop 0
+				x 158
+				y 232
+			end
+		end
+		object RCastle24072-6 of RCastle
+			properties
+				loop 2
+				x 520
+				y 277
+			end
+		end
+		object RCastle24072-7 of RCastle
+			properties
+				loop 2
+				x 440
+				y 278
+			end
+		end
+	end
 end
 room 24073
-   properties
-      picture	4000
-      east	24074 
-      west	24072 
-      flags 248
-   end
-   atpinfo
-      2382  93 478
-      2382  275 478
-      2382  457 478
-      2382  640 478
-      2340  58 103
-      2340  657 162
-      2340  548 162
-      35106  208 118
-      35106  303 132
-      35106  401 147
-      35106  497 162
-      2340  548 143
-      2340  664 132
-      35106  497 132
-      2340  -18 103
-      14  245 152
-      14  371 171
-      14  497 190
-      7901  579 180
-      7901  27 118
-      7902  134 316
-      7902  314 316
-      7902  490 318
-   end
+	properties
+		picture 4000
+		flags 248
+		east 24074
+		west 24072
+	end
+	atpinfo
+		2340 58 103 
+		2340 -18 103 
+		35106 208 118 
+		7901 27 118 
+		35106 303 132 
+		2340 664 132 
+		35106 497 132 
+		2340 548 143 
+		35106 401 147 
+		14 245 152 
+		2340 657 162 
+		2340 548 162 
+		35106 497 162 
+		14 371 171 
+		7901 579 180 
+		14 497 190 
+		7902 134 316 
+		7902 314 316 
+		7902 490 318 
+		2382 93 478 
+		2382 275 478 
+		2382 457 478 
+		2382 640 478 
+	end
+	objects
+		object RCastle24073-0 of RCastle
+			properties
+				loop 0
+				x 27
+				y 117
+			end
+		end
+		object RCastle24073-1 of RCastle
+			properties
+				loop 0
+				x 101
+				y 124
+			end
+		end
+		object RCastle24073-2 of RCastle
+			properties
+				loop 2
+				x 209
+				y 139
+			end
+		end
+		object RCastle24073-3 of RCastle
+			properties
+				loop 2
+				x 294
+				y 153
+			end
+		end
+		object RCastle24073-4 of RCastle
+			properties
+				loop 2
+				x 379
+				y 165
+			end
+		end
+		object RCastle24073-5 of RCastle
+			properties
+				loop 1
+				x 561
+				y 177
+			end
+		end
+		object RCastle24073-6 of RCastle
+			properties
+				loop 1
+				x 450
+				y 177
+			end
+		end
+	end
 end
 room 24074
-   properties
-      picture	4000
-      north	24075 
-      west	24073 
-      flags 248
-   end
-   atpinfo
-      2382  90 478
-      2382  274 478
-      2382  455 478
-      2382  638 478
-      2382  692 296
-      2382  690 171
-      2340  -36 162
-      2340  51 90
-      2340  540 90
-      2310  470 100
-      2310  127 100
-      2346  129 103
-      2346  472 103
-      2346  129 161 150
-      2346  472 162 150
-      2600  313 208
-      7906  86 102
-      7906  509 104
-      7906  630 104
-      7908  18 175
-      7908  602 300
-      7902  135 318
-      7902  313 321
-      7902  508 320
-      7903  311 205
-   end
-   objects
-      object skull24074-0 of Skull
-         properties
-            x	583
-            y	106
-            loop	1
-         end
-      end
-      object chair24074-1 of Chair
-         properties
-            x	192
-            y	197
-            loop	0
-         end
-      end
-      object chair24074-2 of Chair
-         properties
-            x	429
-            y	197
-            loop	1
-         end
-      end
-      object chair24074-3 of Chair
-         properties
-            x	367
-            y	174
-            loop	2
-         end
-      end
-      object chair24074-4 of Chair
-         properties
-            x	311
-            y	173
-            loop	2
-         end
-      end
-      object chair24074-5 of Chair
-         properties
-            x	262
-            y	172
-            loop	2
-         end
-      end
-   end
+	properties
+		picture 4000
+		flags 248
+		north 24075
+		west 24073
+	end
+	atpinfo
+		2340 51 90 
+		2340 540 90 
+		2310 470 100 
+		2310 127 100 
+		7906 86 102 
+		2346 129 103 
+		2346 472 103 
+		7906 509 104 
+		7906 630 104 
+		2346 129 161 150
+		2340 -36 162 
+		2346 472 162 150
+		2382 690 171 
+		7908 18 175 
+		7903 311 205 
+		2600 313 208 
+		2382 692 296 
+		7908 602 300 
+		7902 135 318 
+		7902 508 320 
+		7902 313 321 
+		2382 90 478 
+		2382 274 478 
+		2382 455 478 
+		2382 638 478 
+	end
+	objects
+		object skull24074-0 of Skull
+			properties
+				x 583
+				y 106
+				loop 0
+			end
+		end
+		object RCastle24074-0 of RCastle
+			properties
+				loop 1
+				x 542
+				y 112
+			end
+		end
+		object RCastle24074-1 of RCastle
+			properties
+				loop 0
+				x 41
+				y 128
+			end
+		end
+		object RCastle24074-2 of RCastle
+			properties
+				loop 1
+				x 487
+				y 128
+			end
+		end
+		object RCastle24074-3 of RCastle
+			properties
+				loop 0
+				x 110
+				y 135
+			end
+		end
+		object RCastle24074-4 of RCastle
+			properties
+				loop 1
+				x 564
+				y 164
+			end
+		end
+		object chair24074-0 of Chair
+			properties
+				x 262
+				y 172
+				loop 0
+			end
+		end
+		object chair24074-1 of Chair
+			properties
+				x 311
+				y 173
+				loop 0
+			end
+		end
+		object chair24074-2 of Chair
+			properties
+				x 367
+				y 174
+				loop 0
+			end
+		end
+		object RCastle24074-5 of RCastle
+			properties
+				loop 0
+				x 67
+				y 178
+			end
+		end
+		object RCastle24074-6 of RCastle
+			properties
+				loop 2
+				x 365
+				y 185
+			end
+		end
+		object RCastle24074-7 of RCastle
+			properties
+				loop 0
+				x 253
+				y 186
+			end
+		end
+		object RCastle24074-8 of RCastle
+			properties
+				loop 2
+				x 305
+				y 188
+			end
+		end
+		object chair24074-3 of Chair
+			properties
+				x 192
+				y 197
+				loop 0
+			end
+		end
+		object chair24074-4 of Chair
+			properties
+				x 429
+				y 197
+				loop 0
+			end
+		end
+		object RCastle24074-9 of RCastle
+			properties
+				loop 0
+				x 196
+				y 200
+			end
+		end
+	end
 end
 room 24075
-   properties
-      picture	4000
-      north	24076 
-      south	24074 
-      flags 248
-   end
-   atpinfo
-      2382  712 440 75
-      2382  712 195
-      2340  540 437
-      2310  128 495
-      35078  472 494
-      2340  51 437
-      2346  131 549 259
-      2346  473 540 250
-      2340  -28 296
-      2340  -28 155
-      2346  514 490 200
-      2346  557 490 200
-      2346  599 490 200
-      2340  650 437
-      2346  8 490 200
-      2346  48 490 200
-      2346  89 490 200
-      2262  53 278
-      2252  597 280
-      2272  472 284
-      2284  130 276
-      2299  94 275
-      2259  598 274
-      2269  54 310 50
-      2279  474 343 100
-      2289  134 312 50
-      2309  538 276
-      2109  542 132
-      2109  542 133 35
-      2109  106 133
-      2109  106 134 35
-      2129  103 135 66
-      2130  101 136 103
-      2131  486 135 98
-      2120  107 134 5
-      2125  542 135 70
-      2133  347 226 45
-      2134  271 226 50
-      2132  311 226 45
-      2126  105 135 37
-      2131  522 135 98
-      2131  559 135 98
-      2131  597 135 98
-      2599  310 225
-      2241  53 199
-      2241  593 215
-      2127  533 134 37
-      2128  585 133 3
-      34896  517 133 3
-      7908  25 284
-      7908  629 323
-      7900  12 593
-      7900  580 587
-      7900  593 136
-      7900  47 136
-      2340  73 131
-      2340  563 131
-      2340  512 131
-      2340  128 131
-   end
+	properties
+		picture 4000
+		flags 248
+		north 24076
+		south 24074
+	end
+	atpinfo
+		2340 73 131 
+		2340 563 131 
+		2340 512 131 
+		2340 128 131 
+		2109 542 132 
+		2109 542 133 35
+		2109 106 133 
+		2128 585 133 3
+		34896 517 133 3
+		2109 106 134 35
+		2120 107 134 5
+		2127 533 134 37
+		2129 103 135 66
+		2131 486 135 98
+		2125 542 135 70
+		2126 105 135 37
+		2131 522 135 98
+		2131 559 135 98
+		2131 597 135 98
+		2130 101 136 103
+		7900 593 136 
+		7900 47 136 
+		2340 -28 155 
+		2382 712 195 
+		2241 53 199 
+		2241 593 215 
+		2599 310 225 
+		2133 347 226 45
+		2134 271 226 50
+		2132 311 226 45
+		2259 598 274 
+		2299 94 275 
+		2284 130 276 
+		2309 538 276 
+		2262 53 278 
+		2252 597 280 
+		2272 472 284 
+		7908 25 284 
+		2340 -28 296 
+		2269 54 310 50
+		2289 134 312 50
+		7908 629 323 
+		2279 474 343 100
+		2340 540 437 
+		2340 51 437 
+		2340 650 437 
+		2382 712 440 75
+		2346 514 490 200
+		2346 557 490 200
+		2346 599 490 200
+		2346 8 490 200
+		2346 48 490 200
+		2346 89 490 200
+		35078 472 494 
+		2310 128 495 
+		2346 473 540 250
+		2346 131 549 259
+		7900 580 587 
+		7900 12 593 
+	end
+	objects
+		object RCastle24075-0 of RCastle
+			properties
+				loop 1
+				x 275
+				y 115
+			end
+		end
+		object RCastle24075-1 of RCastle
+			properties
+				loop 0
+				x 189
+				y 155
+			end
+		end
+		object RCastle24075-2 of RCastle
+			properties
+				loop 1
+				x 449
+				y 162
+			end
+		end
+		object RCastle24075-3 of RCastle
+			properties
+				loop 0
+				x 105
+				y 188
+			end
+		end
+		object RCastle24075-4 of RCastle
+			properties
+				loop 2
+				x 311
+				y 205
+			end
+		end
+		object RCastle24075-5 of RCastle
+			properties
+				loop 0
+				x 174
+				y 319
+			end
+		end
+		object RCastle24075-6 of RCastle
+			properties
+				loop 1
+				x 425
+				y 321
+			end
+		end
+	end
 end
 room 24076
-   properties
-      picture	4000
-      south	24075 
-      west	24077 
-      flags 248
-   end
-   atpinfo
-      2382  687 370
-      2382  687 250
-      2382  555 91
-      2382  373 91
-      2382  195 91
-      2382  12 91
-      2340  -28 422
-      2346  13 473 200
-      2361  535 92 25
-      2359  535 92 15
-      2361  465 92 25
-      2361  47 92 25
-      2361  124 92 25
-      2359  465 92 15
-      2359  124 92 15
-      2359  47 92 15
-      7906  625 316
-      7908  17 564
-      7900  446 115
-      7900  199 115
-      7900  77 115
-   end
+	properties
+		picture 4000
+		flags 248
+		south 24075
+		west 24077
+	end
+	atpinfo
+		2382 555 91 
+		2382 373 91 
+		2382 195 91 
+		2382 12 91 
+		2361 535 92 25
+		2359 535 92 15
+		2361 465 92 25
+		2361 47 92 25
+		2361 124 92 25
+		2359 465 92 15
+		2359 124 92 15
+		2359 47 92 15
+		7900 446 115 
+		7900 199 115 
+		7900 77 115 
+		2382 687 250 
+		7906 625 316 
+		2382 687 370 
+		2340 -28 422 
+		2346 13 473 200
+		7908 17 564 
+	end
+	objects
+		object RCastle24076-0 of RCastle
+			properties
+				loop 0
+				x 107
+				y 125
+			end
+		end
+		object RCastle24076-1 of RCastle
+			properties
+				loop 0
+				x 472
+				y 125
+			end
+		end
+		object RCastle24076-2 of RCastle
+			properties
+				loop 0
+				x 396
+				y 133
+			end
+		end
+		object RCastle24076-3 of RCastle
+			properties
+				loop 1
+				x 553
+				y 139
+			end
+		end
+		object RCastle24076-4 of RCastle
+			properties
+				loop 2
+				x 220
+				y 140
+			end
+		end
+		object RCastle24076-5 of RCastle
+			properties
+				loop 2
+				x 277
+				y 144
+			end
+		end
+		object RCastle24076-6 of RCastle
+			properties
+				loop 0
+				x 53
+				y 151
+			end
+		end
+		object RCastle24076-7 of RCastle
+			properties
+				loop 0
+				x 87
+				y 193
+			end
+		end
+	end
 end
 room 24077
-   properties
-      picture	4000
-      east	24076 
-      west	24078 
-      flags 248
-   end
-   atpinfo
-      2382  572 93
-      2382  389 93
-      2382  206 93
-      2382  23 93
-      2340  583 422
-      2340  481 422
-      2340  374 422
-      2340  266 422
-      2340  157 422
-      2340  48 422
-      2346  619 473 200
-      2346  577 473 200
-      2346  535 473 200
-      2346  493 473 200
-      2346  450 473 200
-      2346  407 473 200
-      2346  365 473 200
-      2346  323 473 200
-      2346  281 473 200
-      2346  239 473 200
-      2346  197 473 200
-      2346  155 473 200
-      2346  114 473 200
-      2346  73 473 200
-      2346  32 473 200
-      2346  -9 473 200
-      2280  561 95
-      2280  376 95
-      2280  188 95
-      2280  4 95
-      7900  514 105
-      7900  262 105
-      7900  8 105
-      7902  133 294
-      7902  488 296
-      7902  322 296
-   end
-   objects
-      object crest24077-0 of Crest
-         properties
-            x	464
-            y	95
-            loop	0
-         end
-      end
-      object crest24077-1 of Crest
-         properties
-            x	276
-            y	95
-            loop	0
-         end
-      end
-      object crest24077-2 of Crest
-         properties
-            x	92
-            y	95
-            loop	0
-         end
-      end
-      object altar24077-3 of Altar
-         properties
-            x	96
-            y	258
-            loop	0
-         end
-      end
-      object altar24077-4 of Altar
-         properties
-            x	276
-            y	258
-            loop	0
-         end
-      end
-      object altar24077-5 of Altar
-         properties
-            x	465
-            y	258
-            loop	0
-         end
-      end
-   end
+	properties
+		picture 4000
+		flags 248
+		east 24076
+		west 24078
+	end
+	atpinfo
+		2382 572 93 
+		2382 389 93 
+		2382 206 93 
+		2382 23 93 
+		2280 561 95 
+		2280 376 95 
+		2280 188 95 
+		2280 4 95 
+		7900 514 105 
+		7900 262 105 
+		7900 8 105 
+		7902 133 294 
+		7902 488 296 
+		7902 322 296 
+		2340 583 422 
+		2340 481 422 
+		2340 374 422 
+		2340 266 422 
+		2340 157 422 
+		2340 48 422 
+		2346 619 473 200
+		2346 577 473 200
+		2346 535 473 200
+		2346 493 473 200
+		2346 450 473 200
+		2346 407 473 200
+		2346 365 473 200
+		2346 323 473 200
+		2346 281 473 200
+		2346 239 473 200
+		2346 197 473 200
+		2346 155 473 200
+		2346 114 473 200
+		2346 73 473 200
+		2346 32 473 200
+		2346 -9 473 200
+	end
+	objects
+		object crest24077-0 of Crest
+			properties
+				x 464
+				y 95
+				loop 0
+			end
+		end
+		object crest24077-1 of Crest
+			properties
+				x 276
+				y 95
+				loop 0
+			end
+		end
+		object crest24077-2 of Crest
+			properties
+				x 92
+				y 95
+				loop 0
+			end
+		end
+		object RCastle24077-0 of RCastle
+			properties
+				loop 0
+				x 52
+				y 121
+			end
+		end
+		object RCastle24077-1 of RCastle
+			properties
+				loop 1
+				x 510
+				y 123
+			end
+		end
+		object RCastle24077-2 of RCastle
+			properties
+				loop 1
+				x 144
+				y 124
+			end
+		end
+		object RCastle24077-3 of RCastle
+			properties
+				loop 0
+				x 414
+				y 125
+			end
+		end
+		object RCastle24077-4 of RCastle
+			properties
+				loop 2
+				x 276
+				y 244
+			end
+		end
+		object RCastle24077-5 of RCastle
+			properties
+				loop 2
+				x 94
+				y 244
+			end
+		end
+		object RCastle24077-6 of RCastle
+			properties
+				loop 2
+				x 464
+				y 248
+			end
+		end
+		object RCastle24077-7 of RCastle
+			properties
+				loop 2
+				x 177
+				y 253
+			end
+		end
+		object RCastle24077-8 of RCastle
+			properties
+				loop 2
+				x 372
+				y 254
+			end
+		end
+		object altar24077-0 of Altar
+			properties
+				x 96
+				y 258
+				loop 0
+			end
+		end
+		object altar24077-1 of Altar
+			properties
+				x 276
+				y 258
+				loop 0
+			end
+		end
+		object altar24077-2 of Altar
+			properties
+				x 465
+				y 258
+				loop 0
+			end
+		end
+	end
 end
 room 24078
-   properties
-      picture	4000
-      south	24081 
-      east	24077 
-      west	24079 
-      flags 248
-   end
-   atpinfo
-      2382  559 93
-      2382  378 93
-      2382  195 93
-      2382  14 93
-      2340  605 422
-      2340  494 422
-      2340  40 422
-      2340  150 422
-      2310  189 478
-      35078  461 478
-      2346  586 473 200
-      2346  628 473 200
-      2346  544 473 200
-      2346  503 473 200
-      2346  191 523 250
-      2346  462 523 250
-      2346  149 473 200
-      2346  107 473 200
-      2346  64 473 200
-      2346  22 473 200
-      7900  497 105
-      7900  307 105
-      7900  107 105
-      7900  569 567
-      7900  79 572
-   end
+	properties
+		picture 4000
+		flags 248
+		east 24077
+		south 24081
+		west 24079
+	end
+	atpinfo
+		2382 559 93 
+		2382 378 93 
+		2382 195 93 
+		2382 14 93 
+		7900 497 105 
+		7900 307 105 
+		7900 107 105 
+		2340 605 422 
+		2340 494 422 
+		2340 40 422 
+		2340 150 422 
+		2346 586 473 200
+		2346 628 473 200
+		2346 544 473 200
+		2346 503 473 200
+		2346 149 473 200
+		2346 107 473 200
+		2346 64 473 200
+		2346 22 473 200
+		2310 189 478 
+		35078 461 478 
+		2346 191 523 250
+		2346 462 523 250
+		7900 569 567 
+		7900 79 572 
+	end
+	objects
+		object RCastle24078-0 of RCastle
+			properties
+				loop 2
+				x 102
+				y 114
+			end
+		end
+		object RCastle24078-1 of RCastle
+			properties
+				loop 0
+				x 48
+				y 131
+			end
+		end
+		object RCastle24078-2 of RCastle
+			properties
+				loop 1
+				x 143
+				y 133
+			end
+		end
+		object RCastle24078-3 of RCastle
+			properties
+				loop 2
+				x 415
+				y 136
+			end
+		end
+		object RCastle24078-4 of RCastle
+			properties
+				loop 0
+				x 363
+				y 149
+			end
+		end
+		object RCastle24078-5 of RCastle
+			properties
+				loop 1
+				x 458
+				y 149
+			end
+		end
+		object RCastle24078-6 of RCastle
+			properties
+				loop 2
+				x 269
+				y 289
+			end
+		end
+		object RCastle24078-7 of RCastle
+			properties
+				loop 1
+				x 320
+				y 310
+			end
+		end
+		object RCastle24078-8 of RCastle
+			properties
+				loop 0
+				x 224
+				y 313
+			end
+		end
+	end
 end
 room 24080
-   properties
-      picture	4000
-      east	24079 
-      flags 248
-   end
-   atpinfo
-      2382  555 93
-      2382  191 93
-      2382  9 93
-      2382  373 93
-      2382  -82 253
-      2382  -81 435
-      2340  585 422
-      2340  477 422
-      2340  367 422
-      2340  258 422
-      2340  149 422
-      2340  36 422
-      2346  619 473 200
-      2346  576 473 200
-      2346  535 473 200
-      2346  492 473 200
-      2346  449 473 200
-      2346  406 473 200
-      2346  363 473 200
-      2346  321 473 200
-      2346  281 473 200
-      2346  239 473 200
-      2346  197 473 200
-      2346  155 473 200
-      2346  115 473 200
-      2346  74 473 200
-      2346  32 473 200
-      7902  119 288
-      7902  531 291
-      7902  309 289
-      7900  520 105
-      7900  240 105
-      7908  -3 280
-      7908  2 95
-   end
-   objects
-      object PlankDoor24080-0 of PlankDoor
+	properties
+		picture 4000
+		flags 248
+		east 24079
+	end
+	atpinfo
+		2382 555 93 
+		2382 191 93 
+		2382 9 93 
+		2382 373 93 
+		7908 2 95 
+		7900 520 105 
+		7900 240 105 
+		2382 -82 253 
+		7908 -3 280 
+		7902 119 288 
+		7902 309 289 
+		7902 531 291 
+		2340 585 422 
+		2340 477 422 
+		2340 367 422 
+		2340 258 422 
+		2340 149 422 
+		2340 36 422 
+		2382 -81 435 
+		2346 619 473 200
+		2346 576 473 200
+		2346 535 473 200
+		2346 492 473 200
+		2346 449 473 200
+		2346 406 473 200
+		2346 363 473 200
+		2346 321 473 200
+		2346 281 473 200
+		2346 239 473 200
+		2346 197 473 200
+		2346 155 473 200
+		2346 115 473 200
+		2346 74 473 200
+		2346 32 473 200
+	end
+	objects
+		object stool24080-0 of Stool
+			properties
+				x 323
+				y 126
+				loop 0
+			end
+		end
+		object stool24080-1 of Stool
+			properties
+				x 212
+				y 133
+				loop 0
+			end
+		end
+		object RCastle24080-0 of RCastle
+			properties
+				loop 2
+				x 384
+				y 133
+			end
+		end
+		object RCastle24080-1 of RCastle
+			properties
+				loop 2
+				x 314
+				y 134
+			end
+		end
+		object RCastle24080-2 of RCastle
+			properties
+				loop 2
+				x 202
+				y 139
+			end
+		end
+		object RCastle24080-3 of RCastle
+			properties
+				loop 0
+				x 16
+				y 148
+			end
+		end
+		object RCastle24080-4 of RCastle
+			properties
+				loop 1
+				x 442
+				y 154
+			end
+		end
+		object RCastle24080-5 of RCastle
+			properties
+				loop 0
+				x 136
+				y 170
+			end
+		end
+		object RCastle24080-6 of RCastle
+			properties
+				loop 1
+				x 485
+				y 179
+			end
+		end
+		object RCastle24080-7 of RCastle
+			properties
+				loop 0
+				x 20
+				y 205
+			end
+		end
+		object RCastle24080-8 of RCastle
+			properties
+				loop 0
+				x 24
+				y 258
+			end
+		end
+		object PlankDoor24080-0 of PlankDoor
          properties
             x	65
             y	94
@@ -1507,88 +2711,195 @@ room 24080
               isOpen 1
          end
       end
-      object stool24080-2 of Stool
-         properties
-            x	212
-            y	133
-            loop	0
-         end
-      end
-      object stool24080-3 of Stool
-         properties
-            x	323
-            y	126
-            loop	0
-         end
-      end
-   end
+	end
 end
 room 24081
-   properties
-      picture	4000
-      north	24078 
-      flags 248
-   end
-   atpinfo
-      2340  49 116
-      2340  591 111
-      2340  604 442
-      2340  -47 183
-      2340  -48 313
-      2340  65 442
-      2340  168 442
-      2340  278 442
-      2340  388 442
-      2340  496 442
-      2382  697 551 200
-      2382  697 192
-      7900  642 117
-      2310  124 116
-      35078  539 110
-      7900  13 125
-      35114  126 120
-      35114  538 113
-      7908  612 326
-      7908  3 332
-      7902  113 308
-      7902  504 307
-      7902  304 308
-   end
+	properties
+		picture 4000
+		flags 248
+		north 24078
+	end
+	atpinfo
+		35078 539 110 
+		2340 591 111 
+		35114 538 113 
+		2340 49 116 
+		2310 124 116 
+		7900 642 117 
+		35114 126 120 
+		7900 13 125 
+		2340 -47 183 
+		2382 697 192 
+		7902 504 307 
+		7902 113 308 
+		7902 304 308 
+		2340 -48 313 
+		7908 612 326 
+		7908 3 332 
+		2340 604 442 
+		2340 65 442 
+		2340 168 442 
+		2340 278 442 
+		2340 388 442 
+		2340 496 442 
+		2382 697 551 200
+	end
+	objects
+		object RCastle24081-0 of RCastle
+			properties
+				loop 0
+				x 67
+				y 164
+			end
+		end
+		object RCastle24081-1 of RCastle
+			properties
+				loop 0
+				x 497
+				y 185
+			end
+		end
+		object RCastle24081-2 of RCastle
+			properties
+				loop 1
+				x 119
+				y 207
+			end
+		end
+		object RCastle24081-3 of RCastle
+			properties
+				loop 1
+				x 546
+				y 209
+			end
+		end
+		object RCastle24081-4 of RCastle
+			properties
+				loop 1
+				x 204
+				y 214
+			end
+		end
+		object RCastle24081-5 of RCastle
+			properties
+				loop 1
+				x 267
+				y 229
+			end
+		end
+		object RCastle24081-6 of RCastle
+			properties
+				loop 0
+				x 45
+				y 230
+			end
+		end
+		object RCastle24081-7 of RCastle
+			properties
+				loop 0
+				x 464
+				y 239
+			end
+		end
+		object RCastle24081-8 of RCastle
+			properties
+				loop 0
+				x 89
+				y 264
+			end
+		end
+		object RCastle24081-9 of RCastle
+			properties
+				loop 1
+				x 571
+				y 265
+			end
+		end
+	end
 end
 room 24082
-   properties
-      picture	4000
-   end
-   atpinfo
-      2338  -7 125
-      35106  660 125
-      2340  186 111
-      35108  519 111
-      2340  402 111
-      35108  302 111
-      35108  85 111
-      2363  7 267
-      2363  7 408
-      35131  630 253
-      35131  630 393
-      13  -91 10
-      13  600 11
-      7902  138 121
-      7902  492 119
-      35108  481 436
-      35108  75 436
-      35108  184 436
-      35108  401 436
-      35108  569 436
-      35108  217 436
-      7902  477 300
-      7902  126 300
-      7902  255 300
-      35108  313 436
-      7905  15 161
-      40673  631 159
-   end
-   objects
+	properties
+		picture 4000
+	end
+	atpinfo
+		13 -91 10 
+		13 600 11 
+		2340 186 111 
+		35108 519 111 
+		2340 402 111 
+		35108 302 111 
+		35108 85 111 
+		7902 492 119 
+		7902 138 121 
+		2338 -7 125 
+		35106 660 125 
+		40673 631 159 
+		7905 15 161 
+		35131 630 253 
+		2363 7 267 
+		7902 477 300 
+		7902 126 300 
+		7902 255 300 
+		35131 630 393 
+		2363 7 408 
+		35108 481 436 
+		35108 75 436 
+		35108 184 436 
+		35108 401 436 
+		35108 569 436 
+		35108 217 436 
+		35108 313 436 
+	end
+	objects
+		object RCastle24082-0 of RCastle
+			properties
+				loop 2
+				x 467
+				y 128
+			end
+		end
+		object RCastle24082-1 of RCastle
+			properties
+				loop 2
+				x 174
+				y 149
+			end
+		end
+		object RCastle24082-2 of RCastle
+			properties
+				loop 1
+				x 562
+				y 176
+			end
+		end
+		object RCastle24082-3 of RCastle
+			properties
+				loop 2
+				x 405
+				y 262
+			end
+		end
+		object RCastle24082-4 of RCastle
+			properties
+				loop 1
+				x 577
+				y 264
+			end
+		end
+		object RCastle24082-5 of RCastle
+			properties
+				loop 0
+				x 51
+				y 265
+			end
+		end
+		object RCastle24082-6 of RCastle
+			properties
+				loop 0
+				x 355
+				y 271
+			end
+		end
       object CastleBoss4-24112-0 of CastleBoss4
 			properties
 				x	326
@@ -1668,86 +2979,200 @@ room 24082
             vBeDeactivated teleport dobj 24761
          end
       end
-   end
+	end
 end
 room 24079
-   properties
-      picture	4000
-      east	24078 
-      west	24080 
-      flags 248
-   end
-   atpinfo
-      2382  547 93
-      2382  373 93
-      2382  190 93
-      2382  7 93
-      2340  583 422
-      2340  473 422
-      2340  364 422
-      2340  255 422
-      2340  146 422
-      2340  37 422
-      2346  617 473 200
-      2346  574 473 200
-      2346  532 473 200
-      2346  490 473 200
-      2346  448 473 200
-      2346  405 473 200
-      2346  363 473 200
-      2346  321 473 200
-      2346  279 473 200
-      2346  237 473 200
-      2346  196 473 200
-      2346  157 473 200
-      2346  115 473 200
-      2346  32 473 200
-      2346  -11 473 200
-      2346  74 473 200
-      7900  507 105
-      7900  335 105
-      7900  111 105
-      7902  133 294
-      7902  309 295
-      7902  555 295
-   end
+	properties
+		picture 4000
+		flags 248
+		east 24078
+		west 24080
+	end
+	atpinfo
+		2382 547 93 
+		2382 373 93 
+		2382 190 93 
+		2382 7 93 
+		7900 507 105 
+		7900 335 105 
+		7900 111 105 
+		7902 133 294 
+		7902 309 295 
+		7902 555 295 
+		2340 583 422 
+		2340 473 422 
+		2340 364 422 
+		2340 255 422 
+		2340 146 422 
+		2340 37 422 
+		2346 617 473 200
+		2346 574 473 200
+		2346 532 473 200
+		2346 490 473 200
+		2346 448 473 200
+		2346 405 473 200
+		2346 363 473 200
+		2346 321 473 200
+		2346 279 473 200
+		2346 237 473 200
+		2346 196 473 200
+		2346 157 473 200
+		2346 115 473 200
+		2346 32 473 200
+		2346 -11 473 200
+		2346 74 473 200
+	end
+	objects
+		object RCastle24079-0 of RCastle
+			properties
+				loop 0
+				x 46
+				y 128
+			end
+		end
+		object RCastle24079-1 of RCastle
+			properties
+				loop 1
+				x 137
+				y 139
+			end
+		end
+		object RCastle24079-2 of RCastle
+			properties
+				loop 2
+				x 91
+				y 151
+			end
+		end
+		object RCastle24079-3 of RCastle
+			properties
+				loop 0
+				x 429
+				y 163
+			end
+		end
+		object RCastle24079-4 of RCastle
+			properties
+				loop 1
+				x 475
+				y 186
+			end
+		end
+		object RCastle24079-5 of RCastle
+			properties
+				loop 2
+				x 263
+				y 233
+			end
+		end
+		object RCastle24079-6 of RCastle
+			properties
+				loop 0
+				x 225
+				y 251
+			end
+		end
+		object RCastle24079-7 of RCastle
+			properties
+				loop 1
+				x 302
+				y 255
+			end
+		end
+	end
 end
 room 24083
-   properties
-      picture	4000
-      east	24084 
-      flags 248
-   end
-   atpinfo
-      2340  39 95
-      2380  -5 167
-      2340  147 95
-      2340  468 95
-      2340  364 95
-      2340  256 95
-      2380  -5 312
-      2382  79 495
-      2382  556 495
-      2382  239 495
-      2382  397 495
-      35106  618 109
-      35106  712 123
-      2361  147 96 30
-      2359  147 96 20
-      2361  306 96 30
-      2361  445 96 30
-      2359  306 96 20
-      2359  445 96 20
-      7900  229 106
-      7900  404 106
-      14  661 133
-      7906  -24 315
-      7902  114 330
-      7902  565 330
-      7902  310 330
-   end
-   objects
-      object PlankDoor24083-0 of PlankDoor
+	properties
+		picture 4000
+		flags 248
+		east 24084
+	end
+	atpinfo
+		2340 39 95 
+		2340 147 95 
+		2340 468 95 
+		2340 364 95 
+		2340 256 95 
+		2361 147 96 30
+		2359 147 96 20
+		2361 306 96 30
+		2361 445 96 30
+		2359 306 96 20
+		2359 445 96 20
+		7900 229 106 
+		7900 404 106 
+		35106 618 109 
+		35106 712 123 
+		14 661 133 
+		2380 -5 167 
+		2380 -5 312 
+		7906 -24 315 
+		7902 114 330 
+		7902 565 330 
+		7902 310 330 
+		2382 79 495 
+		2382 556 495 
+		2382 239 495 
+		2382 397 495 
+	end
+	objects
+		object RCastle24083-0 of RCastle
+			properties
+				loop 2
+				x 381
+				y 115
+			end
+		end
+		object RCastle24083-1 of RCastle
+			properties
+				loop 2
+				x 231
+				y 118
+			end
+		end
+		object RCastle24083-2 of RCastle
+			properties
+				loop 2
+				x 143
+				y 128
+			end
+		end
+		object RCastle24083-3 of RCastle
+			properties
+				loop 2
+				x 448
+				y 131
+			end
+		end
+		object RCastle24083-4 of RCastle
+			properties
+				loop 2
+				x 302
+				y 134
+			end
+		end
+		object RCastle24083-5 of RCastle
+			properties
+				loop 0
+				x 26
+				y 186
+			end
+		end
+		object RCastle24083-6 of RCastle
+			properties
+				loop 0
+				x 31
+				y 236
+			end
+		end
+		object RCastle24083-7 of RCastle
+			properties
+				loop 0
+				x 32
+				y 299
+			end
+		end
+		object PlankDoor24083-0 of PlankDoor
          properties
             x	56
             y	96
@@ -1758,551 +3183,1098 @@ room 24083
               isOpen 1
          end
       end
-   end
+	end
 end
 room 24084
-   properties
-      picture	4000
-      east	24085 
-      west	24083 
-      flags 248
-   end
-   atpinfo
-      2382  51 495
-      2382  596 495
-      2382  231 495
-      2382  412 495
-      2338  -1 123
-      2343  684 97 65
-      2343  244 97 65
-      2338  91 109
-      2340  228 96
-      2340  337 96
-      2340  444 96
-      2340  551 96
-      2340  659 96
-      2343  574 97 65
-      2343  464 97 65
-      2343  354 97 65
-      32782  -14 143
-      32782  109 123
-      7900  312 104
-      7900  552 104
-      7902  120 330
-      7902  525 330
-      7902  314 330
-   end
-   objects
-      object chair24084-0 of Chair
-         properties
-            x	58
-            y	160
-            loop	0
-         end
-      end
-      object chair24084-1 of Chair
-         properties
-            x	110
-            y	149
-            loop	0
-         end
-      end
-      object chair24084-2 of Chair
-         properties
-            x	162
-            y	140
-            loop	0
-         end
-      end
-      object chair24084-3 of Chair
-         properties
-            x	225
-            y	131
-            loop	2
-         end
-      end
-      object chair24084-4 of Chair
-         properties
-            x	286
-            y	147
-            loop	2
-         end
-      end
-      object chair24084-5 of Chair
-         properties
-            x	345
-            y	134
-            loop	2
-         end
-      end
-      object chair24084-6 of Chair
-         properties
-            x	398
-            y	146
-            loop	2
-         end
-      end
-      object chair24084-7 of Chair
-         properties
-            x	456
-            y	133
-            loop	2
-         end
-      end
-      object chair24084-8 of Chair
-         properties
-            x	513
-            y	138
-            loop	2
-         end
-      end
-      object chair24084-9 of Chair
-         properties
-            x	577
-            y	133
-            loop	2
-         end
-      end
-      object torch24084-10 of Torch
-         properties
-            x	24
-            y	135
-            loop	0
-         end
-      end
-   end
+	properties
+		picture 4000
+		flags 248
+		east 24085
+		west 24083
+	end
+	atpinfo
+		2340 228 96 
+		2340 337 96 
+		2340 444 96 
+		2340 551 96 
+		2340 659 96 
+		2343 684 97 65
+		2343 244 97 65
+		2343 574 97 65
+		2343 464 97 65
+		2343 354 97 65
+		7900 312 104 
+		7900 552 104 
+		2338 91 109 
+		2338 -1 123 
+		32782 109 123 
+		32782 -14 143 
+		7902 120 330 
+		7902 525 330 
+		7902 314 330 
+		2382 51 495 
+		2382 596 495 
+		2382 231 495 
+		2382 412 495 
+	end
+	objects
+		object chair24084-0 of Chair
+			properties
+				x 225
+				y 131
+				loop 0
+			end
+		end
+		object chair24084-1 of Chair
+			properties
+				x 456
+				y 133
+				loop 0
+			end
+		end
+		object chair24084-2 of Chair
+			properties
+				x 577
+				y 133
+				loop 0
+			end
+		end
+		object chair24084-3 of Chair
+			properties
+				x 345
+				y 134
+				loop 0
+			end
+		end
+		object torch24084-0 of Torch
+			properties
+				x 24
+				y 135
+				loop 0
+			end
+		end
+		object chair24084-4 of Chair
+			properties
+				x 513
+				y 138
+				loop 0
+			end
+		end
+		object chair24084-5 of Chair
+			properties
+				x 162
+				y 140
+				loop 0
+			end
+		end
+		object RCastle24084-0 of RCastle
+			properties
+				loop 2
+				x 216
+				y 145
+			end
+		end
+		object RCastle24084-1 of RCastle
+			properties
+				loop 2
+				x 340
+				y 145
+			end
+		end
+		object chair24084-6 of Chair
+			properties
+				x 398
+				y 146
+				loop 0
+			end
+		end
+		object chair24084-7 of Chair
+			properties
+				x 286
+				y 147
+				loop 0
+			end
+		end
+		object chair24084-8 of Chair
+			properties
+				x 110
+				y 149
+				loop 0
+			end
+		end
+		object RCastle24084-2 of RCastle
+			properties
+				loop 2
+				x 156
+				y 149
+			end
+		end
+		object RCastle24084-3 of RCastle
+			properties
+				loop 2
+				x 510
+				y 149
+			end
+		end
+		object RCastle24084-4 of RCastle
+			properties
+				loop 2
+				x 448
+				y 149
+			end
+		end
+		object RCastle24084-5 of RCastle
+			properties
+				loop 2
+				x 574
+				y 150
+			end
+		end
+		object RCastle24084-6 of RCastle
+			properties
+				loop 2
+				x 279
+				y 156
+			end
+		end
+		object RCastle24084-7 of RCastle
+			properties
+				loop 2
+				x 391
+				y 157
+			end
+		end
+		object chair24084-9 of Chair
+			properties
+				x 58
+				y 160
+				loop 0
+			end
+		end
+		object RCastle24084-8 of RCastle
+			properties
+				loop 2
+				x 106
+				y 163
+			end
+		end
+		object RCastle24084-9 of RCastle
+			properties
+				loop 2
+				x 53
+				y 169
+			end
+		end
+	end
 end
 room 24086
-   properties
-      picture	4000
-      east	24087 
-      west	24085 
-      flags 248
-   end
-   atpinfo
-      2382  438 495
-      2382  619 495
-      2382  73 495
-      2382  255 495
-      2340  45 96
-      2340  373 96
-      2340  264 96
-      2340  155 96
-      2340  482 96
-      2340  592 96
-      7900  115 107
-      7900  368 107
-      7900  622 107
-      7902  59 330
-      7902  562 330
-      7902  305 330
-   end
-   objects
-      object torch24086-0 of Torch
-         properties
-            x	26
-            y	121
-            loop	0
-         end
-      end
-      object torch24086-1 of Torch
-         properties
-            x	626
-            y	121
-            loop	0
-         end
-      end
-      object torch24086-2 of Torch
-         properties
-            x	313
-            y	121
-            loop	0
-         end
-      end
-   end
+	properties
+		picture 4000
+		flags 248
+		east 24087
+		west 24085
+	end
+	atpinfo
+		2340 45 96 
+		2340 373 96 
+		2340 264 96 
+		2340 155 96 
+		2340 482 96 
+		2340 592 96 
+		7900 115 107 
+		7900 368 107 
+		7900 622 107 
+		7902 59 330 
+		7902 562 330 
+		7902 305 330 
+		2382 438 495 
+		2382 619 495 
+		2382 73 495 
+		2382 255 495 
+	end
+	objects
+		object RCastle24086-0 of RCastle
+			properties
+				loop 2
+				x 399
+				y 107
+			end
+		end
+		object RCastle24086-1 of RCastle
+			properties
+				loop 0
+				x 53
+				y 112
+			end
+		end
+		object RCastle24086-2 of RCastle
+			properties
+				loop 2
+				x 498
+				y 113
+			end
+		end
+		object RCastle24086-3 of RCastle
+			properties
+				loop 1
+				x 203
+				y 118
+			end
+		end
+		object torch24086-0 of Torch
+			properties
+				x 26
+				y 121
+				loop 0
+			end
+		end
+		object torch24086-1 of Torch
+			properties
+				x 626
+				y 121
+				loop 0
+			end
+		end
+		object torch24086-2 of Torch
+			properties
+				x 313
+				y 121
+				loop 0
+			end
+		end
+		object RCastle24086-4 of RCastle
+			properties
+				loop 2
+				x 460
+				y 122
+			end
+		end
+		object RCastle24086-5 of RCastle
+			properties
+				loop 1
+				x 104
+				y 122
+			end
+		end
+		object RCastle24086-6 of RCastle
+			properties
+				loop 0
+				x 157
+				y 124
+			end
+		end
+		object RCastle24086-7 of RCastle
+			properties
+				loop 2
+				x 428
+				y 133
+			end
+		end
+		object RCastle24086-8 of RCastle
+			properties
+				loop 0
+				x 267
+				y 295
+			end
+		end
+		object RCastle24086-9 of RCastle
+			properties
+				loop 1
+				x 318
+				y 297
+			end
+		end
+	end
 end
 room 24087
-   properties
-      picture	4000
-      east	24088 
-      west	24086 
-      flags 248
-   end
-   atpinfo
-      2382  80 495
-      2382  260 495
-      2382  441 495
-      2382  618 495
-      2340  47 96
-      2340  156 96
-      2340  265 96
-      2340  374 96
-      2340  483 96
-      2340  593 96
-      7900  111 106
-      7900  282 106
-      7900  504 106
-      7902  91 330
-      7902  309 330
-      7902  531 330
-   end
-   objects
-      object torch24087-0 of Torch
-         properties
-            x	27
-            y	109
-            loop	0
-         end
-      end
-      object torch24087-1 of Torch
-         properties
-            x	596
-            y	109
-            loop	0
-         end
-      end
-      object torch24087-2 of Torch
-         properties
-            x	424
-            y	109
-            loop	0
-         end
-      end
-      object torch24087-3 of Torch
-         properties
-            x	185
-            y	109
-            loop	0
-         end
-      end
-   end
+	properties
+		picture 4000
+		flags 248
+		east 24088
+		west 24086
+	end
+	atpinfo
+		2340 47 96 
+		2340 156 96 
+		2340 265 96 
+		2340 374 96 
+		2340 483 96 
+		2340 593 96 
+		7900 111 106 
+		7900 282 106 
+		7900 504 106 
+		7902 91 330 
+		7902 309 330 
+		7902 531 330 
+		2382 80 495 
+		2382 260 495 
+		2382 441 495 
+		2382 618 495 
+	end
+	objects
+		object torch24087-0 of Torch
+			properties
+				x 27
+				y 109
+				loop 0
+			end
+		end
+		object torch24087-1 of Torch
+			properties
+				x 596
+				y 109
+				loop 0
+			end
+		end
+		object torch24087-2 of Torch
+			properties
+				x 424
+				y 109
+				loop 0
+			end
+		end
+		object torch24087-3 of Torch
+			properties
+				x 185
+				y 109
+				loop 0
+			end
+		end
+		object RCastle24087-0 of RCastle
+			properties
+				loop 0
+				x 218
+				y 190
+			end
+		end
+		object RCastle24087-1 of RCastle
+			properties
+				loop 1
+				x 261
+				y 193
+			end
+		end
+		object RCastle24087-2 of RCastle
+			properties
+				loop 0
+				x 432
+				y 196
+			end
+		end
+		object RCastle24087-3 of RCastle
+			properties
+				loop 1
+				x 478
+				y 201
+			end
+		end
+		object RCastle24087-4 of RCastle
+			properties
+				loop 0
+				x 540
+				y 292
+			end
+		end
+		object RCastle24087-5 of RCastle
+			properties
+				loop 0
+				x 290
+				y 292
+			end
+		end
+		object RCastle24087-6 of RCastle
+			properties
+				loop 0
+				x 34
+				y 295
+			end
+		end
+		object RCastle24087-7 of RCastle
+			properties
+				loop 1
+				x 582
+				y 296
+			end
+		end
+		object RCastle24087-8 of RCastle
+			properties
+				loop 1
+				x 333
+				y 296
+			end
+		end
+		object RCastle24087-9 of RCastle
+			properties
+				loop 1
+				x 79
+				y 298
+			end
+		end
+	end
 end
 room 24088
-   properties
-      picture	4000
-      north	24089 
-      west	24087 
-      flags 248
-   end
-   atpinfo
-      2382  86 495
-      2382  577 495
-      2382  253 495
-      2382  415 495
-      2340  44 96
-      2340  588 96
-      2380  648 338
-      2380  648 156
-      2600  305 211
-      35078  117 97
-      2310  531 97
-      35083  120 84
-      2315  529 84
-      7900  8 114
-      7900  633 114
-      7908  624 311
-      7902  69 330
-      7902  510 330
-      7902  310 330
-   end
-   objects
-      object chair24088-0 of Chair
-         properties
-            x	177
-            y	198
-            loop	0
-         end
-      end
-      object chair24088-1 of Chair
-         properties
-            x	432
-            y	197
-            loop	1
-         end
-      end
-      object chair24088-2 of Chair
-         properties
-            x	267
-            y	182
-            loop	2
-         end
-      end
-      object chair24088-3 of Chair
-         properties
-            x	335
-            y	181
-            loop	2
-         end
-      end
-      object torch24088-4 of Torch
-         properties
-            x	27
-            y	109
-            loop	0
-         end
-      end
-      object torch24088-5 of Torch
-         properties
-            x	600
-            y	109
-            loop	0
-         end
-      end
-   end
+	properties
+		picture 4000
+		flags 248
+		north 24089
+		west 24087
+	end
+	atpinfo
+		35083 120 84 
+		2315 529 84 
+		2340 44 96 
+		2340 588 96 
+		35078 117 97 
+		2310 531 97 
+		7900 8 114 
+		7900 633 114 
+		2380 648 156 
+		2600 305 211 
+		7908 624 311 
+		7902 69 330 
+		7902 510 330 
+		7902 310 330 
+		2380 648 338 
+		2382 86 495 
+		2382 577 495 
+		2382 253 495 
+		2382 415 495 
+	end
+	objects
+		object torch24088-0 of Torch
+			properties
+				x 27
+				y 109
+				loop 0
+			end
+		end
+		object torch24088-1 of Torch
+			properties
+				x 600
+				y 109
+				loop 0
+			end
+		end
+		object RCastle24088-0 of RCastle
+			properties
+				loop 1
+				x 561
+				y 174
+			end
+		end
+		object chair24088-0 of Chair
+			properties
+				x 335
+				y 181
+				loop 0
+			end
+		end
+		object chair24088-1 of Chair
+			properties
+				x 267
+				y 182
+				loop 0
+			end
+		end
+		object RCastle24088-1 of RCastle
+			properties
+				loop 2
+				x 333
+				y 193
+			end
+		end
+		object RCastle24088-2 of RCastle
+			properties
+				loop 2
+				x 262
+				y 194
+			end
+		end
+		object chair24088-2 of Chair
+			properties
+				x 432
+				y 197
+				loop 0
+			end
+		end
+		object chair24088-3 of Chair
+			properties
+				x 177
+				y 198
+				loop 0
+			end
+		end
+		object RCastle24088-3 of RCastle
+			properties
+				loop 1
+				x 423
+				y 206
+			end
+		end
+		object RCastle24088-4 of RCastle
+			properties
+				loop 0
+				x 183
+				y 210
+			end
+		end
+		object RCastle24088-5 of RCastle
+			properties
+				loop 1
+				x 518
+				y 248
+			end
+		end
+		object RCastle24088-6 of RCastle
+			properties
+				loop 1
+				x 570
+				y 291
+			end
+		end
+	end
 end
 room 24089
-   properties
-      picture	4000
-      north	24090 
-      south	24088 
-      flags 248
-   end
-   atpinfo
-      2380  637 383
-      2380  637 195
-      2340  44 500 57
-      2340  -36 303
-      2340  -36 159
-      2340  44 96
-      2310  93 499
-      2310  91 95
-      2340  556 500 57
-      35078  515 499
-      2117  -25 97 70
-      2599  144 253
-      2599  519 141
-      7900  -24 103
-      7900  -24 601
-      7900  619 599
-      7906  -13 333
-      7906  651 287
-   end
-   objects
-      object chair24089-0 of Chair
-         properties
-            x	471
-            y	131
-            loop	0
-         end
-      end
-      object chair24089-1 of Chair
-         properties
-            x	95
-            y	238
-            loop	0
-         end
-      end
-      object chair24089-2 of Chair
-         properties
-            x	190
-            y	235
-            loop	1
-         end
-      end
-      object chair24089-3 of Chair
-         properties
-            x	556
-            y	132
-            loop	1
-         end
-      end
-   end
+	properties
+		picture 4000
+		flags 248
+		north 24090
+		south 24088
+	end
+	atpinfo
+		2310 91 95 
+		2340 44 96 
+		2117 -25 97 70
+		7900 -24 103 
+		2599 519 141 
+		2340 -36 159 
+		2380 637 195 
+		2599 144 253 
+		7906 651 287 
+		2340 -36 303 
+		7906 -13 333 
+		2380 637 383 
+		2310 93 499 
+		35078 515 499 
+		2340 44 500 57
+		2340 556 500 57
+		7900 619 599 
+		7900 -24 601 
+	end
+	objects
+		object chair24089-0 of Chair
+			properties
+				x 471
+				y 131
+				loop 0
+			end
+		end
+		object chair24089-1 of Chair
+			properties
+				x 556
+				y 132
+				loop 0
+			end
+		end
+		object RCastle24089-0 of RCastle
+			properties
+				loop 2
+				x 64
+				y 134
+			end
+		end
+		object RCastle24089-1 of RCastle
+			properties
+				loop 1
+				x 545
+				y 137
+			end
+		end
+		object RCastle24089-2 of RCastle
+			properties
+				loop 0
+				x 458
+				y 138
+			end
+		end
+		object chair24089-2 of Chair
+			properties
+				x 190
+				y 235
+				loop 0
+			end
+		end
+		object chair24089-3 of Chair
+			properties
+				x 95
+				y 238
+				loop 0
+			end
+		end
+		object RCastle24089-3 of RCastle
+			properties
+				loop 1
+				x 184
+				y 245
+			end
+		end
+		object RCastle24089-4 of RCastle
+			properties
+				loop 0
+				x 92
+				y 246
+			end
+		end
+		object RCastle24089-5 of RCastle
+			properties
+				loop 0
+				x 519
+				y 281
+			end
+		end
+		object RCastle24089-6 of RCastle
+			properties
+				loop 1
+				x 559
+				y 283
+			end
+		end
+	end
 end
 room 24090
-   properties
-      picture	4000
-      south	24089 
-      west	24091 
-      flags 248
-   end
-   atpinfo
-      2380  637 367
-      2380  637 184
-      2382  420 95
-      2382  56 95
-      2382  238 95
-      2382  596 95
-      2221  548 96
-      2598  296 272
-      2241  18 100
-      2241  592 207
-      2241  591 173
-      2109  115 104
-      2109  418 104
-      2109  267 104
-      2111  550 96 65
-      2241  590 246
-      2241  590 283
-      2241  592 320
-      2340  44 446
-      7900  100 113
-      7900  352 112
-      7906  641 322
-      2122  118 105 65
-      2123  120 105 35
-      34892  421 105 35
-      2127  112 105 4
-      2128  384 105 65
-      2118  422 105 3
-      34896  455 105 65
-      2124  267 105 35
-      34895  302 273 65
-      34890  263 105 65
-      34891  268 105 3
-      7900  -30 596
-   end
+	properties
+		picture 4000
+		flags 248
+		south 24089
+		west 24091
+	end
+	atpinfo
+		2382 420 95 
+		2382 56 95 
+		2382 238 95 
+		2382 596 95 
+		2221 548 96 
+		2111 550 96 65
+		2241 18 100 
+		2109 115 104 
+		2109 418 104 
+		2109 267 104 
+		2122 118 105 65
+		2123 120 105 35
+		34892 421 105 35
+		2127 112 105 4
+		2128 384 105 65
+		2118 422 105 3
+		34896 455 105 65
+		2124 267 105 35
+		34890 263 105 65
+		34891 268 105 3
+		7900 352 112 
+		7900 100 113 
+		2241 591 173 
+		2380 637 184 
+		2241 592 207 
+		2241 590 246 
+		2598 296 272 
+		34895 302 273 65
+		2241 590 283 
+		2241 592 320 
+		7906 641 322 
+		2380 637 367 
+		2340 44 446 
+		7900 -30 596 
+	end
+	objects
+		object RCastle24090-0 of RCastle
+			properties
+				loop 1
+				x 111
+				y 122
+			end
+		end
+		object RCastle24090-1 of RCastle
+			properties
+				loop 0
+				x 342
+				y 130
+			end
+		end
+		object RCastle24090-2 of RCastle
+			properties
+				loop 1
+				x 384
+				y 130
+			end
+		end
+		object RCastle24090-3 of RCastle
+			properties
+				loop 0
+				x 57
+				y 131
+			end
+		end
+		object RCastle24090-4 of RCastle
+			properties
+				loop 1
+				x 524
+				y 185
+			end
+		end
+		object RCastle24090-5 of RCastle
+			properties
+				loop 2
+				x 260
+				y 242
+			end
+		end
+		object RCastle24090-6 of RCastle
+			properties
+				loop 2
+				x 331
+				y 243
+			end
+		end
+		object RCastle24090-7 of RCastle
+			properties
+				loop 1
+				x 499
+				y 252
+			end
+		end
+		object RCastle24090-8 of RCastle
+			properties
+				loop 0
+				x 37
+				y 287
+			end
+		end
+		object RCastle24090-9 of RCastle
+			properties
+				loop 1
+				x 539
+				y 305
+			end
+		end
+	end
 end
 room 24091
-   properties
-      picture	4000
-      east	24090 
-      west	24092 
-      flags 248
-   end
-   atpinfo
-      2382  617 95
-      2382  436 95
-      2382  86 95
-      2382  263 95
-      2340  39 460
-      2340  582 460
-      2340  473 460
-      2340  147 460
-      2340  365 460
-      2340  256 460
-      2360  55 97 60
-      2358  55 97 40
-      2360  254 97 60
-      2360  434 97 60
-      2360  604 97 60
-      2358  434 97 40
-      2358  604 97 40
-      2358  254 97 40
-      2359  55 97 30
-      2359  254 97 30
-      2359  434 97 30
-      2359  604 97 30
-      7900  90 108
-      7900  577 108
-      7900  310 108
-      7902  105 330
-      7902  526 330
-      7902  310 330
-   end
+	properties
+		picture 4000
+		flags 248
+		east 24090
+		west 24092
+	end
+	atpinfo
+		2382 617 95 
+		2382 436 95 
+		2382 86 95 
+		2382 263 95 
+		2360 55 97 60
+		2358 55 97 40
+		2360 254 97 60
+		2360 434 97 60
+		2360 604 97 60
+		2358 434 97 40
+		2358 604 97 40
+		2358 254 97 40
+		2359 55 97 30
+		2359 254 97 30
+		2359 434 97 30
+		2359 604 97 30
+		7900 90 108 
+		7900 577 108 
+		7900 310 108 
+		7902 105 330 
+		7902 526 330 
+		7902 310 330 
+		2340 39 460 
+		2340 582 460 
+		2340 473 460 
+		2340 147 460 
+		2340 365 460 
+		2340 256 460 
+	end
+	objects
+		object RCastle24091-0 of RCastle
+			properties
+				loop 2
+				x 133
+				y 149
+			end
+		end
+		object RCastle24091-1 of RCastle
+			properties
+				loop 0
+				x 247
+				y 191
+			end
+		end
+		object RCastle24091-2 of RCastle
+			properties
+				loop 1
+				x 290
+				y 192
+			end
+		end
+		object RCastle24091-3 of RCastle
+			properties
+				loop 0
+				x 436
+				y 202
+			end
+		end
+		object RCastle24091-4 of RCastle
+			properties
+				loop 1
+				x 480
+				y 202
+			end
+		end
+		object RCastle24091-5 of RCastle
+			properties
+				loop 0
+				x 72
+				y 295
+			end
+		end
+		object RCastle24091-6 of RCastle
+			properties
+				loop 1
+				x 116
+				y 295
+			end
+		end
+	end
 end
 room 24092
-   properties
-      picture	4000
-      east	24091 
-      west	24093 
-      flags 248
-   end
-   atpinfo
-      2382  602 95
-      2382  422 95
-      2382  60 95
-      2382  239 95
-      2340  38 460
-      2340  147 460
-      2340  254 460
-      2340  363 460
-      2340  468 460
-      2340  577 460
-      2109  75 97
-      2109  236 97
-      2109  396 97
-      2109  556 97
-      2109  82 217
-      2109  328 217
-      2109  549 217
-      2119  326 219 65
-      2120  331 218
-      2121  328 218 35
-      2118  403 98 3
-      2135  406 98 35
-      2129  400 98 62
-      34889  73 98 65
-      34887  72 98 35
-      34888  74 98 2
-      34897  549 218 60
-      34903  547 218 32
-      34886  547 219 3
-      7900  105 105
-      7900  356 104
-      7900  566 104
-      7902  86 330
-      7902  566 330
-      7902  310 330
-   end
+	properties
+		picture 4000
+		flags 248
+		east 24091
+		west 24093
+	end
+	atpinfo
+		2382 602 95 
+		2382 422 95 
+		2382 60 95 
+		2382 239 95 
+		2109 75 97 
+		2109 236 97 
+		2109 396 97 
+		2109 556 97 
+		2118 403 98 3
+		2135 406 98 35
+		2129 400 98 62
+		34889 73 98 65
+		34887 72 98 35
+		34888 74 98 2
+		7900 356 104 
+		7900 566 104 
+		7900 105 105 
+		2109 328 217 
+		2109 549 217 
+		2109 79 218 
+		2120 331 218 
+		2121 328 218 35
+		34897 549 218 60
+		34903 547 218 32
+		2119 326 219 65
+		34886 547 219 3
+		7902 86 330 
+		7902 566 330 
+		7902 310 330 
+		2340 38 460 
+		2340 147 460 
+		2340 254 460 
+		2340 363 460 
+		2340 468 460 
+		2340 577 460 
+	end
+	objects
+		object RCastle24092-0 of RCastle
+			properties
+				loop 2
+				x 517
+				y 199
+			end
+		end
+		object RCastle24092-1 of RCastle
+			properties
+				loop 2
+				x 585
+				y 201
+			end
+		end
+		object RCastle24092-2 of RCastle
+			properties
+				loop 2
+				x 291
+				y 203
+			end
+		end
+		object RCastle24092-3 of RCastle
+			properties
+				loop 2
+				x 362
+				y 205
+			end
+		end
+		object RCastle24092-4 of RCastle
+			properties
+				loop 2
+				x 36
+				y 210
+			end
+		end
+		object RCastle24092-5 of RCastle
+			properties
+				loop 2
+				x 105
+				y 210
+			end
+		end
+		object RCastle24092-6 of RCastle
+			properties
+				loop 2
+				x 435
+				y 219
+			end
+		end
+		object RCastle24092-7 of RCastle
+			properties
+				loop 2
+				x 201
+				y 220
+			end
+		end
+	end
 end
 room 24094
-   properties
-      picture	4000
-      east	24093 
-      west	24095 
-      flags 248
-   end
-   atpinfo
-      2382  562 95
-      2382  380 95
-      2382  198 95
-      2382  45 95
-      2340  46 460
-      2340  155 460
-      2340  263 460
-      2340  368 460
-      2340  477 460
-      2340  578 460
-      2359  56 97 30
-      2358  56 97 40
-      2360  56 97 60
-      2360  209 97 60
-      2360  380 97 60
-      2360  562 97 60
-      2358  209 97 40
-      2358  380 97 40
-      2358  562 97 40
-      2359  209 97 30
-      2359  380 97 30
-      2359  562 97 30
-      7902  65 330
-      7900  102 106
-      7900  589 106
-      7902  533 330
-      7900  310 106
-      7902  310 330
-   end
+	properties
+		picture 4000
+		flags 248
+		east 24093
+		west 24095
+	end
+	atpinfo
+		2382 562 95 
+		2382 380 95 
+		2382 198 95 
+		2382 45 95 
+		2359 56 97 30
+		2358 56 97 40
+		2360 56 97 60
+		2360 209 97 60
+		2360 380 97 60
+		2360 562 97 60
+		2358 209 97 40
+		2358 380 97 40
+		2358 562 97 40
+		2359 209 97 30
+		2359 380 97 30
+		2359 562 97 30
+		7900 102 106 
+		7900 589 106 
+		7900 310 106 
+		7902 65 330 
+		7902 533 330 
+		7902 310 330 
+		2340 46 460 
+		2340 155 460 
+		2340 263 460 
+		2340 368 460 
+		2340 477 460 
+		2340 578 460 
+	end
+	objects
+		object RCastle24094-0 of RCastle
+			properties
+				loop 2
+				x 467
+				y 130
+			end
+		end
+		object RCastle24094-1 of RCastle
+			properties
+				loop 2
+				x 106
+				y 132
+			end
+		end
+		object RCastle24094-2 of RCastle
+			properties
+				loop 0
+				x 267
+				y 139
+			end
+		end
+		object RCastle24094-3 of RCastle
+			properties
+				loop 1
+				x 332
+				y 139
+			end
+		end
+		object RCastle24094-4 of RCastle
+			properties
+				loop 2
+				x 558
+				y 146
+			end
+		end
+		object RCastle24094-5 of RCastle
+			properties
+				loop 2
+				x 190
+				y 176
+			end
+		end
+		object RCastle24094-6 of RCastle
+			properties
+				loop 2
+				x 82
+				y 276
+			end
+		end
+		object RCastle24094-7 of RCastle
+			properties
+				loop 2
+				x 534
+				y 282
+			end
+		end
+	end
 end
 room 24095
-   properties
-      picture	4000
-      east	24094 
-      flags 248
-   end
-   atpinfo
-      2382  89 95
-      2382  253 95
-      2382  436 95
-      2382  619 95
-      2380  4 314
-      2380  4 144
-      2340  81 460
-      2340  397 460
-      2340  184 460
-      2340  292 460
-      2340  505 460
-      2340  604 460
-      2103  239 125
-      2241  372 106
-      7900  253 103
-      7900  520 103
-      7906  4 305
-      7902  117 330
-      7902  553 330
-      7902  310 330
-   end
-   objects
-      object PlankDoor24095-0 of PlankDoor
+	properties
+		picture 4000
+		flags 248
+		east 24094
+	end
+	atpinfo
+		2382 89 95 
+		2382 253 95 
+		2382 436 95 
+		2382 619 95 
+		7900 253 103 
+		7900 520 103 
+		2241 372 106 
+		2103 239 125 
+		2380 4 144 
+		7906 4 305 
+		2380 4 314 
+		7902 117 330 
+		7902 553 330 
+		7902 310 330 
+		2340 81 460 
+		2340 397 460 
+		2340 184 460 
+		2340 292 460 
+		2340 505 460 
+		2340 604 460 
+	end
+	objects
+		object PlankDoor24095-0 of PlankDoor
          properties
             x	83
             y	96
@@ -2313,224 +4285,648 @@ room 24095
               isOpen 1
          end
       end
-      object Sign204095-0 of Sign
-          properties
-            x   126
-            y   102
-          end  
-          base described
-            text "Under Construction!\n\nThis way is caved in with rocks\n\n"
-          end
-        end  
-   end
+		object RCastle24095-0 of RCastle
+			properties
+				loop 2
+				x 275
+				y 113
+			end
+		end
+		object RCastle24095-1 of RCastle
+			properties
+				loop 2
+				x 192
+				y 113
+			end
+		end
+		object RCastle24095-2 of RCastle
+			properties
+				loop 2
+				x 377
+				y 126
+			end
+		end
+		object RCastle24095-3 of RCastle
+			properties
+				loop 2
+				x 486
+				y 128
+			end
+		end
+		object RCastle24095-4 of RCastle
+			properties
+				loop 0
+				x 537
+				y 166
+			end
+		end
+		object RCastle24095-5 of RCastle
+			properties
+				loop 1
+				x 585
+				y 166
+			end
+		end
+		object RCastle24095-6 of RCastle
+			properties
+				loop 2
+				x 269
+				y 273
+			end
+		end
+		object RCastle24095-7 of RCastle
+			properties
+				loop 2
+				x 497
+				y 295
+			end
+		end
+		object RCastle24095-8 of RCastle
+			properties
+				loop 0
+				x 46
+				y 300
+			end
+		end
+	end
 end
 room 24093
-   properties
-      picture	4000
-      south	24096 
-      east	24092 
-      west	24094 
-      flags 248
-   end
-   atpinfo
-      2382  251 95
-      2382  571 95
-      2382  404 95
-      2382  92 95
-      2340  43 460
-      2340  606 460
-      2340  496 460
-      2340  144 460
-      2310  216 517
-      35078  433 517
-      2310  216 513 200
-      35078  433 513 200
-      35078  433 492 300
-      2310  216 492 300
-      7900  86 107
-      7900  312 107
-      7900  517 107
-      7902  97 330
-      7902  544 330
-   end
+	properties
+		picture 4000
+		flags 248
+		east 24092
+		south 24096
+		west 24094
+	end
+	atpinfo
+		2382 251 95 
+		2382 571 95 
+		2382 404 95 
+		2382 92 95 
+		7900 86 107 
+		7900 312 107 
+		7900 517 107 
+		7902 97 330 
+		7902 544 330 
+		2340 43 460 
+		2340 606 460 
+		2340 496 460 
+		2340 144 460 
+		35078 433 492 300
+		2310 216 492 300
+		2310 216 513 200
+		35078 433 513 200
+		2310 216 517 
+		35078 433 517 
+	end
+	objects
+		object RCastle24093-0 of RCastle
+			properties
+				loop 0
+				x 215
+				y 143
+			end
+		end
+		object RCastle24093-1 of RCastle
+			properties
+				loop 0
+				x 425
+				y 164
+			end
+		end
+		object RCastle24093-2 of RCastle
+			properties
+				loop 0
+				x 80
+				y 174
+			end
+		end
+		object RCastle24093-3 of RCastle
+			properties
+				loop 1
+				x 130
+				y 177
+			end
+		end
+		object RCastle24093-4 of RCastle
+			properties
+				loop 1
+				x 530
+				y 270
+			end
+		end
+		object RCastle24093-5 of RCastle
+			properties
+				loop 0
+				x 214
+				y 274
+			end
+		end
+		object RCastle24093-6 of RCastle
+			properties
+				loop 0
+				x 482
+				y 281
+			end
+		end
+		object RCastle24093-7 of RCastle
+			properties
+				loop 0
+				x 422
+				y 292
+			end
+		end
+		object RCastle24093-8 of RCastle
+			properties
+				loop 2
+				x 598
+				y 295
+			end
+		end
+		object RCastle24093-9 of RCastle
+			properties
+				loop 2
+				x 152
+				y 298
+			end
+		end
+		object RCastle24093-10 of RCastle
+			properties
+				loop 2
+				x 320
+				y 311
+			end
+		end
+	end
 end
 room 24085
-   properties
-      picture	4000
-      north	24096 
-      east	24086 
-      west	24084 
-      flags 248
-   end
-   atpinfo
-      2382  89 495
-      2382  634 495
-      2382  273 495
-      2382  453 495
-      2340  45 107
-      2340  582 107
-      2338  103 107
-      35106  536 107
-      35078  195 93
-      2310  438 94
-      14  555 127
-      32782  78 127
-      7900  -57 118
-      7900  677 118
-      7902  121 326
-      7902  327 326
-      7902  575 326
-   end
+	properties
+		picture 4000
+		flags 248
+		north 24096
+		east 24086
+		west 24084
+	end
+	atpinfo
+		35078 195 93 
+		2310 438 94 
+		2340 45 107 
+		2340 582 107 
+		2338 103 107 
+		35106 536 107 
+		7900 -57 118 
+		7900 677 118 
+		14 555 127 
+		32782 78 127 
+		7902 121 326 
+		7902 327 326 
+		7902 575 326 
+		2382 89 495 
+		2382 634 495 
+		2382 273 495 
+		2382 453 495 
+	end
+	objects
+		object RCastle24085-0 of RCastle
+			properties
+				loop 0
+				x 475
+				y 114
+			end
+		end
+		object RCastle24085-1 of RCastle
+			properties
+				loop 2
+				x 528
+				y 122
+			end
+		end
+		object RCastle24085-2 of RCastle
+			properties
+				loop 1
+				x 146
+				y 126
+			end
+		end
+		object RCastle24085-3 of RCastle
+			properties
+				loop 1
+				x 579
+				y 134
+			end
+		end
+		object RCastle24085-4 of RCastle
+			properties
+				loop 2
+				x 93
+				y 136
+			end
+		end
+		object RCastle24085-5 of RCastle
+			properties
+				loop 0
+				x 39
+				y 147
+			end
+		end
+		object RCastle24085-6 of RCastle
+			properties
+				loop 2
+				x 240
+				y 269
+			end
+		end
+		object RCastle24085-7 of RCastle
+			properties
+				loop 0
+				x 200
+				y 287
+			end
+		end
+		object RCastle24085-8 of RCastle
+			properties
+				loop 1
+				x 276
+				y 292
+			end
+		end
+	end
 end
 room 24096
-   properties
-      picture	4000
-      north	24093 
-      south	24085 
-      east	24097 
-      flags 248
-   end
-   atpinfo
-      2340  654 107
-      2340  607 459
-      35106  608 107
-      2340  454 96
-      2340  229 96
-      2338  89 107
-      35108  39 107
-      35108  -32 257
-      35108  -33 400
-      2340  63 459
-      2340  173 459
-      2310  278 95
-      35078  415 95
-      2340  501 459
-      2310  212 516
-      35078  471 516
-      2106  227 97
-      2106  443 97
-      2106  54 108
-      2106  634 108
-      2164  149 108 65
-      7900  155 116
-      7900  529 116
-      7902  94 327
-      7902  579 328
-      7906  -2 318
-   end
+	properties
+		picture 4000
+		flags 248
+		north 24093
+		east 24097
+		south 24085
+	end
+	atpinfo
+		2310 278 95 
+		35078 415 95 
+		2340 454 96 
+		2340 229 96 
+		2106 227 97 
+		2106 443 97 
+		2340 654 107 
+		35106 608 107 
+		2338 89 107 
+		35108 39 107 
+		2106 54 108 
+		2106 634 108 
+		2164 149 108 65
+		7900 155 116 
+		7900 529 116 
+		35108 -32 257 
+		7906 -2 318 
+		7902 94 327 
+		7902 579 328 
+		35108 -33 400 
+		2340 607 459 
+		2340 63 459 
+		2340 173 459 
+		2340 501 459 
+		2310 212 516 
+		35078 471 516 
+	end
+	objects
+		object RCastle24096-0 of RCastle
+			properties
+				loop 2
+				x 442
+				y 109
+			end
+		end
+		object RCastle24096-1 of RCastle
+			properties
+				loop 2
+				x 224
+				y 111
+			end
+		end
+		object RCastle24096-2 of RCastle
+			properties
+				loop 2
+				x 46
+				y 129
+			end
+		end
+		object RCastle24096-3 of RCastle
+			properties
+				loop 2
+				x 616
+				y 133
+			end
+		end
+		object RCastle24096-4 of RCastle
+			properties
+				loop 2
+				x 529
+				y 134
+			end
+		end
+		object RCastle24096-5 of RCastle
+			properties
+				loop 2
+				x 130
+				y 147
+			end
+		end
+		object RCastle24096-6 of RCastle
+			properties
+				loop 1
+				x 598
+				y 295
+			end
+		end
+		object RCastle24096-7 of RCastle
+			properties
+				loop 0
+				x 496
+				y 297
+			end
+		end
+		object RCastle24096-8 of RCastle
+			properties
+				loop 0
+				x 33
+				y 297
+			end
+		end
+		object RCastle24096-9 of RCastle
+			properties
+				loop 2
+				x 550
+				y 297
+			end
+		end
+		object RCastle24096-10 of RCastle
+			properties
+				loop 1
+				x 127
+				y 299
+			end
+		end
+		object RCastle24096-11 of RCastle
+			properties
+				loop 2
+				x 78
+				y 299
+			end
+		end
+	end
 end
 room 24097
-   properties
-      picture	4000
-      west	24096 
-      flags 248
-   end
-   atpinfo
-      2340  144 95
-      2338  2 107
-      35108  260 95
-      35108  472 95
-      2340  356 95
-      2340  570 95
-      2340  679 157
-      2340  679 316
-      2340  571 456
-      2340  462 456
-      2340  354 456
-      2340  246 456
-      2340  133 456
-      2340  25 456
-      2112  171 96 65
-      2112  310 96 65
-      2112  450 96 65
-      2112  577 96 65
-      2109  496 208
-      2109  326 209
-      2109  160 209
-      2120  162 210
-      2120  325 210
-      2120  494 210
-      2118  159 210 33
-      34886  326 210 33
-      34886  497 210 33
-      2130  311 97 85
-      34898  173 97 85
-      34898  450 97 85
-      2130  572 97 85
-      32782  -9 137
-      7900  511 102
-      7900  254 102
-      7908  632 337
-      7902  126 321
-      7902  507 321
-      7902  314 321
-   end
-   objects
-      object bed24097-0 of Bed
-         properties
-            x	200
-            y	103
-            loop	2
-         end
-      end
-      object bed24097-1 of Bed
-         properties
-            x	346
-            y	103
-            loop	2
-         end
-      end
-      object bed24097-2 of Bed
-         properties
-            x	491
-            y	103
-            loop	2
-         end
-      end
-      object altar24097-3 of Altar
-         properties
-            x	592
-            y	292
-            loop	0
-         end
-      end
-      object stool24097-4 of Stool
-         properties
-            x	91
-            y	119
-            loop	0
-         end
-      end
-   end
+	properties
+		picture 4000
+		flags 248
+		west 24096
+	end
+	atpinfo
+		2340 144 95 
+		35108 260 95 
+		35108 472 95 
+		2340 356 95 
+		2340 570 95 
+		2112 171 96 65
+		2112 310 96 65
+		2112 450 96 65
+		2112 577 96 65
+		2130 311 97 85
+		34898 173 97 85
+		34898 450 97 85
+		2130 572 97 85
+		7900 511 102 
+		7900 254 102 
+		2338 2 107 
+		32782 -9 137 
+		2340 679 157 
+		2109 496 208 
+		2109 326 209 
+		2109 160 209 
+		2120 162 210 
+		2120 325 210 
+		2120 494 210 
+		2118 159 210 33
+		34886 326 210 33
+		34886 497 210 33
+		2340 679 316 
+		7902 126 321 
+		7902 507 321 
+		7902 314 321 
+		7908 632 337 
+		2340 571 456 
+		2340 462 456 
+		2340 354 456 
+		2340 246 456 
+		2340 133 456 
+		2340 25 456 
+	end
+	objects
+		object stool24097-0 of Stool
+			properties
+				x 91
+				y 119
+				loop 0
+			end
+		end
+		object bed24097-0 of Bed
+			properties
+				x 345
+				y 122
+				loop 0
+			end
+		end
+		object RCastle24097-0 of RCastle
+			properties
+				loop 2
+				x 82
+				y 123
+			end
+		end
+		object bed24097-1 of Bed
+			properties
+				x 505
+				y 124
+				loop 0
+			end
+		end
+		object bed24097-2 of Bed
+			properties
+				x 190
+				y 125
+				loop 0
+			end
+		end
+		object RCastle24097-1 of RCastle
+			properties
+				loop 1
+				x 598
+				y 130
+			end
+		end
+		object RCastle24097-2 of RCastle
+			properties
+				loop 2
+				x 193
+				y 197
+			end
+		end
+		object RCastle24097-3 of RCastle
+			properties
+				loop 2
+				x 119
+				y 199
+			end
+		end
+		object RCastle24097-4 of RCastle
+			properties
+				loop 2
+				x 525
+				y 201
+			end
+		end
+		object RCastle24097-5 of RCastle
+			properties
+				loop 2
+				x 359
+				y 202
+			end
+		end
+		object RCastle24097-6 of RCastle
+			properties
+				loop 2
+				x 454
+				y 202
+			end
+		end
+		object RCastle24097-7 of RCastle
+			properties
+				loop 2
+				x 283
+				y 203
+			end
+		end
+		object RCastle24097-8 of RCastle
+			properties
+				loop 2
+				x 318
+				y 226
+			end
+		end
+		object RCastle24097-9 of RCastle
+			properties
+				loop 2
+				x 486
+				y 227
+			end
+		end
+		object RCastle24097-10 of RCastle
+			properties
+				loop 2
+				x 152
+				y 229
+			end
+		end
+		object RCastle24097-11 of RCastle
+			properties
+				loop 2
+				x 592
+				y 274
+			end
+		end
+		object altar24097-0 of Altar
+			properties
+				x 592
+				y 292
+				loop 0
+			end
+		end
+	end
 end
 room 24098
-   properties
-      picture	4000
-      east	24099 
-      flags 248
-   end
-   atpinfo
-      2382  93 150
-      2382  274 150
-      2382  638 150
-      2382  457 150
-      2340  38 458
-      2340  470 458
-      35108  155 458
-      35108  586 458
-      2340  256 458
-      35108  373 458
-      2380  8 309
-      7900  -34 161
-      7902  127 328
-      7906  1 327
-      7900  326 158
-      7900  557 158
-      7902  321 328
-      7902  555 327
-   end
-   objects
-      object plankDoor24098-0 of PlankDoor
+	properties
+		picture 4000
+		flags 248
+		east 24099
+	end
+	atpinfo
+		2382 93 150 
+		2382 274 150 
+		2382 638 150 
+		2382 457 150 
+		7900 326 158 
+		7900 557 158 
+		7900 -34 161 
+		2380 8 309 
+		7906 1 327 
+		7902 555 327 
+		7902 127 328 
+		7902 321 328 
+		2340 38 458 
+		2340 470 458 
+		35108 155 458 
+		35108 586 458 
+		2340 256 458 
+		35108 373 458 
+	end
+	objects
+		object RCastle24098-0 of RCastle
+			properties
+				loop 2
+				x 375
+				y 166
+			end
+		end
+		object RCastle24098-1 of RCastle
+			properties
+				loop 2
+				x 294
+				y 173
+			end
+		end
+		object RCastle24098-2 of RCastle
+			properties
+				loop 2
+				x 479
+				y 176
+			end
+		end
+		object RCastle24098-3 of RCastle
+			properties
+				loop 1
+				x 588
+				y 177
+			end
+		end
+		object RCastle24098-4 of RCastle
+			properties
+				loop 0
+				x 87
+				y 186
+			end
+		end
+		object RCastle24098-5 of RCastle
+			properties
+				loop 1
+				x 614
+				y 225
+			end
+		end
+		object RCastle24098-6 of RCastle
+			properties
+				loop 0
+				x 55
+				y 236
+			end
+		end
+		object RCastle24098-7 of RCastle
+			properties
+				loop 0
+				x 94
+				y 293
+			end
+		end
+		object plankDoor24098-0 of PlankDoor
          properties
             x	146
             y	151
@@ -2541,389 +4937,920 @@ room 24098
               isOpen 1
          end
       end
-      object sign24098-1 of Sign
-         properties
-            x	193
-            y	161
-            loop	0
-         end
-      end
-   end
+	end
 end
 room 24099
-   properties
-      picture	4000
-      east	24100 
-      west	24098
-      flags 248
-   end
-   atpinfo
-      2382  93 150
-      2382  275 150
-      2382  457 150
-      2382  639 150
-      2340  40 458
-      2340  149 458
-      2340  259 458
-      2340  369 458
-      2340  478 458
-      2340  587 458
-      7902  123 325
-      7902  324 325
-      7902  517 325
-      7900  126 155
-      7900  313 155
-      7900  517 155
-      2163  321 151 40
-      2361  564 151 80
-      2163  499 151 40
-      35129  222 151 80
-      35126  67 151 60
-      35127  67 151 30
-      35126  222 151 60
-      2358  417 151 60
-      2358  564 151 60
-      35126  67 151 40
-      35126  222 151 40
-      2358  417 151 40
-      2358  564 151 40
-      35127  222 151 30
-      2359  417 151 30
-      2359  564 151 30
-      2163  137 151 40
-      35128  67 151 80
-      2360  417 151 80
-   end
+	properties
+		picture 4000
+		flags 248
+		east 24100
+		west 24098
+	end
+	atpinfo
+		2382 93 150 
+		2382 275 150 
+		2382 457 150 
+		2382 639 150 
+		2163 321 151 40
+		2361 564 151 80
+		2163 499 151 40
+		35129 222 151 80
+		35126 67 151 60
+		35127 67 151 30
+		35126 222 151 60
+		2358 417 151 60
+		2358 564 151 60
+		35126 67 151 40
+		35126 222 151 40
+		2358 417 151 40
+		2358 564 151 40
+		35127 222 151 30
+		2359 417 151 30
+		2359 564 151 30
+		2163 137 151 40
+		35128 67 151 80
+		2360 417 151 80
+		7900 126 155 
+		7900 313 155 
+		7900 517 155 
+		7902 123 325 
+		7902 324 325 
+		7902 517 325 
+		2340 40 458 
+		2340 149 458 
+		2340 259 458 
+		2340 369 458 
+		2340 478 458 
+		2340 587 458 
+	end
+	objects
+		object RCastle24099-0 of RCastle
+			properties
+				loop 0
+				x 268
+				y 172
+			end
+		end
+		object RCastle24099-1 of RCastle
+			properties
+				loop 0
+				x 64
+				y 172
+			end
+		end
+		object RCastle24099-2 of RCastle
+			properties
+				loop 1
+				x 119
+				y 178
+			end
+		end
+		object RCastle24099-3 of RCastle
+			properties
+				loop 0
+				x 430
+				y 181
+			end
+		end
+		object RCastle24099-4 of RCastle
+			properties
+				loop 1
+				x 319
+				y 182
+			end
+		end
+		object RCastle24099-5 of RCastle
+			properties
+				loop 1
+				x 478
+				y 188
+			end
+		end
+		object RCastle24099-6 of RCastle
+			properties
+				loop 2
+				x 366
+				y 250
+			end
+		end
+		object RCastle24099-7 of RCastle
+			properties
+				loop 2
+				x 190
+				y 262
+			end
+		end
+	end
 end
 room 24100
-   properties
-      picture	4000
-      east	24101 
-      west	24099 
-      flags 248
-   end
-   atpinfo
-      2382  93 150
-      2382  275 150
-      2382  457 150
-      2382  639 150
-      2340  40 458
-      2340  149 458
-      2340  259 458
-      2340  369 458
-      2340  478 458
-      2340  587 458
-      7902  123 325
-      7902  324 325
-      7902  517 325
-      7900  126 155
-      7900  313 155
-      7900  517 155
-      35129  67 151 80
-      2361  564 151 80
-      35129  417 151 80
-      2361  222 151 80
-      35126  67 151 60
-      35127  67 151 30
-      2358  222 151 60
-      35126  417 151 60
-      2358  564 151 60
-      35126  67 151 40
-      2358  222 151 40
-      35126  417 151 40
-      2358  564 151 40
-      2359  222 151 30
-      35127  417 151 30
-      2359  564 151 30
-      2163  137 151 40
-      2163  321 151 40
-      2163  499 151 40
-   end
+	properties
+		picture 4000
+		flags 248
+		east 24101
+		west 24099
+	end
+	atpinfo
+		2382 93 150 
+		2382 275 150 
+		2382 457 150 
+		2382 639 150 
+		35129 67 151 80
+		2361 564 151 80
+		35129 417 151 80
+		2361 222 151 80
+		35126 67 151 60
+		35127 67 151 30
+		2358 222 151 60
+		35126 417 151 60
+		2358 564 151 60
+		35126 67 151 40
+		2358 222 151 40
+		35126 417 151 40
+		2358 564 151 40
+		2359 222 151 30
+		35127 417 151 30
+		2359 564 151 30
+		2163 137 151 40
+		2163 321 151 40
+		2163 499 151 40
+		7900 126 155 
+		7900 313 155 
+		7900 517 155 
+		7902 123 325 
+		7902 324 325 
+		7902 517 325 
+		2340 40 458 
+		2340 149 458 
+		2340 259 458 
+		2340 369 458 
+		2340 478 458 
+		2340 587 458 
+	end
+	objects
+		object RCastle24100-0 of RCastle
+			properties
+				loop 2
+				x 72
+				y 174
+			end
+		end
+		object RCastle24100-1 of RCastle
+			properties
+				loop 0
+				x 208
+				y 183
+			end
+		end
+		object RCastle24100-2 of RCastle
+			properties
+				loop 2
+				x 342
+				y 187
+			end
+		end
+		object RCastle24100-3 of RCastle
+			properties
+				loop 1
+				x 258
+				y 192
+			end
+		end
+		object RCastle24100-4 of RCastle
+			properties
+				loop 1
+				x 466
+				y 203
+			end
+		end
+		object RCastle24100-5 of RCastle
+			properties
+				loop 0
+				x 418
+				y 205
+			end
+		end
+		object RCastle24100-6 of RCastle
+			properties
+				loop 0
+				x 158
+				y 280
+			end
+		end
+		object RCastle24100-7 of RCastle
+			properties
+				loop 1
+				x 208
+				y 287
+			end
+		end
+		object RCastle24100-8 of RCastle
+			properties
+				loop 0
+				x 39
+				y 309
+			end
+		end
+		object RCastle24100-9 of RCastle
+			properties
+				loop 1
+				x 85
+				y 313
+			end
+		end
+	end
 end
 room 24101
-   properties
-      picture	4000
-      east	24102 
-      west	24100 
-      flags 248
-   end
-   atpinfo
-      2382  93 150
-      2382  274 150
-      2382  457 150
-      2382  639 150
-      2340  40 458
-      2340  149 458
-      2340  259 458
-      2340  369 458
-      2340  478 458
-      2340  587 458
-      7902  123 325
-      7902  324 325
-      7902  517 325
-      7900  126 155
-      7900  313 155
-      7900  517 155
-      2360  51 151 80
-      2360  573 151 80
-      2360  415 151 80
-      2360  233 151 80
-      2358  51 151 60
-      2358  415 151 60
-      2358  415 151 40
-      2358  573 151 60
-      2358  573 151 40
-      2358  233 151 60
-      2358  233 151 40
-      2358  51 151 40
-      2359  51 151 30
-      2359  233 151 30
-      2359  573 151 30
-      2359  415 151 30
-      2163  326 151 40
-      2163  503 151 40
-      2163  133 151 40
-   end
+	properties
+		picture 4000
+		flags 248
+		east 24102
+		west 24100
+	end
+	atpinfo
+		2382 93 150 
+		2382 274 150 
+		2382 457 150 
+		2382 639 150 
+		2360 51 151 80
+		2360 573 151 80
+		2360 415 151 80
+		2360 233 151 80
+		2358 51 151 60
+		2358 415 151 60
+		2358 415 151 40
+		2358 573 151 60
+		2358 573 151 40
+		2358 233 151 60
+		2358 233 151 40
+		2358 51 151 40
+		2359 51 151 30
+		2359 233 151 30
+		2359 573 151 30
+		2359 415 151 30
+		2163 326 151 40
+		2163 503 151 40
+		2163 133 151 40
+		7900 126 155 
+		7900 313 155 
+		7900 517 155 
+		7902 123 325 
+		7902 324 325 
+		7902 517 325 
+		2340 40 458 
+		2340 149 458 
+		2340 259 458 
+		2340 369 458 
+		2340 478 458 
+		2340 587 458 
+	end
+	objects
+		object RCastle24101-0 of RCastle
+			properties
+				loop 2
+				x 99
+				y 172
+			end
+		end
+		object RCastle24101-1 of RCastle
+			properties
+				loop 2
+				x 179
+				y 172
+			end
+		end
+		object RCastle24101-2 of RCastle
+			properties
+				loop 2
+				x 456
+				y 173
+			end
+		end
+		object RCastle24101-3 of RCastle
+			properties
+				loop 2
+				x 252
+				y 174
+			end
+		end
+		object RCastle24101-4 of RCastle
+			properties
+				loop 2
+				x 409
+				y 174
+			end
+		end
+		object RCastle24101-5 of RCastle
+			properties
+				loop 2
+				x 513
+				y 178
+			end
+		end
+		object RCastle24101-6 of RCastle
+			properties
+				loop 2
+				x 46
+				y 303
+			end
+		end
+	end
 end
 room 24103
-   properties
-      picture	4000
-      north	24102 
-      south	24104 
-      flags 248
-   end
-   atpinfo
-      2380  615 193
-      2380  615 335
-      2340  0 147
-      2340  0 297
-      2340  0 427
-      13  560 0
-      13  -36 -6
-   end
+	properties
+		picture 4000
+		flags 248
+		north 24102
+		south 24104
+	end
+	atpinfo
+		13 -36 -6 
+		2340 375 147 
+		2380 615 193 
+		13 560 250 
+		2340 374 269 
+		2380 615 335 
+		2340 375 427 
+	end
+	objects
+		object RCastle24103-0 of RCastle
+			properties
+				loop 0
+				x 444
+				y 149
+			end
+		end
+		object RCastle24103-1 of RCastle
+			properties
+				loop 1
+				x 580
+				y 149
+			end
+		end
+		object RCastle24103-2 of RCastle
+			properties
+				loop 1
+				x 282
+				y 156
+			end
+		end
+		object RCastle24103-3 of RCastle
+			properties
+				loop 0
+				x 239
+				y 170
+			end
+		end
+		object RCastle24103-4 of RCastle
+			properties
+				loop 0
+				x 21
+				y 240
+			end
+		end
+		object RCastle24103-5 of RCastle
+			properties
+				loop 1
+				x 71
+				y 250
+			end
+		end
+		object RCastle24103-6 of RCastle
+			properties
+				loop 0
+				x 445
+				y 321
+			end
+		end
+		object RCastle24103-7 of RCastle
+			properties
+				loop 1
+				x 583
+				y 321
+			end
+		end
+	end
 end
 room 24104
-   properties
-      picture	4000
-      north	24103 
-      west	24105 
-      flags 248
-   end
-   atpinfo
-      2382  245 497
-      2382  602 488
-      2382  56 488
-      2382  420 488
-      2380  619 306
-      2380  619 122
-      2340  0 146
-      7900  -74 154
-      7906  636 313
-      7902  110 323
-      7902  585 323
-      7902  348 323
-      2600  463 292
-      2600  199 165
-      2120  136 165 55
-      2120  420 293 55
-      2120  233 165 55
-      2120  507 293 55
-   end
+	properties
+		picture 4000
+		flags 248
+		north 24103
+		west 24105
+	end
+	atpinfo
+		2380 619 122 
+		2340 375 146 
+		7900 -74 154 
+		2600 199 165 
+		2120 136 165 55
+		2120 233 165 55
+		2600 463 292 
+		2120 420 293 55
+		2120 507 293 55
+		2380 619 306 
+		7906 636 313 
+		7902 110 323 
+		7902 585 323 
+		7902 348 323 
+		2382 602 488 
+		2382 56 488 
+		2382 420 488 
+		2382 237 488 
+	end
+	objects
+		object RCastle24104-0 of RCastle
+			properties
+				loop 2
+				x 146
+				y 129
+			end
+		end
+		object RCastle24104-1 of RCastle
+			properties
+				loop 2
+				x 233
+				y 129
+			end
+		end
+		object RCastle24104-2 of RCastle
+			properties
+				loop 1
+				x 585
+				y 150
+			end
+		end
+		object RCastle24104-3 of RCastle
+			properties
+				loop 0
+				x 449
+				y 151
+			end
+		end
+		object RCastle24104-4 of RCastle
+			properties
+				loop 2
+				x 493
+				y 262
+			end
+		end
+		object RCastle24104-5 of RCastle
+			properties
+				loop 2
+				x 426
+				y 268
+			end
+		end
+		object RCastle24104-6 of RCastle
+			properties
+				loop 0
+				x 23
+				y 285
+			end
+		end
+		object RCastle24104-7 of RCastle
+			properties
+				loop 2
+				x 203
+				y 286
+			end
+		end
+	end
 end
 room 24105
-   properties
-      picture	4000
-      east	24104 
-      west	24106 
-      flags 248
-   end
-   atpinfo
-      2382  48 488
-      2382  230 488
-      2382  412 488
-      2382  594 488
-      2340  324 133
-      2338  198 146
-      35106  94 146
-      2338  545 146
-      35106  442 146
-      2340  486 146
-      2340  143 146
-      2327  142 148 50
-      2327  483 148 50
-      2389  324 147 15
-      2389  502 147
-      2389  147 147
-      7900  104 157
-      7900  524 157
-      7900  315 157
-      7902  71 325
-      7902  553 325
-      7902  314 325
-   end
-   objects
-      object crest24105-0 of Crest
-         properties
-            x	500
-            y	149
-            loop	0
-         end
-      end
-      object crest24105-2 of Crest
-         properties
-            x	321
-            y	148
-            loop	0
-         end
-      end
-      object crest24105-1 of Crest
-         properties
-            x	143
-            y	149
-            loop	0
-         end
-      end
-   end
+	properties
+		picture 4000
+		flags 248
+		east 24104
+		west 24106
+	end
+	atpinfo
+		2340 324 133 
+		2338 198 146 
+		35106 94 146 
+		2338 545 146 
+		35106 442 146 
+		2340 486 146 
+		2340 143 146 
+		2389 324 147 15
+		2389 502 147 
+		2389 147 147 
+		2327 142 148 50
+		2327 483 148 50
+		7900 104 157 
+		7900 524 157 
+		7900 315 157 
+		7902 71 325 
+		7902 553 325 
+		7902 314 325 
+		2382 48 488 
+		2382 230 488 
+		2382 412 488 
+		2382 594 488 
+	end
+	objects
+		object crest24105-0 of Crest
+			properties
+				x 321
+				y 148
+				loop 0
+			end
+		end
+		object crest24105-1 of Crest
+			properties
+				x 500
+				y 149
+				loop 0
+			end
+		end
+		object crest24105-2 of Crest
+			properties
+				x 143
+				y 149
+				loop 0
+			end
+		end
+		object RCastle24105-0 of RCastle
+			properties
+				loop 2
+				x 28
+				y 158
+			end
+		end
+		object RCastle24105-1 of RCastle
+			properties
+				loop 1
+				x 576
+				y 161
+			end
+		end
+		object RCastle24105-2 of RCastle
+			properties
+				loop 2
+				x 384
+				y 162
+			end
+		end
+		object RCastle24105-3 of RCastle
+			properties
+				loop 2
+				x 92
+				y 165
+			end
+		end
+		object RCastle24105-4 of RCastle
+			properties
+				loop 2
+				x 266
+				y 166
+			end
+		end
+		object RCastle24105-5 of RCastle
+			properties
+				loop 2
+				x 201
+				y 167
+			end
+		end
+		object RCastle24105-6 of RCastle
+			properties
+				loop 2
+				x 438
+				y 170
+			end
+		end
+		object RCastle24105-7 of RCastle
+			properties
+				loop 1
+				x 614
+				y 193
+			end
+		end
+	end
 end
 room 24106
-   properties
-      picture	4000
-      east	24105 
-      west	24107 
-      flags 248
-   end
-   atpinfo
-      2382  73 488
-      2382  619 488
-      2382  255 488
-      2382  436 488
-      2340  482 148
-      2340  372 148
-      2338  541 146
-      2338  230 161
-      2338  139 174
-      2340  81 175
-      2340  -29 175
-      2340  81 175 51
-      2340  -29 175 51
-      2338  139 174 51
-      2338  230 161 51
-      2161  243 163 75
-      2161  610 147 75
-      2163  441 150 75
-      2163  66 176 75
-      32782  148 191
-      32782  522 166
-      7900  413 158
-      7900  45 184
-      7902  84 323
-      7902  544 323
-      7902  324 323
-   end
+	properties
+		picture 4000
+		flags 248
+		east 24105
+		west 24107
+	end
+	atpinfo
+		2338 541 146 
+		2161 610 147 75
+		2340 482 148 
+		2340 372 148 
+		2163 441 150 75
+		7900 413 158 
+		2338 230 161 
+		2338 230 161 51
+		2161 243 163 75
+		32782 522 166 
+		2338 139 174 
+		2338 139 174 51
+		2340 81 175 
+		2340 -29 175 
+		2340 81 175 51
+		2340 -29 175 51
+		2163 66 176 75
+		7900 45 184 
+		32782 148 191 
+		7902 84 323 
+		7902 544 323 
+		7902 324 323 
+		2382 73 488 
+		2382 619 488 
+		2382 255 488 
+		2382 436 488 
+	end
+	objects
+		object RCastle24106-0 of RCastle
+			properties
+				loop 2
+				x 377
+				y 158
+			end
+		end
+		object RCastle24106-1 of RCastle
+			properties
+				loop 2
+				x 432
+				y 161
+			end
+		end
+		object RCastle24106-2 of RCastle
+			properties
+				loop 0
+				x 497
+				y 164
+			end
+		end
+		object RCastle24106-3 of RCastle
+			properties
+				loop 1
+				x 555
+				y 164
+			end
+		end
+		object RCastle24106-4 of RCastle
+			properties
+				loop 1
+				x 297
+				y 176
+			end
+		end
+		object RCastle24106-5 of RCastle
+			properties
+				loop 0
+				x 197
+				y 187
+			end
+		end
+		object RCastle24106-6 of RCastle
+			properties
+				loop 2
+				x 112
+				y 191
+			end
+		end
+		object RCastle24106-7 of RCastle
+			properties
+				loop 2
+				x 41
+				y 197
+			end
+		end
+		object RCastle24106-8 of RCastle
+			properties
+				loop 2
+				x 402
+				y 273
+			end
+		end
+	end
 end
 room 24108
-   properties
-      picture	4000
-      east	24107 
-      west	24109 
-      flags 248
-   end
-   atpinfo
-      2382  14 488
-      2382  562 488
-      2382  197 488
-      2382  380 488
-      2340  357 194
-      2340  247 194
-      2340  358 193 47
-      2340  248 193 47
-      2338  417 193
-      2338  513 179
-      2338  610 165
-      35106  100 178
-      35106  197 193
-      35106  21 166
-      35106  21 166 50
-      35106  100 178 50
-      35106  197 193 50
-      2338  417 193 50
-      2338  513 179 50
-      2338  610 165 50
-      2112  305 196 90
-      2127  301 197 110
-      2391  57 181
-      2391  152 196
-      2391  49 180
-      2392  476 193
-      2392  570 179
-      2392  639 168
-      2392  469 194
-      2390  252 197
-      2390  362 197
-      14  101 198
-      14  218 217
-      32782  534 196
-      32782  412 215
-      7900  310 211
-      7902  90 323
-      7902  547 323
-      7902  318 323
-   end
+	properties
+		picture 4000
+		flags 248
+		east 24107
+		west 24109
+	end
+	atpinfo
+		2338 610 165 
+		2338 610 165 50
+		35106 21 166 
+		35106 21 166 50
+		2392 639 168 
+		35106 100 178 
+		35106 100 178 50
+		2338 513 179 
+		2338 513 179 50
+		2392 570 179 
+		2391 49 180 
+		2391 57 181 
+		2340 358 193 47
+		2340 248 193 47
+		2338 417 193 
+		35106 197 193 
+		35106 197 193 50
+		2338 417 193 50
+		2392 476 193 
+		2340 357 194 
+		2340 247 194 
+		2392 469 194 
+		2112 305 196 90
+		2391 152 196 
+		32782 534 196 
+		2127 301 197 110
+		2390 252 197 
+		2390 362 197 
+		14 101 198 
+		7900 310 211 
+		32782 412 215 
+		14 218 217 
+		7902 90 323 
+		7902 547 323 
+		7902 318 323 
+		2382 14 488 
+		2382 562 488 
+		2382 197 488 
+		2382 380 488 
+	end
+	objects
+		object RCastle24108-0 of RCastle
+			properties
+				loop 0
+				x 25
+				y 185
+			end
+		end
+		object RCastle24108-1 of RCastle
+			properties
+				loop 0
+				x 78
+				y 197
+			end
+		end
+		object RCastle24108-2 of RCastle
+			properties
+				loop 1
+				x 563
+				y 197
+			end
+		end
+		object RCastle24108-3 of RCastle
+			properties
+				loop 1
+				x 506
+				y 200
+			end
+		end
+		object RCastle24108-4 of RCastle
+			properties
+				loop 2
+				x 232
+				y 207
+			end
+		end
+		object RCastle24108-5 of RCastle
+			properties
+				loop 2
+				x 370
+				y 209
+			end
+		end
+		object RCastle24108-6 of RCastle
+			properties
+				loop 0
+				x 142
+				y 212
+			end
+		end
+		object RCastle24108-7 of RCastle
+			properties
+				loop 1
+				x 455
+				y 212
+			end
+		end
+	end
 end
 room 24109
-   properties
-      picture	4000
-      east	24108 
-      flags 248
-   end
-   atpinfo
-      2382  56 488
-      2382  600 488
-      2382  419 488
-      2382  236 488
-      2380  10 306
-      2380  10 122
-      2340  273 119
-      35107  36 149
-      35107  132 134
-      2340  397 119
-      35106  545 134
-      35106  641 149
-      2340  335 119
-      2102  513 190
-      2101  197 191
-      2103  349 191
-      14  593 161
-      32782  99 160
-      32782  12 174
-      14  658 171
-      7900  346 130
-      7902  69 322
-      7902  528 322
-      7902  315 322
-      7906  0 306
-   end
-   objects
-      object torch24109-0 of Torch
-         properties
-            x	257
-            y	122
-            loop	0
-         end
-      end
-      object Castlekey24109-0 of Castlekey
-         properties
-            x	282
-            y	243
-            loop	0
-         end
-      end
-      object lockedChest24109-4 of LockedChest
+	properties
+		picture 4000
+		flags 248
+		east 24108
+	end
+	atpinfo
+		2340 273 119 
+		2340 397 119 
+		2340 335 119 
+		2380 10 122 
+		7900 346 130 
+		35107 132 134 
+		35106 545 134 
+		35107 36 149 
+		35106 641 149 
+		32782 99 160 
+		14 593 161 
+		14 658 171 
+		32782 12 174 
+		2102 513 190 
+		2101 197 191 
+		2103 349 191 
+		2380 10 306 
+		7906 383 139 
+		7902 69 322 
+		7902 528 322 
+		7902 315 322 
+		2382 56 488 
+		2382 600 488 
+		2382 419 488 
+		2382 236 488 
+	end
+	objects
+		object torch24109-0 of Torch
+			properties
+				x 257
+				y 122
+				loop 0
+			end
+		end
+		object RCastle24109-0 of RCastle
+			properties
+				loop 1
+				x 490
+				y 167
+			end
+		end
+		object RCastle24109-1 of RCastle
+			properties
+				loop 2
+				x 307
+				y 172
+			end
+		end
+		object RCastle24109-2 of RCastle
+			properties
+				loop 2
+				x 351
+				y 172
+			end
+		end
+		object RCastle24109-3 of RCastle
+			properties
+				loop 2
+				x 394
+				y 173
+			end
+		end
+		object RCastle24109-4 of RCastle
+			properties
+				loop 1
+				x 532
+				y 174
+			end
+		end
+		object RCastle24109-5 of RCastle
+			properties
+				loop 0
+				x 211
+				y 177
+			end
+		end
+		object RCastle24109-6 of RCastle
+			properties
+				loop 0
+				x 165
+				y 183
+			end
+		end
+		object RCastle24109-7 of RCastle
+			properties
+				loop 1
+				x 581
+				y 187
+			end
+		end
+		object RCastle24109-8 of RCastle
+			properties
+				loop 0
+				x 116
+				y 188
+			end
+		end
+		object RCastle24109-9 of RCastle
+			properties
+				loop 2
+				x 349
+				y 229
+			end
+		end
+		object lockedChest24109-4 of LockedChest
          properties
             x	85
             y	259
             loop	0
-         enchantResistance 100
          end
          base lockable
             isLocked	1
@@ -2942,141 +5869,304 @@ room 24109
 			base described
 			end
 		end
-   end
+	end
 end
 room 24107
-   properties
-      picture	4000
-      north	24110 
-      east	24106
-      west	24108 
-      flags 248
-   end
-   atpinfo
-      2382  43 488
-      2382  590 488
-      2382  225 488
-      2382  407 488
-      2340  102 175
-      2340  515 175
-      2338  161 175
-      35106  465 175
-      2340  625 175
-      2340  -8 175
-      2340  309 90
-      35106  465 175 60
-      2338  161 175 60
-      2340  625 175 60
-      2340  515 175 60
-      2340  -8 175 60
-      2340  102 175 60
-      7900  604 185
-      7900  15 185
-      7907  313 97
-      7  449 181
-      7  440 178
-      7  424 173
-      7  394 172
-      7  381 167
-      7  248 164
-      7  239 170
-      7  217 173
-      7  199 175
-      7  184 179
-      7  168 181
-      7  169 186
-      7  460 186
-      2103  550 178
-      2109  77 178
-      2121  82 179 3
-      2118  75 179 32
-      2129  73 179 60
-      2392  217 176
-      2391  420 176
-      2390  315 91
-      2161  215 176 75
-      2162  419 176 75
-      7902  103 323
-      7902  553 323
-      7902  322 323
-   end
+	properties
+		picture 4000
+		flags 248
+		north 24110
+		east 24106
+		west 24108
+	end
+	atpinfo
+		2340 309 90 
+		2390 315 91 
+		7907 313 97 
+		7 248 164 
+		7 381 167 
+		7 239 170 
+		7 394 172 
+		7 424 173 
+		7 217 173 
+		2340 102 175 
+		2340 515 175 
+		2338 161 175 
+		35106 465 175 
+		2340 625 175 
+		2340 -8 175 
+		35106 465 175 60
+		2338 161 175 60
+		2340 625 175 60
+		2340 515 175 60
+		2340 -8 175 60
+		2340 102 175 60
+		7 199 175 
+		2392 217 176 
+		2391 420 176 
+		2161 215 176 75
+		2162 419 176 75
+		7 440 178 
+		2103 550 178 
+		2109 77 178 
+		7 184 179 
+		2121 82 179 3
+		2118 75 179 32
+		2129 73 179 60
+		7 449 181 
+		7 168 181 
+		7900 604 185 
+		7900 15 185 
+		7 169 186 
+		7 460 186 
+		7902 103 323 
+		7902 553 323 
+		7902 322 323 
+		2382 43 488 
+		2382 590 488 
+		2382 225 488 
+		2382 407 488 
+	end
+	objects
+		object RCastle24107-0 of RCastle
+			properties
+				loop 2
+				x 268
+				y 108
+			end
+		end
+		object RCastle24107-1 of RCastle
+			properties
+				loop 2
+				x 363
+				y 110
+			end
+		end
+		object RCastle24107-2 of RCastle
+			properties
+				loop 1
+				x 392
+				y 180
+			end
+		end
+		object RCastle24107-3 of RCastle
+			properties
+				loop 2
+				x 68
+				y 189
+			end
+		end
+		object RCastle24107-4 of RCastle
+			properties
+				loop 0
+				x 235
+				y 190
+			end
+		end
+		object RCastle24107-5 of RCastle
+			properties
+				loop 2
+				x 510
+				y 191
+			end
+		end
+		object RCastle24107-6 of RCastle
+			properties
+				loop 2
+				x 570
+				y 192
+			end
+		end
+		object RCastle24107-7 of RCastle
+			properties
+				loop 1
+				x 447
+				y 193
+			end
+		end
+		object RCastle24107-8 of RCastle
+			properties
+				loop 0
+				x 176
+				y 204
+			end
+		end
+	end
 end
 room 24110
-   properties
-      picture	4000
-      south	24107 
-      west	24111 
-      flags 248
-   end
-   atpinfo
-      2340  6 157
-      35108  410 143
-      35108  306 143
-      2338  64 157
-      35106  552 157
-      35108  214 143
-      2340  602 157
-      2109  308 145
-      2106  34 158
-      2106  586 158
-      2340  670 276
-      2340  670 416
-      16  579 180
-      32784  33 182
-      7900  301 153
-      13  574 3
-   end
-   objects
-      object torch24110-1 of Torch
-         properties
-            x	189
-            y	144
-            loop	0
-         end
-      end
-      object torch24110-2 of Torch
-         properties
-            x	412
-            y	144
-            loop	0
-         end
-      end
-   end
+	properties
+		picture 4000
+		flags 248
+		south 24107
+		west 24111
+	end
+	atpinfo
+		13 574 3 
+		35108 410 143 
+		35108 306 143 
+		35108 214 143 
+		2109 308 145 
+		7900 301 153 
+		2340 6 157 
+		2338 64 157 
+		35106 552 157 
+		2340 602 157 
+		2106 34 158 
+		2106 586 158 
+		16 579 180 
+		32784 33 182 
+		2340 670 276 
+		2340 670 416 
+	end
+	objects
+		object torch24110-0 of Torch
+			properties
+				x 189
+				y 144
+				loop 0
+			end
+		end
+		object torch24110-1 of Torch
+			properties
+				x 412
+				y 144
+				loop 0
+			end
+		end
+		object RCastle24110-0 of RCastle
+			properties
+				loop 0
+				x 471
+				y 162
+			end
+		end
+		object RCastle24110-1 of RCastle
+			properties
+				loop 3
+				x 277
+				y 162
+			end
+		end
+		object RCastle24110-2 of RCastle
+			properties
+				loop 3
+				x 350
+				y 162
+			end
+		end
+		object RCastle24110-3 of RCastle
+			properties
+				loop 1
+				x 155
+				y 165
+			end
+		end
+		object RCastle24110-4 of RCastle
+			properties
+				loop 0
+				x 95
+				y 173
+			end
+		end
+		object RCastle24110-5 of RCastle
+			properties
+				loop 1
+				x 535
+				y 176
+			end
+		end
+		object RCastle24110-6 of RCastle
+			properties
+				loop 0
+				x 200
+				y 254
+			end
+		end
+		object RCastle24110-7 of RCastle
+			properties
+				loop 1
+				x 247
+				y 260
+			end
+		end
+		object RCastle24110-8 of RCastle
+			properties
+				loop 0
+				x 424
+				y 305
+			end
+		end
+		object RCastle24110-9 of RCastle
+			properties
+				loop 1
+				x 473
+				y 312
+			end
+		end
+		object RCastle24110-10 of RCastle
+			properties
+				loop 0
+				x 89
+				y 321
+			end
+		end
+		object RCastle24110-11 of RCastle
+			properties
+				loop 1
+				x 138
+				y 322
+			end
+		end
+	end
 end
 room 24111
-   properties
-      picture	4000
-      east	24110 
-      flags 248
-   end
-   atpinfo
-      2340  6 157
-      35108  410 143
-      35108  306 143
-      2338  64 157
-      35106  552 157
-      35108  214 143
-      2340  602 157
-      2338  551 458
-      2340  493 458
-      2340  382 458
-      2340  272 458
-      2340  162 458
-      2340  54 458
-      2340  6 416
-      2340  6 286
-      7900  -61 327
-      32784  31 181
-      16  580 180
-      7900  671 167
-      7906  410 153
-      7906  208 154
-      7902  200 327
-      7902  550 318
-      7902  309 324
-   end
-   objects
-      object plankDoor24111-0 of PlankDoor
+	properties
+		picture 4000
+		flags 248
+		east 24110
+	end
+	atpinfo
+		35108 410 143 
+		35108 306 143 
+		35108 214 143 
+		7906 410 153 
+		7906 208 154 
+		2340 6 157 
+		2338 64 157 
+		35106 552 157 
+		2340 602 157 
+		7900 671 167 
+		16 580 180 
+		32784 31 181 
+		2340 6 286 
+		7902 550 318 
+		7902 309 324 
+		7900 -61 327 
+		7902 200 327 
+		2340 6 416 
+		2338 551 458 
+		2340 493 458 
+		2340 382 458 
+		2340 272 458 
+		2340 162 458 
+		2340 54 458 
+	end
+	objects
+		object torch24111-0 of Torch
+			properties
+				x 189
+				y 144
+				loop 0
+			end
+		end
+		object torch24111-1 of Torch
+			properties
+				x 412
+				y 144
+				loop 0
+			end
+		end
+		object plankDoor24111-0 of PlankDoor
          properties
             x	309
             y	144
@@ -3088,69 +6178,197 @@ room 24111
               unlockValue 620
          end
       end
-      object torch24111-1 of Torch
-         properties
-            x	189
-            y	144
-            loop	0
-         end
-      end
-      object torch24111-2 of Torch
-         properties
-            x	412
-            y	144
-            loop	0
-         end
-      end
-      object sign24111-3 of Sign
-         properties
-            x	413
-            y	161
-            loop	0
-         end
-      end
-   end
+		object sign24111-0 of Sign
+			properties
+				x 413
+				y 161
+				loop 0
+			end
+		end
+		object RCastle24111-0 of RCastle
+			properties
+				loop 2
+				x 185
+				y 166
+			end
+		end
+		object RCastle24111-1 of RCastle
+			properties
+				loop 0
+				x 456
+				y 167
+			end
+		end
+		object RCastle24111-2 of RCastle
+			properties
+				loop 2
+				x 244
+				y 167
+			end
+		end
+		object RCastle24111-3 of RCastle
+			properties
+				loop 1
+				x 513
+				y 181
+			end
+		end
+		object RCastle24111-4 of RCastle
+			properties
+				loop 0
+				x 85
+				y 183
+			end
+		end
+		object RCastle24111-5 of RCastle
+			properties
+				loop 0
+				x 75
+				y 235
+			end
+		end
+		object RCastle24111-6 of RCastle
+			properties
+				loop 0
+				x 111
+				y 257
+			end
+		end
+		object RCastle24111-7 of RCastle
+			properties
+				loop 0
+				x 87
+				y 289
+			end
+		end
+		object RCastle24111-8 of RCastle
+			properties
+				loop 1
+				x 433
+				y 294
+			end
+		end
+		object RCastle24111-9 of RCastle
+			properties
+				loop 0
+				x 387
+				y 299
+			end
+		end
+	end
 end
 room 24102
-   properties
-      picture	4000
-      south	24103 
-      west	24101 
-      flags 248
-   end
-   atpinfo
-      2382  79 150
-      2382  627 150
-      2382  444 150
-      2382  261 150
-      2380  622 208
-      2380  622 379
-      2340  0 458
-      2360  222 151 80
-      2361  68 151 80
-      2361  379 151 80
-      2360  529 151 80
-      2358  68 151 60
-      2358  68 151 40
-      2358  222 151 60
-      2358  222 151 40
-      2358  379 151 60
-      2358  379 151 40
-      2358  529 151 60
-      2358  529 151 40
-      2359  68 151 30
-      2359  222 151 30
-      2359  379 151 30
-      2359  529 151 30
-      2334  144 152 70
-      2334  460 152 70
-      2334  299 152 70
-      7900  -72 614
-      7900  100 161
-      7900  504 161
-      7900  316 161
-      7906  636 326
-   end
+	properties
+		picture 4000
+		flags 248
+		south 24103
+		west 24101
+	end
+	atpinfo
+		2382 79 150 
+		2382 627 150 
+		2382 444 150 
+		2382 261 150 
+		2360 222 151 80
+		2361 68 151 80
+		2361 379 151 80
+		2360 529 151 80
+		2358 68 151 60
+		2358 68 151 40
+		2358 222 151 60
+		2358 222 151 40
+		2358 379 151 60
+		2358 379 151 40
+		2358 529 151 60
+		2358 529 151 40
+		2359 68 151 30
+		2359 222 151 30
+		2359 379 151 30
+		2359 529 151 30
+		2334 144 152 70
+		2334 460 152 70
+		2334 299 152 70
+		7900 100 161 
+		7900 504 161 
+		7900 316 161 
+		2380 622 208 
+		7906 636 326 
+		2380 622 379 
+		2340 375 458 
+		7900 -72 614 
+	end
+	objects
+		object RCastle24102-0 of RCastle
+			properties
+				loop 2
+				x 132
+				y 184
+			end
+		end
+		object RCastle24102-1 of RCastle
+			properties
+				loop 2
+				x 291
+				y 186
+			end
+		end
+		object RCastle24102-2 of RCastle
+			properties
+				loop 2
+				x 544
+				y 189
+			end
+		end
+		object RCastle24102-3 of RCastle
+			properties
+				loop 0
+				x 425
+				y 204
+			end
+		end
+		object RCastle24102-4 of RCastle
+			properties
+				loop 1
+				x 464
+				y 205
+			end
+		end
+		object RCastle24102-5 of RCastle
+			properties
+				loop 2
+				x 70
+				y 255
+			end
+		end
+		object RCastle24102-6 of RCastle
+			properties
+				loop 0
+				x 174
+				y 261
+			end
+		end
+		object RCastle24102-7 of RCastle
+			properties
+				loop 1
+				x 226
+				y 274
+			end
+		end
+		object RCastle24102-8 of RCastle
+			properties
+				loop 1
+				x 498
+				y 293
+			end
+		end
+		object RCastle24102-9 of RCastle
+			properties
+				loop 0
+				x 448
+				y 308
+			end
+		end
+	end
 end
 room 24112
    properties

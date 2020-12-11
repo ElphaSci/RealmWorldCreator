@@ -944,6 +944,20 @@ room 5014
             head	0 2 3 1 4 3 0 12 5 0 10 1 
          end
       end
+      object MasterVendor5014-0 of sSerenia
+         properties
+            x	192
+            y	237
+            loop	2
+         end
+      end
+      object Stand5014-0 of Stand
+         properties
+            x	192
+            y	250
+            loop	0
+         end
+      end
       object PlankDoor5014-1 of PlankDoor
          properties
             x	458
@@ -2468,6 +2482,20 @@ room 65000
       16  154 323
   end
    objects
+      #object AnewShop-65000 of AnewShop
+      #   properties
+      #      x	202
+      #      y	224
+      #      loop	2
+      #   end
+      #end
+      #object Stand-0 of Stand
+      #   properties
+      #      x	203
+      #      y	236
+      #      loop	0
+      #   end
+      #end
       object chair65000-0 of Chair
          properties
             x	314

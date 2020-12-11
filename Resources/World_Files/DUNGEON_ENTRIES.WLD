@@ -54,9 +54,33 @@ room 21016
    objects
       object sarcophagusDoor21016-0 of SarcophagusDoor
          properties
+            special
+            name "The Anvil"
             x	411
             y	220
             loop	0
+         end
+         base described
+				text	"This old anvil laughs at many a broken hammer.\n There are those who shall not yield."
+			end
+      end
+      object sarcophagusDoor21016-1 of SarcophagusDoor
+         properties
+            special
+            name "The Hammer"
+            x	88
+            y	160
+            loop	0
+         end
+      end
+      object sign21016-0 of Sign
+         properties
+            x	103
+            y	172
+            loop	0
+         end
+         base described
+            text	"HEROIC MODE\n\nBE WEARY, TRAVELER\n\n"
          end
       end
    end
@@ -1285,9 +1309,32 @@ room 4046
    objects
       object sarcophagusDoor4046-0 of SarcophagusDoor
          properties
+            special
+            name "Naktos' Morgue"
             x	187
             y	266
             loop	0
+         end
+      end
+      object sarcophagusDoor4046-1 of SarcophagusDoor
+         properties
+            special
+            name "Naktos' Nightmare"
+            x	534
+            y	154
+            loop	0
+         end
+      end
+      object Sign4046-1 of Sign
+         properties 
+            special
+            name "WARNING!"
+            x  557
+            y  172
+            loop 0
+         end
+         base described
+            text "HEROIC MODE\n\nBEWARE WEARY TRAVELLERS\n\n"
          end
       end
    end
@@ -1678,7 +1725,7 @@ room 3239
       end
    end
 end
-# ---------------------------------------- Faery Caverns ---------------------------------------
+# ---------------------------------------- Forgotten Dungeon ---------------------------------------
 room 9109
    properties
       picture	3001
@@ -2356,9 +2403,31 @@ room 12132
    objects
       object sarcophagusDoor12132-0 of SarcophagusDoor
          properties
+            special
+            name "Daemon Home"
             x	137
             y	292
             loop	0
+         end
+      end
+      object sarcophagusDoor12132-1 of SarcophagusDoor
+         properties
+            special
+            name "Daemon Necropolis"
+            x	615
+            y	158
+            loop	0
+         end
+      end
+      object Sign12132-0 of Sign
+         properties
+            special
+            name "WARNING!"
+            x 623
+            y 165
+         end
+         base described
+            text "HEROIC MODE\nBE WEARY TRAVELER!\n\n"
          end
       end
    end
@@ -2424,9 +2493,23 @@ room 3122
    objects
       object movingRock3122-0 of MovingRock
          properties
+            special
+            name "Thieves Hole"
             x	131
             y	207
             loop	0
+         end
+      end
+      object movingRock3122-1 of MovingRock
+         properties
+            special
+            name "Bandit Hovel"
+            x	414
+            y	146
+            loop	0
+         end
+         base described
+            text "HEROIC MODE\n\nBEWARE WEARY TRAVELLERS\n\n"
          end
       end
    end
@@ -3509,5 +3592,72 @@ room 995014
       end
    end
 end
-
-
+#---------------- The Castle -------------------------------
+room 7102
+   properties
+      roomName "The Castle"
+      picture	3500
+      south	7106 
+      east	7103 
+      west	7101 
+   end
+   atpinfo
+      3  357 194
+      2718  633 304
+      2711  489 202
+      2737  228 112
+      3  71 179
+      3  82 196
+      2713  194 57
+      2737  357 113
+      35485  98 189
+      2717  105 6 -117
+      2618  439 52
+      2717  412 206
+      2717  474 206
+      2618  146 48
+      2717  122 203
+      20  105 181
+      21  612 2 -22
+      32790  346 19 -263
+      23  10 8 -47
+      24  520 262
+      180  60 8 -117
+      32949  516 260
+      182  51 2 -117
+      24  139 3
+      2527  147 10
+      20  -4 92
+      22  70 2
+      32949  271 194
+      182  629 10
+      44  473 186
+      45  484 9 -183
+      49  111 189
+      123  490 188
+      2951  91 9 -157
+      2711  620 322
+      2558  436 131
+      2702  144 70
+      2528  208 9
+      2527  439 11
+      2528  374 8
+      2529  283 46
+      35470  440 68
+      2549  147 136
+      2549  437 134
+      2558  146 133
+      3  500 200
+      149  633 48
+      164  -39 30
+   end
+   objects
+      object plankDoor7102-0 of PlankDoor
+         properties
+            x	291
+            y	195
+            loop	2
+         end
+      end
+   end
+end

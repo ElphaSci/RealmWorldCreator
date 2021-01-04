@@ -1,0 +1,9 @@
+#
+# Dragons.zon
+#
+name            "Dragons"
+roomName         ""
+resetInterval   0
+maximumObjectAge 0
+allowCombat     1
+allowMagic      1

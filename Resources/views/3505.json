@@ -1,0 +1,52 @@
+{
+  "loops": {
+    "0": {
+      "cells": {
+        "0": {
+          "width": 96,
+          "height": 304,
+          "left": -11,
+          "top": 182,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "links": [
+            {
+              "link_x": 93,
+              "link_y": 307,
+              "position_type": 1,
+              "priority": -1
+            },
+            {
+              "link_x": -33,
+              "link_y": 289,
+              "position_type": 2,
+              "priority": -1
+            },
+            {
+              "link_x": -33,
+              "link_y": 1,
+              "position_type": 3,
+              "priority": -1
+            },
+            {
+              "link_x": 125,
+              "link_y": 0,
+              "position_type": 4,
+              "priority": -1
+            },
+            {
+              "link_x": 124,
+              "link_y": 302,
+              "position_type": 5,
+              "priority": -1
+            }
+          ],
+          "spriteX": 0,
+          "spriteY": 0
+        }
+      }
+    }
+  }
+}

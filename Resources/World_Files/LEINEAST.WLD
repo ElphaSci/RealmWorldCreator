@@ -278,40 +278,153 @@ room 5029
    properties
       picture	3500
       north	5014 
-      south	5044 
       east	3012 
+      south	5044 
       west	5028 
    end
    atpinfo
-      2535  710 209
-      2745  152 5 -99
+      2531  400 2
       2745  75 5 -99
-      2745  530 103
-      2745  378 103
+      2532  515 8
+      35484  498 70 20
+      35484  381 72 20
+      35484  371 84 20
+      2747  -52 100
+      2712  153 107
+      2747  83 103
+      2717  585 114
       2717  73 115
-      2717  431 220
-      2717  442 104
       2717  356 118
       2717  416 121
-      2717  508 114
+      2718  566 138
       2716  549 138
-      49  65 152
-      2718  1 181
-      2718  568 137
-      2712  153 107
-      2717  9 194
-      35485  80 174
-      2717  585 114
-      35485  382 208
-      2715  425 170 -20
-      2713  469 175
       2535  623 139
-      35484  371 84 20
+      49  65 152
+      35485  80 174
+      2718  1 181
+      2717  9 194
+      2535  710 209
       2535  618 404
-      35484  381 72 20
-      2531  400 2
-      35484  501 67 20
-      2532  515 7
+      2599  428 233
+      2746  308 101
+      2746  512 101
+      2104  163 146
+   end
+   objects
+      object chair5029-0 of Chair
+         properties
+            loop	0
+            x	361
+            y	223
+         end
+      end
+      object chair5029-1 of Chair
+         properties
+            loop	1
+            x	498
+            y	223
+         end
+      end
+      object torch5029-0 of Torch
+         properties
+            loop	0
+            x	629
+            y	147
+         end
+      end
+      object chair5029-1 of Chair
+         properties
+            x	429
+            y	205
+            loop	2
+         end
+      end
+      object chair5029-2 of Chair
+         properties
+            x	126
+            y	182
+            loop	2
+         end
+      end
+      object chair5029-3 of Chair
+         properties
+            x	75
+            y	203
+            loop	2
+         end
+      end
+      object chair5029-4 of Chair
+         properties
+            x	21
+            y	213
+            loop	2
+         end
+      end
+      object chair5029-5 of Chair
+         properties
+            x	525
+            y	152
+            loop	2
+         end
+      end
+      object chair5029-6 of Chair
+         properties
+            x	329
+            y	134
+            loop	2
+         end
+      end
+      object fireA5029-7 of FireA
+         properties
+            x	386
+            y	141
+            loop	0
+         end
+      end
+      object smokeB5029-8 of SmokeB
+         properties
+            x	387
+            y	132
+            loop	0
+         end
+      end
+      object SimpleDoor5029-9 of SimpleDoor
+         properties
+            x	488
+            y	96
+            loop	2
+            linkTo SimpleDoor65000-10
+         end
+         base openable
+            isOpen	0
+         end
+      end
+      object Andala5028-11 of FoodShop
+         properties
+            name	"Andala"
+            x	130
+            y	138
+            loop	0
+         end
+         base talk
+            talkTreeID	5028
+         end
+         base character
+            sex	1
+            properName	"Andala (NPC)"
+         end
+         base shop
+            buyMarkup	50
+            sellMarkup	100
+         end
+         base container
+            worn	AquaShirt
+            worn	BrownPants
+            worn	LeatherBelt
+            worn	Goldband
+            head	1 1 0 5 3 5 -1 14 8 0 12 1 
+         end
+      end
    end
 end
 
@@ -757,8 +870,11 @@ room 5086
       7900  570 123
    end
 end
+
+
 room 5014
    properties
+      roomName	"East Leinster"
       picture	3500
       south	5029 
       east	3006 
@@ -828,14 +944,19 @@ room 5014
             head	0 2 3 1 4 3 0 12 5 0 10 1 
          end
       end
-      object door5014-1 of Door
+      object PlankDoor5014-1 of PlankDoor
          properties
             x	458
             y	197
             loop	1
          end
-         base openable
-            isOpen	0
+         base lockable
+		   end
+         base described
+            riddleFile	"../data/riddles/leinster.txt"
+         end
+         actions
+            vBeAnswered open PlankDoor5014-1
          end
       end
       object crest5014-2 of Crest
@@ -850,6 +971,10 @@ room 5014
 		end
    end
 end
+
+
+
+
 room 5044
    properties
       picture	3500
@@ -1784,8 +1909,8 @@ room 5028
       2745  206 1 -99
       2599  267 195
       2718  608 176
-      2598  501 173 -10
-      86  498 174 43
+      2952  180 100
+      2718  482 116
       2599  452 259
       2717  121 127
       2717  194 117
@@ -1793,8 +1918,6 @@ room 5028
       2717  481 121
       35485  643 185
       2711  564 115
-      2952  180 100
-      2718  482 116
    end
    objects
       object chair5028-0 of Chair
@@ -1853,32 +1976,6 @@ room 5028
             loop	2
          end
       end
-      object Andala5028-11 of FoodShop
-         properties
-            name	"Andala"
-            x	498
-            y	160
-            loop	1
-         end
-         base talk
-            talkTreeID	5028
-         end
-         base character
-            sex	1
-            properName	"Andala (NPC)"
-         end
-         base shop
-            buyMarkup	50
-            sellMarkup	100
-         end
-         base container
-            worn	AquaShirt
-            worn	BrownPants
-            worn	LeatherBelt
-            worn	Goldband
-            head	1 1 0 5 3 5 -1 14 8 0 12 1 
-         end
-      end
       object chair5028-9 of Chair
          properties
             x	431
@@ -1900,82 +1997,6 @@ room 5028
             loop	0
          end
       end
-      object stand5028-12 of Stand
-         properties
-            x	97
-            y	316
-            loop	0
-         end
-      end
-      object SantaShop of Shop
-	     properties
-		     special
-		     loop 2
-		     name "Santa Claus"
-             x	92
-             y	315
-
-             girth 100
-		     height 80
-	        end
-
-	        base described
-		        text "Father Christmas himself\n\n"
-	        end
-
-	        base container
-                worn	SantaShirt
-                worn	SantaPants
-                worn	SantaBelt
-                worn	bLatexboot
-	            worn	SantaHat
-		        worn	SantaCowl
-	            worn	SantaBracers
-                head 	0 0 3 7 1 11 8 0 13 10 0 0 2 # Santa Claus
-            end
-
-	        base character
-		        title "Father Christmas"
-	        end
-
-	        base shop
-		        buyMarkup  50
-		        sellMarkup 100
-
-		        inventory
-			        category "December 2017" 52233
-                        object SantaHat
-                        object Menorah
-                        object XmasAngel
-                        object XmasBear
-                        object XmasClausFam
-                        object XmasDog
-                        object XmasDog2
-                        object XmasDog3
-                        object XmasDog4
-                        object XmasDog5
-                        object XmasElf
-                        object XmasIgloo
-                        object XmasMerrySign
-                        object XmasSanta
-                        object XmasSantaArch
-                        object XmasSantaClock
-                        object XmasSantaSleigh1
-                        object XmasSantaSleigh2
-                        object XmasSnowGlobe
-                        object XmasTeddy
-                        object XmasGrinchAndMax
-                        object XmasSignNorthPolePenguin
-                        object XmasLampNorthPole
-                        object XmasHolidayEntrance
-                        object XmasPolarBearGift
-                        object XmasSnowmanFamily
-                        object XmasChipmunk
-                        object XmasSignSantaStop
-                    end
-			    end
-	        end
-        end
    end
 end
 room 5043
@@ -2394,6 +2415,396 @@ room 6023
 					object hdPalePaleBrown 
 				end
 			end
+         end
+      end
+   end
+end
+
+room 65000
+ properties
+      picture	4000
+      roomName	"Leinster Lobby"
+ end
+ atpinfo
+      2117  243 60 -69
+      2028  500 10
+      2028  176 10
+      2127  287 128 150
+      2029  231 51
+      2005  597 115 100
+      2028  335 9
+      2103  75 301
+      2112  335 54 -61
+      2017  71 14
+      2241  530 210
+      2029  439 52
+      2018  3 63
+      2164  98 140 20
+      2600  444 304
+      2082  508 149
+      2082  447 149
+      2082  161 149
+      2082  223 149
+      2080  29 164
+      2241  640 230
+      2241  492 209
+      2241  453 208
+      2133  269 146
+      2127  335 97
+      34989  70 201
+      2280  213 70
+      2280  455 70
+      2260  269 202
+      2129  191 205
+      2130  388 203
+      2597  140 156 10
+      2597  202 156 10
+      2597  426 156 10
+      2597  487 156 10
+      2162  635 153
+      7900  262 203
+      7900  405 203
+      7905  14 257
+      16  154 323
+  end
+   objects
+      object chair65000-0 of Chair
+         properties
+            x	314
+            y	293
+            loop	0
+         end
+      end
+      object chair65000-1 of Chair
+         properties
+            x	340
+            y	275
+            loop	0
+         end
+      end
+      object chair65000-2 of Chair
+         properties
+            x	561
+            y	288
+            loop	1
+         end
+      end
+      object chair65000-3 of Chair
+         properties
+            x	534
+            y	274
+            loop	1
+         end
+      end
+      object chair65000-4 of Chair
+         properties
+            x	415
+            y	270
+            loop	2
+         end
+      end
+      object chair65000-5 of Chair
+         properties
+            x	373
+            y	269
+            loop	2
+         end
+      end
+      object chair65000-6 of Chair
+         properties
+            x	459
+            y	270
+            loop	2
+         end
+      end
+      object chair65000-7 of Chair
+         properties
+            x	499
+            y	271
+            loop	2
+         end
+      end
+      object bartender65000-8 of Shop
+         properties
+            x	47
+            y	284
+            loop	2
+         end
+         base character
+            properName	"Todd (NPC)"
+            title	"Bartender"
+         end
+         base container
+            worn	BlueRobe
+            worn	maFinvarraCowl
+            worn    bFinvarra
+            worn    FinvarraBaldric
+            head	0 0 4 4 7 2 12 8 10 10 8 2 
+         end
+         base shop
+                currency copper
+
+				buyMarkup  25
+		        sellMarkup 100
+
+				inventory
+					category "Copper Shop" 15133
+                        category "Clothing" 15565
+                            object Swimsuit
+                            object Bikini
+                            object Beanie
+                        end
+                        category "Master Stat Gear" 15534
+                            category "Master Boots" 15134
+                                 category "High" 15543
+						                  object MasterHighBootsOfIntelligence
+                                    object MasterHighBootsOfStrength
+                                    object MasterHighBootsOfEndurance
+                                    object MasterHighBootsOfDexterity
+                                 end
+                                 category "Low" 15542
+                                    object MasterLowBootsOfIntelligence
+                                    object MasterLowBootsOfStrength
+                                    object MasterLowBootsOfEndurance
+                                    object MasterLowBootsOfDexterity
+                                 end
+                            end
+                            category "Master Robes" 15535
+                                object MasterRobeOfStrength
+                                object MasterRobeOfDexterity
+                                object MasterRobeOfEndurance
+                                object MasterRobeOfIntelligence
+                            end
+                            category "Master Skirts" 15536
+                                 category "Short" 14464 
+                                    object MasterSkirtOfStrength
+                                    object MasterSkirtOfDexterity
+                                    object MasterSkirtOfEndurance
+                                    object MasterSkirtOfIntelligence
+                                 end
+                                 category "Long" 15538
+                                    object MasterLongSkirtOfStrength
+                                    object MasterLongSkirtOfDexterity
+                                    object MasterLongSkirtOfEndurance
+                                    object MasterLongSkirtOfIntelligence
+                                 end
+                            end
+                        end
+                        category "Godlike Stat Gear" 15534
+                            category "Godlike Boots" 15134
+                                 category "High" 15543
+						                  object GodlikeHighBootsOfIntelligence
+                                    object GodlikeHighBootsOfStrength
+                                    object GodlikeHighBootsOfEndurance
+                                    object GodlikeHighBootsOfDexterity
+                                 end
+                                 category "Low" 15542
+                                    object GodlikeLowBootsOfIntelligence
+                                    object GodlikeLowBootsOfStrength
+                                    object GodlikeLowBootsOfEndurance
+                                    object GodlikeLowBootsOfDexterity
+                                 end
+                            end
+                            category "Godlike Robes" 15535
+                                object GodlikeRobeOfStrength
+                                object GodlikeRobeOfDexterity
+                                object GodlikeRobeOfEndurance
+                                object GodlikeRobeOfIntelligence
+                            end
+                            category "Godlike Skirts" 15536
+                                 category "Short" 14464 
+                                    object GodlikeSkirtOfStrength
+                                    object GodlikeSkirtOfDexterity
+                                    object GodlikeSkirtOfEndurance
+                                    object GodlikeSkirtOfIntelligence
+                                 end
+                                 category "Long" 15538
+                                    object GodlikeLongSkirtOfStrength
+                                    object GodlikeLongSkirtOfDexterity
+                                    object GodlikeLongSkirtOfEndurance
+                                    object GodlikeLongSkirtOfIntelligence
+                                 end
+                            end
+                        end
+                        category "Call to Conflict" 15537
+                            #  Warrior Ribbons 
+							category "Warrior Ribbons"  10133
+								object CTCBlueRibbonWar50
+								object CTCBlueRibbonWar100
+								object CTCBlueRibbonWar150
+								object CTCBlueRibbonWar199
+								object CTCBlueRibbonWar300
+								object CTCBlueRibbonWar400
+								object CTCBlueRibbonWar500
+								object CTCBlueRibbonWar750
+								object CTCBlueRibbonWar1000
+								object CTCRedRibbonWar50
+								object CTCRedRibbonWar100
+								object CTCRedRibbonWar150
+								object CTCRedRibbonWar199
+								object CTCRedRibbonWar300
+								object CTCRedRibbonWar400
+								object CTCRedRibbonWar500
+								object CTCRedRibbonWar750
+								object CTCRedRibbonWar1000
+								object CTCWhiteRibbonWar50
+								object CTCWhiteRibbonWar100
+								object CTCWhiteRibbonWar150
+								object CTCWhiteRibbonWar199
+								object CTCWhiteRibbonWar300
+								object CTCWhiteRibbonWar400
+								object CTCWhiteRibbonWar500
+								object CTCWhiteRibbonWar750
+								object CTCWhiteRibbonWar1000
+							end
+							# -------------------------------------------------------------
+							#  Wizard Ribbons 
+							category "Wizard Ribbons"  10133
+								object CTCBlueRibbonWiz50 
+								object CTCBlueRibbonWiz100 
+								object CTCBlueRibbonWiz150 
+								object CTCBlueRibbonWiz199 
+								object CTCBlueRibbonWiz300 
+								object CTCBlueRibbonWiz400 
+								object CTCBlueRibbonWiz500 
+								object CTCBlueRibbonWiz750 
+								object CTCBlueRibbonWiz1000 
+								object CTCRedRibbonWiz50 
+								object CTCRedRibbonWiz100 
+								object CTCRedRibbonWiz150 
+								object CTCRedRibbonWiz199 
+								object CTCRedRibbonWiz300 
+								object CTCRedRibbonWiz400 
+								object CTCRedRibbonWiz500 
+								object CTCRedRibbonWiz750 
+								object CTCRedRibbonWiz1000 
+								object CTCWhiteRibbonWiz50 
+								object CTCWhiteRibbonWiz100 
+								object CTCWhiteRibbonWiz150 
+								object CTCWhiteRibbonWiz199 
+								object CTCWhiteRibbonWiz300 
+								object CTCWhiteRibbonWiz400 
+								object CTCWhiteRibbonWiz500 
+								object CTCWhiteRibbonWiz750 
+								object CTCWhiteRibbonWiz1000 
+							end
+							# -------------------------------------------------------------
+							#  Adventurer Ribbons 
+							category "Adventurer Ribbons"  10133
+								object CTCBlueRibbonAdv50 
+								object CTCBlueRibbonAdv100 
+								object CTCBlueRibbonAdv150 
+								object CTCBlueRibbonAdv199 
+								object CTCBlueRibbonAdv300 
+								object CTCBlueRibbonAdv400 
+								object CTCBlueRibbonAdv500 
+								object CTCBlueRibbonAdv750 
+								object CTCBlueRibbonAdv1000 
+								object CTCRedRibbonAdv50 
+								object CTCRedRibbonAdv100 
+								object CTCRedRibbonAdv150 
+								object CTCRedRibbonAdv199 
+								object CTCRedRibbonAdv300 
+								object CTCRedRibbonAdv400 
+								object CTCRedRibbonAdv500 
+								object CTCRedRibbonAdv750 
+								object CTCRedRibbonAdv1000 
+								object CTCWhiteRibbonAdv50 
+								object CTCWhiteRibbonAdv100 
+								object CTCWhiteRibbonAdv150 
+								object CTCWhiteRibbonAdv199 
+								object CTCWhiteRibbonAdv300 
+								object CTCWhiteRibbonAdv400 
+								object CTCWhiteRibbonAdv500 
+								object CTCWhiteRibbonAdv750 
+								object CTCWhiteRibbonAdv1000 
+							end
+							# -------------------------------------------------------------
+							#  Thief Ribbons 
+							category "Thief Ribbons"  10133
+								object CTCBlueRibbonThief50 
+								object CTCBlueRibbonThief100 
+								object CTCBlueRibbonThief150 
+								object CTCBlueRibbonThief199 
+								object CTCBlueRibbonThief300 
+								object CTCBlueRibbonThief400 
+								object CTCBlueRibbonThief500 
+								object CTCBlueRibbonThief750 
+								object CTCBlueRibbonThief1000 
+								object CTCRedRibbonThief50 
+								object CTCRedRibbonThief100 
+								object CTCRedRibbonThief150 
+								object CTCRedRibbonThief199 
+								object CTCRedRibbonThief300 
+								object CTCRedRibbonThief400 
+								object CTCRedRibbonThief500 
+								object CTCRedRibbonThief750 
+								object CTCRedRibbonThief1000 
+								object CTCWhiteRibbonThief50 
+								object CTCWhiteRibbonThief100 
+								object CTCWhiteRibbonThief150 
+								object CTCWhiteRibbonThief199 
+								object CTCWhiteRibbonThief300 
+								object CTCWhiteRibbonThief400 
+								object CTCWhiteRibbonThief500 
+								object CTCWhiteRibbonThief750 
+								object CTCWhiteRibbonThief1000 
+							end
+							# -------------------------------------------------------------
+							# Team
+							category "Team Ribbons"  10133
+								object CTCBlueRibbonTeam199 
+								object CTCBlueRibbonTeam400 
+								object CTCBlueRibbonTeam600 
+								object CTCBlueRibbonTeam800 
+								object CTCBlueRibbonTeam1000 
+								object CTCRedRibbonTeam199 
+								object CTCRedRibbonTeam400 
+								object CTCRedRibbonTeam600 
+								object CTCRedRibbonTeam800 
+								object CTCRedRibbonTeam1000 
+								object CTCWhiteRibbonTeam199 
+								object CTCWhiteRibbonTeam400 
+								object CTCWhiteRibbonTeam600 
+								object CTCWhiteRibbonTeam800 
+								object CTCWhiteRibbonTeam1000 
+							end
+							# -------------------------------------------------------------
+							# Carnival 
+							category "Carnival Ribbons"  10133
+								object July2000BlueRibbon
+								object July2000RedRibbon
+								object July2000WhiteRibbon
+								object July2000YellowRibbon
+								object July2000GreenRibbon
+							end
+                        end
+                        category "Hibiscus" 15568
+                            object HibiscusBlue
+                            object HibiscusPink
+                            object HibiscusPurple
+                            object HibiscusYellow
+                        end
+					end
+				end
+			end
+      end
+      object firePlace65000-9 of FirePlace
+         properties
+            x	26
+            y	218
+            loop	1
+         end
+      end
+      object SimpleDoor65000-10 of SimpleDoor
+         properties
+            x	585
+            y	207
+            loop	1
+            linkTo SimpleDoor5029-9
+         end
+         base openable
+            isOpen	0
          end
       end
    end

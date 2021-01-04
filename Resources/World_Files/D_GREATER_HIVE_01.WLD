@@ -386,7 +386,7 @@ room 100013
 			base described
 			end
 		end
-		object RandomMonsterOrb-100013-27 of RandomMonsterOrb
+		object DungeonTreasure-100013-27 of DungeonTreasure
 			properties
 				x	528
 				y	239
@@ -1014,7 +1014,7 @@ room 100004
 			base described
 			end
 		end
-		object RandomMegaTreasure-100004-8 of RandomMegaTreasure
+		object RandomNewGear-100004-8 of RandomNewGear
 			properties
 				x	-200
 				y	-200
@@ -1038,7 +1038,7 @@ room 100004
 			base described
 			end
 		end
-		object RandomMonsterOrb-100004-10 of RandomMonsterOrb
+		object DungeonTreasure-100004-10 of DungeonTreasure
 			properties
 				x	-200
 				y	-200
@@ -4764,7 +4764,7 @@ room 100043
 			base described
 			end
 		end
-		object RandomMegaTreasure-100043-25 of RandomMegaTreasure
+		object RandomNewGear-100043-25 of RandomNewGear
 			properties
 				x	-200
 				y	-200
@@ -4800,7 +4800,7 @@ room 100043
 			base described
 			end
 		end
-		object RandomMonsterOrb-100043-28 of RandomMonsterOrb
+		object DungeonTreasure-100043-28 of DungeonTreasure
 			properties
 				x	-200
 				y	-200
@@ -4896,7 +4896,7 @@ room 100043
 			base described
 			end
 		end
-		object RandomPlateCowl-100043-37 of RandomPlateCowl
+		object RandomNewGear-100043-37 of RandomNewGear
 			properties
 				x	-200
 				y	-200
@@ -4908,7 +4908,7 @@ room 100043
 			base described
 			end
 		end
-		object RandomChainCowl-100043-38 of RandomChainCowl
+		object RandomNewGear-100043-38 of RandomNewGear
 			properties
 				x	-200
 				y	-200
@@ -5064,7 +5064,7 @@ room 100043
 			base described
 			end
 		end
-		object RandomMegaMoney-100043-51 of RandomMegaMoney
+		object RandomNewGear-100043-51 of RandomNewGear
 			properties
 				x	-200
 				y	-200

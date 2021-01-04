@@ -9,12 +9,12 @@ from PyFotoSCIop.source.p56files import p56file32
 from PyFotoSCIop.source.v56files import V56file
 from Resources.stock_objects.stkobj7 import stkObjDict
 from atp_info import ATP_CATEGORIES, ATP_BY_PIC
-from p56_info import PIC_INFO
+from p56_info import PIC_INFO, PicInfo
 from PyFotoSCIop.PySCIs.WLDInterpreter import ATP, WorldObject, Room
 import PyFotoSCIop.PySCIs.WLDInterpreter as WldInterp
 
 
-def scale_image(pil_image: Image, y_depth: int, p56_info, race='default'):
+def scale_image(pil_image: Image, y_depth: int, p56_info: PicInfo, race='default'):
     """
     Scales pil_im to the appropriate size, using the scaling parameters from pic_info, and given the y_depth
 

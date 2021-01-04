@@ -25,10 +25,13 @@ class PicInfo:
         return self.backPercent() - self.slope() * self.back_y
 
 
-pics = [PicInfo(picture=3000, roomtype='FOREST'), PicInfo(picture=3001, roomtype='FOREST'),
+pics = [PicInfo(picture=3000, roomtype='FOREST'),
+        PicInfo(picture=3001, roomtype='FOREST'),
         PicInfo(picture=3009, roomtype='FOREST', horizon=130, back_y=1, backsize=80),
-        PicInfo(picture=3404, roomtype='DESERT'), PicInfo(picture=3405, roomtype='DESERT'),
-        PicInfo(picture=3030, roomtype='BEACH'), PicInfo(picture=3031, roomtype='BEACH'),
+        PicInfo(picture=3404, roomtype='DESERT'),
+        PicInfo(picture=3405, roomtype='DESERT'),
+        PicInfo(picture=3030, roomtype='BEACH'),
+        PicInfo(picture=3031, roomtype='BEACH'),
         PicInfo(picture=3032, roomtype='BEACH'),
         PicInfo(picture=3500, roomtype='TOWN1', horizon=100, back_y=160, backsize=80, front_y=320, frontsize=80),
         PicInfo(picture=4000, roomtype='TOWN1INT', horizon=90, back_y=160, backsize=80, front_y=320, frontsize=80),

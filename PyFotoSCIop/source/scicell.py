@@ -8,9 +8,24 @@ from PyFotoSCIop.source.palette import Palette
 
 class CellHeader:
     def __init__(self, binary_data=None, offset=0):
-        self._attribute_fields = ["width", "height", "xShift", "yShift", "transparentClr", "compression", "flags",
-                                  "imageandPackSize", "imageSize", "paletteOffs", "imageOffs", "packDataOffs",
-                                  "linesOffs", "zDepth", "xPos", "yPos"]
+        self.width = None  # short
+        self.height = None  # short
+        self.xShift = None  # short
+        self.yShift = None  # short
+        self.transparentClr = None  # char
+        self.compression = None  # char
+        self.flags = None  # short
+        self.imageandPackSize = None  # unsigned long
+        self.imageSize = None  # unsigned long
+        self.paletteOffs = None  # unsigned long
+
+        # IMPORTANT WHEN EDITING OR LOADING CHECK IF != 0
+        self.imageOffs = None  # unsigned long
+        self.packDataOffs = None  # unsigned long; color offset?
+        self.linesOffs = None  # unsigned long; row table offest?
+        self.zDepth = None  # short; priority?
+        self.xPos = None  # short
+        self.yPos = None  # short
 
         # format to use to unpack this data from bytes:
         # TODO: Test this, I use unsigned int here, even though c++ struct used ulong. I think uint is right.
@@ -33,13 +48,29 @@ class CellHeader:
 
 class ViewCellHeader:
     def __init__(self, binary_data=None, offset=0):
-        self._attribute_fields = ["width", "height", "xShift", "yShift", "transparentClr", "compression", "flags",
-                                  "imageandPackSize", "imageSize", "paletteOffs", "imageOffs", "packDataOffs",
-                                  "linesOffs"]
+        self.cellOffset = None
+        self.width = None  # short
+        self.height = None  # short
+        self.xShift = None  # short
+        self.yShift = None  # short
+        self.transparentClr = None  # char
+        self.compression = None  # char
+        self.flags = None  # short
+        self.imageandPackSize = None  # unsigned long
+        self.imageSize = None  # unsigned long
+        self.paletteOffs = None  # unsigned long
+
+        # IMPORTANT WHEN EDITING OR LOADING CHECK IF != 0
+        self.imageOffs = None  # unsigned long
+        self.packDataOffs = None  # unsigned long
+        self.linesOffs = None  # unsigned long
+        self.linkTableOffset = None  # Int32
+        self.linkNumber = None  # UInt16
 
         # format to use to unpack this data from bytes:
         # TODO: Test this, I use unsigned int here, even though c++ struct used ulong. I think uint is right.
-        self.format = '4h2Bh6I'
+        # self.format = 'hhhhbbhIIIIII'
+        self.format = '4h2Bh6IIh'
 
         if binary_data is not None:
             self.unpack(binary_data, offset)
@@ -48,14 +79,34 @@ class ViewCellHeader:
         return struct.calcsize(self.format)
 
     def unpack(self, binary_data, offset=0):
+        self.cellOffset = offset
         start_idx = offset
         end_idx = offset + self.size()
         args = struct.unpack(self.format, binary_data[start_idx:end_idx])
-        for attr, val in zip(self._attribute_fields, args):
-            self.__setattr__(attr, val)
+        self.width = args[0]
+        self.height = args[1]
+        self.xShift = args[2]
+        self.yShift = args[3]
+        self.transparentClr = args[4]
+        self.compression = args[5]
+        self.flags = args[6]
+        self.imageandPackSize = args[7]
+        self.imageSize = args[8]
+        self.paletteOffs = args[9]
+
+        # IMPORTANT WHEN EDITING args
+        self.imageOffs = args[10]
+        self.packDataOffs = args[11]
+        self.linesOffs = args[12]
+        self.linkTableOffset = args[13]
+        self.linkNumber = args[14]
+        pass
+
 
 class Cell:
     def __init__(self):
+        self._links = []
+        self.header: ViewCellHeader = None
         self._width = None  # ushort
         self._height = None  # ushort
         self._left = None  # short
@@ -77,6 +128,23 @@ class Cell:
         self._palette = Palette()
         self.new_cell = None  # CellHeader
         self.old_cell = None  # ViewCellHeader
+
+    def setLinks(self, links):
+        self._links = links
+
+    def serialize(self) -> dict:
+        info = {}
+        info["width"] = self._width
+        info["height"] = self._height
+        info["left"] = self._left
+        info["top"] = self._top
+        info["transparentPalIdx"] = self._skpColor
+        info["zDepth"] = self._zDepth
+        info["xPos"] = self._xPos
+        info["yPos"] = self._yPos
+        if len(self._links) > 0:
+            info['links'] = self._links
+        return info
 
     def union(self, new_cell_header, old_cell_header):
         self.new_cell = new_cell_header
@@ -121,7 +189,8 @@ class Cell:
             self._cachedHeader = None
             self._cached = None
 
-    def LoadCell(self, cell_header, image, pack, lines, isView):
+    def LoadCell(self, cell_header: ViewCellHeader, image, pack, lines, isView):
+        self.header = cell_header
         self._image = image
         self._pack = pack
         self._lines = lines
@@ -147,9 +216,43 @@ class Cell:
             self._imageSize = cell_header.height * cell_header.width
             self._packSize = 0
 
-    def get_pil_image(self, draw=False, transparent=True):
-        if self._compression:
-            rgba_im = self.decompress_image(transparent)
+    def get_pil_image(self, draw=False, transparent=True) -> Image:
+        if self._compression != 0:
+            ptags = iter(self._image)
+            pdata = iter(self._pack)
+            pal_data = self._palette._palData
+            rgba_im = []
+            last_pal_entry = pal_data[255]
+            # this is typically the transparent color, if not, it will set that below
+            last_rgba = [last_pal_entry.red, last_pal_entry.green, last_pal_entry.blue, 0]
+            last_rgba_opaque = [last_pal_entry.red, last_pal_entry.green, last_pal_entry.blue, 255]
+            for i in range(self._height):
+                cur_width = 0
+                while cur_width < self._width:
+                    switch = next(ptags)
+                    if switch >> 6 == 2:
+                        color = next(pdata)
+                        pal_entry = pal_data[color]
+                        if color == self._skpColor and transparent:
+                            rgba_im.extend([pal_entry.red, pal_entry.green, pal_entry.blue, 0] * (switch - 0x80))
+                        else:
+                            rgba_im.extend([pal_entry.red, pal_entry.green, pal_entry.blue, 255] * (switch - 0x80))
+                        cur_width += switch - 0x80
+                    elif switch >> 6 == 3:
+                        if 255 != self._skpColor or not transparent:
+                            rgba_im.extend(last_rgba_opaque * (switch - 0xC0))
+                        else:
+                            rgba_im.extend(last_rgba * (switch - 0xC0))
+                        cur_width += switch - 0xC0
+                    else:
+                        for j in range(switch):
+                            col = next(pdata)
+                            pal_entry = pal_data[col]
+                            if col == self._skpColor and transparent:
+                                rgba_im.extend([pal_entry.red, pal_entry.green, pal_entry.blue, 0])
+                            else:
+                                rgba_im.extend([pal_entry.red, pal_entry.green, pal_entry.blue, 255])
+                        cur_width += switch
             pil_im = Image.frombuffer('RGBA', (self._width, self._height), bytes(rgba_im), 'raw', 'RGBA', 0, 1)
             if not draw:
                 return pil_im

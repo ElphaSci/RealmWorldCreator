@@ -478,7 +478,7 @@ room 7016
             properName	"Basial (NPC)"
          end
          base shop
-            buyMarkup	50
+            buyMarkup	40
             sellMarkup	100
          end
          base container

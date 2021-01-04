@@ -1,0 +1,278 @@
+{
+  "loops": {
+    "0": {
+      "cells": {
+        "0": {
+          "width": 50,
+          "height": 29,
+          "left": -9,
+          "top": 0,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 0,
+          "spriteY": 0
+        },
+        "1": {
+          "width": 50,
+          "height": 29,
+          "left": -9,
+          "top": 0,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 50,
+          "spriteY": 0
+        },
+        "2": {
+          "width": 50,
+          "height": 29,
+          "left": -9,
+          "top": 0,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 100,
+          "spriteY": 0
+        },
+        "3": {
+          "width": 50,
+          "height": 29,
+          "left": -9,
+          "top": 0,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 150,
+          "spriteY": 0
+        },
+        "4": {
+          "width": 50,
+          "height": 29,
+          "left": -9,
+          "top": 0,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 200,
+          "spriteY": 0
+        },
+        "5": {
+          "width": 50,
+          "height": 29,
+          "left": -9,
+          "top": 0,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 250,
+          "spriteY": 0
+        },
+        "6": {
+          "width": 50,
+          "height": 29,
+          "left": -9,
+          "top": 0,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 300,
+          "spriteY": 0
+        },
+        "7": {
+          "width": 50,
+          "height": 29,
+          "left": -9,
+          "top": 0,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 350,
+          "spriteY": 0
+        },
+        "8": {
+          "width": 50,
+          "height": 29,
+          "left": -9,
+          "top": 0,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 400,
+          "spriteY": 0
+        },
+        "9": {
+          "width": 50,
+          "height": 29,
+          "left": -9,
+          "top": 0,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 450,
+          "spriteY": 0
+        },
+        "10": {
+          "width": 50,
+          "height": 29,
+          "left": -9,
+          "top": 0,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 500,
+          "spriteY": 0
+        }
+      }
+    },
+    "1": {
+      "cells": {
+        "0": {
+          "width": 50,
+          "height": 29,
+          "left": -9,
+          "top": 0,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 0,
+          "spriteY": 29
+        },
+        "1": {
+          "width": 50,
+          "height": 29,
+          "left": -9,
+          "top": 0,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 50,
+          "spriteY": 29
+        },
+        "2": {
+          "width": 50,
+          "height": 29,
+          "left": -9,
+          "top": 0,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 100,
+          "spriteY": 29
+        },
+        "3": {
+          "width": 50,
+          "height": 29,
+          "left": -9,
+          "top": 0,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 150,
+          "spriteY": 29
+        },
+        "4": {
+          "width": 50,
+          "height": 29,
+          "left": -9,
+          "top": 0,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 200,
+          "spriteY": 29
+        },
+        "5": {
+          "width": 50,
+          "height": 29,
+          "left": -9,
+          "top": 0,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 250,
+          "spriteY": 29
+        },
+        "6": {
+          "width": 50,
+          "height": 29,
+          "left": -9,
+          "top": 0,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 300,
+          "spriteY": 29
+        },
+        "7": {
+          "width": 50,
+          "height": 29,
+          "left": -9,
+          "top": 0,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 350,
+          "spriteY": 29
+        },
+        "8": {
+          "width": 50,
+          "height": 29,
+          "left": -9,
+          "top": 0,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 400,
+          "spriteY": 29
+        },
+        "9": {
+          "width": 50,
+          "height": 29,
+          "left": -9,
+          "top": 0,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 450,
+          "spriteY": 29
+        },
+        "10": {
+          "width": 50,
+          "height": 29,
+          "left": -9,
+          "top": 0,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 500,
+          "spriteY": 29
+        }
+      },
+      "mirror": true,
+      "basedOn": 0
+    }
+  }
+}

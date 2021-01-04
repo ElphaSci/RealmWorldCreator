@@ -242,7 +242,7 @@ room 26258
             properName	"Clyde (NPC)"
          end
          base shop
-            buyMarkup	50
+            buyMarkup	40
             sellMarkup	100
          end
          base container
@@ -443,7 +443,7 @@ room 90014
             properName	"Rolf (NPC)"
          end
          base shop
-            buyMarkup	50
+            buyMarkup	40
             sellMarkup	100
          end
          base container
@@ -542,6 +542,9 @@ room 90016
             properName	"Thomas"
             title	"The Healer"
          end
+         base talk
+		      talkTreeID	99699
+	      end
          base described
             text	"Thomas has been guarding this portal for a millenia. He looks tired..."
          end
@@ -576,7 +579,7 @@ room 90015
             properName	"Druag (NPC)"
          end
          base shop
-            buyMarkup	50
+            buyMarkup	40
             sellMarkup	100
          end
          base container
@@ -888,7 +891,7 @@ room 90018
             title	"the Innkeeper"
          end
          base shop
-            buyMarkup	50
+            buyMarkup	40
             sellMarkup	100
          end
          base container
@@ -918,12 +921,13 @@ room 90018
       end
    end
 end
+
 room 90019
    properties
       picture	3500
       south	90012 
-	  east	92000
-	  west	95000
+      east	92000 
+      west	95000 
       roomName	"Old Achren Gatekeeper"
    end
    atpinfo
@@ -986,7 +990,7 @@ room 90019
             worn	BlackPants
             worn	BrownBelt
             worn	BrownBoots
-            head	0 2 0 4 0 3 14 17 4 11 0 0 #Hate
+            head	0 2 0 4 0 3 14 17 4 11 0 0 0 
          end
       end
       object torch90019-1 of Torch
@@ -1010,18 +1014,28 @@ room 90019
             text	"This is a big wooden door."
          end
       end
-	  object button24483-6 of Button
+      object lever90019-6 of Lever
          properties
-            x	94
-            y	209
+            x	69
+            y	304
             loop	0
          end
-		 actions
+         actions
             vBeActivated teleport dobj 26258
             vBeDeactivated teleport dobj 26258
          end
          base described
-            text	"To: York"
+            text	"To: York\n\nDANGER: Monsters ahead!"
+         end
+      end
+      object sign90019-7 of Sign
+         properties
+            x	43
+            y	308
+            loop	0
+         end
+         base described
+            text	"To: York\n\nDANGER: Monsters ahead!"
          end
       end
    end
@@ -1350,6 +1364,208 @@ room 92001
 						object hdPurple
 						object hdLightPurple
 						object hdWhite
+						object hdNaturalBrown  
+						object hdRustBrown  
+						object hdMediumRustBrown  
+						object hdLightRustBrown  
+						object hdPaleRustBrown  
+						object hdSepia  
+						object hdOliveBrown  
+						object hdDarkOliveGreen  
+						object hdSienna  
+						object hdCerulean  
+						object hdDodgerBlue  
+						object hdDeepSkyBlue  
+						object hdTurquoise  
+						object hdRoyalBlue  
+						object hdCeladon  
+						object hdFireBrick  
+						object hdCoralRedGlow  
+						object hdBabyPink  
+						object hdGinger  
+						object hdLightAmber  
+						object hdPaleYellow  
+						object hdEggPlant  
+						object hdMagentaGlow  
+						object hdLightMagentaC  
+						object hdBrownMagentaGlow  
+						object hdBrownPinkGlow  
+						object hdSandyBrown  
+						object hdMediumCyan  
+						object hdCadetBlue  
+						object hdLightCyan  
+						object hdSatori  
+						object hdSeaGreenGlow  
+						object hdLightGreenC  
+						object hdDarkScarlet  
+						object hdOrangeGlow  
+						object hdIndigo  
+						object hdPlumGlow  
+						object hdLightPurpleLines  
+						object hdBlueBlack  
+						object hdBlackGlow  
+						object hdBrightWhite  
+						object hdChocolate  
+						object hdCreamBrown  
+						object hdLightCreamBrown  
+						object hdDarkOliveGlow  
+						object hdOliveGlow  
+						object hdLightYellowLines  
+						object hdDarkBlue  
+						object hdBlueGlow  
+						object hdMaroon  
+						object hdMaroonGlow  
+						object hdLightPink  
+						object hdTawny  
+						object hdYellowOrangeGlow  
+						object hdEggplantYellow  
+						object hdPurpleGlow  
+						object hdLighterMagenta  
+						object hdDarkChocolate  
+						object hdDarkBrownMagentaGlow  
+						object hdCyprus  
+						object hdDeepSeaGlow  
+						object hdForestGreen  
+						object hdForestGreenGlow  
+						object hdPaleGreen  
+						object hdDarkBurntOrange  
+						object hdDarkOrangeGlow  
+						object hdDarkPurpleOrange  
+						object hdDarkPurpleGlow  
+						object hdLightPurpleC  
+						object hdDarkPuple  
+						object hdDarkBlackGlow  
+						object hdBrighterWhite  
+						object hdSaddleBrown  
+						object hdDarkBrownGlow  
+						object hdDarkFlesh  
+						object hdTanFlesh  
+						object hdLightFleshGreen  
+						object hdGreenLightFlesh  
+						object hdGrayGreen  
+						object hdGrayLittleGreen  
+						object hdLightestFinvarra  
+						object hdLightFinvarra  
+						object hdLighterFinvarra  
+						object hdFinvarra  
+						object hdBlackLatex  
+						object hdGrayBlack  
+						object hdAlmondFrost  
+						object hdPharlap  
+						object hdDarkPharlap  
+						object hdDarkerPharlap  
+						object hdDarkestPharlap  
+						object hdSealBrownGlow  
+						object hdLightTan  
+						object hdTeak  
+						object hdMediumTeak  
+						object hdDarkTeak  
+						object hdDarkerTeak  
+						object hdDarkestTeak  
+						object hdDarkBrownCitrusGlow  
+						object hdCitrusDarkbrown  
+						object hdUltraOlive  
+						object hdDarkOlive  
+						object hdDarkerOlive  
+						object hdDarkestOlive  
+						object hdDarkPrussianBlue  
+						object hdPrussianBlue  
+						object hdPrussianBlueGlow  
+						object hdSapling  
+						object hdEcru  
+						object hdDarkEcru  
+						object hdDarkerEcru  
+						object hdYellowOrange  
+						object hdMediumYellowOrange  
+						object hdDarkYellowOrange  
+						object hdDarkerYellowOrange  
+						object hdDarkestYellowOrange  
+						object hdDarkOrangeRedGlow  
+						object hdFleshDarkBrown  
+						object hdLightFleshBlured  
+						object hdPaleFlesh  
+						object hdLightTawny  
+						object hdCarrotOrangeGlow  
+						object hdKournikova  
+						object hdLightYellowC  
+						object hdGrayYellow  
+						object hdGrayLittleYellow  
+						object hdLighterSilk  
+						object hdLightSilk  
+						object hdSilk  
+						object hdDarkSilk  
+						object hdDarkerSilk  
+						object hdDarkestSilk  
+						object hdDarkBrownC  
+						object hdMediumBrown  
+						object hdLightBrownC  
+						object hdPaleBrownC  
+						object hdDarkLightBrown  
+						object hdDarkestBrownGlow  
+						object hdDarkMudBrown  
+						object hdBlackBrown  
+						object hdBlackLittleBrown  
+						object hdGrayLittleBlack  
+						object hdLightGray  
+						object hdShiftingWhiteLines  
+						object hdShiftingWhite  
+						object hdShiftingAllWhite  
+						object hdShiftingLightGray  
+						object hdShiftingGray  
+						object hdShiftingDarkGray  
+						object hdShiftingDarkerGray  
+						object hdShiftingDarkestGray  
+						object hdShiftingBlack  
+						object hdShiftingBlackGlow  
+						object hdShiftingStarkBlack  
+						object hdShiftingStarkWhite  
+						object hdShiftingLightestRosyBrown  
+						object hdShiftingLightRosyBrown  
+						object hdShiftingRosyBrown  
+						object hdShiftingDarkRosyBrown  
+						object hdShiftingDarkerRosyBrown  
+						object hdShiftingDarkestRosyBrown  
+						object hdShiftingDarkRosyBrownGlow  
+						object hdShiftingOffWhite  
+						object hdShiftingLightCream  
+						object hdShiftingCream  
+						object hdShiftingBronzeOlive  
+						object hdShiftingDarkBronzeGlow  
+						object hdShiftingOrangeBrown  
+						object hdShiftingOrangeBrownGlow  
+						object hdShiftingWhiteOrange  
+						object hdShiftingLightestChrome  
+						object hdShiftingLighterChrome  
+						object hdShiftingLightChrome  
+						object hdShiftingChrome  
+						object hdShiftingDarkChrome  
+						object hdShiftingDarkerChrome  
+						object hdShiftingDarkestChrome  
+						object hdShiftingDarkBrown  
+						object hdShiftingLightestVanilla  
+						object hdShiftingLighterVanilla  
+						object hdShiftingLightVanilla  
+						object hdShiftingVanilla  
+						object hdShiftingDarkVanilla  
+						object hdShiftingDarkerVanilla  
+						object hdShiftingDarkestVanilla  
+						object hdShiftingCoffeeGlow  
+						object hdShiftingOffWhiteLines  
+						object hdShiftingDarkGreenGlow  
+						object hdShiftingGreenGlow  
+						object hdShiftingOlive  
+						object hdShiftingLime  
+						object hdShiftingWhiteGreen  
+						object hdShiftingGrayLime  
+						object hdShiftingLighterFossil  
+						object hdShiftingLightFossil  
+						object hdShiftingFossil  
+						object hdShiftingDarkFossil  
+						object hdShiftingDarkerFossil  
+						object hdShiftingBlackGreenGlow  
+						object hdShiftingLightGreen  
+						object hdDarkGreenGlow  
+						object hdDarkNaturalBrown  
 					end 	
 				end			
 			end	
@@ -1545,10 +1761,21 @@ room 92002
 					end
 					category "Special Items" 15133
 						object tUnderstanding10
-						object sAchren
-						object oAchren
+						object tRebirth
 						object AncientWine
 					end
+					category "Materials" 58283
+						object WoodBlock
+						object IronBar
+						object SteelBar
+						object TemperedSteelBar
+						object MythrilBar
+						object ObsidianiteBar
+						object AdmantiumBar
+						object ClothBolt  
+						object LeatherBolt
+						object TrollHideBolt
+					end							
 				end
 			end
 		end
@@ -1671,7 +1898,7 @@ room 92003
             loop	0
          end
       end
-      object MobShop92003-1 of Shop
+      object DyeShop92003-1 of Shop
 			properties
 				special
 				name "Trux"
@@ -1682,7 +1909,7 @@ room 92003
 				height 75
 			end
 			base described
-				text "You see Trux, he loots the corpses of monsters you leave behind."
+				text "You see Trux, he sells saught after dyes."
 			end
 			base character
 				properName	"Trux (NPC)"
@@ -1699,39 +1926,180 @@ room 92003
 				buyMarkup  25
 				sellMarkup 100
 				inventory
-					category "Weapons" 15133
-						category "Single-Handed Weapons" 15233
-							object mwSpecialNullsword
-							object mwMazeNullsword
-							object mwMistSpySword
-							object mwVengenceSword
-							object AncientLongSword
-						end 
-						category "Two-Handed Weapons" 15933
-							object mwBerserkersAxe
-							object mwUnholyClub
-							object mwMaceOfVirtue
-							object mwGiantsMaul
-							object FuloranMaul
-							object AncientTwoHander
-						end
-						category "Throwing Weapons" 15333
-							object mwMistWizDagger
-							object AncientDagger
-						end
+					category "Exotic Dyes" 15133
+						object dFinvarra
+                  object dLightFinvarra
+                  object dLighterFinvarra
+                  object dLightestFinvarra
+                  object dDarkestPharlap
+                  object dBlackBrown
+                  object dDarkestSilk
+                  object dNaturalBrown
+                  object dBrownGlow
+                  object dDarkBrownGlow
+                  object dSatori
+                  object dPaleYellow
+                  object dPrussianBlue
+                  object dBlackLatex
+                  object dDeepSkyBlue
+                  object dDarkBlackGlow
+                  object dBrightWhite
+                  object dDarkMudBrown
+                  object dShiftingBlack
+                  object dShiftingLime
+                  object hdShiftingWhite
+                  object hdShiftingAllWhite
+                  object dShiftingLightestChrome
 					end
-					category "Armor" 13633
-						object ZerkersHelm
-						object ProtectorHelm
-						object EvilMinionHelm
-						object ChampionHelm
-						object ChampionTunic
-						object EvilMinionTunic
-						object ProtectorTunic
-						object MistMageHood
-						object EvilWizHood
-						object GoodWizHood
-					end
+               category "Color Baldrics" 94031
+					   object bdNaturalBrown
+					   object bdRustBrown
+					   object bdMediumRustBrown
+					   object bdLightRustBrown
+					   object bdPaleRustBrown
+					   object bdSepia
+					   object bdOliveBrown
+					   object bdDarkOliveGreen
+					   object bdSienna
+					   object bdCerulean
+					   object bdDodgerBlue
+					   object bdDeepSkyBlue
+					   object bdTurquoise
+					   object bdRoyalBlue
+					   object bdCeladon
+					   object bdFireBrick
+					   object bdCoralRedGlow
+					   object bdBabyPink
+					   object bdGinger
+					   object bdLightAmber
+					   object bdPaleYellow
+					   object bdEggPlant
+					   object bdMagentaGlow
+					   object bdLightMagenta
+					   object bdBrownMagentaGlow
+					   object bdBrownPinkGlow
+					   object bdSandyBrown
+					   object bdMediumCyan
+					   object bdCadetBlue
+					   object bdLightCyan
+					   object bdSatori
+					   object bdSeaGreenGlow
+					   object bdLightGreen
+					   object bdDarkScarlet
+					   object bdOrangeGlow
+					   object bdIndigo
+					   object bdPlumGlow
+					   object bdLightPurpleLines
+					   object bdBlueBlack
+					   object bdBlackGlow
+					   object bdBrightWhite
+					   object bdChocolate
+					   object bdBrownGlow
+					   object bdCreamBrown
+					   object bdLightCreamBrown
+					   object bdDarkOliveGlow
+					   object bdOliveGlow
+					   object bdLightYellowLines
+					   object bdDarkBlue
+					   object bdBlueGlow
+					   object bdMaroon
+					   object bdMaroonGlow
+					   object bdLightPink
+					   object bdTawny
+					   object bdYellowOrangeGlow
+					   object bdEggplantYellow
+					   object bdPurpleGlow
+					   object bdLighterMagenta
+					   object bdDarkChocolate
+					   object bdDarkBrownMagentaGlow
+					   object bdCyprus
+					   object bdDeepSeaGlow
+					   object bdForestGreen
+					   object bdForestGreenGlow
+					   object bdPaleGreen
+					   object bdDarkBurntOrange
+					   object bdDarkOrangeGlow
+					   object bdDarkPurpleOrange
+					   object bdDarkPurpleGlow
+					   object bdLightPurple
+					   object bdDarkPuple
+					   object bdDarkBlackGlow
+					   object bdBrighterWhite
+					   object bdSaddleBrown
+					   object bdDarkBrownGlow
+					   object bdDarkFlesh
+					   object bdTanFlesh
+					   object bdLightFleshGreen
+					   object bdGreenLightFlesh
+					   object bdGrayGreen
+					   object bdGrayLittleGreen
+					   object bdLightestFinvarra
+					   object bdLightFinvarra
+					   object bdLighterFinvarra
+					   object bdFinvarra
+					   object bdBlackLatex
+					   object bdGrayBlack
+					   object bdAlmondFrost
+					   object bdPharlap
+					   object bdDarkPharlap
+					   object bdDarkerPharlap
+					   object bdDarkestPharlap
+					   object bdSealBrownGlow
+					   object bdLightTan
+					   object bdTeak
+					   object bdMediumTeak
+					   object bdDarkTeak
+					   object bdDarkerTeak
+					   object bdDarkestTeak
+					   object bdDarkBrownCitrusGlow
+					   object bdCitrusDarkbrown
+					   object bdUltraOlive
+					   object bdDarkOlive
+					   object bdDarkerOlive
+					   object bdDarkestOlive
+					   object bdDarkPrussianBlue
+					   object bdPrussianBlue
+					   object bdPrussianBlueGlow
+					   object bdSapling
+					   object bdEcru
+					   object bdDarkEcru
+					   object bdDarkerEcru
+					   object bdYellowOrange
+					   object bdMediumYellowOrange
+					   object bdDarkYellowOrange
+					   object bdDarkerYellowOrange
+					   object bdDarkestYellowOrange
+					   object bdDarkOrangeRedGlow
+					   object bdFleshDarkBrown
+					   object bdLightFleshBlured
+					   object bdPaleFlesh
+					   object bdLightTawny
+					   object bdCarrotOrangeGlow
+					   object bdKournikova
+					   object bdLightYellow
+					   object bdGrayYellow
+					   object bdGrayLittleYellow
+					   object bdLighterSilk
+					   object bdLightSilk
+					   object bdSilk
+					   object bdDarkSilk
+					   object bdDarkerSilk
+					   object bdDarkestSilk
+					   object bdDarkBrown
+					   object bdMediumBrown
+					   object bdLightBrown
+					   object bdPaleBrown
+					   object bdDarkLightBrown
+					   object bdDarkestBrownGlow
+					   object bdDarkMudBrown
+					   object bdBlackBrown
+					   object bdBlackLittleBrown
+					   object bdGrayLittleBlack
+					   object bdLightGray
+					   object bdDarkGreenGlow
+					   object bdDarkNaturalBrown
+					   object bdShiftingLightestChrome
+				   end
 				end
 			end
 		end
@@ -1770,7 +2138,7 @@ room 92003
             loop	0
          end
 			base described
-				text "Armor and Weapons the regular Traveller never finds.."
+				text "Exotic Dyes and Cosmetic Baldrics!"
 			end
       end
    end
@@ -1802,7 +2170,7 @@ room 93020
             properName	"Brawn (NPC)"
          end
          base shop
-            buyMarkup	50
+            buyMarkup	40
             sellMarkup	100
          end
          base container
@@ -2200,174 +2568,8 @@ end
 #--------------------------------------------------------
 #--------------------------------------------------------
 #--------------------------------------------------------
-room 95010
-   properties
-      picture	3500
-      north	95001 
-	  west	95025
-	  roomName "Achren Commerce Center"
-   end
-   atpinfo
-      2606  161 91 150
-      2718  477 12 -99
-      35481  93 6 -99
-      2745  4 8 -99
-      2745  158 8 -99
-      2745  224 8 -99
-      2745  466 8 -99
-      2745  620 7 -99
-      2712  223 113
-      2715  120 151
-      2714  46 122
-      35485  549 121
-      2717  444 116
-      2717  -15 118
-      35485  620 198
-      2717  606 209
-      2598  323 176
-      2598  531 174
-      2598  177 268
-      2598  455 282
-      32854  55 174 50
-      85  54 172
-      2951  636 189
-      35719  611 201
-   end
-   objects
-      object chair95010-0 of Chair
-         properties
-            x	390
-            y	152
-            loop	1
-         end
-      end
-      object chair95010-1 of Chair
-         properties
-            x	98
-            y	245
-            loop	0
-         end
-      end
-      object chair95010-2 of Chair
-         properties
-            x	460
-            y	149
-            loop	0
-         end
-      end
-      object chair95010-3 of Chair
-         properties
-            x	374
-            y	262
-            loop	0
-         end
-      end
-      object chair95010-4 of Chair
-         properties
-            x	155
-            y	242
-            loop	2
-         end
-      end
-      object chair95010-5 of Chair
-         properties
-            x	537
-            y	263
-            loop	1
-         end
-      end
-      object chair95010-6 of Chair
-         properties
-            x	248
-            y	154
-            loop	0
-         end
-      end
-      object chair95010-7 of Chair
-         properties
-            x	246
-            y	243
-            loop	1
-         end
-      end
-      object chair95010-8 of Chair
-         properties
-            x	195
-            y	241
-            loop	2
-         end
-      end
-      object chair95010-9 of Chair
-         properties
-            x	428
-            y	251
-            loop	2
-         end
-      end
-      object chair95010-10 of Chair
-         properties
-            x	467
-            y	250
-            loop	2
-         end
-      end
-      object chair95010-11 of Chair
-         properties
-            x	276
-            y	141
-            loop	2
-         end
-      end
-      object chair95010-12 of Chair
-         properties
-            x	316
-            y	140
-            loop	2
-         end
-      end
-      object chair95010-13 of Chair
-         properties
-            x	358
-            y	139
-            loop	2
-         end
-      end
-      object chair95010-14 of Chair
-         properties
-            x	510
-            y	144
-            loop	2
-         end
-      end
-      object chair95010-15 of Chair
-         properties
-            x	550
-            y	145
-            loop	2
-         end
-      end
-      object foodShop95010-16 of FoodShop
-         properties
-            x	52
-            y	170
-            loop	0
-         end
-         base character
-            properName	"Ferdi (NPC)"
-            title	""
-			sex 1 
-         end
-		 base container
-            worn	BlueCowl
-            worn	RedShirt
-            worn	RedLongSkirt
-            worn	BlueBoots
-            worn	BlueBelt
-            head	1 1 0 7 0 4 -1 12 10 16 5 2 
-         end
-      end
-   end
-end
+#Moved Room 95010 to Dungeon_Entries
+
 #--------------------------------------------------------
 #--------------------------------------------------------
 room 96003

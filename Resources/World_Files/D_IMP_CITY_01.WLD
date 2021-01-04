@@ -1520,6 +1520,18 @@ room 75082
 			base described
 			end
 		end
+		object DungeonTreasure-75082-0 of DungeonTreasure
+			properties
+				x	-200
+				y	-200
+				loop	0
+			end
+			base carryable
+				owner	LockedChest-75082-4
+			end
+			base described
+			end
+		end
 	end
 end
 room 75206

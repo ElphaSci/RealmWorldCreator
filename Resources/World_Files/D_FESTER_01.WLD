@@ -2317,7 +2317,7 @@ room 82119
 			base described
 			end
 		end
-		object RandomSmallMoney-82119-21 of RandomSmallMoney
+		object DungeonTreasure-82119-21 of DungeonTreasure
 			properties
 				x	-200
 				y	-200
@@ -2365,7 +2365,7 @@ room 82119
 			base described
 			end
 		end
-		object RandomPoorWarriorWeapon-82119-25 of RandomPoorWarriorWeapon
+		object DungeonTreasure-82119-25 of DungeonTreasure
 			properties
 				x	-200
 				y	-200

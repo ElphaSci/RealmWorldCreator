@@ -1038,6 +1038,7 @@ end
 room 2100
    properties
       picture	3001
+      north 91000
       east	2101
       south	2105
       roomName	"Emerald Forest"
@@ -2439,7 +2440,7 @@ room 2017
       east	2018 
       west	2016 
       flags	2
-      roomName	"Gambler's Slum"
+      roomName	"Storage"
    end
    atpinfo
       2742  108 109
@@ -2481,43 +2482,24 @@ room 2017
             loop	0
          end
       end
-      object KeyShop2017-1 of Shop
+      object foodShop95010-16 of FoodShop
          properties
             x	537
             y	212
             loop	2
-			name "Shifty"
          end
-		 base character
-            sex	0
-            properName	"Shifty (NPC)"
-         end
-         base described
-            text	"Shifty, the key merchant.\n\n"
+         base character
+            properName	"Ferdi (NPC)"
+            title	""
+            sex	1
          end
          base container
-            head	0 3 1 2 0 1 7 10 9 2 0 0 
-            worn	GrayBoots
-            worn	TealPants
-            worn	AquaShirt
-            worn	BlackBelt
-         end
-		 base shop
-			buyMarkup  25
-			sellMarkup 100
-			inventory
-				object GambleKey
-		    end
-		 end
-	  end
-      object sign2017-2 of Sign
-         properties
-            x	456
-            y	229
-            loop	0
-         end
-		 base described
-            text	"To open chests in the Gambler's Den; purchase keys here!\n\n"
+            worn	BlueCowl
+            worn	RedShirt
+            worn	RedLongSkirt
+            worn	BlueBoots
+            worn	BlueBelt
+            head	1 1 0 7 0 4 -1 12 10 16 5 2 
          end
       end
       object chair2017-3 of Chair
@@ -2660,15 +2642,280 @@ room 5087
       end
    end
 end
-#-------------------------------------------------------------------------FOD Mine 00 -------------------------------------------------
+#---------------------------------------------------Shifty
+room 95010
+   properties
+      picture	3500
+      north	95001 
+	  west	95025
+	  roomName "Achren Commerce Center"
+   end
+   atpinfo
+      2606  161 91 150
+      2718  477 12 -99
+      35481  93 6 -99
+      2745  4 8 -99
+      2745  158 8 -99
+      2745  224 8 -99
+      2745  466 8 -99
+      2745  620 7 -99
+      2712  223 113
+      2715  120 151
+      2714  46 122
+      35485  549 121
+      2717  444 116
+      2717  -15 118
+      35485  620 198
+      2717  606 209
+      2598  323 176
+      35719  611 201
+      2598  177 268
+      2598  455 282
+      32854  55 174 50
+      85  54 172
+      2951  636 189
+      225  507 124
+      226  525 132
+   end
+   objects
+      object chair95010-0 of Chair
+         properties
+            x	390
+            y	152
+            loop	1
+         end
+      end
+      object chair95010-1 of Chair
+         properties
+            x	98
+            y	245
+            loop	0
+         end
+      end
+      object chair95010-3 of Chair
+         properties
+            x	374
+            y	262
+            loop	0
+         end
+      end
+      object chair95010-4 of Chair
+         properties
+            x	155
+            y	242
+            loop	2
+         end
+      end
+      object chair95010-5 of Chair
+         properties
+            x	537
+            y	263
+            loop	1
+         end
+      end
+      object chair95010-6 of Chair
+         properties
+            x	248
+            y	154
+            loop	0
+         end
+      end
+      object chair95010-7 of Chair
+         properties
+            x	246
+            y	243
+            loop	1
+         end
+      end
+      object chair95010-8 of Chair
+         properties
+            x	195
+            y	241
+            loop	2
+         end
+      end
+      object chair95010-9 of Chair
+         properties
+            x	428
+            y	251
+            loop	2
+         end
+      end
+      object chair95010-10 of Chair
+         properties
+            x	467
+            y	250
+            loop	2
+         end
+      end
+      object chair95010-11 of Chair
+         properties
+            x	276
+            y	141
+            loop	2
+         end
+      end
+      object chair95010-12 of Chair
+         properties
+            x	316
+            y	140
+            loop	2
+         end
+      end
+      object chair95010-13 of Chair
+         properties
+            x	358
+            y	139
+            loop	2
+         end
+      end
+      object KeyShop2017-1 of Shop
+         properties
+            x	52
+            y	170
+            loop	2
+			name "Shifty"
+         end
+		 base character
+            sex	0
+            properName	"Shifty (NPC)"
+         end
+         base described
+            text	"Shifty, the key merchant.\n\n"
+         end
+         base container
+            head	0 3 1 2 0 1 7 10 9 2 0 0 
+            worn	GrayBoots
+            worn	TealPants
+            worn	AquaShirt
+            worn	BlackBelt
+         end
+		 base shop
+			buyMarkup  25
+			sellMarkup 100
+			inventory
+				object GambleKey
+		    end
+		 end
+	  end	  
+
+      object trapDoor95010-17 of TrapDoor
+         properties
+            x	526
+            y	158
+            loop	0
+         end
+      end
+      object sign2017-2 of Sign
+         properties
+            x	25
+            y	185
+            loop	0
+         end
+		 base described
+            text	"To open chests in the Gambler's Den; purchase keys here!\n\n"
+         end
+      end	  
+   end
+end
+###########################
+#
+#
+#
+#         MINES
+#
+#
+#
+############################
+# I Me Mines
+room 12407
+   properties
+      picture	3001
+      north	12294 
+      south	12416 
+      east	12408 
+      west	12406 
+      roomName "I Me Mines"
+   end
+   atpinfo
+      2743  109 120
+      2743  558 120
+      32936  324 122
+      154  564 169
+      154  427 128
+      154  97 129
+      153  572 149
+      153  148 130
+      32922  214 128
+      156  300 126
+      156  538 222
+      156  620 127
+      156  8 126
+      48  49 280
+      49  526 281
+      2952  610 321
+      115  68 281 9
+      114  206 210
+      32818  473 349
+      49  143 224
+      2952  83 324
+      204  306 0 20
+      45  556 269
+      218  275 35 2
+      114  237 298
+      180  435 130
+      180  319 119
+      182  427 128
+      32950  261 127
+      3  7 81
+      112  231 321
+      112  325 316
+      112  340 294
+      127  144 316
+      114  547 282
+      32991  339 281
+      114  110 315
+      32991  367 290
+      180  374 122
+      2951  572 319
+      112  40 254
+      5  426 128
+      5  403 128
+      5  450 128
+      5  319 126
+      3  9 96
+      5  393 121
+      5  627 128
+      5  178 129
+      5  200 127
+      5  224 127
+      5  240 128
+      5  282 127
+      5  304 126
+   end
+   objects
+      object movingRock12407-0 of MovingRock 
+         properties
+            x 479
+            y 238   
+            loop 0
+         end        
+         base openable
+            isOpen 0 
+         end
+      end
+   end
+end
+#---------------------------------------------------
+# Mine All Mines
 room 12120
    properties
-	  roomName	"Mine All Mines"
       picture	3001
       north	12115 
       south	12125 
       east	12121 
       west	12024 
+      roomName "Mine All Mines"
    end
    atpinfo
       2743  77 124
@@ -2737,95 +2984,22 @@ room 12120
             y 197   
             loop 0
          end        
+         base openable
+            isOpen 0 
+         end
       end
    end
 end
-#----------------------------------------------Winter Mine 02 --------------------------------------
-room 12407
-   properties
-	  roomName	"I Me Mine"
-      picture	3001
-      north	12294 
-      south	12416 
-      east	12408 
-      west	12406 
-   end
-   atpinfo
-      2743  109 120
-      2743  558 120
-      32936  324 122
-      154  564 169
-      154  427 128
-      154  97 129
-      153  572 149
-      153  148 130
-      32922  214 128
-      156  300 126
-      156  538 222
-      156  620 127
-      156  8 126
-      48  49 280
-      49  526 281
-      2952  610 321
-      115  68 281 9
-      114  206 210
-      32818  473 349
-      49  143 224
-      2952  83 324
-      204  306 0 20
-      45  556 269
-      218  275 35 2
-      114  237 298
-      180  435 130
-      180  319 119
-      182  427 128
-      32950  261 127
-      3  7 81
-      112  231 321
-      112  325 316
-      112  340 294
-      127  144 316
-      114  547 282
-      32991  339 281
-      114  110 315
-      32991  367 290
-      180  374 122
-      2951  572 319
-      112  40 254
-      5  426 128
-      5  403 128
-      5  450 128
-      5  319 126
-      3  9 96
-      5  393 121
-      5  627 128
-      5  178 129
-      5  200 127
-      5  224 127
-      5  240 128
-      5  282 127
-      5  304 126
-   end
-   objects
-      object movingRock12407-0 of MovingRock 
-         properties
-            x 479
-            y 238   
-            loop 0
-         end        
-      end
-   end
-end
-#----------------------------------------------Wild Mine 01 -----------------------------------
+#---------------------------------
+# Mine Sharona
 room 4716
    properties
-      roomName	"Mine Sharona"
-	  picture	3000
+      picture	3000
       north	4711 
       south	4722 
       east	4717 
       west	4672 
-      flags	2
+      roomName  "Mine Sharona"
    end
    atpinfo
       177  419 104
@@ -2850,19 +3024,22 @@ room 4716
             y 237   
             loop 0
          end        
+         base openable
+            isOpen 0 
+         end
       end
    end
 end
-#---------------------------------------------------WWoods Mine 03 --------------------------------------
+#--------------------------------------------------------
+#Your Is Mine
 room 1315
    properties
-      roomName	"Yours Is Mine"
-	  picture	3001
+      picture	3001
       north	1294 
       south	1331 
       east	1350 
       west	1314 
-      flags	2
+      roomName "Yours Is Mine"
    end
    atpinfo
       2743  77 124
@@ -2900,6 +3077,437 @@ room 1315
             y 173   
             loop 0
          end        
+         base openable
+            isOpen 0 
+         end
+      end
+   end
+
+end
+#-------------------------------------------------------
+room 91009
+	properties
+		picture 3001
+		south 91008
+      roomName "Garrison"
+	end
+	atpinfo
+		2742 347 100 
+		2743 382 112 
+		2743 -38 121 
+		156 28 125 
+		168 296 131 
+		5 77 132 
+		156 78 133 
+		2743 573 134 
+		5 100 136 
+		5 123 136 
+		154 130 137 
+		5 460 138 
+		5 484 138 
+		154 383 139 
+		156 521 139 
+		156 195 139 
+		156 461 139 
+		5 180 139 
+		5 204 139 
+		5 331 139 
+		5 355 139 
+		5 380 139 
+		5 404 139 
+		5 508 139 
+		154 327 140 
+		5 572 140 
+		5 268 141 
+		5 291 141 
+		154 560 142 
+		153 277 142 
+		133 384 156 28
+		153 25 166 
+		62 9 201 
+		2952 43 207 
+		115 19 212 
+		115 90 214 
+		35720 580 202 
+		32991 433 219 
+		2952 605 195 7
+		62 185 235 
+		49 96 239 34
+		32830 271 238 
+		32991 247 246 
+		35719 622 201 
+		32991 636 265 
+		114 120 298 
+		115 250 308 
+		62 176 322 
+		32830 61 334 
+		180 48 246 
+		32948 162 246 
+	end
+	objects
+		object Tent91009-0 of Tent
+			properties
+				loop 0
+				x 110
+				y 271
+			end
+		end
+	end
+end
+room 91010
+	properties
+		picture 3001
+		south 91006
+    north 24749
+    roomName "Dragon Pit"
+	end
+	atpinfo
+		2742 347 100 
+		2743 134 119 
+		2743 77 124 
+		156 28 125 
+		156 78 133 
+		2743 573 134 
+		5 513 135 
+		5 537 135 
+		156 517 136 
+		168 319 138 
+		5 428 138 
+		5 451 138 
+		5 474 138 
+		5 252 138 
+		154 453 139 
+		5 542 139 
+		5 564 139 
+		5 297 139 
+		5 320 139 
+		5 341 139 
+		5 154 139 
+		5 98 139 
+		154 125 140 
+		153 553 140 
+		32922 327 140 
+		5 626 141 
+		154 628 144 
+		5 62 144 
+		5 368 145 
+		5 390 145 
+		156 45 146 
+		156 388 146 
+		5 18 164 
+		153 25 166 
+		45 667 208 
+		49 598 210 
+		32816 224 218 
+		35720 121 223 
+		115 169 230 
+		32991 137 231 
+		2952 546 229 
+		2952 44 257 
+		115 89 269 
+		112 376 270 
+		32991 23 276 
+		62 633 278 
+		114 480 321 
+		35719 76 444 138
+		115 372 328 
+		32948 386 239 
+		180 294 239 
+	end
+	objects
+		object sarcophagusDoor91010-0 of SarcophagusDoor
+			properties
+				loop 0
+				x 331
+				y 265
+			end
+		end
+	end
+end
+room 91011
+	properties
+		picture 3001
+		south 91007
+    roomName "The Lost Crypt"
+	end
+	atpinfo
+		2743 77 124 
+		156 28 125 
+		32921 201 127 
+		156 74 131 
+		2743 573 137 
+		5 125 137 
+		32936 319 138 
+		32922 149 138 
+		154 453 139 
+		5 453 139 
+		156 281 140 
+		5 286 140 
+		5 335 140 
+		5 476 140 
+		5 264 141 
+		154 364 142 
+		5 599 142 
+		154 628 144 
+		5 528 144 
+		5 552 144 
+		156 524 145 
+		5 505 145 
+		32921 573 150 
+		5 562 151 
+		5 586 151 
+		145 382 156 74
+		50 78 205 
+		45 31 211 
+		49 113 206 
+		185 411 227 
+		32817 45 237 
+		62 286 240 
+		2952 310 248 
+		48 622 256 
+		32991 620 256 
+		115 316 266 
+		62 16 280 
+		203 170 288 
+		202 104 290 
+		63 168 292 
+		32953 104 294 
+		32953 171 305 
+		114 294 323 
+		203 630 495 
+		180 431 264 
+		32948 528 266 
+	end
+	objects
+		object sarcophagusDoor91011-0 of SarcophagusDoor
+			properties
+				loop 0
+				x 481
+				y 288
+			end
+		end
+	end
+end
+#-------------Sanctuary----------------
+room 24749
+   properties
+      picture	4000
+      south 91010
+      roomName "Sanctuary"
+   end
+   atpinfo
+      226  303 134
+      2380  364 137
+      2380  246 137
+      7900  129 149
+      7900  481 147
+      2310  372 152
+      2310  243 152
+      234  295 153
+      33001  272 158
+      2380  384 162
+      2380  226 162
+      233  310 163
+      7900  491 170
+      7900  115 173
+      33001  307 167
+      8  386 182
+      2310  197 178
+      2310  417 179
+      8  350 158
+      8  386 192
+      2380  432 187
+      2380  178 187
+      8  351 169
+      7900  527 197
+      7900  71 192
+      64  349 196
+      8  434 206
+      2310  462 198
+      2310  148 198
+      2382  550 199
+      2382  64 199
+      7900  576 213
+      2716  593 202
+      64  209 202
+      111  534 204
+      7900  43 205
+      2310  112 205
+      2310  498 205
+      2716  53 206
+      2716  584 214
+      111  13 215
+      2390  573 218 200
+      2390  42 218 200
+      2390  618 218 200
+      35726  60 218
+      35725  97 227
+      64  446 229
+      64  4 236
+      2315  114 238
+      2315  500 238
+      2717  83 240
+      229  295 243
+      2717  551 248
+      64  597 249
+      2310  112 255
+      2310  498 255
+      2282  499 256
+      35050  113 256
+      2717  41 262
+      32997  304 264
+      7909  498 264
+      7909  113 266
+      2957  456 271
+      2717  583 273
+      2958  477 279
+      229  167 286
+      229  362 288
+      32997  548 288
+      32828  602 319
+      60  31 321
+      2282  498 263 135
+      35050  114 256 135
+   end
+   objects
+      object torch24749-0 of Torch
+         properties
+            x	43
+            y	200
+            loop	0
+         end
+      end
+      object torch24749-1 of Torch
+         properties
+            x	608
+            y	200
+            loop	0
+         end
+      end
+      object stoneBench24749-0 of StoneBench
+         properties
+            x	435
+            y	298
+            loop	2
+         end
+      end
+      object stoneBench24749-1 of StoneBench
+         properties
+            x	200
+            y	298
+            loop	2
+         end
+      end
+      object stoneBench24749-2 of StoneBench
+         properties
+            x	308
+            y	299
+            loop	2
+         end
+      end
+      object plankDoor24749-3 of PlankDoor
+         properties
+            x	307
+            y	137
+            loop	2
+         end
       end
    end
 end
+
+
+
+room 995014
+   properties
+      roomName "Olde Leinster"
+      picture	3500
+      south	995029 
+      east	993006 
+      west	995013 
+   end
+   atpinfo
+      2606  161 91 150
+      2501  366 38 20
+      2513  563 103 70
+      2602  491 213 160
+      35370  511 141 90
+      2595  548 143 20
+      2504  -66 1
+      2521  162 94 -40
+      2521  194 88 -40
+      2522  176 103 -40
+      2621  248 136
+      35381  117 142
+      21  719 185
+      2742  464 9 -99
+      2536  89 61
+      2536  535 23 -33
+      2535  714 336
+      2535  717 176
+      2715  32 198
+      2713  77 199
+      2717  47 220
+      2581  352 127
+      2586  573 141
+      2536  392 9 -50
+      7908  3 258
+      2502  450 34 -10
+      2602  423 202 160
+      2501  466 31
+      2535  628 384
+      154  182 108
+      2535  627 113 -30
+      49  308 13 -150
+      3  7 198
+      2721  433 173 -15
+      21  684 269
+      7908  626 205
+      21  678 84 -50
+      14  458 186 -20
+      14  483 210
+   end
+   objects
+      object gateKeeper995014-0 of GateKeeper
+         properties
+            x	387
+            y	158
+            loop	2
+         end
+         base character
+            sex	0
+            properName	"Davvos (NPC)"
+            title	""
+         end
+         base container
+            worn	WhiteTunic
+            worn	BlackPants
+            worn	RedBelt
+            worn	Goldband
+            head	0 1 0 2 7 2 -1 8 4 2 0 2 3
+         end
+      end
+      object Sign-995014-0 of Sign
+         properties
+            x 192
+            y 227
+            loop 0
+         end
+         base described
+            text "BEWARE!\n\nThis is a very dangerous city! You might be jumped by horribly strong monsters or even other players! Shopkeepers have closed up shop and moved on, and there seems to be some magic preventing you from entering the wilds.\nGood luck out there!\n"
+         end
+      end
+      object PlankDoor995014-1 of PlankDoor
+         properties
+            x	458
+            y	197
+            loop	1
+            linkTo PlankDoor5014-1
+         end
+         base openable
+            isOpen	1
+         end
+      end
+   end
+end
+
+

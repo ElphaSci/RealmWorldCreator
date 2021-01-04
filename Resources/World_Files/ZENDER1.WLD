@@ -1485,6 +1485,7 @@ room 4207
       picture	3000
       north	9231 
       south	4215 
+      east	29000
       west	4206 
       flags	2
    end
@@ -1512,6 +1513,7 @@ room 4215
       picture	3000
       north	4207 
       south	4223 
+      east	29010
       west	4214 
    end
    atpinfo
@@ -1534,6 +1536,7 @@ room 4223
       picture	3000
       north	4215 
       south	4226 
+      east	29020
       west	4222 
       flags	2
    end
@@ -1572,6 +1575,7 @@ room 4226
       picture	3001
       north	4223 
       south	4229 
+      east	29030
       west	4225 
    end
    atpinfo
@@ -1598,6 +1602,7 @@ room 4229
       picture	3001
       north	4226 
       south	4232 
+      east	29040
       west	4228 
       flags	2
    end
@@ -1632,6 +1637,7 @@ room 4232
       picture	3001
       north	4229 
       south	4235 
+      east	29050
       west	4231 
    end
    atpinfo
@@ -1676,6 +1682,7 @@ room 4235
       picture	3001
       north	4232 
       south	4238 
+      east	29060
       west	4234 
       flags	2
    end
@@ -1719,6 +1726,7 @@ room 4238
       picture	3001
       north	4235 
       south	4241 
+      east	29070
       west	4237 
    end
    atpinfo
@@ -1759,6 +1767,7 @@ room 4241
       picture	3001
       north	4238 
       south	4244 
+      east	29080
       west	4240 
       flags	2
    end
@@ -1799,6 +1808,7 @@ room 4244
       picture	3001
       north	4241 
       south	4247 
+      east	29090
       west	4243 
    end
    atpinfo
@@ -1847,6 +1857,7 @@ room 4247
       picture	3001
       north	4244 
       south	4361 
+      east	29100
       west	4246 
    end
    atpinfo

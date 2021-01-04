@@ -9,3 +9,4 @@ maximumObjectAge 0
 allowCombat 0
 midiFile 29
 groupChance 30
+isDungeon 1

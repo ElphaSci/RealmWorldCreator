@@ -1,0 +1,60 @@
+{
+  "loops": {
+    "0": {
+      "cells": {
+        "0": {
+          "width": 34,
+          "height": 41,
+          "left": 17,
+          "top": 40,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 0,
+          "spriteY": 0
+        }
+      }
+    },
+    "30": {
+      "cells": {
+        "0": {
+          "width": 34,
+          "height": 41,
+          "left": 17,
+          "top": 40,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 0,
+          "spriteY": 41
+        },
+        "1": {
+          "width": 36,
+          "height": 41,
+          "left": 18,
+          "top": 40,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 34,
+          "spriteY": 41
+        },
+        "2": {
+          "width": 39,
+          "height": 41,
+          "left": 19,
+          "top": 40,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 70,
+          "spriteY": 41
+        }
+      }
+    }
+  }
+}

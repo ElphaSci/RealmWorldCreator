@@ -1,6 +1,10 @@
 import os
 import struct
 import sys
+from os.path import realpath
+
+import PIL
+from PIL import ImageOps
 
 sys.path.append('../../')
 
@@ -135,8 +139,18 @@ class V56file:
                         ln_offset = offset + v_cell_header.linesOffs
                         ln_size = v_cell_header.height * 4 * 2
                         ln = struct.unpack_from(ln_size * 'B', binary_data[ln_offset:])
+                links = []
+                if v_cell_header.linkNumber not in [None, 0]:
+                    link_table_offset = offset + v_cell_header.linkTableOffset
+                    link_point_fmt = "2h2b"
+                    fmt_size = struct.calcsize(link_point_fmt)
+                    for table_offset in range(link_table_offset, link_table_offset + fmt_size*v_cell_header.linkNumber, fmt_size):
+                        link = struct.unpack(link_point_fmt, binary_data[table_offset:table_offset+fmt_size])
+                        _link= {'link_x': link[0], 'link_y': link[1], 'position_type': link[2], 'priority': link[3]}
+                        links.append(_link)
                 temp_cell = Cell()
                 temp_cell.setPalette(self._palSCI)
+                temp_cell.setLinks(links)
                 temp_cell.LoadCell(v_cell_header, im, pk, ln, True)
                 loop._cells[j] = temp_cell
             self._loops.append(loop)
@@ -144,15 +158,89 @@ class V56file:
             # self._cellRecSize = ViewCellHeader.size()
 
 
-if __name__ == '__main__':
-    from sys import argv
+    def displayPalette(self, draw=True):
+        # TODO: This has been changed, so it doesn't require numpy
+        # however, it isn't used atm, so I have not tested it since it's been changed
+        flat_rgb_list = [[x.red, x.green, x.blue] for x in self._palSCI._palData]
+        rgba_im = []
+        for x in flat_rgb_list:
+            rgba_im.extend(x)
+        pil_im = PIL.Image.frombuffer('RGB', (16, 16), bytes(rgba_im), 'raw', 'RGB', 0, 1)
+        if draw:
+            import matplotlib.pyplot as plt
+            plt.imshow(pil_im, interpolation='none')
+            plt.show()
+        else:
+            return pil_im
 
-    files = [os.path.join(argv[1], x) for x in os.listdir(argv[1])]
-    for file_name in files:
-        loop = 0  # (0 if len(argv) < 3 else int(argv[2]))
-        cell = 0  # (0 if len(argv) < 4 else int(argv[3]))
-        v = V56file(file_name)
+
+if __name__ == '__main__':
+    import json
+
+    in_dir = '../../Resources/56_Files'
+    out_dir = '../../Resources/views'
+    try:
+        os.mkdir(realpath(out_dir))
+    except FileExistsError:
+        pass
+
+    v56Files = [os.path.join(in_dir, x) for x in os.listdir(in_dir) if x.lower().endswith('.v56')]
+    # v56Files = [os.path.join(in_dir, x) for x in os.listdir(in_dir) if x.lower() == '101.v56']
+    for count, file_name in enumerate(v56Files):
+        print(f"{count+1}/{len(v56Files)}")
+        # loop = 0 #(0 if len(argv) < 3 else int(argv[2]))
+        # cell = 0 #(0 if len(argv) < 4 else int(argv[3]))
+        v : V56file = V56file(file_name)
+        info = {}
+        combined_height = 0
+        combined_width = 0
+        all_loops = []
+        info['loops'] = {}
+        valid_loops = []
+        for loop_idx, loop in enumerate(v._loops):
+            all_cells = []
+            loop_cells = loop._cells
+            loop_info = {"cells":{}}
+            if loop._mirror:
+                loop_cells = v._loops[loop._basedOnLoop]._cells
+                loop_info['mirror'] = True
+                loop_info['basedOn'] = loop._basedOnLoop
+            if len(loop_cells) == 0:
+                continue
+            for cell_idx, cell in enumerate(loop_cells):
+                if loop._mirror:
+                    all_cells.append(ImageOps.mirror(cell.get_pil_image(draw=False)))
+                else:
+                    all_cells.append(cell.get_pil_image(draw=False))
+                loop_info['cells'][cell_idx] = cell.serialize()
+            combined_height += max([x.height for x in all_cells])
+            combined_width = max(combined_width, sum([x.width for x in all_cells]))
+            all_loops.append(all_cells)
+            info['loops'][loop_idx] = loop_info
+            valid_loops.append(loop_idx)
+        img = PIL.Image.new("RGB", (combined_width, combined_height))
+        cur_width = 0
+        cur_height = 0
+        for loop_num, loops in zip(valid_loops, all_loops):
+            max_height = 0
+            for cnum, cell in enumerate(loops):
+                cell_info = info['loops'][loop_num]['cells'][cnum]
+                cell_info['spriteX'] = cur_width
+                cell_info['spriteY'] = cur_height
+                img.paste(cell, (cur_width, cur_height))
+                cur_width += cell.width
+                max_height = max(max_height, cell.height)
+            cur_height += max_height
+            cur_width = 0
+            max_height = 0
+        view_name = file_name[file_name.rfind('/'):file_name.lower().rfind('.v56')]
+        img.save(f"{out_dir}/{view_name}.png")
+        v.displayPalette(False).save(f"{out_dir}/{view_name}_pal.png")
+        with open(f"{out_dir}/{view_name}.json", "w") as json_out:
+            json.dump(info, json_out, indent=2)
+
+
         # TODO: handle _basedOnLoop and _mirror
-        sci_loop = v._loops[loop]
-        sci_cell = sci_loop._cells[cell]
-        im = sci_cell.get_pil_image(draw=False)
+        # sci_loop = v._loops[loop]
+        # sci_cell = sci_loop._cells[cell]
+        # im = sci_cell.get_pil_image(draw=False)

@@ -1321,7 +1321,7 @@ room 89138
 			base described
 			end
 		end
-		object RandomMegaTreasure-89138-16 of RandomMegaTreasure
+		object DungeonTreasure-89138-16 of DungeonTreasure
 			properties
 				x	-200
 				y	-200
@@ -1333,7 +1333,7 @@ room 89138
 			base described
 			end
 		end
-		object RandomMegaTreasure-89138-17 of RandomMegaTreasure
+		object DungeonTreasure-89138-17 of DungeonTreasure
 			properties
 				x	-200
 				y	-200

@@ -35,6 +35,6 @@ monsterGroup 2 2 MinotaurWarriorE 2 MinotaurWarriorD
 monsterGroup 2 1 MinotaurWarriorD 3 MinotaurWarriorE
 
 monster WardenHA10 50
-monster MinotaurGuard 50
+monster MinotaurGuard 125
 
 # Drear Valley	Area 12		Player Level 300-500	Alignment: Mixed	Monsters/Room: 

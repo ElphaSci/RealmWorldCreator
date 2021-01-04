@@ -715,7 +715,7 @@ room 6022
             head	0 1 0 0 0 0 0 0 17 0 0 0 
          end
          base shop
-            buyMarkup	50
+            buyMarkup	40
             sellMarkup	100
 			inventory
 				category "Hair Dyes" 51583

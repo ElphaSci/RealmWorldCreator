@@ -1,0 +1,104 @@
+{
+  "loops": {
+    "0": {
+      "cells": {
+        "0": {
+          "width": 401,
+          "height": 201,
+          "left": 200,
+          "top": 200,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 0,
+          "spriteY": 0
+        },
+        "1": {
+          "width": 400,
+          "height": 202,
+          "left": 200,
+          "top": 201,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 401,
+          "spriteY": 0
+        },
+        "2": {
+          "width": 401,
+          "height": 202,
+          "left": 200,
+          "top": 201,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 801,
+          "spriteY": 0
+        },
+        "3": {
+          "width": 399,
+          "height": 201,
+          "left": 199,
+          "top": 200,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 1202,
+          "spriteY": 0
+        },
+        "4": {
+          "width": 401,
+          "height": 201,
+          "left": 200,
+          "top": 200,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 1601,
+          "spriteY": 0
+        },
+        "5": {
+          "width": 399,
+          "height": 201,
+          "left": 199,
+          "top": 200,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 2002,
+          "spriteY": 0
+        },
+        "6": {
+          "width": 401,
+          "height": 201,
+          "left": 200,
+          "top": 200,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 2401,
+          "spriteY": 0
+        },
+        "7": {
+          "width": 399,
+          "height": 201,
+          "left": 199,
+          "top": 200,
+          "transparentPalIdx": 255,
+          "zDepth": 0,
+          "xPos": 0,
+          "yPos": 0,
+          "spriteX": 2802,
+          "spriteY": 0
+        }
+      }
+    }
+  }
+}

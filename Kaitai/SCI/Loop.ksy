@@ -21,7 +21,7 @@ seq:
 instances:
   files_cells_offset:
     value: file_offset + header.cells_offset
-  view_cells:
-    type: view_cell(files_cells_offset + _index*cell_rec_size)
+  cells:
+    type: view_cell(file_offset, header.cells_offset + _index*cell_rec_size)
     repeat: expr
     repeat-expr: header.num_cells

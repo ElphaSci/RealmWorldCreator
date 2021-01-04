@@ -10,7 +10,7 @@ seq:
   - id: unknown_byte
     size: 1 
   - id: compressed
-    type: b1
+    type: b1le
   - id: view_size
     type: u1
   - id: num_cells

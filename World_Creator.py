@@ -42,10 +42,12 @@ class WorldCreator(tk.Tk):
         # Build default media paths
         default_56_path = os.path.join('Resources', '56_Files')
         default_ressci_path = os.path.join('Resources', 'ressci')
-        default_wld_path = os.path.join('Resources', 'World_Files')
+        default_wld_path = os.path.join('Resources', 'world')
+        default_zon_path = os.path.join('Resources', 'zones')
         self.add_media(default_ressci_path)
         self.add_media(default_56_path)
         self.add_media(default_wld_path)
+        self.add_media(default_zon_path)
         self.room_directory = self.build_room_directory()
         # Store WLD, by Zone
         self.zones = self.set_worlds_by_zone()
@@ -455,6 +457,8 @@ class WorldCreator(tk.Tk):
 
     def load_media(self):
         for dir in self.media['PATH']:
+            if not os.path.exists(dir):
+                continue
             for f in os.listdir(dir):
                 full_path = os.path.join(dir, f)
                 name, extension = os.path.splitext(f)
@@ -478,7 +482,7 @@ class WorldCreator(tk.Tk):
 
     def build_wld_canvas(self, categories):
         # Create header label
-        zone_header = tk.Label(self.wld_canvas, text='World_Files:')
+        zone_header = tk.Label(self.wld_canvas, text='world:')
         zone_header.pack(fill=tk.X)
         # Create custom nested option Menu
         zone_option_menu = NestedOptionMenu(self, self.wld_canvas, categories, callback=self.set_wld_listbox)

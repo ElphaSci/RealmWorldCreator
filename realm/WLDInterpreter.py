@@ -487,5 +487,5 @@ class WorldObject:
 
 
 if __name__ == '__main__':
-    f = 'C:\\Users\\caleb\\PycharmProjects\\World_Editor\\Resources\\World_Files\\Leineast.wld'
+    f = 'C:\\Users\\caleb\\PycharmProjects\\World_Editor\\Resources\\world\\Leineast.wld'
     world = World(f)

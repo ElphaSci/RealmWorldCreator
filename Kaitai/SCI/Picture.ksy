@@ -26,7 +26,7 @@ seq:
   type: skip
   size: offset + header.cell_offset - sizeof<picture_header> - sizeof<s4>
 - id: cells
-  type: cell(0, header.cell_offset, header.cell_rec_size, false)
+  type: cell(0, header.cell_offset)
   repeat: expr
   repeat-expr: header.num_cells
   
@@ -34,7 +34,7 @@ seq:
   
 instances:
   offset:
-    value: patch_info == p56_patch_version::version_8081 ? 26 : 4
+    value: 'patch_info == p56_patch_version::version_8081 ? 26 : 4'
   palette_size:
     pos: header.palette_offset
     type: s4

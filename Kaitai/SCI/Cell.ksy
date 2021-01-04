@@ -12,18 +12,13 @@ params:
     type: u2
   - id: cell_offset
     type: u2
-  - id: cell_rec_size
-    type: u2
-  - id: has_palette
-    type: b1
-    
+
 seq:
   - id: skip_to_cell
     type: skip
     size: file_offset
   - id: header
     type: cell_header
-    # size: cell_rec_size
   - id: skip_to_image
     type: skip
     size: relative_image_offset
@@ -33,3 +28,5 @@ seq:
 instances:
   relative_image_offset:
     value: header.image_offset - sizeof<cell_header> - cell_offset
+  palette:
+    value: _parent.as<picture>.palette

@@ -1,12 +1,20 @@
 # Created by .ignore support plugin (hsz.mobi)
 .idea/
 __pycache__
-PyFotoSCIop/.idea/
-PyFotoSCIop/PySCIs/__pycache__/
-PyFotoSCIop/TraduSCI/
-PyFotoSCIop/World_Creator_old/
-PyFotoSCIop/source/__pycache__/
-PyFotoSCIop/tags
+scires/.idea/
+scires/PySCIs/__pycache__/
+scires/TraduSCI/
+scires/World_Creator_old/
+scires/source/__pycache__/
+scires/tags
 Resources/56_Files/
-Resources/stock_objects/__pycache__/
+Resources/world
+Resources/zones
+Resources/ressci
+Resources/objects/__pycache__/
 build/
+*.p56
+*.v56
+*.sc
+*.sh
+venv

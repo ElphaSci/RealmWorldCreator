@@ -11,5 +11,10 @@ Resources/56_Files/
 Resources/world
 Resources/zones
 Resources/ressci
-Resources/stock_objects/__pycache__/
+Resources/objects/__pycache__/
 build/
+*.p56
+*.v56
+*.sc
+*.sh
+venv

@@ -1,6 +1,6 @@
 from PIL import Image, ImageTk
 
-from p56_info import PicInfo
+from pic_info import PicInfo
 
 
 def scale_image(pil_image: Image, y_depth: int, p56_info: PicInfo, race='default'):

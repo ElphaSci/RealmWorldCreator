@@ -1,5 +1,4 @@
 import os
-from atp_info import ATPNode
 
 
 class Exits(dict):

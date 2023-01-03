@@ -69,4 +69,4 @@ class ATPList:
 
 
 if __name__ == '__main__':
-    atplist = ATPList("/home/caleb/PycharmProjects/Realm_World_Creator/ATPLIST.SC")
+    atplist = ATPList("/Resources/objects/ATPLIST.SC")

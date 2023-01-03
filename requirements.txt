@@ -3,7 +3,8 @@
 
 # scires\source\scicell.py: 4
 # World_Creator.py: 6
-Pillow
+Pillow==6.2.2
+kaitaistruct
 
 # build_exe.py: 7
 cx_Freeze

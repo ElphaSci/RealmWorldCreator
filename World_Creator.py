@@ -23,7 +23,7 @@ for pic in parse_pic_info_file("Resources/PICINFO.SC"):
     PIC_INFO[pic.picture] = pic
 
 # Good? Bad? Who knows. We dynamically load these modules
-# maybe better or worse, but we dynamically create them before hand
+# maybe better or worse, but we dynamically create them beforehand
 generate_python_stock_objects()
 
 from importlib import import_module

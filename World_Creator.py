@@ -8,7 +8,7 @@ from PIL import ImageTk, ImageOps
 from kaitaisci.picture import Picture
 from kaitaisci.ressci import Ressci, ResType
 from kaitaisci.view import View
-from Resources.atp_info import ATP_CATEGORIES, ATP_BY_PIC
+from atp_info import ATP_CATEGORIES, ATP_BY_PIC
 from pic_info import parse_pic_info_file
 from realm.WLDInterpreter import ATP, WorldObject, Room
 import realm.WLDInterpreter as WldInterp
@@ -26,15 +26,21 @@ for pic in parse_pic_info_file("Resources/PICINFO.SC"):
 # maybe better or worse, but we dynamically create them beforehand
 generate_python_stock_objects()
 
-from importlib import import_module
+import importlib.util
 from pathlib import Path
+
 
 for f in Path('Resources/objects/python/test').parent.glob("*.py"):
     module_name = f.stem
     if (not module_name.startswith("_")) and (module_name not in globals()):
-        import_module(f"Resources.objects.python.{module_name}")
+        # import_module(f"Resources.objects.python.{module_name}")
+
+        spec = importlib.util.spec_from_file_location(module_name, f"{f}")
+        stkobj_module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(stkobj_module)
+
     del f, module_name
-del import_module, Path
+del importlib.util, Path
 
 stkObjDict = {obj.name: obj for obj in StockObjList}
 

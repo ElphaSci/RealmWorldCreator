@@ -887,6 +887,7 @@ class WorldCreator(tk.Tk):
             reference_room.picture if reference_room.active_background is None else reference_room.active_background)
         new_room.properties['exits'] = exits
         self.rooms[room_num] = new_room
+        self.world.rooms += [new_room]
         ## create a map button for the room
         map_button = MapButton(map_frame, room_num, width=5, height=1, background='LightCyan3', text=str(room_num),
                                highlightcolor='black',

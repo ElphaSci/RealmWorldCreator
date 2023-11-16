@@ -17,4 +17,5 @@ build/
 *.v56
 *.sc
 *.sh
-venv
+.direnv
+.venv

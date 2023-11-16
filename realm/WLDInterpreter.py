@@ -129,6 +129,7 @@ class Room:
         data.append('room {}'.format(self.number))
         data.append('\tproperties')
         for k, v in self.properties.items():
+            data.append(f"\t\tpicture {self.picture}")
             if k == 'exits':
                 for direction, exit_num in v.items():
                     if exit_num is None:

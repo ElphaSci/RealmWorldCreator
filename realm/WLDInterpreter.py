@@ -66,7 +66,7 @@ def process_wld_file(filename):
     return parsed_wld_data
 
 
-def create_room(room_list, parnet=None):
+def create_room(room_list, parent=None):
     room_dict = {}
     for i, line in enumerate(room_list):
         try:

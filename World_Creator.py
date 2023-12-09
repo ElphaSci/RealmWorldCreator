@@ -2,6 +2,7 @@ import os
 import random
 import tkinter as tk
 from tkinter import filedialog, messagebox
+import PySimpleGUI as sg
 
 from PIL import ImageTk, ImageOps
 
@@ -63,18 +64,18 @@ class WorldCreator(tk.Tk):
         self.obj_bases = self.get_obj_bases()
         # dictionary to hold all non-top level widgets; keys are the parent widgets
         self.widgets = {}
-        # Storage for access to media files
-        self.media = {'resources': {}, 'v56': {}, 'p56': {}, 'wld': {}, 'zon': {}, 'PATH': []}
+        # Storage for access to resource files
+        self.resources = {'resources': {}, 'v56': {}, 'p56': {}, 'wld': {}, 'zon': {}, 'PATH': []}
         self.background = None
-        # Build default media paths
+        # Build default resource paths
         default_56_path = os.path.join('Resources', '56_Files')
         default_ressci_path = os.path.join('Resources', 'ressci')
         default_wld_path = os.path.join('Resources', 'world')
         default_zon_path = os.path.join('Resources', 'zones')
-        self.add_media(default_ressci_path)
-        self.add_media(default_56_path)
-        self.add_media(default_wld_path)
-        self.add_media(default_zon_path)
+        self.add_resource_dir(default_ressci_path)
+        self.add_resource_dir(default_56_path)
+        self.add_resource_dir(default_wld_path)
+        self.add_resource_dir(default_zon_path)
         self.room_directory = self.build_room_directory()
         # Store WLD, by Zone
         self.zones = self.set_worlds_by_zone()
@@ -151,7 +152,7 @@ class WorldCreator(tk.Tk):
 
     def set_worlds_by_zone(self):
         worlds_by_zone = {'Misc': []}
-        for zon, path in self.media['zon'].items():
+        for zon, path in self.resources['zon'].items():
             with open(path, 'r', encoding='ISO-8859-1') as f:
                 lines = f.readlines()
             lines = [x for x in lines if 'worldFile' in x or 'title' in x]
@@ -176,7 +177,7 @@ class WorldCreator(tk.Tk):
         for wld_list in worlds_by_zone.values():
             for wld in wld_list:
                 worlds_with_zone.append(wld.lower())
-        for wld in self.media['wld'].keys():
+        for wld in self.resources['wld'].keys():
             if wld.lower() not in worlds_with_zone:
                 if 'Misc' not in worlds_by_zone.keys():
                     worlds_by_zone['Misc'] = []
@@ -185,7 +186,7 @@ class WorldCreator(tk.Tk):
 
     def build_room_directory(self):
         room_directory = {}
-        for wld, path in self.media['wld'].items():
+        for wld, path in self.resources['wld'].items():
             with open(path, 'r') as f:
                 try:
                     data = f.readlines()
@@ -313,7 +314,7 @@ class WorldCreator(tk.Tk):
             view_popup.add_command(label='Next Loop', command=lambda: self.next_loop(im_id))
         view_popup.add_command(label='Delete', command=lambda: self.delete_from_room(im_id))
         # try:
-        view_popup.tk_popup(event.x_root, event.y_root, 0)  # finally:  #     view_popup.grab_release()
+        view_popup.tk_popup(event.x_root, event.y_root, 0)  # finally:  view_popup.grab_release()
 
     def next_loop(self, im_id):
         v56 = self.active_room.view_from_image[im_id].v56
@@ -439,12 +440,15 @@ class WorldCreator(tk.Tk):
         self.room_canvas.tag_bind('view', '<Double-Button-1>', self.view_popup_menu)
 
     def build_menu_bar(self):
-        # Create the File Cascading Menu
+        # Create the menu bar
         file_menu = self.build_file_menu()
+        view_menu = self.build_view_menu()
+        resource_menu = self.build_resources_menu()
         self.menu.add_cascade(label='File', underline=0, menu=file_menu)
-        self.menu.add_command(label='Toggle Polygons', command=self.toggle_polygons)
+        self.menu.add_cascade(label='View', underline=0, menu=view_menu)
+        self.menu.add_cascade(label='Resources', underline=0, menu=resource_menu)
         # update widgets dict
-        self.widgets = {**self.widgets, **{self.menu: file_menu}}
+        self.widgets = {**self.widgets, **{self.menu: {"file": file_menu, "view": view_menu, "resources": resource_menu}}}
 
     def toggle_polygons(self):
         # items = self.room_canvas.find_withtag('polygon')
@@ -457,19 +461,84 @@ class WorldCreator(tk.Tk):
 
     def build_file_menu(self):
         file_menu = tk.Menu(self.menu, tearoff=False)
-        file_menu.add_command(label='Open', underline=1, command=self.open_sci_file)
-        file_menu.add_command(label='Add Media', underline=1, command=self.add_media)
-        file_menu.add_command(label='Save', underline=1, command=self.save_world)
-        file_menu.add_command(label='Save As', underline=1, command=lambda: self.save_world(saveas=True))
-        file_menu.add_command(label='Exit', underline=1, command=self.quit)
+        file_menu.add_command(label='Open', underline=0, command=self.open_sci_file)
+        file_menu.add_command(label='Save', underline=0, command=self.save_world)
+        file_menu.add_command(label='Save As', underline=5, command=lambda: self.save_world(saveas=True))
+        file_menu.add_command(label='Exit', underline=0, command=self.quit)
         return file_menu
 
-    def add_media(self, foldername=None):
-        if not foldername:
-            foldername = tk.filedialog.askdirectory()
-        if foldername not in self.media['PATH']:
-            self.media['PATH'].append(foldername)
-        self.load_media()
+    def build_resources_menu(self):
+        resources_menu = tk.Menu(self.menu, tearoff=False)
+        resources_menu.add_command(label='Add Resources', underline=0, command=self.ask_dir_for_resource)
+        resources_menu.add_command(label='View Resources', underline=0, command=self.resource_list_window)
+        return resources_menu
+
+    def build_view_menu(self):
+        view_menu = tk.Menu(self.menu, tearoff=False)
+        view_menu.add_command(label='Toggle Polygon', underline=7, command=self.toggle_polygons)
+        return view_menu
+
+    def resource_list_window(self):
+
+        default_paths = "-DEFAULT_PATHS_LIST-"
+        add_res_path = "-ADD_RESOURCE_PATH-"
+        default_list = sg.Listbox(self.resources["PATH"], size=(50, 10), expand_x=True, expand_y=True, enable_events=True, key=default_paths)
+        remove_resource_dir = "-REMOVE_RESOURCE_DIR-"
+        msg = "-MSG-"
+        layout = [
+            [sg.Input(expand_x=True, key=add_res_path), sg.Button('Add'), sg.FolderBrowse("Browse", target=add_res_path)],
+            [default_list],
+            [sg.Button("Remove", key=remove_resource_dir)],
+            [sg.Text("", key=msg)]
+        ]
+
+        window = sg.Window('Resource Paths', layout, resizable=True)
+        while True:
+            event, values = window.read()
+            if event in (sg.WIN_CLOSED, 'Exit'):
+                break
+            if event == 'Add':
+                self.add_resource_dir(values[add_res_path])
+                window[default_paths].update(self.resources["PATH"])
+                window[msg].update("Added")
+            if event == remove_resource_dir:
+                for to_remove in default_list.get():
+                    paths = self.resources["PATH"]
+                    if to_remove in paths:
+                        paths.remove(to_remove)
+                        window[msg].update(f"Removed: {to_remove}")
+                window[default_paths].update(self.resources["PATH"])
+        window.close()
+
+        # cell_attrs = ["width", "height", "x_shift", "y_shift", "transparent_color"]
+        # loop_attrs = ["based_on_loop", "mirror"]
+        # world_attrs = ['view_id', 'x', 'y', 'z', 'loop']
+        # self.top = tk.Toplevel()
+        # grid_row = 0
+        #
+        # def add_list_row(idx, k, value_list):
+        #     label = tk.Label(self.top, text=k)
+        #     label.grid(row=idx)
+        #     list = tk.Listbox(self.top)
+        #     for v in value_list:
+        #         list.insert(tk.END, v)
+        #     list.grid(row=idx, column=1)
+        #
+        # for attrs_list, key in zip([world_attrs, loop_attrs, cell_attrs], ["obj", "header", "cell"]):
+        #     add_list_row(grid_row, key, attrs_list)
+        #     grid_row += 1
+        # self.update()
+        # self.wait_window(self.top)
+
+    def ask_dir_for_resource(self):
+        result_dir = tk.filedialog.askdirectory()
+        if isinstance(result_dir, str) and len(result_dir) > 0:
+            self.add_resource_dir(result_dir)
+
+    def add_resource_dir(self, resource_dir: str | os.PathLike[str]):
+        if resource_dir not in self.resources['PATH']:
+            self.resources['PATH'].append(resource_dir)
+        self.load_resources(resource_dir)
 
     def save_world(self, saveas=False):
         wld_representation = self.world.realm_representation
@@ -477,8 +546,8 @@ class WorldCreator(tk.Tk):
             wld = tk.filedialog.asksaveasfile(mode='w', defaultextension=".wld")
             if wld is None:  # asksaveasfile return `None` if dialog closed with "cancel".
                 return
-            if os.path.split(wld.name)[0] not in self.media['PATH']:
-                self.add_media(os.path.split(wld.name)[0])
+            if os.path.split(wld.name)[0] not in self.resources['PATH']:
+                self.add_resource_dir(os.path.split(wld.name)[0])
                 self.zones = self.set_worlds_by_zone()
             self.save_file = wld.name
         else:
@@ -486,28 +555,30 @@ class WorldCreator(tk.Tk):
         wld.writelines(wld_representation)
         wld.close()
 
-    def load_media(self):
-        for dir in self.media['PATH']:
+    def load_all_resources(self):
+        for dir in self.resources['PATH']:
             if not os.path.exists(dir):
                 continue
-            for f in os.listdir(dir):
-                full_path = os.path.join(dir, f)
-                name, extension = os.path.splitext(f)
-                name, extension = os.path.splitext(f)
-                if extension.lower() in ['.p56', '.v56', '.wld', '.zon']:
-                    if extension.lower() == '.wld':
-                        self.media[extension.lower()[1:]][name + extension] = full_path
-                    else:
-                        self.media[extension.lower()[1:]][name] = full_path
-                elif name.lower() in ["resource", "ressci"]:
-                    self.load_packed_resource(full_path)
+            self.load_resources(dir)
+
+    def load_resources(self, resource_dir: str | os.PathLike[str]):
+        for folder in os.listdir(resource_dir):
+            full_path = os.path.join(resource_dir, folder)
+            name, extension = os.path.splitext(folder)
+            if extension.lower() in ['.p56', '.v56', '.wld', '.zon']:
+                if extension.lower() == '.wld':
+                    self.resources[extension.lower()[1:]][name + extension] = full_path
+                else:
+                    self.resources[extension.lower()[1:]][name] = full_path
+            elif name.lower() in ["resource", "ressci"]:
+                self.load_packed_resource(full_path)
 
     def load_packed_resource(self, ressci_path: str):
-        if ressci_path in self.media["resources"].keys():
+        if ressci_path in self.resources["resources"].keys():
             return
         try:
             resources = Ressci.from_file(ressci_path)
-            self.media["resources"][ressci_path] = resources
+            self.resources["resources"][ressci_path] = resources
         except:
             pass
 
@@ -558,7 +629,7 @@ class WorldCreator(tk.Tk):
         if not category:
             zone = self.widgets[self.wld_canvas]['zone_option_menu'].get()
         for name in self.zones[zone]:
-            if name in self.media['wld'].keys():
+            if name in self.resources['wld'].keys():
                 listbox.insert(tk.END, name)
             else:
                 listbox.insert(tk.END, 'MISING-{}'.format(name))
@@ -573,13 +644,13 @@ class WorldCreator(tk.Tk):
             obj_catg = category.split(':')[-1].strip()
             for obj in self.obj_bases[obj_catg]:
                 view_num = obj.view
-                if self.view_found_in_media(view_num):
+                if self.view_found_in_resources(view_num):
                     listbox.insert(tk.END, '{}_{}'.format(obj.name, view_num))
 
         else:
             for atp_num, atp in self.atps['category'][category].items():
                 view_num = self.view_num_from_atp_num(atp_num)[0]
-                if self.view_found_in_media(view_num):
+                if self.view_found_in_resources(view_num):
                     if atp.pDescriber:
                         text = '{} {}'.format(atp.pDescriber, atp_num)
                     elif atp.noun:
@@ -588,17 +659,17 @@ class WorldCreator(tk.Tk):
                         text = '{}'.format(atp_num)
                     listbox.insert(tk.END, text.replace(' ', '_'))
 
-    def view_found_in_media(self, num: int):
-        if str(num) in self.media['v56'].keys():
+    def view_found_in_resources(self, num: int):
+        if str(num) in self.resources['v56'].keys():
             return True
-        for res in self.media["resources"].values():
+        for res in self.resources["resources"].values():
             if res.has_resource(ResType.view, num):
                 return True
         return False
 
     def get_resource(self, restype: ResType, num: int):
         res: Ressci
-        for res in self.media["resources"].values():
+        for res in self.resources["resources"].values():
             if res.has_resource(restype, num):
                 if restype == ResType.view:
                     return res.get_view(num)
@@ -624,7 +695,7 @@ class WorldCreator(tk.Tk):
     def get_wld_from_listbox(self):
         listbox = self.widgets[self.wld_canvas]['wld_listbox']
         wld_name = listbox.get(listbox.curselection()[0])
-        wld_path = self.media['wld'][wld_name]
+        wld_path = self.resources['wld'][wld_name]
         self.open_wld(wld_path)
 
     def draw_cell(self, cell, x=None, y=None, z=0, anchor=tk.S, scaled=True, transparent=True, mirror=False,
@@ -783,13 +854,13 @@ class WorldCreator(tk.Tk):
     def get_view_resource(self, view_num):
         view = self.get_resource(ResType.view, view_num)
         if view is None:
-            view = self.media['v56'][str(view_num)]
+            view = self.resources['v56'][str(view_num)]
         return view
 
     def get_pic_resource(self, pic_num):
         pic = self.get_resource(ResType.pic, pic_num)
         if pic is None:
-            pic = self.media['p56'][str(pic_num)]
+            pic = self.resources['p56'][str(pic_num)]
         return pic
 
     def open_wld(self, filename):
@@ -989,19 +1060,19 @@ class WorldCreator(tk.Tk):
             listbox = tk.Listbox(self.top)
             listbox.pack(fill=tk.BOTH, expand=1)
             listbox.bind('<Double-Button-1>', lambda x: callback(self))
-            resources: list[Ressci] = self.media["resources"].values
+            resources: list[Ressci] = self.resources["resources"].values
             pic_nums_from_res = []
             for x in resources:
                 pics: list[Ressci.Resource] = x.resource_map[ResType.pic]
                 pic_nums_from_res += [x.number for x in pics]
-            pics_from_p56 = [int(p) for p in self.media['p56'].keys()]
+            pics_from_p56 = [int(p) for p in self.resources['p56'].keys()]
             for pic in pics_from_p56 + pic_nums_from_res:
                 try:
                     if pic in self.pics.keys():
                         pic_info = self.pics[pic]
                         listbox.insert(tk.END, '{}_{}'.format(pic_info.room_type, pic))
                 except Exception as e:
-                    print(e)
+                    print(f"Picture not found {e}")
                     pass
             x = self.winfo_pointerx()
             y = self.winfo_pointery()
@@ -1039,14 +1110,14 @@ class WorldCreator(tk.Tk):
             try:
                 del self.rooms[room.number]
             except Exception as e:
-                print(e)
+                print(f"Error deleting room: {e}")
             # update the button key
             map_frame = self.widgets[self.map_canvas]['map_frame']
             self.widgets[self.map_canvas][map_frame][new_room_number] = map_button
             try:
                 del self.widgets[self.map_canvas][map_frame][room.number]
             except Exception as e:
-                print(e)
+                print(f"Error removing room button: {e}")
             # update the room number in the room object
             room.number = new_room_number
             # Update the button text
@@ -1069,7 +1140,7 @@ class WorldCreator(tk.Tk):
 
     def draw_map(self, room_num=None, direction=None, row=1000, col=1000, terminate=False):
         map_frame = self.widgets[self.map_canvas]['map_frame']
-        if not room_num and not terminate:
+        if not (room_num or terminate):
             self.widgets[self.map_canvas][map_frame] = {}
             buttons = self.widgets[self.map_canvas][map_frame]
             first_room_num = list(self.rooms.keys())[0]
@@ -1190,7 +1261,7 @@ class WorldCreator(tk.Tk):
 
     def view_from_atp_number(self, atp_num):
         view_id, mirror = self.view_num_from_atp_num(atp_num)
-        if not self.view_found_in_media(view_id):
+        if not self.view_found_in_resources(view_id):
             return None, mirror
         view = self.get_view_resource(view_id)
         return view, mirror
@@ -1207,7 +1278,7 @@ class WorldCreator(tk.Tk):
         # check if we need to use a template
         if 'template' in room.properties.keys():
             template_room_num = room.properties['template']
-            template_room_wld_file = self.media['wld'][self.room_directory[template_room_num]]
+            template_room_wld_file = self.resources['wld'][self.room_directory[template_room_num]]
             template_room_wld = WldInterp.World(template_room_wld_file)
             try:
                 template_room_num_int = int(template_room_num)
@@ -1232,19 +1303,28 @@ class WorldCreator(tk.Tk):
         depth_sorted_atps_objs.sort(key=lambda x: x[0])
         for atp_or_obj_info in depth_sorted_atps_objs:
             atp_or_obj = atp_or_obj_info[1]
-            try:
-                if isinstance(atp_or_obj, ATP):
-                    atp = atp_or_obj
-                    if atp.reference_atp_num in self.atps['category']['Polygons'].keys():
+            if isinstance(atp_or_obj, ATP):
+                atp = atp_or_obj
+                if atp.reference_atp_num in self.atps['category']['Polygons'].keys():
+                    try:
                         self.draw_atp(atp, transparent=False, polygon=True)
-                    else:
+                    except KeyError as e:
+                        print(f"Error drawing polygon: {e}")
+                        continue
+                else:
+                    try:
                         self.draw_atp(atp)
-                elif isinstance(atp_or_obj, WorldObject):
-                    obj = atp_or_obj
+                    except KeyError as e:
+                        print(f"Error drawing atp: {e}")
+                        continue
+            elif isinstance(atp_or_obj, WorldObject):
+                obj = atp_or_obj
+                try:
                     self.draw_object(obj)
-            except KeyError as e:
-                print(e)
-                continue
+                except KeyError as e:
+                    print(f"Error drawing object: [{obj}] with view [{e}]")
+                    continue
+
         # Hide the polygons, by default
         self.polygon_state = 'normal'
         self.toggle_polygons()

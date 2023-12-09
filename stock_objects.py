@@ -1,5 +1,6 @@
-global StockObjList
+import textwrap
 
+global StockObjList
 
 StockObjList = []
 
@@ -105,11 +106,20 @@ def generate_python_stock_objects():
             lines = ff.readlines()
         py_file = f.replace('.sc', '.py').lower()
         py_path = os.path.join(obj_dir, py_file).replace('/sci/', '/python/')
+        os.makedirs(os.path.dirname(py_path), exist_ok=True)
         with open(py_path, 'w') as ff:
             py_lines = stk_to_obj(lines)
-            print(len(py_lines))
-            py_lines.insert(0, 'from stock_objects import StockObjList,StockObject\nglobal StockObjList\n\n')
+            # TODO detect *.sc changes and re-generate
+            py_lines.insert(0, textwrap.dedent(
+                f'''
+                # Generated Automatically from {sc_file}
+                # Don't Manually edit this file
+                
+                from stock_objects import StockObjList,StockObject
+                global StockObjList
+                '''))
             ff.writelines(py_lines)
+            ff.flush()
 
 
 if __name__ == '__main__':

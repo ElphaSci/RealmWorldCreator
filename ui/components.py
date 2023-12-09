@@ -24,7 +24,7 @@ class NestedOptionMenu(tk.Frame):
 
     def create_menu(self, top_info, top_menu, value_var, parent=''):
         if isinstance(top_info, dict):
-            alphabetical_info = [[k, v] for k,v in top_info.items()]
+            alphabetical_info = [[k, v] for k, v in top_info.items()]
             alphabetical_info.sort(key=lambda x: x[0])
             for key, value in alphabetical_info:
                 menu = tk.Menu(top_menu)
@@ -93,3 +93,9 @@ class MapButton(tk.Button):
         """
         tk.Button.__init__(self, root, *args, **kwargs)
         self.room_id = room_id
+
+
+class ResourcePathList(tk.Listbox):
+
+    def __init__(self):
+        pass

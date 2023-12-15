@@ -1048,11 +1048,11 @@ class WorldCreator(tk.Tk):
             listbox = tk.Listbox(self.top)
             listbox.pack(fill=tk.BOTH, expand=1)
             listbox.bind('<Double-Button-1>', lambda x: callback(self))
-            resources: list[Ressci] = self.resources["resources"].values
+            resources: list[Ressci] = self.resources["resources"].values()
             pic_nums_from_res = []
             for x in resources:
-                pics: list[Ressci.Resource] = x.resource_map[ResType.pic]
-                pic_nums_from_res += [x.number for x in pics]
+                pics: dict[Ressci.Resource] = x.resource_map[ResType.pic]
+                pic_nums_from_res += [k for k, v in pics.items()]
             pics_from_p56 = [int(p) for p in self.resources['p56'].keys()]
             for pic in pics_from_p56 + pic_nums_from_res:
                 try:

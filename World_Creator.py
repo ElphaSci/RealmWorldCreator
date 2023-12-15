@@ -1,8 +1,10 @@
 import os
+import pathlib
 import random
 import tkinter as tk
 from tkinter import filedialog, messagebox
 import PySimpleGUI as sg
+import path
 
 from PIL import ImageTk, ImageOps
 
@@ -18,6 +20,8 @@ from scires.legacy.v56files import V56file
 from stock_objects import StockObjList, generate_python_stock_objects
 from ui.components import NestedOptionMenu, MapButton
 from utils import scale_image
+import importlib.util
+from pathlib import Path
 
 PIC_INFO = {}
 for pic in parse_pic_info_file("Resources/PICINFO.SC"):
@@ -26,10 +30,6 @@ for pic in parse_pic_info_file("Resources/PICINFO.SC"):
 # Good? Bad? Who knows. We dynamically load these modules
 # maybe better or worse, but we dynamically create them beforehand
 generate_python_stock_objects()
-
-import importlib.util
-from pathlib import Path
-
 
 for f in Path('Resources/objects/python/test').parent.glob("*.py"):
     module_name = f.stem
@@ -323,7 +323,6 @@ class WorldCreator(tk.Tk):
         y = obj.y
         z = obj.z
 
-
         obj.loop = (obj.loop + 1) % len(v56.loops)
         # but why not mod?
         # max_loop = len(v56.loops) - 1
@@ -448,7 +447,8 @@ class WorldCreator(tk.Tk):
         self.menu.add_cascade(label='View', underline=0, menu=view_menu)
         self.menu.add_cascade(label='Resources', underline=0, menu=resource_menu)
         # update widgets dict
-        self.widgets = {**self.widgets, **{self.menu: {"file": file_menu, "view": view_menu, "resources": resource_menu}}}
+        self.widgets = {**self.widgets,
+                        **{self.menu: {"file": file_menu, "view": view_menu, "resources": resource_menu}}}
 
     def toggle_polygons(self):
         # items = self.room_canvas.find_withtag('polygon')
@@ -469,8 +469,7 @@ class WorldCreator(tk.Tk):
 
     def build_resources_menu(self):
         resources_menu = tk.Menu(self.menu, tearoff=False)
-        resources_menu.add_command(label='Add Resources', underline=0, command=self.ask_dir_for_resource)
-        resources_menu.add_command(label='View Resources', underline=0, command=self.resource_list_window)
+        resources_menu.add_command(label='Resource Paths', underline=9, command=self.resource_list_window)
         return resources_menu
 
     def build_view_menu(self):
@@ -482,11 +481,13 @@ class WorldCreator(tk.Tk):
 
         default_paths = "-DEFAULT_PATHS_LIST-"
         add_res_path = "-ADD_RESOURCE_PATH-"
-        default_list = sg.Listbox(self.resources["PATH"], size=(50, 10), expand_x=True, expand_y=True, enable_events=True, key=default_paths)
+        default_list = sg.Listbox(self.resources["PATH"], size=(50, 10), expand_x=True, expand_y=True,
+                                  enable_events=True, key=default_paths)
         remove_resource_dir = "-REMOVE_RESOURCE_DIR-"
         msg = "-MSG-"
         layout = [
-            [sg.Input(expand_x=True, key=add_res_path), sg.Button('Add'), sg.FolderBrowse("Browse", target=add_res_path)],
+            [sg.Input(expand_x=True, key=add_res_path), sg.Button('Add'),
+             sg.FolderBrowse("Browse", target=add_res_path)],
             [default_list],
             [sg.Button("Remove", key=remove_resource_dir)],
             [sg.Text("", key=msg)]
@@ -498,9 +499,14 @@ class WorldCreator(tk.Tk):
             if event in (sg.WIN_CLOSED, 'Exit'):
                 break
             if event == 'Add':
-                self.add_resource_dir(values[add_res_path])
-                window[default_paths].update(self.resources["PATH"])
-                window[msg].update("Added")
+                resource_dir = values[add_res_path]
+                if (len(pathlib.Path(resource_dir).name.strip()) > 0):
+                    if self.add_resource_dir(resource_dir):
+                        if self.active_room is not None:
+                            self.load_room(self.active_room, reset = True)
+                        window[default_paths].update(self.resources["PATH"])
+                        window[msg].update("Added")
+
             if event == remove_resource_dir:
                 for to_remove in default_list.get():
                     paths = self.resources["PATH"]
@@ -510,35 +516,15 @@ class WorldCreator(tk.Tk):
                 window[default_paths].update(self.resources["PATH"])
         window.close()
 
-        # cell_attrs = ["width", "height", "x_shift", "y_shift", "transparent_color"]
-        # loop_attrs = ["based_on_loop", "mirror"]
-        # world_attrs = ['view_id', 'x', 'y', 'z', 'loop']
-        # self.top = tk.Toplevel()
-        # grid_row = 0
-        #
-        # def add_list_row(idx, k, value_list):
-        #     label = tk.Label(self.top, text=k)
-        #     label.grid(row=idx)
-        #     list = tk.Listbox(self.top)
-        #     for v in value_list:
-        #         list.insert(tk.END, v)
-        #     list.grid(row=idx, column=1)
-        #
-        # for attrs_list, key in zip([world_attrs, loop_attrs, cell_attrs], ["obj", "header", "cell"]):
-        #     add_list_row(grid_row, key, attrs_list)
-        #     grid_row += 1
-        # self.update()
-        # self.wait_window(self.top)
+    def add_resource_dir(self, resource_dir: str | os.PathLike[str]) -> bool:
+        resource_path = pathlib.Path(resource_dir)
+        if not resource_path.exists():
+            return False
 
-    def ask_dir_for_resource(self):
-        result_dir = tk.filedialog.askdirectory()
-        if isinstance(result_dir, str) and len(result_dir) > 0:
-            self.add_resource_dir(result_dir)
-
-    def add_resource_dir(self, resource_dir: str | os.PathLike[str]):
         if resource_dir not in self.resources['PATH']:
             self.resources['PATH'].append(resource_dir)
         self.load_resources(resource_dir)
+        return True
 
     def save_world(self, saveas=False):
         wld_representation = self.world.realm_representation
@@ -765,7 +751,7 @@ class WorldCreator(tk.Tk):
             else:
                 v56 = v56_or_file
         except Exception as e:
-            self.errorbox('Unable to load v56 from file:'.format(v56_or_file))
+            self.errorbox(f'Unable to load v56 from file:{v56_or_file}')
             raise (e)
         sci_loop = v56.loops[loop]
         if sci_loop.based_on_loop != -1:
@@ -871,7 +857,9 @@ class WorldCreator(tk.Tk):
         self.save_file = filename
         self.set_rooms()
 
-    def map_button_callback(self, room):
+    def load_room(self, room : Room, reset : bool = False):
+        if reset and self.active_room is not None:
+            self.active_room.active_views = []
         map_frame = self.widgets[self.map_canvas]['map_frame']
         buttons = self.widgets[self.map_canvas][map_frame]
         for k, v in buttons.items():
@@ -962,11 +950,11 @@ class WorldCreator(tk.Tk):
         ## create a map button for the room
         map_button = MapButton(map_frame, room_num, width=5, height=1, background='LightCyan3', text=str(room_num),
                                highlightcolor='black',
-                               command=lambda: self.map_button_callback(self.rooms[new_room.number]))
+                               command=lambda: self.load_room(self.rooms[new_room.number]))
         map_button.bind('<Button-3>', lambda x: self.map_popup_menu(x, map_button))
         map_button.grid(row=row, column=col)
         buttons[room_num] = map_button
-        self.map_button_callback(new_room)
+        self.load_room(new_room)
         # Add the new_room buttons are any new rooms
         for grid_coord in empty_grid:
             # This probably won't always work. If it creates a possible new room in a place where a room exits from a
@@ -1047,11 +1035,11 @@ class WorldCreator(tk.Tk):
             if picture is None:
                 pic = listbox.get(listbox.curselection()[0]).split('_')[-1]
                 room.active_background = pic
-                app.map_button_callback(room)
+                app.load_room(room)
                 app.y_shift.destroy()
             else:
                 room.active_background = picture
-                app.map_button_callback(room)
+                app.load_room(room)
 
         if picture is None:
             self.top = tk.Toplevel()
@@ -1148,7 +1136,7 @@ class WorldCreator(tk.Tk):
             room = self.rooms[first_room_num]
             map_button = MapButton(map_frame, first_room_num, width=5, height=1, background='LightCyan3',
                                    text=str(first_room_num), highlightcolor='black',
-                                   command=lambda: self.map_button_callback(self.rooms[room.number]))
+                                   command=lambda: self.load_room(self.rooms[room.number]))
             map_button.bind('<Button-3>', lambda x: self.map_popup_menu(x, map_button))
             map_button.grid(row=row, column=col)
             buttons[first_room_num] = map_button
@@ -1191,7 +1179,7 @@ class WorldCreator(tk.Tk):
                 room = self.rooms[room_num]
                 map_button = MapButton(map_frame, room_num, width=5, height=1, background='LightCyan3',
                                        highlightcolor='black', text=str(room_num),
-                                       command=lambda: self.map_button_callback(self.rooms[room.number]))
+                                       command=lambda: self.load_room(self.rooms[room.number]))
                 map_button.bind('<Button-3>', lambda x: self.map_popup_menu(x, map_button))
                 map_button.grid(row=row, column=col)
                 buttons[room_num] = map_button
@@ -1217,7 +1205,7 @@ class WorldCreator(tk.Tk):
         self.widgets[self.map_canvas]['map_frame'] = map_frame
         self.draw_map()
         first_room_number = self.world.rooms[0].number
-        self.map_button_callback(self.rooms[first_room_number])
+        self.load_room(self.rooms[first_room_number])
         self.widgets[self.map_canvas][map_frame][first_room_number].configure(background='PaleTurquoise2')
         self.update()
 
@@ -1322,7 +1310,7 @@ class WorldCreator(tk.Tk):
                 try:
                     self.draw_object(obj)
                 except KeyError as e:
-                    print(f"Error drawing object: [{obj}] with view [{e}]")
+                    self.errorbox(f"Error drawing object: [{obj}] with view [{e}]")
                     continue
 
         # Hide the polygons, by default

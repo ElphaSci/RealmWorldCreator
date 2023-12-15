@@ -96,23 +96,23 @@ def stk_to_obj(lines):
 
 
 def generate_python_stock_objects():
-    import os
-    obj_dir = "Resources/objects/sci"
-    files = [x for x in os.listdir(obj_dir) if "stkobj" in x.lower() and x.lower().endswith(".sc")]
-    for sc_file in [x for x in files]:
-        f = sc_file.lower()
-        sc_path = os.path.join(obj_dir, sc_file)
+    from pathlib import Path
+
+    obj_dir = Path("Resources/objects/sci")
+    py_obj_dir = Path("Resources/objects/python")
+    obj_dir.mkdir(mode=0o755, parents=True, exist_ok=True)
+    py_obj_dir.mkdir(mode=0o755, parents=True, exist_ok=True)
+
+    for sc_path in Path(obj_dir).glob("*.sc"):
         with open(sc_path, 'r') as ff:
             lines = ff.readlines()
-        py_file = f.replace('.sc', '.py').lower()
-        py_path = os.path.join(obj_dir, py_file).replace('/sci/', '/python/')
-        os.makedirs(os.path.dirname(py_path), exist_ok=True)
+        py_path = py_obj_dir.joinpath(f"{sc_path.stem}.py")
         with open(py_path, 'w') as ff:
             py_lines = stk_to_obj(lines)
             # TODO detect *.sc changes and re-generate
             py_lines.insert(0, textwrap.dedent(
                 f'''
-                # Generated Automatically from {sc_file}
+                # Generated Automatically from {sc_path}
                 # Don't Manually edit this file
                 
                 from stock_objects import StockObjList,StockObject

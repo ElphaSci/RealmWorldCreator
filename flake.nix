@@ -30,7 +30,10 @@
       in rec {
         devShells = {
           default = pkgs.mkShell {
-            packages = with pkgs; [ python311 virtualenv ] ++
+            packages = with pkgs; [
+              python311 virtualenv
+              rustc cargo gcc rustfmt clippy
+             ] ++
               (with pkgs.python311Packages; [
                 ipython
                 pip

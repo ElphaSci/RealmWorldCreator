@@ -19,22 +19,22 @@ executables = [
 
 options = {
     'build_exe': {
-        'include_files': [
+        'include_files':[
             # os.path.join(PYTHON_INSTALL_DIR, 'DLLs', 'tk86t.dll'),
             # os.path.join(PYTHON_INSTALL_DIR, 'DLLs', 'tcl86t.dll'),
-        ],
-        'excludes': [
+         ],
+        'excludes':[
             'Resources'
             'numpy',
             'matplotlib',
         ],
-        'optimize': 2,
+        'optimize':2,
     },
 }
 
-setup(name='World Creator',
-      version='1.0',
-      description='World Editor for The Realm Online',
-      options=options,
-      executables=executables
+setup(name = 'World Creator',
+      version = '1.0',
+      description = 'World Editor for The Realm Online',
+      options = options,
+      executables = executables,
       )

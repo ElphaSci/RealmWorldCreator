@@ -1,3 +1,4 @@
-Pillow~=9.4.0
-PySimpleGUI~=4.60.5
-kaitaisci~=0.0.0
+Pillow
+PySimpleGUI
+kaitaisci
+cx_Freeze

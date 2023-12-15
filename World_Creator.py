@@ -4,7 +4,6 @@ import random
 import tkinter as tk
 from tkinter import filedialog, messagebox
 import PySimpleGUI as sg
-import path
 
 from PIL import ImageTk, ImageOps
 

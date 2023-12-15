@@ -390,7 +390,6 @@ class WorldCreator(tk.Tk):
             if new_z == cur_z:
                 new_z = None
             app.move_to(im_id, x_pos, y_pos, new_z, scale=True)
-            app.y_shift.destroy()
 
         tk.Button(self.top, text='OK', command=lambda: callback(self)).grid(row=3, column=1)
 
@@ -943,6 +942,7 @@ class WorldCreator(tk.Tk):
         new_room.number = room_num
         new_room.picture = (
             reference_room.picture if reference_room.active_background is None else reference_room.active_background)
+        new_room.properties["picture"] = new_room.picture
         new_room.properties['exits'] = exits
         self.rooms[room_num] = new_room
         self.world.rooms += [new_room]
@@ -1020,7 +1020,6 @@ class WorldCreator(tk.Tk):
                 else:
                     entry = None
                 room.properties['exits'][k] = entry
-            app.y_shift.destroy()
 
         tk.Button(self.top, text='OK', command=lambda: callback(self)).grid(row=5, column=1)
         x = self.winfo_pointerx()
@@ -1034,8 +1033,9 @@ class WorldCreator(tk.Tk):
             if picture is None:
                 pic = listbox.get(listbox.curselection()[0]).split('_')[-1]
                 room.active_background = pic
+                room.picture = pic
+                room.properties["picture"] = pic
                 app.load_room(room)
-                app.y_shift.destroy()
             else:
                 room.active_background = picture
                 app.load_room(room)
@@ -1052,8 +1052,8 @@ class WorldCreator(tk.Tk):
             for x in resources:
                 pics: dict[Ressci.Resource] = x.resource_map[ResType.pic]
                 pic_nums_from_res += [k for k, v in pics.items()]
-            pics_from_p56 = [int(p) for p in self.resources['p56'].keys()]
-            for pic in pics_from_p56 + pic_nums_from_res:
+            pic_nums_from_p56 = [int(p) for p in self.resources['p56'].keys()]
+            for pic in pic_nums_from_p56 + pic_nums_from_res:
                 try:
                     if pic in self.pics.keys():
                         pic_info = self.pics[pic]
@@ -1110,7 +1110,6 @@ class WorldCreator(tk.Tk):
             # Update the button text
             map_button.configure(text=new_room_number)
             map_button.room_id = new_room_number
-            app.y_shift.destroy()
 
         tk.Button(self.top, text='OK', command=lambda: callback(self, new_room_number)).grid(row=1, column=1)
 

@@ -41,7 +41,7 @@
               quiet = true;
               requirements = ''
                 Pillow
-                PySimpleGUI
+                PySimpleGUI==4.60.5
                 cx_Freeze
                 ipython
                 matplotlib

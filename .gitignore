@@ -22,3 +22,14 @@ build/
 .venv
 Resources_dng
 *.egg-info
+
+# Devenv
+.devenv*
+devenv.local.nix
+
+# direnv
+.direnv
+
+# pre-commit
+.pre-commit-config.yaml
+

@@ -1,65 +1,79 @@
 {
+  description = "World Builder for The Realm Online";
+
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.05";
-    flake-utils.url = "github:numtide/flake-utils";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    devenv.url = "github:cachix/devenv";
+    nix2container.url = "github:nlewo/nix2container";
+    nix2container.inputs.nixpkgs.follows = "nixpkgs";
+    mk-shell-bin.url = "github:rrbutani/nix-mk-shell-bin";
   };
 
-  outputs = { self, nixpkgs, flake-utils, ... } @ inputs:
-    flake-utils.lib.eachDefaultSystem (system:
-      let
-        pkgs = import nixpkgs { inherit system; };
-        python = pkgs.python311;
-        kaitaisci = pkgs.python311Packages.buildPythonPackage rec {
-          pname = "kaitaisci";
-          version = "0.1";
-          src = builtins.fetchGit {
-            ref = "main";
-            url = "git@gitlab.com:cmhulbert/kaitaisci.git";
+  nixConfig = {
+    extra-trusted-public-keys = "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw=";
+    extra-substituters = "https://devenv.cachix.org";
+  };
+
+  outputs = inputs@{ flake-parts, ... }:
+    flake-parts.lib.mkFlake { inherit inputs; } {
+      imports = [
+        inputs.devenv.flakeModule
+      ];
+
+      systems = [ "x86_64-linux" "i686-linux" "x86_64-darwin" "aarch64-linux" "aarch64-darwin" ];
+
+      perSystem = { config, self', inputs', pkgs, system, ... }: {
+        # Per-system attributes can be defined here. The self' and inputs'
+        # module parameters provide easy access to attributes of the same
+        # system.
+
+        # Equivalent to  inputs'.nixpkgs.legacyPackages.hello;
+        packages.default = pkgs.hello;
+
+        devenv.shells.default = {
+          name = "world-creator-dev";
+
+          languages.python = {
+            package = pkgs.python310Full;
+            enable = true;
+            venv = {
+              enable = true;
+              quiet = true;
+              requirements = ''
+                Pillow
+                PySimpleGUI
+                cx_Freeze
+                ipython
+                matplotlib
+                kaitaistruct
+              '';
+            };
           };
-          propagatedBuildInputs = with pkgs.python311Packages; [
-            pillow
-            kaitaistruct
+
+          imports = [
+            # This is just like the imports in devenv.nix.
+            # See https://devenv.sh/guides/using-with-flake-parts/#import-a-devenv-module
+            # ./devenv-foo.nix
           ];
 
-          meta = {
-            description = "Python Parser for Sierra Creative Interpreter files, using Kaitai";
-            homepage = "https://gitlab.com/cmhulbert/kaitaisci";
-            email = "cmhulbert@gmail.com";
-          };
-        };
-      in rec {
-        devShells = {
-          default = pkgs.mkShell {
-            packages = with pkgs; [
-              python311 virtualenv
-              rustc cargo gcc rustfmt clippy
-             ] ++
-              (with pkgs.python311Packages; [
-                ipython
-                pip
-                kaitaisci
-                matplotlib
-                pysimplegui
-                cx_Freeze
-                venvShellHook
-              ]);
+#          config.languages.python.package.withPackages(ps: with ps; [ tkinter]))
 
-            venvDir = ".venv";
-            postShellHook = ''
-              # Allow the use of wheels.
-              unset SOURCE_DATE_EPOCH
-              ( IFS=:
-                for p in $PYTHONPATH; do
-                  ln -s $p/* /home/caleb/git/Realm_World_Creator/.venv/lib/python3.11/site-packages
-                done
-              )
-            '';
-            postVenv = ''
-              unset SOURCE_DATE_EPOCH
-              pip install -e .
-            '';
-          };
+          # https://devenv.sh/reference/options/
+          packages = [
+            config.packages.default
+          ];
+
+          enterShell = ''
+            pip install -e ../KaitaiSCI >> /dev/null
+          '';
         };
-      }
-    );
+
+      };
+      flake = {
+        # The usual flake attributes can be defined here, including system-
+        # agnostic ones like nixosModule and system-enumerating ones, although
+        # those are more easily expressed in perSystem.
+
+      };
+    };
 }

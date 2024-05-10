@@ -27,9 +27,6 @@
         # module parameters provide easy access to attributes of the same
         # system.
 
-        # Equivalent to  inputs'.nixpkgs.legacyPackages.hello;
-        packages.default = pkgs.hello;
-
         devenv.shells.default = {
           name = "world-creator-dev";
 
@@ -40,12 +37,12 @@
               enable = true;
               quiet = true;
               requirements = ''
-                Pillow
+                Pillow==10.3.0
                 PySimpleGUI==4.60.5
-                cx_Freeze
+                cx_Freeze==7.0.0
                 ipython
                 matplotlib
-                kaitaistruct
+                kaitaistruct==0.10
               '';
             };
           };
@@ -60,7 +57,6 @@
 
           # https://devenv.sh/reference/options/
           packages = [
-            config.packages.default
           ];
 
           enterShell = ''

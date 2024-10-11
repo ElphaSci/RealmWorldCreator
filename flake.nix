@@ -42,6 +42,8 @@
                 cx_Freeze==7.0.0
                 ipython
                 matplotlib
+                rapidfuzz
+                appdirs
                 kaitaistruct==0.10
               '';
             };

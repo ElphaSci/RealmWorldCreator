@@ -36,45 +36,69 @@ class Region(dict):
         dict.__init__({name: atp_categories})
 
 
-MidTrees = mySet = [ATPNode(view=1015, noun='BIRCH_CLUMP_N', pDescriber="Birch Clump 1", pDoScaler=True),
-                    ATPNode(view=1040, noun='PINE_N', pDescriber="Pine 1A", pDoScaler=True),
-                    ATPNode(view=1041, noun='PINE_N', pDescriber="Pine 1B", pDoScaler=True),
-                    ATPNode(view=1042, noun='PINE_N', pDescriber="Pine 1C", pDoScaler=True),
-                    ATPNode(view=1048, noun='PINE_N', pDescriber="Pine 1", pDoScaler=True),
-                    ATPNode(view=1105, noun='PINE_N', pDescriber="Pine 1D", pDoScaler=True),
-                    ATPNode(view=1043, noun='PINE_N', pDescriber="Pine 1", pDoScaler=True),
-                    ATPNode(view=1044, noun='PINE_N', pDescriber="Pine 2", pDoScaler=False),
-                    ATPNode(view=1045, noun='PINE_LARGE_N', pDescriber="Large pine", pDoScaler=False),
-                    ATPNode(view=1046, noun='PINE_SHORT_N', pDescriber="Short pine 1", pDoScaler=True),
-                    ATPNode(view=1047, noun='PINE_SHORT_N', pDescriber="pine", pDoScaler=True),
-                    ATPNode(view=1049, noun='PINE2_N', pDescriber="Avg pine 2", pDoScaler=False),
-                    ATPNode(view=1050, noun='PINE_LEAN_N', pDescriber="Leaning pine", pDoScaler=False),
-                    ATPNode(view=1051, noun='PINE_DEAD_N', pDescriber="Dead pine", pDoScaler=True),
-                    ATPNode(view=1103, noun='BIRCH_CLUMP_N', pDescriber="Birch Clump 3", pDoScaler=True),
-                    ATPNode(view=1109, noun='BIRCH_CLUMP_N', pDescriber="Birch Clump 2", pDoScaler=True),
-                    ATPNode(view=1120, noun='PINE2_N', pDescriber="Thin Pine", pDoScaler=False),
-                    ATPNode(view=1121, noun='CEDAR_CURVED_N', pDescriber="Curved Cedar", pDoScaler=False),
-                    ATPNode(view=1122, noun='CEDAR_CURVED_N', pDescriber="Large Tree, Droops", pDoScaler=False),
-                    ATPNode(view=1123, noun='BARE_TREE_N', pDescriber="Bare Tree", pDoScaler=True),
-                    ATPNode(view=1124, noun='BARE_TREE_N', pDescriber="Full Tree", pDoScaler=True),
-                    ATPNode(view=1126, noun='BARE_TREE_N', pDescriber="Tall Tree", pDoScaler=True),
-                    ATPNode(view=1125, noun='BARE_TREE_N', pDescriber="Open Tree, Heavy on top", pDoScaler=True),
-                    ATPNode(view=1127, noun='PINE2_N', pDescriber="Pine", pDoScaler=True),
-                    ATPNode(view=1128, noun='BENT_TREE_N', pDescriber="Bent Tree", pDoScaler=True),
-                    ATPNode(view=1131, noun='BONSAI_N', pDescriber="Bonsai", pDoScaler=True),
-                    ATPNode(view=1132, noun='BONSAI_N', pDescriber="Bonsai", pDoScaler=True),
-                    ATPNode(view=1133, noun='BONSAI_N', pDescriber="Bonsai", pDoScaler=True),
-                    ATPNode(view=1134, noun='BONSAI_N', pDescriber="Bonsai", pDoScaler=True),
-                    ATPNode(view=1135, noun='BONSAI_N', pDescriber="Bonsai", pDoScaler=True),
-                    ATPNode(view=1136, noun='BONSAI_N', pDescriber="Bonsai", pDoScaler=True),
-                    ATPNode(view=1137, noun='BONSAI_N', pDescriber="Bonsai", pDoScaler=True),
-                    ATPNode(view=1138, noun='BONSAI_N', pDescriber="Bonsai", pDoScaler=True),
-                    ATPNode(view=1139, noun='BONSAI_N', pDescriber="Bonsai", pDoScaler=True),
-                    ATPNode(view=3718, noun='TREE_N', pDescriber="Big Fir", pDoScaler=False),
-                    ATPNode(view=3719, noun='TREE_N', pDescriber="Big Fir", pDoScaler=False),
-                    ATPNode(view=3951, noun='PINE_SKINNY_N', pDescriber="Skinny Pine", pDoScaler=False),
-                    ATPNode(view=3952, noun='PINE_N', pDescriber="Small Pine", pDoScaler=False),
-                    ATPNode(view=3953, noun='OAK_N', pDescriber="oak tree", pDoScaler=False)]
+MidTrees = mySet = [
+    ATPNode(view=1015, noun='BIRCH_CLUMP_N', pDescriber="Birch Clump 1", pDoScaler=True),
+    ATPNode(view=1043, noun='PINE_N', pDescriber="Pine 1", pDoScaler=True),
+    ATPNode(view=1044, noun='PINE_N', pDescriber="Pine 2", pDoScaler=False),
+    ATPNode(view=1045, noun='PINE_LARGE_N', pDescriber="Large pine", pDoScaler=False),
+    ATPNode(view=1046, noun='PINE_SHORT_N', pDescriber="Short pine 1", pDoScaler=True),
+    ATPNode(view=1047, noun='PINE_SHORT_N', pDescriber="pine", pDoScaler=True),
+    ATPNode(view=1049, noun='PINE2_N', pDescriber="Avg pine 2", pDoScaler=False),
+    ATPNode(view=1050, noun='PINE_LEAN_N', pDescriber="Leaning pine", pDoScaler=False),
+    ATPNode(view=1051, noun='PINE_DEAD_N', pDescriber="Dead pine", pDoScaler=True),
+    ATPNode(view=1103, noun='BIRCH_CLUMP_N', pDescriber="Birch Clump 3", pDoScaler=True),
+    ATPNode(view=1109, noun='BIRCH_CLUMP_N', pDescriber="Birch Clump 2", pDoScaler=True),
+    ATPNode(view=1120, noun='PINE2_N', pDescriber="Thin Pine", pDoScaler=False),
+    ATPNode(view=1121, noun='CEDAR_CURVED_N', pDescriber="Curved Cedar", pDoScaler=False),
+    ATPNode(view=1122, noun='CEDAR_CURVED_N', pDescriber="Large Tree, Droops", pDoScaler=False),
+    ATPNode(view=1123, noun='BARE_TREE_N', pDescriber="Bare Tree", pDoScaler=True),
+    ATPNode(view=1125, noun='BARE_TREE_N', pDescriber="Open Tree, Heavy on top", pDoScaler=True),
+    ATPNode(view=1127, noun='PINE2_N', pDescriber="Pine", pDoScaler=True),
+    ATPNode(view=1128, noun='BENT_TREE_N', pDescriber="Bent Tree", pDoScaler=True),
+    ATPNode(view=1131, noun='BONSAI_N', pDescriber="Bonsai", pDoScaler=True),
+    ATPNode(view=1132, noun='BONSAI_N', pDescriber="Bonsai", pDoScaler=True),
+    ATPNode(view=1133, noun='BONSAI_N', pDescriber="Bonsai", pDoScaler=True),
+    ATPNode(view=1134, noun='BONSAI_N', pDescriber="Bonsai", pDoScaler=True),
+    ATPNode(view=1135, noun='BONSAI_N', pDescriber="Bonsai", pDoScaler=True),
+    ATPNode(view=1136, noun='BONSAI_N', pDescriber="Bonsai", pDoScaler=True),
+    ATPNode(view=1137, noun='BONSAI_N', pDescriber="Bonsai", pDoScaler=True),
+    ATPNode(view=1138, noun='BONSAI_N', pDescriber="Bonsai", pDoScaler=True),
+    ATPNode(view=1139, noun='BONSAI_N', pDescriber="Bonsai", pDoScaler=True),
+    ATPNode(view=3718, noun='TREE_N', pDescriber="Big Fir", pDoScaler=False),
+    ATPNode(view=3951, noun='PINE_SKINNY_N', pDescriber="Skinny Pine", pDoScaler=False),
+    ATPNode(view=3952, noun='PINE_N', pDescriber="Small Pine", pDoScaler=False),
+    ATPNode(view=3953, noun='OAK_N', pDescriber="oak tree", pDoScaler=False),
+    ATPNode(view=7001, noun='BIRCH_CLUMP_N', pDescriber="Birch Clump 1", pDoScaler=True),
+    ATPNode(view=7012, noun='PINE_N', pDescriber="Pine 1", pDoScaler=True),
+    ATPNode(view=7013, noun='PINE_N', pDescriber="Pine 2", pDoScaler=False),
+    ATPNode(view=7014, noun='PINE_LARGE_N', pDescriber="Large pine", pDoScaler=False),
+    ATPNode(view=7015, noun='PINE_SHORT_N', pDescriber="Short pine 1", pDoScaler=True),
+    ATPNode(view=7016, noun='PINE_SHORT_N', pDescriber="pine", pDoScaler=True),
+    ATPNode(view=7018, noun='PINE2_N', pDescriber="Avg pine 2", pDoScaler=False),
+    ATPNode(view=7019, noun='PINE_LEAN_N', pDescriber="Leaning pine", pDoScaler=False),
+    ATPNode(view=7032, noun='BIRCH_CLUMP_N', pDescriber="Birch Clump 3", pDoScaler=True),
+    ATPNode(view=7038, noun='BIRCH_CLUMP_N', pDescriber="Birch Clump 2", pDoScaler=True),
+    ATPNode(view=7045, noun='PINE2_N', pDescriber="Thin Pine", pDoScaler=False),
+    ATPNode(view=7046, noun='CEDAR_CURVED_N', pDescriber="Curved Cedar", pDoScaler=False),
+    ATPNode(view=7047, noun='CEDAR_CURVED_N', pDescriber="Large Tree, Droops", pDoScaler=False),
+    ATPNode(view=7049, noun='BARE_TREE_N', pDescriber="Open Tree, Heavy on top", pDoScaler=True),
+    ATPNode(view=7051, noun='PINE2_N', pDescriber="Pine", pDoScaler=True),
+    ATPNode(view=7052, noun='BENT_TREE_N', pDescriber="Bent Tree", pDoScaler=True),
+    ATPNode(view=7053, noun='BONSAI_N', pDescriber="Bonsai", pDoScaler=True),
+    ATPNode(view=7054, noun='BONSAI_N', pDescriber="Bonsai", pDoScaler=True),
+    ATPNode(view=7055, noun='BONSAI_N', pDescriber="Bonsai", pDoScaler=True),
+    ATPNode(view=7056, noun='BONSAI_N', pDescriber="Bonsai", pDoScaler=True),
+    ATPNode(view=7057, noun='BONSAI_N', pDescriber="Bonsai", pDoScaler=True),
+    ATPNode(view=7058, noun='BONSAI_N', pDescriber="Bonsai", pDoScaler=True),
+    ATPNode(view=7059, noun='BONSAI_N', pDescriber="Bonsai", pDoScaler=True),
+    ATPNode(view=7060, noun='BONSAI_N', pDescriber="Bonsai", pDoScaler=True),
+    ATPNode(view=7061, noun='BONSAI_N', pDescriber="Bonsai", pDoScaler=True),
+    ATPNode(view=7156, noun='TREE_N', pDescriber="Big Fir", pDoScaler=False),
+    ATPNode(view=7160, noun='PINE_SKINNY_N', pDescriber="Skinny Pine", pDoScaler=False),
+    ATPNode(view=7161, noun='PINE_N', pDescriber="Small Pine", pDoScaler=False),
+    ATPNode(view=7162, noun='OAK_N', pDescriber="oak tree", pDoScaler=False)
+]
+
 
 for i, obj in enumerate(mySet):
     obj.pMsgFile = 101
@@ -83,19 +107,29 @@ for i, obj in enumerate(mySet):
     if obj.pDescriber == '':
         obj.pDescriber = 'Mid'
 
-MidPlant = mySet = [ATPNode(view=1060, noun='BUSH_MED_N', pDescriber="Grn md bush", pDoScaler=True),
-                    ATPNode(view=1061, noun='BUSH_N', pDescriber="Low bush", pPolygon=-1, pDoScaler=True),
-                    ATPNode(view=1062, noun='BUSH_FLOWER_N', pDescriber="Flower bush", pDoScaler=True),
-                    ATPNode(view=1063, noun='BUSH_PINK_N', pDescriber="Pink flowers", pDoScaler=True),
-                    ATPNode(view=1064, noun='BUSH_YELLO_N', pDescriber="Yellow flowers", pDoScaler=True),
+MidPlant = mySet = [
+    ATPNode(view=1060, noun='BUSH_MED_N', pDescriber="Grn md bush", pDoScaler=True),
+    ATPNode(view=1061, noun='BUSH_N', pDescriber="Low bush", pPolygon=-1, pDoScaler=True),
+    ATPNode(view=1062, noun='BUSH_FLOWER_N', pDescriber="Flower bush", pDoScaler=True),
+    ATPNode(view=1063, noun='BUSH_PINK_N', pDescriber="Pink flowers", pDoScaler=True),
+    ATPNode(view=1064, noun='BUSH_YELLO_N', pDescriber="Yellow flowers", pDoScaler=True),
+    ATPNode(view=1066, noun='BUSH_LEAFY_N', pDescriber="Leafy bush", pDoScaler=True),
+    ATPNode(view=1104, noun='BUSH_N', pDescriber="Willow Bush", pDoScaler=True),
+    ATPNode(view=3711, noun='BUSH_SML_N', pDescriber="Grn sm bush", pDoScaler=False),
+    ATPNode(view=3712, noun='BUSH_SML_N', pDescriber="Bush", pDoScaler=False),
+    ATPNode(view=3955, noun='BUSH_SML_N', pDescriber="Low bush", pPolygon=-1, pDoScaler=False),
+    ATPNode(view=3956, noun='BUSH_SML_N', pDescriber="Low bush", pPolygon=-1, pDoScaler=False),
+    ATPNode(view=7020, noun='BUSH_MED_N', pDescriber="Grn md bush", pDoScaler=True),
+    ATPNode(view=7021, noun='BUSH_N', pDescriber="Low bush", pPolygon=-1, pDoScaler=True),
+    ATPNode(view=7022, noun='BUSH_FLOWER_N', pDescriber="Flower bush", pDoScaler=True),
+    ATPNode(view=7024, noun='BUSH_LEAFY_N', pDescriber="Leafy bush", pDoScaler=True),
+    ATPNode(view=7033, noun='BUSH_N', pDescriber="Willow Bush", pDoScaler=True),
+    ATPNode(view=7150, noun='BUSH_SML_N', pDescriber="Grn sm bush", pDoScaler=False),
+    ATPNode(view=7151, noun='BUSH_SML_N', pDescriber="Bush", pDoScaler=False),
+    ATPNode(view=7164, noun='BUSH_SML_N', pDescriber="Low bush", pPolygon=-1, pDoScaler=False),
+    ATPNode(view=7165, noun='BUSH_SML_N', pDescriber="Low bush", pPolygon=-1, pDoScaler=False)
+]
 
-                    ATPNode(view=1065, noun='BUSH_LEAFY_N', pDescriber="Leafy bushA", pDoScaler=True),
-                    ATPNode(view=1066, noun='BUSH_LEAFY_N', pDescriber="Leafy bush", pDoScaler=True),
-                    ATPNode(view=1104, noun='BUSH_N', pDescriber="Willow Bush", pDoScaler=True),
-                    ATPNode(view=3711, noun='BUSH_SML_N', pDescriber="Grn sm bush", pDoScaler=False),
-                    ATPNode(view=3712, noun='BUSH_SML_N', pDescriber="Bush", pDoScaler=False),
-                    ATPNode(view=3955, noun='BUSH_SML_N', pDescriber="Low bush", pPolygon=-1, pDoScaler=False),
-                    ATPNode(view=3956, noun='BUSH_SML_N', pDescriber="Low bush", pPolygon=-1, pDoScaler=False)]
 
 for i, obj in enumerate(mySet):
     obj.pMsgFile = 101
@@ -104,15 +138,20 @@ for i, obj in enumerate(mySet):
     if not obj.pDescriber:
         obj.pDescriber = "Plants"
 
-ForeTrees = mySet = [ATPNode(view=1100, noun='BUSH_LEAFY_N', pDescriber="Bushes", y=325),
-
-                     ATPNode(view=1101, noun='BIRCH_CLUMP_N', pDescriber="Large TreeA"),
-                     ATPNode(view=1102, noun='PINE_BIGMAMA_N', pDescriber="Mama pine", y=319),
-                     ATPNode(view=1103, noun='BIRCH_CLUMP_N', pDescriber="Birch Clump 3"),
-                     ATPNode(view=1106, noun='CEDAR_FORE_N', pDescriber="Cedar", y=317),
-                     ATPNode(view=1107, noun='PINE_FORE_N', pDescriber="Pine", y=318),
-                     ATPNode(view=1108, noun='BIRCH_CLUMP_N', pDescriber="Tree LeftA"),
-                     ATPNode(view=1109, noun='BIRCH_CLUMP_N', pDescriber="Birch Clump 2")]
+ForeTrees = mySet = [
+    ATPNode(view=1100, noun='BUSH_LEAFY_N', pDescriber="Bushes", y=325),
+    ATPNode(view=1102, noun='PINE_BIGMAMA_N', pDescriber="Mama pine", y=319),
+    ATPNode(view=1103, noun='BIRCH_CLUMP_N', pDescriber="Birch Clump 3"),
+    ATPNode(view=1106, noun='CEDAR_FORE_N', pDescriber="Cedar", y=317),
+    ATPNode(view=1107, noun='PINE_FORE_N', pDescriber="Pine", y=318),
+    ATPNode(view=1109, noun='BIRCH_CLUMP_N', pDescriber="Birch Clump 2"),
+    ATPNode(view=7029, noun='BUSH_LEAFY_N', pDescriber="Bushes", y=325),
+    ATPNode(view=7031, noun='PINE_BIGMAMA_N', pDescriber="Mama pine", y=319),
+    ATPNode(view=7032, noun='BIRCH_CLUMP_N', pDescriber="Birch Clump 3"),
+    ATPNode(view=7035, noun='CEDAR_FORE_N', pDescriber="Cedar", y=317),
+    ATPNode(view=7036, noun='PINE_FORE_N', pDescriber="Pine", y=318),
+    ATPNode(view=7038, noun='BIRCH_CLUMP_N', pDescriber="Birch Clump 2")
+]
 
 for i, obj in enumerate(mySet):
     obj.pMsgFile = 101
@@ -122,14 +161,22 @@ for i, obj in enumerate(mySet):
     if not obj.pDescriber:
         obj.pDescriber = "Fore"
 
-Rocks = mySet = [ATPNode(view=1200, noun='ROCKS_2_N', pDescriber="2 Rocks", pDoScaler=True),
-                 ATPNode(view=1201, noun='ROCK_MED_N', pDescriber="Rock", pDoScaler=True),
-                 ATPNode(view=1202, noun='ROCK_BIG_N', pDescriber="Rock-Big", pDoScaler=True),
-                 ATPNode(view=1203, noun='ROCK_MED_N', pDescriber="Rock-Med", pDoScaler=True),
-                 ATPNode(view=1204, noun='ROCK_SML_N', pDescriber="Rock-Small", pDoScaler=True),
-                 ATPNode(view=1250, noun='TOMBSTONE_N', pDescriber="Tomb stone-Plain", pDoScaler=True),
-                 ATPNode(view=1251, noun='TOMBSTONE2_N', pDescriber="Tomb stone-Cross", pDoScaler=True),
-                 ATPNode(view=1252, noun='TOMBSTONE3_N', pDescriber="Tomb stone-Lg-Cross", pDoScaler=True)]
+Rocks = mySet = [
+    ATPNode(view=1200, noun='ROCKS_2_N', pDescriber="2 Rocks", pDoScaler=True),
+    ATPNode(view=1201, noun='ROCK_MED_N', pDescriber="Rock", pDoScaler=True),
+    ATPNode(view=1202, noun='ROCK_BIG_N', pDescriber="Rock-Big", pDoScaler=True),
+    ATPNode(view=1203, noun='ROCK_MED_N', pDescriber="Rock-Med", pDoScaler=True),
+    ATPNode(view=1204, noun='ROCK_SML_N', pDescriber="Rock-Small", pDoScaler=True),
+    ATPNode(view=1250, noun='TOMBSTONE_N', pDescriber="Tomb stone-Plain", pDoScaler=True),
+    ATPNode(view=1251, noun='TOMBSTONE2_N', pDescriber="Tomb stone-Cross", pDoScaler=True),
+    ATPNode(view=1252, noun='TOMBSTONE3_N', pDescriber="Tomb stone-Lg-Cross", pDoScaler=True),
+    ATPNode(view=7103, noun='ROCKS_2_N', pDescriber="2 Rocks", pDoScaler=True),
+    ATPNode(view=7104, noun='ROCK_MED_N', pDescriber="Rock", pDoScaler=True),
+    ATPNode(view=7105, noun='ROCK_BIG_N', pDescriber="Rock-Big", pDoScaler=True),
+    ATPNode(view=7106, noun='ROCK_MED_N', pDescriber="Rock-Med", pDoScaler=True),
+    ATPNode(view=7107, noun='ROCK_SML_N', pDescriber="Rock-Small", pDoScaler=True)
+]
+
 
 for i, obj in enumerate(mySet):
     obj.pMsgFile = 101
@@ -137,46 +184,55 @@ for i, obj in enumerate(mySet):
     obj.pDoScaler = True
     if not obj.pDescriber:
         obj.pDescriber = "Rock"
-
-BackTrees = mySet = [ATPNode(view=1140, noun='TREE_BKGD1_N', pDescriber="distant-Tree", pPolygon=-1),
-                     ATPNode(view=1141, noun='TREE_BKGD1_N', pDescriber="distant-Tree", pPolygon=-1),
-                     ATPNode(view=1142, noun='TREE_BKGD1_N', pDescriber="distant-Tree", pPolygon=-1),
-                     ATPNode(view=1145, noun='TREE_BKGD1_N', pDescriber="distant-Tree", pPolygon=-1),
-                     ATPNode(view=1146, noun='TREE_BKGD1_N', pDescriber="distant-Tree", pPolygon=-1),
-                     ATPNode(view=1149, noun='TREE_BKGD1_N', pDescriber="Full-Tree-L", pPolygon=-1,
-                             pPlacement='BACK_FULL'),
-                     ATPNode(view=1150, noun='TREE_BKGD1_N', pDescriber="Full-Tree", pPolygon=-1,
-                             pPlacement='BACK_FULL'),
-                     ATPNode(view=1151, noun='TREE_BKGD1_N', pDescriber="Full-Tree-R", pPolygon=-1,
-                             pPlacement='BACK_FULL'),
-                     ATPNode(view=1152, noun='PINE_BKGD_N', pDescriber="Pines-Bkgd", pPolygon=-1),
-                     ATPNode(view=1153, noun='PINE_BKGD_N', pDescriber="Pines-Bkgd", pPolygon=-1),
-                     ATPNode(view=1154, noun='PINE_BKGD_N', pDescriber="Pines-Bkgd", pPolygon=-1),
-                     ATPNode(view=1155, noun='PINE_BKGD_N', pDescriber="Pines-Bkgd", pPolygon=-1),
-                     ATPNode(view=1156, noun='PINE_BKGD_N', pDescriber="Pines-Bkgd", pPolygon=-1),
-                     ATPNode(view=1157, noun='PINE_BKGD_N', pDescriber="Pines-Bkgd", pPolygon=-1),
-                     ATPNode(view=1158, noun='PINE_BKGD_N', pDescriber="Pines-Bkgd", pPolygon=-1),
-                     ATPNode(view=1159, noun='PINE_BKGD_N', pDescriber="Pines-Bkgd", pPolygon=-1),
-                     ATPNode(view=1160, noun='PINE_BKGD_N', pDescriber="Pines-Bkgd", pPolygon=-1),
-                     ATPNode(view=1161, noun='PINE_BKGD_N', pDescriber="Pines-Bkgd", pPolygon=-1),
-                     ATPNode(view=1162, noun='PINE_BKGD_N', pDescriber="Pines-Bkgd", pPolygon=-1),
-                     ATPNode(view=1163, noun='TREE_BKGD3_N', pDescriber="Many Pines", pPolygon=-1),
-                     ATPNode(view=1164, noun='TREE_BKGD3_N', pDescriber="Many Pines", pPolygon=-1),
-                     ATPNode(view=1165, noun='TREE_BKGD3_N', pDescriber="Half-Bkgd", pPolygon=-1),
-                     ATPNode(view=1066, noun='TREE_BKGD3_N', pDescriber="Dead tree", pPolygon=-1),
-                     ATPNode(view=1067, noun='TREE_BKGD3_N', pDescriber="Dead tree", pPolygon=-1),
-                     ATPNode(view=1068, noun='TREE_BKGD3_N', pDescriber="Live tree", pPolygon=-1),
-                     ATPNode(view=1069, noun='TREE_BKGD3_N', pDescriber="Live treeA", pPolygon=-1),
-                     ATPNode(view=1070, noun='TREE_BKGD3_N', pDescriber="Live treeB", pPolygon=-1),
-                     ATPNode(view=1071, noun='TREE_BKGD3_N', pDescriber="Live treeC", pPolygon=-1),
-                     ATPNode(view=1168, noun='TREE_BKGD3_N', pDescriber="Half-Bkgd", pPolygon=-1),
-                     ATPNode(view=1175, noun='TREE_BKGD2_N', pDescriber="Far Forest-Mid", pPolygon=-1),
-                     ATPNode(view=1176, noun='TREE_BKGD2_N', pDescriber="Far Forest-Lft", pPolygon=-1),
-                     ATPNode(view=1177, noun='TREE_BKGD2_N', pDescriber="Far Forest-Rt", pPolygon=-1),
-                     ATPNode(view=3715, noun='TREE_TRUNK_N', pDescriber="Tree-trunk"),
-                     ATPNode(view=3742, noun='TREE_BKGD3_N', pDescriber="Half-Bkgd", pPolygon=-1),
-                     ATPNode(view=3743, noun='TREE_BKGD1_N', pDescriber="Full-Tree-M", pPolygon=-1,
-                             pPlacement='BACK_FULL')]
+BackTrees = mySet = [
+    ATPNode(view=1140, noun='TREE_BKGD1_N', pDescriber="distant-Tree", pPolygon=-1),
+    ATPNode(view=1141, noun='TREE_BKGD1_N', pDescriber="distant-Tree", pPolygon=-1),
+    ATPNode(view=1142, noun='TREE_BKGD1_N', pDescriber="distant-Tree", pPolygon=-1),
+    ATPNode(view=1145, noun='TREE_BKGD1_N', pDescriber="distant-Tree", pPolygon=-1),
+    ATPNode(view=1146, noun='TREE_BKGD1_N', pDescriber="distant-Tree", pPolygon=-1),
+    ATPNode(view=1149, noun='TREE_BKGD1_N', pDescriber="Full-Tree-L", pPolygon=-1, pPlacement='BACK_FULL'),
+    ATPNode(view=1150, noun='TREE_BKGD1_N', pDescriber="Full-Tree", pPolygon=-1, pPlacement='BACK_FULL'),
+    ATPNode(view=1151, noun='TREE_BKGD1_N', pDescriber="Full-Tree-R", pPolygon=-1, pPlacement='BACK_FULL'),
+    ATPNode(view=1152, noun='PINE_BKGD_N', pDescriber="Pines-Bkgd", pPolygon=-1),
+    ATPNode(view=1153, noun='PINE_BKGD_N', pDescriber="Pines-Bkgd", pPolygon=-1),
+    ATPNode(view=1154, noun='PINE_BKGD_N', pDescriber="Pines-Bkgd", pPolygon=-1),
+    ATPNode(view=1155, noun='PINE_BKGD_N', pDescriber="Pines-Bkgd", pPolygon=-1),
+    ATPNode(view=1156, noun='PINE_BKGD_N', pDescriber="Pines-Bkgd", pPolygon=-1),
+    ATPNode(view=1157, noun='PINE_BKGD_N', pDescriber="Pines-Bkgd", pPolygon=-1),
+    ATPNode(view=1163, noun='TREE_BKGD3_N', pDescriber="Many Pines", pPolygon=-1),
+    ATPNode(view=1164, noun='TREE_BKGD3_N', pDescriber="Many Pines", pPolygon=-1),
+    ATPNode(view=1165, noun='TREE_BKGD3_N', pDescriber="Half-Bkgd", pPolygon=-1),
+    ATPNode(view=1168, noun='TREE_BKGD3_N', pDescriber="Half-Bkgd", pPolygon=-1),
+    ATPNode(view=1175, noun='TREE_BKGD2_N', pDescriber="Far Forest-Mid", pPolygon=-1),
+    ATPNode(view=1176, noun='TREE_BKGD2_N', pDescriber="Far Forest-Lft", pPolygon=-1),
+    ATPNode(view=1177, noun='TREE_BKGD2_N', pDescriber="Far Forest-Rt", pPolygon=-1),
+    ATPNode(view=3715, noun='TREE_TRUNK_N', pDescriber="Tree-trunk"),
+    ATPNode(view=3742, noun='TREE_BKGD3_N', pDescriber="Half-Bkgd", pPolygon=-1),
+    ATPNode(view=3743, noun='TREE_BKGD1_N', pDescriber="Full-Tree-M", pPolygon=-1, pPlacement='BACK_FULL'),
+    ATPNode(view=7062, noun='TREE_BKGD1_N', pDescriber="distant-Tree", pPolygon=-1),
+    ATPNode(view=7063, noun='TREE_BKGD1_N', pDescriber="distant-Tree", pPolygon=-1),
+    ATPNode(view=7064, noun='TREE_BKGD1_N', pDescriber="distant-Tree", pPolygon=-1),
+    ATPNode(view=7065, noun='TREE_BKGD1_N', pDescriber="distant-Tree", pPolygon=-1),
+    ATPNode(view=7066, noun='TREE_BKGD1_N', pDescriber="distant-Tree", pPolygon=-1),
+    ATPNode(view=7067, noun='TREE_BKGD1_N', pDescriber="Full-Tree-L", pPolygon=-1, pPlacement='BACK_FULL'),
+    ATPNode(view=7068, noun='TREE_BKGD1_N', pDescriber="Full-Tree", pPolygon=-1, pPlacement='BACK_FULL'),
+    ATPNode(view=7069, noun='TREE_BKGD1_N', pDescriber="Full-Tree-R", pPolygon=-1, pPlacement='BACK_FULL'),
+    ATPNode(view=7070, noun='PINE_BKGD_N', pDescriber="Pines-Bkgd", pPolygon=-1),
+    ATPNode(view=7071, noun='PINE_BKGD_N', pDescriber="Pines-Bkgd", pPolygon=-1),
+    ATPNode(view=7072, noun='PINE_BKGD_N', pDescriber="Pines-Bkgd", pPolygon=-1),
+    ATPNode(view=7073, noun='PINE_BKGD_N', pDescriber="Pines-Bkgd", pPolygon=-1),
+    ATPNode(view=7074, noun='PINE_BKGD_N', pDescriber="Pines-Bkgd", pPolygon=-1),
+    ATPNode(view=7075, noun='PINE_BKGD_N', pDescriber="Pines-Bkgd", pPolygon=-1),
+    ATPNode(view=7081, noun='TREE_BKGD3_N', pDescriber="Many Pines", pPolygon=-1),
+    ATPNode(view=7082, noun='TREE_BKGD3_N', pDescriber="Many Pines", pPolygon=-1),
+    ATPNode(view=7083, noun='TREE_BKGD3_N', pDescriber="Half-Bkgd", pPolygon=-1),
+    ATPNode(view=7086, noun='TREE_BKGD3_N', pDescriber="Half-Bkgd", pPolygon=-1),
+    ATPNode(view=7093, noun='TREE_BKGD2_N', pDescriber="Far Forest-Mid", pPolygon=-1),
+    ATPNode(view=7094, noun='TREE_BKGD2_N', pDescriber="Far Forest-Lft", pPolygon=-1),
+    ATPNode(view=7095, noun='TREE_BKGD2_N', pDescriber="Far Forest-Rt", pPolygon=-1),
+    ATPNode(view=7158, noun='TREE_BKGD3_N', pDescriber="Half-Bkgd", pPolygon=-1),
+    ATPNode(view=7159, noun='TREE_BKGD1_N', pDescriber="Full-Tree-M", pPolygon=-1, pPlacement='BACK_FULL')
+]
 
 for i, obj in enumerate(mySet):
     obj.pMsgFile = 101
@@ -211,28 +267,37 @@ for i, obj in enumerate(mySet):
     obj.pCategory = "Sky"
     if not obj.pDescriber:
         obj.pDescriber = "Sky"
+Ground = mySet = [
+    ATPNode(view=1110, noun='GRASS2_N', pDescriber="grass", pDoScaler=True, pPolygon=-1),
+    ATPNode(view=1111, noun='GRASS2_N', pDescriber="grass", pDoScaler=True, pPolygon=-1),
+    ATPNode(view=1112, noun='GRASS1_N', pDescriber="grass", pDoScaler=True, pPolygon=-1),
+    ATPNode(view=1113, noun='GRASS2_N', pDescriber="grass", pDoScaler=True, pPolygon=-1),
+    ATPNode(view=1114, noun='GRASS1_N', pDescriber="grass", pDoScaler=True, pPolygon=-1),
+    ATPNode(view=1115, noun='GRASS2_N', pDescriber="grass", pDoScaler=True, pPolygon=-1),
+    ATPNode(view=1180, noun='DIRT1_N', pDescriber="dirt", pDoScaler=True, pPolygon=-1),
+    ATPNode(view=1181, noun='DIRT1_N', pDescriber="dirt", pDoScaler=True, pPolygon=-1),
+    ATPNode(view=1182, noun='DIRT1_N', pDescriber="dirt", pDoScaler=True, pPolygon=-1),
+    ATPNode(view=1183, noun='GRASS1_N', pDescriber="grass", pDoScaler=True, pPolygon=-1),
+    ATPNode(view=1184, noun='GRASS2_N', pDescriber="grass", pDoScaler=True, pPolygon=-1),
+    ATPNode(view=1185, noun='GRASS2_N', pDescriber="grass", pDoScaler=True, pPolygon=-1),
+    ATPNode(view=1186, noun='DIRT1_N', pDescriber="dirt", pDoScaler=True, pPolygon=-1),
+    ATPNode(view=1222, noun='GRASS1_N', pDescriber="grass", pDoScaler=True, pPolygon=-1),
+    ATPNode(view=1223, noun='GRASS1_N', pDescriber="grass", pDoScaler=True, pPolygon=-1),
+    ATPNode(view=3716, noun='GRASS1_N', pDescriber="grass", pDoScaler=False, pPolygon=-1),
+    ATPNode(view=7039, noun='GRASS2_N', pDescriber="grass", pDoScaler=True, pPolygon=-1),
+    ATPNode(view=7040, noun='GRASS2_N', pDescriber="grass", pDoScaler=True, pPolygon=-1),
+    ATPNode(view=7041, noun='GRASS1_N', pDescriber="grass", pDoScaler=True, pPolygon=-1),
+    ATPNode(view=7042, noun='GRASS2_N', pDescriber="grass", pDoScaler=True, pPolygon=-1),
+    ATPNode(view=7043, noun='GRASS1_N', pDescriber="grass", pDoScaler=True, pPolygon=-1),
+    ATPNode(view=7044, noun='GRASS2_N', pDescriber="grass", pDoScaler=True, pPolygon=-1),
+    ATPNode(view=7096, noun='GRASS1_N', pDescriber="grass", pDoScaler=True, pPolygon=-1),
+    ATPNode(view=7097, noun='GRASS2_N', pDescriber="grass", pDoScaler=True, pPolygon=-1),
+    ATPNode(view=7098, noun='GRASS2_N', pDescriber="grass", pDoScaler=True, pPolygon=-1),
+    ATPNode(view=7108, noun='GRASS1_N', pDescriber="grass", pDoScaler=True, pPolygon=-1),
+    ATPNode(view=7109, noun='GRASS1_N', pDescriber="grass", pDoScaler=True, pPolygon=-1),
+    ATPNode(view=7154, noun='GRASS1_N', pDescriber="grass", pDoScaler=False, pPolygon=-1)
+]
 
-Ground = mySet = [ATPNode(view=1110, noun='GRASS2_N', pDescriber="grass", pDoScaler=True, pPolygon=-1),
-                  ATPNode(view=1111, noun='GRASS2_N', pDescriber="grass", pDoScaler=True, pPolygon=-1),
-                  ATPNode(view=1112, noun='GRASS1_N', pDescriber="grass", pDoScaler=True, pPolygon=-1),
-                  ATPNode(view=1113, noun='GRASS2_N', pDescriber="grass", pDoScaler=True, pPolygon=-1),
-                  ATPNode(view=1114, noun='GRASS1_N', pDescriber="grass", pDoScaler=True, pPolygon=-1),
-                  ATPNode(view=1115, noun='GRASS2_N', pDescriber="grass", pDoScaler=True, pPolygon=-1),
-                  ATPNode(view=1180, noun='DIRT1_N', pDescriber="dirt", pDoScaler=True, pPolygon=-1),
-                  ATPNode(view=1181, noun='DIRT1_N', pDescriber="dirt", pDoScaler=True, pPolygon=-1),
-                  ATPNode(view=1182, noun='DIRT1_N', pDescriber="dirt", pDoScaler=True, pPolygon=-1),
-                  ATPNode(view=1183, noun='GRASS1_N', pDescriber="grass", pDoScaler=True, pPolygon=-1),
-                  ATPNode(view=1184, noun='GRASS2_N', pDescriber="grass", pDoScaler=True, pPolygon=-1),
-                  ATPNode(view=1185, noun='GRASS2_N', pDescriber="grass", pDoScaler=True, pPolygon=-1),
-                  ATPNode(view=1186, noun='DIRT1_N', pDescriber="dirt", pDoScaler=True, pPolygon=-1),
-
-                  ATPNode(view=1187, noun='DIRT1_N', pDescriber="dirt", pDoScaler=True, pPolygon=-1),
-                  ATPNode(view=1188, noun='DIRT1_N', pDescriber="dirt", pDoScaler=True, pPolygon=-1),
-                  ATPNode(view=1222, noun='GRASS1_N', pDescriber="grass", pDoScaler=True, pPolygon=-1),
-                  ATPNode(view=1223, noun='GRASS1_N', pDescriber="grass", pDoScaler=True, pPolygon=-1),
-
-                  ATPNode(view=1224, noun='GRASS1_N', pDescriber="grass", pDoScaler=True, pPolygon=-1),
-                  ATPNode(view=3716, noun='GRASS1_N', pDescriber="grass", pDoScaler=False, pPolygon=-1)]
 
 for i, obj in enumerate(mySet):
     obj.pMsgFile = 101
@@ -241,31 +306,30 @@ for i, obj in enumerate(mySet):
 
     if not obj.pDescriber:
         obj.pDescriber = "Ground"
+MiscForest = mySet = [
+    ATPNode(view=1080, noun='POINTSIGN_N', pDescriber="PointSign-E/W", pDoScaler=False),
+    ATPNode(view=1081, noun='POINTSIGN_N', pDescriber="PointSign-N", pDoScaler=False),
+    ATPNode(view=1082, noun='POINTSIGN_N', pDescriber="PointSign-S", pDoScaler=False),
+    ATPNode(view=1085, noun='CART_N', pDescriber="Cart-front", pDoScaler=True),
+    ATPNode(view=1086, noun='CART_N', pDescriber="Cart-back", pDoScaler=True),
+    ATPNode(view=1189, noun='TOWN_GATE_N', pDescriber="stone-gate-side", pDoScaler=False),
+    ATPNode(view=1190, noun='TOWN_WALL_N', pDescriber="stone-wall-side", pDoScaler=False),
+    ATPNode(view=1191, noun='TOWN_GATE_N', pDescriber="stone-gate-side", pDoScaler=False),
+    ATPNode(view=1194, noun='TOWN_DIST_N', pDescriber="Town-dist-view1", pDoScaler=False, pPolygon=-1),
+    ATPNode(view=1195, noun='TOWN_DIST_N', pDescriber="Town-dist-view2", pDoScaler=False, pPolygon=-1),
+    ATPNode(view=1196, noun='TOWN_WALL_N', pDescriber="Stone-wall-far", pDoScaler=False, pPolygon=-1),
+    ATPNode(view=1197, noun='TOWN_DIST_N', pDescriber="Roof tops", pDoScaler=False, pPolygon=-1),
+    ATPNode(view=1198, noun='TOWN_DIST_N', pDescriber="Roof tops-2", pDoScaler=False, pPolygon=-1),
+    ATPNode(view=1208, noun='RIVER_LOG_N', pDescriber="Plank-EW", pPolygon=-1, pDoScaler=True),
+    ATPNode(view=1209, noun='RIVER_LOG_N', pDescriber="Plank-NS", pPolygon=-1, pDoScaler=True),
+    ATPNode(view=3536, noun='TOWN_WALL_N', pDescriber="stone-wall-back"),
+    ATPNode(view=3539, noun='TOWN_GATE_N', pDescriber="stone-gate-far", pPolygon=-1),
+    ATPNode(view=7099, noun='TOWN_DIST_N', pDescriber="Town-dist-view1", pDoScaler=False, pPolygon=-1),
+    ATPNode(view=7100, noun='TOWN_DIST_N', pDescriber="Town-dist-view2", pDoScaler=False, pPolygon=-1),
+    ATPNode(view=7101, noun='TOWN_DIST_N', pDescriber="Roof tops", pDoScaler=False, pPolygon=-1),
+    ATPNode(view=7102, noun='TOWN_DIST_N', pDescriber="Roof tops-2", pDoScaler=False, pPolygon=-1)
+]
 
-MiscForest = mySet = [ATPNode(view=1080, noun='POINTSIGN_N', pDescriber="PointSign-E/W", pDoScaler=False),
-                      ATPNode(view=1081, noun='POINTSIGN_N', pDescriber="PointSign-N", pDoScaler=False),
-                      ATPNode(view=1082, noun='POINTSIGN_N', pDescriber="PointSign-S", pDoScaler=False),
-                      ATPNode(view=1085, noun='CART_N', pDescriber="Cart-front", pDoScaler=True),
-                      ATPNode(view=1086, noun='CART_N', pDescriber="Cart-back", pDoScaler=True),
-                      ATPNode(view=1189, noun='TOWN_GATE_N', pDescriber="stone-gate-side", pDoScaler=False),
-                      ATPNode(view=1190, noun='TOWN_WALL_N', pDescriber="stone-wall-side", pDoScaler=False),
-                      ATPNode(view=1191, noun='TOWN_GATE_N', pDescriber="stone-gate-side", pDoScaler=False),
-
-                      ATPNode(view=1192, noun='TOWN_GATE_N', pDescriber="stone-gate-side", pDoScaler=False),
-                      ATPNode(view=1193, noun='TOWN_GATE_N', pDescriber="stone-gate-side", pDoScaler=False),
-                      ATPNode(view=1194, noun='TOWN_DIST_N', pDescriber="Town-dist-view1", pDoScaler=False,
-                              pPolygon=-1),
-                      ATPNode(view=1195, noun='TOWN_DIST_N', pDescriber="Town-dist-view2", pDoScaler=False,
-                              pPolygon=-1),
-                      ATPNode(view=1196, noun='TOWN_WALL_N', pDescriber="Stone-wall-far", pDoScaler=False, pPolygon=-1),
-                      ATPNode(view=1197, noun='TOWN_DIST_N', pDescriber="Roof tops", pDoScaler=False, pPolygon=-1),
-                      ATPNode(view=1198, noun='TOWN_DIST_N', pDescriber="Roof tops-2", pDoScaler=False, pPolygon=-1),
-
-                      ATPNode(view=1199, noun='TOWN_DIST_N', pDescriber="Roof tops-2", pDoScaler=False, pPolygon=-1),
-                      ATPNode(view=1208, noun='RIVER_LOG_N', pDescriber="Plank-EW", pPolygon=-1, pDoScaler=True),
-                      ATPNode(view=1209, noun='RIVER_LOG_N', pDescriber="Plank-NS", pPolygon=-1, pDoScaler=True),
-                      ATPNode(view=3536, noun='TOWN_WALL_N', pDescriber="stone-wall-back"),
-                      ATPNode(view=3539, noun='TOWN_GATE_N', pDescriber="stone-gate-far", pPolygon=-1)]
 
 for i, obj in enumerate(mySet):
     obj.pMsgFile = 101
@@ -274,37 +338,62 @@ for i, obj in enumerate(mySet):
         obj.pPlacement = 'SPECIAL'
         if not obj.pDescriber:
             obj.pDescriber = "Misc"
+Mountains = mySet = [
+    ATPNode(view=1169, noun='MTNBKGD1_N', pDescriber="Mtn-full-1"),
+    ATPNode(view=1170, noun='MTNBKGD1_N', pDescriber="Mtn-full-2"),
+    ATPNode(view=1171, noun='MTNBKGD1_N', pDescriber="Mtn"),
+    ATPNode(view=1172, noun='MTNBKGD1_N', pDescriber="Mtn-half"),
+    ATPNode(view=1173, noun='HILLS_N', pDescriber="Hill-1"),
+    ATPNode(view=1174, noun='HILLS_N', pDescriber="Hill-2"),
+    ATPNode(view=2250, noun='MTNBKGD1_N', pDescriber="M-trees-1"),
+    ATPNode(view=2251, noun='MTNBKGD1_N', pDescriber="M-trees-2"),
+    ATPNode(view=2260, noun='MTNBKGD1_N', pDescriber="S-trees-1"),
+    ATPNode(view=2261, noun='MTNBKGD1_N', pDescriber="S-trees-2"),
+    ATPNode(view=2262, noun='MTNBKGD1_N', pDescriber="S-trees-3"),
+    ATPNode(view=2270, noun='MTNBKGD1_N', pDescriber="Trees-1"),
+    ATPNode(view=2271, noun='MTNBKGD1_N', pDescriber="Trees-2"),
+    ATPNode(view=2272, noun='MTNBKGD1_N', pDescriber="Trees-3"),
+    ATPNode(view=2273, noun='MTNBKGD1_N', pDescriber="Trees-4"),
+    ATPNode(view=2280, noun='MTNBKGD1_N', pDescriber="Far-trees-1"),
+    ATPNode(view=2281, noun='MTNBKGD1_N', pDescriber="Far-trees-2"),
+    ATPNode(view=2282, noun='MTNBKGD1_N', pDescriber="Far-trees-3"),
+    ATPNode(view=2283, noun='MTNBKGD1_N', pDescriber="Far-trees-4"),
+    ATPNode(view=2300, noun='HILLS_N', pDescriber="Hill-3"),
+    ATPNode(view=2301, noun='HILLS_N', pDescriber="Hill-4"),
+    ATPNode(view=2302, noun='MTNBKGD1_N', pDescriber="Far-Mtn-1"),
+    ATPNode(view=2303, noun='MTNBKGD1_N', pDescriber="Far-Mtn-2"),
+    ATPNode(view=2304, noun='MTNBKGD1_N', pDescriber="Far-Mtn-3"),
+    ATPNode(view=2305, noun='MTNBKGD1_N', pDescriber="Far-Mtn-4"),
+    ATPNode(view=2306, noun='MTNBKGD1_N', pDescriber="Far-Mtn-5"),
+    ATPNode(view=2307, noun='MTNBKGD1_N', pDescriber="Far-Mtn-6"),
+    ATPNode(view=2308, noun='MTNBKGD1_N', pDescriber="Far-Mtn-7"),
+    ATPNode(view=7087, noun='MTNBKGD1_N', pDescriber="Mtn-full-1"),
+    ATPNode(view=7088, noun='MTNBKGD1_N', pDescriber="Mtn-full-2"),
+    ATPNode(view=7089, noun='MTNBKGD1_N', pDescriber="Mtn"),
+    ATPNode(view=7090, noun='MTNBKGD1_N', pDescriber="Mtn-half"),
+    ATPNode(view=7091, noun='HILLS_N', pDescriber="Hill-1"),
+    ATPNode(view=7092, noun='HILLS_N', pDescriber="Hill-2"),
+    ATPNode(view=7111, noun='MTNBKGD1_N', pDescriber="M-trees-1"),
+    ATPNode(view=7112, noun='MTNBKGD1_N', pDescriber="M-trees-2"),
+    ATPNode(view=7113, noun='MTNBKGD1_N', pDescriber="S-trees-1"),
+    ATPNode(view=7114, noun='MTNBKGD1_N', pDescriber="S-trees-2"),
+    ATPNode(view=7115, noun='MTNBKGD1_N', pDescriber="S-trees-3"),
+    ATPNode(view=7116, noun='MTNBKGD1_N', pDescriber="Trees-1"),
+    ATPNode(view=7117, noun='MTNBKGD1_N', pDescriber="Trees-2"),
+    ATPNode(view=7118, noun='MTNBKGD1_N', pDescriber="Trees-3"),
+    ATPNode(view=7119, noun='MTNBKGD1_N', pDescriber="Trees-4"),
+    ATPNode(view=7122, noun='MTNBKGD1_N', pDescriber="Far-trees-1"),
+    ATPNode(view=7123, noun='MTNBKGD1_N', pDescriber="Far-trees-2"),
+    ATPNode(view=7124, noun='MTNBKGD1_N', pDescriber="Far-trees-3"),
+    ATPNode(view=7125, noun='MTNBKGD1_N', pDescriber="Far-trees-4"),
+    ATPNode(view=7126, noun='MTNBKGD1_N', pDescriber="Far-Mtn-2"),
+    ATPNode(view=7127, noun='MTNBKGD1_N', pDescriber="Far-Mtn-3"),
+    ATPNode(view=7128, noun='MTNBKGD1_N', pDescriber="Far-Mtn-4"),
+    ATPNode(view=7129, noun='MTNBKGD1_N', pDescriber="Far-Mtn-5"),
+    ATPNode(view=7130, noun='MTNBKGD1_N', pDescriber="Far-Mtn-6"),
+    ATPNode(view=7131, noun='MTNBKGD1_N', pDescriber="Far-Mtn-7")
+]
 
-Mountains = mySet = [ATPNode(view=1169, noun='MTNBKGD1_N', pDescriber="Mtn-full-1"),
-                     ATPNode(view=1170, noun='MTNBKGD1_N', pDescriber="Mtn-full-2"),
-                     ATPNode(view=1171, noun='MTNBKGD1_N', pDescriber="Mtn"),
-                     ATPNode(view=1172, noun='MTNBKGD1_N', pDescriber="Mtn-half"),
-                     ATPNode(view=1173, noun='HILLS_N', pDescriber="Hill-1"),
-                     ATPNode(view=1174, noun='HILLS_N', pDescriber="Hill-2"),
-                     ATPNode(view=2250, noun='MTNBKGD1_N', pDescriber="M-trees-1"),
-                     ATPNode(view=2251, noun='MTNBKGD1_N', pDescriber="M-trees-2"),
-                     ATPNode(view=2260, noun='MTNBKGD1_N', pDescriber="S-trees-1"),
-                     ATPNode(view=2261, noun='MTNBKGD1_N', pDescriber="S-trees-2"),
-                     ATPNode(view=2262, noun='MTNBKGD1_N', pDescriber="S-trees-3"),
-                     ATPNode(view=2270, noun='MTNBKGD1_N', pDescriber="Trees-1"),
-                     ATPNode(view=2271, noun='MTNBKGD1_N', pDescriber="Trees-2"),
-                     ATPNode(view=2272, noun='MTNBKGD1_N', pDescriber="Trees-3"),
-                     ATPNode(view=2273, noun='MTNBKGD1_N', pDescriber="Trees-4"),
-                     ATPNode(view=2274, noun='MTNBKGD1_N', pDescriber="Trees-4"),
-                     ATPNode(view=2275, noun='MTNBKGD1_N', pDescriber="Trees-4"),
-                     ATPNode(view=2280, noun='MTNBKGD1_N', pDescriber="Far-trees-1"),
-                     ATPNode(view=2281, noun='MTNBKGD1_N', pDescriber="Far-trees-2"),
-                     ATPNode(view=2282, noun='MTNBKGD1_N', pDescriber="Far-trees-3"),
-                     ATPNode(view=2283, noun='MTNBKGD1_N', pDescriber="Far-trees-4"),
-                     ATPNode(view=2300, noun='HILLS_N', pDescriber="Hill-3"),
-                     ATPNode(view=2301, noun='HILLS_N', pDescriber="Hill-4"),
-                     ATPNode(view=2302, noun='MTNBKGD1_N', pDescriber="Far-Mtn-1"),
-                     ATPNode(view=2303, noun='MTNBKGD1_N', pDescriber="Far-Mtn-2"),
-                     ATPNode(view=2304, noun='MTNBKGD1_N', pDescriber="Far-Mtn-3"),
-                     ATPNode(view=2305, noun='MTNBKGD1_N', pDescriber="Far-Mtn-4"),
-                     ATPNode(view=2306, noun='MTNBKGD1_N', pDescriber="Far-Mtn-5"),
-                     ATPNode(view=2307, noun='MTNBKGD1_N', pDescriber="Far-Mtn-6"),
-                     ATPNode(view=2308, noun='MTNBKGD1_N', pDescriber="Far-Mtn-7")]
 
 for i, obj in enumerate(mySet):
     obj.pMsgFile = 101
@@ -443,16 +532,27 @@ if obj.pPlacement == 0:
 
     if not obj.pDescriber:
         obj.pDescriber = "All"
+Transitions = mySet = [
+    ATPNode(view=1020, noun='GROUND_N', pDescriber="Ground-1"),
+    ATPNode(view=1021, noun='GROUND_N', pDescriber="Ground-2"),
+    ATPNode(view=1022, noun='GROUND_N', pDescriber="Ground-3"),
+    ATPNode(view=1023, noun='GROUND_N', pDescriber="Ground-4"),
+    ATPNode(view=1024, noun='GROUND_N', pDescriber="Ground-5"),
+    ATPNode(view=1025, noun='GROUND_N', pDescriber="Ground-6"),
+    ATPNode(view=1026, noun='GROUND_N', pDescriber="Ground-7"),
+    ATPNode(view=1027, noun='GROUND_N', pDescriber="Ground-8"),
+    ATPNode(view=1028, noun='GROUND_N', pDescriber="Ground-9"),
+    ATPNode(view=7002, noun='GROUND_N', pDescriber="Ground-1"),
+    ATPNode(view=7003, noun='GROUND_N', pDescriber="Ground-2"),
+    ATPNode(view=7004, noun='GROUND_N', pDescriber="Ground-3"),
+    ATPNode(view=7005, noun='GROUND_N', pDescriber="Ground-4"),
+    ATPNode(view=7006, noun='GROUND_N', pDescriber="Ground-5"),
+    ATPNode(view=7007, noun='GROUND_N', pDescriber="Ground-6"),
+    ATPNode(view=7008, noun='GROUND_N', pDescriber="Ground-7"),
+    ATPNode(view=7009, noun='GROUND_N', pDescriber="Ground-8"),
+    ATPNode(view=7010, noun='GROUND_N', pDescriber="Ground-9")
+]
 
-Transitions = mySet = [ATPNode(view=1020, noun='GROUND_N', pDescriber="Ground-1"),
-                       ATPNode(view=1021, noun='GROUND_N', pDescriber="Ground-2"),
-                       ATPNode(view=1022, noun='GROUND_N', pDescriber="Ground-3"),
-                       ATPNode(view=1023, noun='GROUND_N', pDescriber="Ground-4"),
-                       ATPNode(view=1024, noun='GROUND_N', pDescriber="Ground-5"),
-                       ATPNode(view=1025, noun='GROUND_N', pDescriber="Ground-6"),
-                       ATPNode(view=1026, noun='GROUND_N', pDescriber="Ground-7"),
-                       ATPNode(view=1027, noun='GROUND_N', pDescriber="Ground-8"),
-                       ATPNode(view=1028, noun='GROUND_N', pDescriber="Ground-9")]
 
 for i, obj in enumerate(mySet):
     obj.pMsgFile = 101
@@ -464,13 +564,34 @@ for i, obj in enumerate(mySet):
 if not obj.pDescriber:
     obj.pDescriber = "Transitions"
 
-BeachStuff = mySet = [ATPNode(view=1500, noun='0', pDescriber="Flotsam"),
-                      ATPNode(view=1501, noun='0', pDescriber="Jetsam")]
+BeachStuff = mySet = [
+    ATPNode(view=6700, noun=0, pDescriber="Flotsam", pDoScaler=True, pPolygon=-1),
+    ATPNode(view=6701, noun=0, pDescriber="Jetsam", pDoScaler=True, pPolygon=-1),
+    ATPNode(view=6702, noun=0, pDescriber="Flotsam", pDoScaler=True, pPolygon=-1),
+    ATPNode(view=6703, noun=0, pDescriber="Jetsam", pDoScaler=True, pPolygon=-1),
+    ATPNode(view=6704, noun=0, pDescriber="Flotsam", pDoScaler=False, pPolygon=-1),
+    ATPNode(view=6705, noun=0, pDescriber="Jetsam", pDoScaler=True, pPolygon=-1),
+    ATPNode(view=6706, noun=0, pDescriber="Flotsam", pDoScaler=True, pPolygon=-1),
+    ATPNode(view=6707, noun=0, pDescriber="Jetsam", pDoScaler=True, pPolygon=-1),
+    ATPNode(view=6708, noun=0, pDescriber="Flotsam", pDoScaler=True, pPolygon=-1),
+    ATPNode(view=6709, noun=0, pDescriber="Jetsam", pDoScaler=True, pPolygon=-1),
+    ATPNode(view=6710, noun=0, pDescriber="Flotsam", pDoScaler=True, pPolygon=-1),
+    ATPNode(view=6711, noun=0, pDescriber="Jetsam", pDoScaler=True, pPolygon=-1),
+    ATPNode(view=6712, noun=0, pDescriber="Flotsam", pDoScaler=True, pPolygon=-1),
+    ATPNode(view=6713, noun=0, pDescriber="Jetsam", pDoScaler=True, pPolygon=-1),
+    ATPNode(view=6714, noun=0, pDescriber="Flotsam", pDoScaler=True, pPolygon=-1),
+    ATPNode(view=6715, noun=0, pDescriber="Jetsam", pDoScaler=True, pPolygon=-1),
+    ATPNode(view=6716, noun=0, pDescriber="Flotsam", pDoScaler=True, pPolygon=1),
+    ATPNode(view=6717, noun=0, pDescriber="Jetsam", pDoScaler=True, pPolygon=1),
+    ATPNode(view=6718, noun=0, pDescriber="Flotsam", pDoScaler=True, pPolygon=1),
+    ATPNode(view=6719, noun=0, pDescriber="Jetsam", pDoScaler=True, pPolygon=-1),
+    ATPNode(view=6720, noun=0, pDescriber="Flotsam", pDoScaler=False, pPolygon=1)
+]
+
 
 for i, obj in enumerate(mySet):
     obj.pMsgFile = 103
     obj.pCategory = "Beach"
-    obj.pPolygon = -1
 
 DesertBushes = mySet = [ATPNode(view=2500, noun='BUSH1_DES_N', pDescriber="Bush"),
                         ATPNode(view=2501, noun='BUSH1_DES_N', pDescriber="Bush"),
@@ -638,13 +759,7 @@ DungeonStalg = mySet = [ATPNode(view=2780, noun='STALAGMITE_N', pDescriber="Stal
                         ATPNode(view=2782, noun='STALAGMITE_N', pDescriber="Stalagmite_3"),
                         ATPNode(view=2783, noun='STALAGMITE_N', pDescriber="Stalagmite_4"),
                         ATPNode(view=2784, noun='STALAGMITE_N', pDescriber="Stalagmite_5"),
-                        ATPNode(view=2800, noun='STALAGMITE_N', pDescriber="Crystal_0"),
-                        ATPNode(view=2801, noun='STALAGMITE_N', pDescriber="Crystal_1"),
-                        ATPNode(view=2802, noun='STALAGMITE_N', pDescriber="Crystal_2"),
-                        ATPNode(view=2803, noun='STALAGMITE_N', pDescriber="Crystal_3"),
-                        ATPNode(view=2804, noun='STALAGMITE_N', pDescriber="Crystal_4"),
-                        ATPNode(view=2805, noun='STALAGMITE_N', pDescriber="Crystal_5"),
-                        ATPNode(view=2806, noun='STALAGMITE_N', pDescriber="Crystal_6")]
+                        ]
 
 for i, obj in enumerate(mySet):
     obj.pMsgFile = 203
@@ -678,8 +793,7 @@ DungeonMush = mySet = [ATPNode(view=2810, noun='MUSHRM_DUN_N', pDescriber="Mushr
                        ATPNode(view=2812, noun='MUSHRMS_DUN_N', pDescriber="Mushroom_3"),
                        ATPNode(view=2813, noun='MUSHRM_DUN_N', pDescriber="Mushroom_4"),
                        ATPNode(view=2814, noun='MUSHRM_DUN_N', pDescriber="Mushroom_5"),
-                       ATPNode(view=2815, noun='MUSHRM_DUN_N', pDescriber="Mushroom_6"),
-                       ATPNode(view=2816, noun='MUSHRM_DUN_N', pDescriber="Mushroom_7")]
+                       ATPNode(view=2815, noun='MUSHRM_DUN_N', pDescriber="Mushroom_6")]
 
 for i, obj in enumerate(mySet):
     obj.pMsgFile = 203
@@ -706,14 +820,7 @@ for i, obj in enumerate(mySet):
 
 DungeonMisc = mySet = [ATPNode(view=2900, noun='BONES_N', pDescriber="Bones"),
                        ATPNode(view=2901, noun='SKULL_DUN_N', pDescriber="Skull"),
-                       ATPNode(view=2980, noun='SKULL_DUN_N', pDescriber="Skull"),
-                       ATPNode(view=2981, noun='SKULL_DUN_N', pDescriber="Skull"),
-                       ATPNode(view=2982, noun='SKULL_DUN_N', pDescriber="Skull"),
-                       ATPNode(view=2983, noun='SKULL_DUN_N', pDescriber="Skull"),
-                       ATPNode(view=2992, noun='SKULL_DUN_N', pDescriber="Skull"),
-                       ATPNode(view=2993, noun='SKULL_DUN_N', pDescriber="Skull"),
-                       ATPNode(view=2994, noun='SKULL_DUN_N', pDescriber="Skull"),
-                       ATPNode(view=2999, noun='SKULL_DUN_N', pDescriber="Skull")]
+                       ]
 
 for i, obj in enumerate(mySet):
     obj.pMsgFile = 203
@@ -726,14 +833,6 @@ for i, obj in enumerate(mySet):
 DungeonPassages = mySet = [ATPNode(view=2830, noun='COLUMN_DUN_N', pDescriber="Arch_Left"),
                            ATPNode(view=2831, noun='COLUMN_DUN_N', pDescriber="Arch_Right"),
                            ATPNode(view=2832, noun='ARCH_DUN_N', pDescriber="Archway_Back"),
-                           ATPNode(view=2833, noun='ARCH_DUN_N', pDescriber="Archway_Back"),
-                           ATPNode(view=2835, noun='ARCH_DUN_N', pDescriber="Archway_Back"),
-                           ATPNode(view=2836, noun='ARCH_DUN_N', pDescriber="Archway_Back"),
-                           ATPNode(view=2837, noun='ARCH_DUN_N', pDescriber="Archway_Back"),
-                           ATPNode(view=2838, noun='ARCH_DUN_N', pDescriber="Archway_Back"),
-                           ATPNode(view=2840, noun='ARCH_DUN_N', pDescriber="Archway_Back"),
-                           ATPNode(view=2841, noun='ARCH_DUN_N', pDescriber="Archway_Back"),
-                           ATPNode(view=2842, noun='ARCH_DUN_N', pDescriber="Archway_Back"),
                            ATPNode(view=2850, noun='COLUMN_DUN_N', pDescriber="Cave_Side_1"),
                            ATPNode(view=2851, noun='COLUMN_DUN_N', pDescriber="Cave_Side_2"),
                            ATPNode(view=2852, noun='ARCH_DUN_N', pDescriber="Cave_Side_3"),
@@ -757,15 +856,6 @@ DungeonRocks = mySet = [ATPNode(view=2870, noun='FLOOR_DUN_N', pDescriber="Floor
                         ATPNode(view=2877, noun='ROCK_DUN_N', pDescriber="Rock_8"),
                         ATPNode(view=2878, noun='ROCK_EDGE_DUN_N', pDescriber="Rock_9"),
                         ATPNode(view=2879, noun='ROCK_EDGE_DUN_N', pDescriber="Rock_10"),
-                        ATPNode(view=2880, noun='ROCK_EDGE_DUN_N', pDescriber="Rock_10"),
-                        ATPNode(view=2881, noun='ROCK_EDGE_DUN_N', pDescriber="Rock_10"),
-                        ATPNode(view=2882, noun='ROCK_EDGE_DUN_N', pDescriber="Rock_10"),
-                        ATPNode(view=2883, noun='ROCK_EDGE_DUN_N', pDescriber="Rock_10"),
-                        ATPNode(view=2884, noun='ROCK_EDGE_DUN_N', pDescriber="Rock_10"),
-                        ATPNode(view=2892, noun='ROCK_EDGE_DUN_N', pDescriber="Rock_10"),
-                        ATPNode(view=2893, noun='ROCK_EDGE_DUN_N', pDescriber="Rock_10"),
-                        ATPNode(view=2894, noun='ROCK_EDGE_DUN_N', pDescriber="Rock_10"),
-                        ATPNode(view=2899, noun='ROCK_EDGE_DUN_N', pDescriber="Rock_10"),
                         ATPNode(view=2891, noun='FLOOR_DUN_N', pDescriber="Floor")]
 
 for i, obj in enumerate(mySet):
@@ -776,39 +866,46 @@ for i, obj in enumerate(mySet):
     if not obj.pDescriber:
         obj.pDescriber = "Rock"
 
-Town1Walls = mySet = [ATPNode(view=3501, noun='WALL_T1_N', pDescriber="Lt-Wall"),
-                      ATPNode(view=3502, noun='WALL_T1_N', pDescriber="Lt-Wall-middle"),
-                      ATPNode(view=3503, noun='WALL_T1_N', pDescriber="Lt-Wall-Gable"),
-                      ATPNode(view=3504, noun='WALL_T1_N', pDescriber="Lt-Wall-Roof"),
-                      ATPNode(view=3505, noun='WALL_T1_N', pDescriber="Lt-Wall-dbl"),
-                      ATPNode(view=3506, noun='WALL_T1_N', pDescriber="Lt-Wall-Mid-dbl"),
-                      ATPNode(view=3507, noun='WALL_T1_N', pDescriber="Lt-Wall-Gable-dbl"),
-                      ATPNode(view=3508, noun='WALL_T1_N', pDescriber="Lt-Wall-Roof-dbl"),
-                      ATPNode(view=3509, noun='WALL_T1_N', pDescriber="Lt-Wall-low"),
-                      ATPNode(view=3510, noun='WALL_T1_N', pDescriber="Lt-Wall-Mid-low"),
-                      ATPNode(view=3511, noun='WALL_T1_N', pDescriber="Lt-Wall-Gable-low"),
-                      ATPNode(view=3512, noun='WALL_T1_N', pDescriber="Lt-Wall-Side-low"),
-                      ATPNode(view=3513, noun='WALL_T1_N', pDescriber="Dk-Wall"),
-                      ATPNode(view=3514, noun='WALL_T1_N', pDescriber="Dk-Wall-Mid"),
-                      ATPNode(view=3515, noun='WALL_T1_N', pDescriber="Dk-Wall-Gable"),
-                      ATPNode(view=3516, noun='WALL_T1_N', pDescriber="Dk-Wall-Roof"),
-                      ATPNode(view=3517, noun='WALL_T1_N', pDescriber="Dk-Wall-dbl"),
-                      ATPNode(view=3518, noun='WALL_T1_N', pDescriber="Dk-Wall-Mid-dbl"),
-                      ATPNode(view=3519, noun='WALL_T1_N', pDescriber="Dk-Wall-Gable-dbl"),
-                      ATPNode(view=3520, noun='WALL_T1_N', pDescriber="Dk-Wall-Roof-dbl"),
-                      ATPNode(view=3521, noun='WALL_T1_N', pDescriber="Dk-Wall-low"),
-                      ATPNode(view=3522, noun='WALL_T1_N', pDescriber="Dk-Wall-Mid-low"),
-                      ATPNode(view=3523, noun='WALL_T1_N', pDescriber="Dk-Wall-Gable-low"),
-                      ATPNode(view=3524, noun='WALL_T1_N', pDescriber="Dk-Wall-Side-low"),
-                      ATPNode(view=3525, noun='WALL_T1_N', pDescriber="Med-Wall"),
-                      ATPNode(view=3526, noun='WALL_T1_N', pDescriber="Med-Wall-Mid"),
-                      ATPNode(view=3527, noun='WALL_T1_N', pDescriber="Med-Wall-Gable"),
-                      ATPNode(view=3528, noun='WALL_T1_N', pDescriber="Med-Wall-dbl"),
-                      ATPNode(view=3529, noun='WALL_T1_N', pDescriber="Med-Wall-Mid-dbl"),
-                      ATPNode(view=3530, noun='WALL_T1_N', pDescriber="Med-Wall-Gable-dbl"),
-                      ATPNode(view=3531, noun='WALL_T1_N', pDescriber="Med-Wall-low"),
-                      ATPNode(view=3532, noun='WALL_T1_N', pDescriber="Med-Wall-Mid-low"),
-                      ATPNode(view=3533, noun='WALL_T1_N', pDescriber="Med-Wall-Gable-low")]
+Town1Walls = mySet = [
+    ATPNode(view=3501, noun='WALL_T1_N', pDescriber="Lt-Wall"),
+    ATPNode(view=3502, noun='WALL_T1_N', pDescriber="Lt-Wall-middle"),
+    ATPNode(view=3503, noun='WALL_T1_N', pDescriber="Lt-Wall-Gable"),
+    ATPNode(view=3504, noun='WALL_T1_N', pDescriber="Lt-Wall-Roof"),
+    ATPNode(view=3505, noun='WALL_T1_N', pDescriber="Lt-Wall-dbl"),
+    ATPNode(view=3506, noun='WALL_T1_N', pDescriber="Lt-Wall-Mid-dbl"),
+    ATPNode(view=3507, noun='WALL_T1_N', pDescriber="Lt-Wall-Gable-dbl"),
+    ATPNode(view=3508, noun='WALL_T1_N', pDescriber="Lt-Wall-Roof-dbl"),
+    ATPNode(view=3509, noun='WALL_T1_N', pDescriber="Lt-Wall-low"),
+    ATPNode(view=3510, noun='WALL_T1_N', pDescriber="Lt-Wall-Mid-low"),
+    ATPNode(view=3511, noun='WALL_T1_N', pDescriber="Lt-Wall-Gable-low"),
+    ATPNode(view=3512, noun='WALL_T1_N', pDescriber="Lt-Wall-Side-low"),
+    ATPNode(view=3513, noun='WALL_T1_N', pDescriber="Dk-Wall"),
+    ATPNode(view=3514, noun='WALL_T1_N', pDescriber="Dk-Wall-Mid"),
+    ATPNode(view=3515, noun='WALL_T1_N', pDescriber="Dk-Wall-Gable"),
+    ATPNode(view=3516, noun='WALL_T1_N', pDescriber="Dk-Wall-Roof"),
+    ATPNode(view=3517, noun='WALL_T1_N', pDescriber="Dk-Wall-dbl"),
+    ATPNode(view=3518, noun='WALL_T1_N', pDescriber="Dk-Wall-Mid-dbl"),
+    ATPNode(view=3519, noun='WALL_T1_N', pDescriber="Dk-Wall-Gable-dbl"),
+    ATPNode(view=3520, noun='WALL_T1_N', pDescriber="Dk-Wall-Roof-dbl"),
+    ATPNode(view=3521, noun='WALL_T1_N', pDescriber="Dk-Wall-low"),
+    ATPNode(view=3522, noun='WALL_T1_N', pDescriber="Dk-Wall-Mid-low"),
+    ATPNode(view=3523, noun='WALL_T1_N', pDescriber="Dk-Wall-Gable-low"),
+    ATPNode(view=3524, noun='WALL_T1_N', pDescriber="Dk-Wall-Side-low"),
+    ATPNode(view=3525, noun='WALL_T1_N', pDescriber="Med-Wall"),
+    ATPNode(view=3526, noun='WALL_T1_N', pDescriber="Med-Wall-Mid"),
+    ATPNode(view=3527, noun='WALL_T1_N', pDescriber="Med-Wall-Gable"),
+    ATPNode(view=3528, noun='WALL_T1_N', pDescriber="Med-Wall-dbl"),
+    ATPNode(view=3529, noun='WALL_T1_N', pDescriber="Med-Wall-Mid-dbl"),
+    ATPNode(view=3530, noun='WALL_T1_N', pDescriber="Med-Wall-Gable-dbl"),
+    ATPNode(view=3531, noun='WALL_T1_N', pDescriber="Med-Wall-low"),
+    ATPNode(view=3532, noun='WALL_T1_N', pDescriber="Med-Wall-Mid-low"),
+    ATPNode(view=3533, noun='WALL_T1_N', pDescriber="Med-Wall-Gable-low"),
+    ATPNode(view=27850, noun='WALL_T1_N', pDescriber="Gry-Med-Wall-Mid"),
+    ATPNode(view=27863, noun='WALL_T1_N', pDescriber="Gry-Dk-Wall"),
+    ATPNode(view=27875, noun='WALL_T1_N', pDescriber="Gry-Med-Wall"),
+    ATPNode(view=27876, noun='WALL_T1_N', pDescriber="Gry-Med-Wall-Gable")
+]
+
 
 for i, obj in enumerate(mySet):
     obj.pMsgFile = 102
@@ -1000,24 +1097,45 @@ for i, obj in enumerate(mySet):
     if not obj.pDescriber:
         obj.pDescriber = "Wall"
 
-Town1Roofs = mySet = [ATPNode(view=3601, noun='ROOFTILE_T1_N', pDescriber="tile-long"),
-                      ATPNode(view=3602, noun='ROOFTILE_T1_N', pDescriber="tile-short"),
-                      ATPNode(view=3603, noun='ROOFTILE_T1_N', pDescriber="tile-gable"),
-                      ATPNode(view=3604, noun='ROOFTILE_T1_N', pDescriber="tile-front-long"),
-                      ATPNode(view=3605, noun='ROOFTILE_T1_N', pDescriber="tile-front-short"),
-                      ATPNode(view=3606, noun='ROOFTILE_T1_N', pDescriber="tile-front-gable"),
-                      ATPNode(view=3607, noun='ROOFSTRAW_T1_N', pDescriber="straw-long"),
-                      ATPNode(view=3608, noun='ROOFSTRAW_T1_N', pDescriber="straw-short"),
-                      ATPNode(view=3609, noun='ROOFSTRAW_T1_N', pDescriber="straw-gable"),
-                      ATPNode(view=3610, noun='ROOFSTRAW_T1_N', pDescriber="straw-front-long"),
-                      ATPNode(view=3611, noun='ROOFSTRAW_T1_N', pDescriber="straw-front-short"),
-                      ATPNode(view=3612, noun='ROOFSTRAW_T1_N', pDescriber="straw-front-gable"),
-                      ATPNode(view=3613, noun='ROOFSLATE_T1_N', pDescriber="slate-long"),
-                      ATPNode(view=3614, noun='ROOFSLATE_T1_N', pDescriber="slate-short"),
-                      ATPNode(view=3615, noun='ROOFSLATE_T1_N', pDescriber="slate-gable"),
-                      ATPNode(view=3616, noun='ROOFSLATE_T1_N', pDescriber="slate-front-long"),
-                      ATPNode(view=3617, noun='ROOFSLATE_T1_N', pDescriber="slate-front-short"),
-                      ATPNode(view=3618, noun='ROOFSLATE_T1_N', pDescriber="slate-front-gable")]
+Town1Roofs = mySet = [
+    ATPNode(view=3601, noun='ROOFTILE_T1_N', pDescriber="tile-long"),
+    ATPNode(view=3602, noun='ROOFTILE_T1_N', pDescriber="tile-short"),
+    ATPNode(view=3603, noun='ROOFTILE_T1_N', pDescriber="tile-gable"),
+    ATPNode(view=3604, noun='ROOFTILE_T1_N', pDescriber="tile-front-long"),
+    ATPNode(view=3605, noun='ROOFTILE_T1_N', pDescriber="tile-front-short"),
+    ATPNode(view=3606, noun='ROOFTILE_T1_N', pDescriber="tile-front-gable"),
+    ATPNode(view=3607, noun='ROOFSTRAW_T1_N', pDescriber="straw-long"),
+    ATPNode(view=3608, noun='ROOFSTRAW_T1_N', pDescriber="straw-short"),
+    ATPNode(view=3609, noun='ROOFSTRAW_T1_N', pDescriber="straw-gable"),
+    ATPNode(view=3610, noun='ROOFSTRAW_T1_N', pDescriber="straw-front-long"),
+    ATPNode(view=3611, noun='ROOFSTRAW_T1_N', pDescriber="straw-front-short"),
+    ATPNode(view=3612, noun='ROOFSTRAW_T1_N', pDescriber="straw-front-gable"),
+    ATPNode(view=3613, noun='ROOFSLATE_T1_N', pDescriber="slate-long"),
+    ATPNode(view=3614, noun='ROOFSLATE_T1_N', pDescriber="slate-short"),
+    ATPNode(view=3615, noun='ROOFSLATE_T1_N', pDescriber="slate-gable"),
+    ATPNode(view=3616, noun='ROOFSLATE_T1_N', pDescriber="slate-front-long"),
+    ATPNode(view=3617, noun='ROOFSLATE_T1_N', pDescriber="slate-front-short"),
+    ATPNode(view=3618, noun='ROOFSLATE_T1_N', pDescriber="slate-front-gable"),
+    ATPNode(view=7132, noun='ROOFTILE_T1_N', pDescriber="tile-long"),
+    ATPNode(view=7133, noun='ROOFTILE_T1_N', pDescriber="tile-short"),
+    ATPNode(view=7134, noun='ROOFTILE_T1_N', pDescriber="tile-gable"),
+    ATPNode(view=7135, noun='ROOFTILE_T1_N', pDescriber="tile-front-long"),
+    ATPNode(view=7136, noun='ROOFTILE_T1_N', pDescriber="tile-front-short"),
+    ATPNode(view=7137, noun='ROOFTILE_T1_N', pDescriber="tile-front-gable"),
+    ATPNode(view=7138, noun='ROOFSTRAW_T1_N', pDescriber="straw-long"),
+    ATPNode(view=7139, noun='ROOFSTRAW_T1_N', pDescriber="straw-short"),
+    ATPNode(view=7140, noun='ROOFSTRAW_T1_N', pDescriber="straw-gable"),
+    ATPNode(view=7141, noun='ROOFSTRAW_T1_N', pDescriber="straw-front-long"),
+    ATPNode(view=7142, noun='ROOFSTRAW_T1_N', pDescriber="straw-front-short"),
+    ATPNode(view=7143, noun='ROOFSTRAW_T1_N', pDescriber="straw-front-gable"),
+    ATPNode(view=7144, noun='ROOFSLATE_T1_N', pDescriber="slate-long"),
+    ATPNode(view=7145, noun='ROOFSLATE_T1_N', pDescriber="slate-short"),
+    ATPNode(view=7146, noun='ROOFSLATE_T1_N', pDescriber="slate-gable"),
+    ATPNode(view=7147, noun='ROOFSLATE_T1_N', pDescriber="slate-front-long"),
+    ATPNode(view=7148, noun='ROOFSLATE_T1_N', pDescriber="slate-front-short"),
+    ATPNode(view=7149, noun='ROOFSLATE_T1_N', pDescriber="slate-front-gable")
+]
+
 
 for i, obj in enumerate(mySet):
     obj.pMsgFile = 102
@@ -1027,39 +1145,44 @@ for i, obj in enumerate(mySet):
 if not obj.pDescriber:
     obj.pDescriber = "Roof"
 
-Town1Windows = mySet = [ATPNode(view=3541, noun='WINARCH_T1_N', pDescriber="Dk-arch-open"),
-                        ATPNode(view=3542, noun='WINARCH_T1_N', pDescriber="Lt-arch-open"),
-                        ATPNode(view=3543, noun='WINARCH_T1_N', pDescriber="Med-arch-open"),
-                        ATPNode(view=3544, noun='WINSHUTR_T1_N', pDescriber="Dk shutter"),
-                        ATPNode(view=3545, noun='WINSHUTR_T1_N', pDescriber="Lt shutter"),
-                        ATPNode(view=3546, noun='WINSHUTR_T1_N', pDescriber="Med shutter"),
-                        ATPNode(view=3547, noun='WINSTNFR_T1_N', pDescriber="Stone frame-a"),
-                        ATPNode(view=3548, noun='WINSTNFR_T1_N', pDescriber="Stone frame-b"),
-                        ATPNode(view=3549, noun='WINSTNFR_T1_N', pDescriber="Stone frame-c"),
-                        ATPNode(view=3553, noun='WINMULL_T1_N', pDescriber="Mullion arch-a"),
-                        ATPNode(view=3554, noun='WINMULL_T1_N', pDescriber="Mullion arch-b"),
-                        ATPNode(view=3555, noun='WINMULL_T1_N', pDescriber="Mullion arch-c"),
-                        ATPNode(view=3556, noun='WINDIAMAR_T1_N', pDescriber="Diamond arch-a"),
-                        ATPNode(view=3557, noun='WINDIAMAR_T1_N', pDescriber="Diamond arch-b"),
-                        ATPNode(view=3558, noun='WINDIAMAR_T1_N', pDescriber="Diamond arch-c"),
-                        ATPNode(view=3580, noun='WINRECT_T1_N', pDescriber="Dk-rect-open"),
-                        ATPNode(view=3581, noun='WINRECT_T1_N', pDescriber="Lt-rect-open"),
-                        ATPNode(view=3582, noun='WINRECT_T1_N', pDescriber="Med-rect-open"),
-                        ATPNode(view=3585, noun='WINSTNFR_T1_N', pDescriber="Stone frame"),
-                        ATPNode(view=3586, noun='WINWOODFR_T1_N', pDescriber="Wood frame-a"),
-                        ATPNode(view=3587, noun='WINWOODFR_T1_N', pDescriber="Wood frame-b"),
-                        ATPNode(view=3588, noun='WINWOODFR_T1_N', pDescriber="Wood frame-c"),
-                        ATPNode(view=3592, noun='WINMULL_T1_N', pDescriber="Mullion-a"),
-                        ATPNode(view=3593, noun='WINMULL_T1_N', pDescriber="Mullion-b"),
-                        ATPNode(view=3594, noun='WINMULL_T1_N', pDescriber="Mullion-c"),
-                        ATPNode(view=3595, noun='WINDIAM_T1_N', pDescriber="Diamond-a"),
-                        ATPNode(view=3596, noun='WINDIAM_T1_N', pDescriber="Diamond-b"),
-                        ATPNode(view=3597, noun='WINDIAM_T1_N', pDescriber="Diamond-c"),
-                        ATPNode(view=3720, noun='0', pDescriber="lt stone gatekeep"),
-                        ATPNode(view=3721, noun='0', pDescriber="lt wood gatekeep"),
-                        ATPNode(view=3722, noun='0', pDescriber="med stone arch gatekeep"),
-                        ATPNode(view=3723, noun='0', pDescriber="med stone square gatekeep"),
-                        ATPNode(view=3724, noun='0', pDescriber="med wood gatekeep")]
+Town1Windows = mySet = [
+    ATPNode(view=3541, noun='WINARCH_T1_N', pDescriber="Dk-arch-open"),
+    ATPNode(view=3542, noun='WINARCH_T1_N', pDescriber="Lt-arch-open"),
+    ATPNode(view=3543, noun='WINARCH_T1_N', pDescriber="Med-arch-open"),
+    ATPNode(view=3544, noun='WINSHUTR_T1_N', pDescriber="Dk shutter"),
+    ATPNode(view=3545, noun='WINSHUTR_T1_N', pDescriber="Lt shutter"),
+    ATPNode(view=3546, noun='WINSHUTR_T1_N', pDescriber="Med shutter"),
+    ATPNode(view=3547, noun='WINSTNFR_T1_N', pDescriber="Stone frame-a"),
+    ATPNode(view=3548, noun='WINSTNFR_T1_N', pDescriber="Stone frame-b"),
+    ATPNode(view=3549, noun='WINSTNFR_T1_N', pDescriber="Stone frame-c"),
+    ATPNode(view=3553, noun='WINMULL_T1_N', pDescriber="Mullion arch-a"),
+    ATPNode(view=3554, noun='WINMULL_T1_N', pDescriber="Mullion arch-b"),
+    ATPNode(view=3555, noun='WINMULL_T1_N', pDescriber="Mullion arch-c"),
+    ATPNode(view=3556, noun='WINDIAMAR_T1_N', pDescriber="Diamond arch-a"),
+    ATPNode(view=3557, noun='WINDIAMAR_T1_N', pDescriber="Diamond arch-b"),
+    ATPNode(view=3558, noun='WINDIAMAR_T1_N', pDescriber="Diamond arch-c"),
+    ATPNode(view=3580, noun='WINRECT_T1_N', pDescriber="Dk-rect-open"),
+    ATPNode(view=3581, noun='WINRECT_T1_N', pDescriber="Lt-rect-open"),
+    ATPNode(view=3582, noun='WINRECT_T1_N', pDescriber="Med-rect-open"),
+    ATPNode(view=3585, noun='WINSTNFR_T1_N', pDescriber="Stone frame"),
+    ATPNode(view=3586, noun='WINWOODFR_T1_N', pDescriber="Wood frame-a"),
+    ATPNode(view=3587, noun='WINWOODFR_T1_N', pDescriber="Wood frame-b"),
+    ATPNode(view=3588, noun='WINWOODFR_T1_N', pDescriber="Wood frame-c"),
+    ATPNode(view=3592, noun='WINMULL_T1_N', pDescriber="Mullion-a"),
+    ATPNode(view=3593, noun='WINMULL_T1_N', pDescriber="Mullion-b"),
+    ATPNode(view=3594, noun='WINMULL_T1_N', pDescriber="Mullion-c"),
+    ATPNode(view=3595, noun='WINDIAM_T1_N', pDescriber="Diamond-a"),
+    ATPNode(view=3596, noun='WINDIAM_T1_N', pDescriber="Diamond-b"),
+    ATPNode(view=3597, noun='WINDIAM_T1_N', pDescriber="Diamond-c"),
+    ATPNode(view=3720, noun='0', pDescriber="lt stone gatekeep"),
+    ATPNode(view=3721, noun='0', pDescriber="lt wood gatekeep"),
+    ATPNode(view=3722, noun='0', pDescriber="med stone arch gatekeep"),
+    ATPNode(view=3723, noun='0', pDescriber="med stone square gatekeep"),
+    ATPNode(view=3724, noun='0', pDescriber="med wood gatekeep"),
+    ATPNode(view=27939, noun='WINSTNFR_T1_N', pDescriber="Gry-Stone frame-c"),
+    ATPNode(view=27943, noun='WINSTNFR_T1_N', pDescriber="Gry-Stone frame")
+]
+
 
 for i, obj in enumerate(mySet):
     obj.pMsgFile = 102
@@ -1095,8 +1218,6 @@ if not obj.pDescriber:
     obj.pDescriber = "Sign"
 
 Town1Signs2 = mySet = [ATPNode(view=3702, noun='SIGN_CHAPEL_N', pDescriber="chapel"),
-                       ATPNode(view=3770, noun='SIGN_N', pDescriber="dk shield 1"),
-                       ATPNode(view=3771, noun='SIGN_N', pDescriber="dk shield 1"),
                        ATPNode(view=3791, noun='SIGN_N', pDescriber="dk shield 1"),
                        ATPNode(view=3792, noun='SIGN_N', pDescriber="lt shield 1"),
                        ATPNode(view=3793, noun='SIGN_N', pDescriber="dk shield 2"),
@@ -1154,14 +1275,15 @@ Town1Misc = mySet = [ATPNode(view=3534, noun='WALL_T1_N', pDescriber="Dk-Wall-si
                      ATPNode(view=3600, noun='TABLERCT_T1_N', pDescriber="Rect table"),
                      ATPNode(view=3728, noun='GARGOYLE_T1_N', pDescriber="gargoyle"),
                      ATPNode(view=3729, noun='WALLFOUNT_T1_N', pDescriber="wall fountain"),
-                     ATPNode(view=3730, noun='WALLFOUNT_T1_N', pDescriber="wall fountain face"),
                      ATPNode(view=3731, noun='CRACK_N', pDescriber="crack_1", pDoScaler=False, pPolygon=-1),
                      ATPNode(view=3732, noun='CRACK_N', pDescriber="crack_2", pDoScaler=False, pPolygon=-1),
                      ATPNode(view=3733, noun='CRACK_N', pDescriber="crack_3", pDoScaler=False, pPolygon=-1),
                      ATPNode(view=3734, noun='CRACK_N', pDescriber="crack_4", pDoScaler=False, pPolygon=-1),
                      ATPNode(view=3735, noun='CRACK_N', pDescriber="crack_5", pDoScaler=False, pPolygon=-1),
                      ATPNode(view=3736, noun='CRACK_N', pDescriber="crack_6", pDoScaler=False, pPolygon=-1),
-                     ATPNode(view=3737, noun='LAMP_T1_N', pDescriber="Dk-Wall-lamp")]
+                     ATPNode(view=3737, noun='LAMP_T1_N', pDescriber="Dk-Wall-lamp"),
+                     ATPNode(view=7157, noun='LAMP_T1_N', pDescriber="Dk-Wall-lamp")
+                     ]
 
 for i, obj in enumerate(mySet):
     obj.pMsgFile = 102
@@ -1174,8 +1296,6 @@ Town1Bkgd1 = mySet = [ATPNode(view=1195, noun='TOWN_DIST_N', pDescriber="Town-di
                       ATPNode(view=1197, noun='TOWN_DIST_N', pDescriber="Roof tops", pPolygon=-1),
                       ATPNode(view=1198, noun='TOWN_DIST_N', pDescriber="Roof tops-2", pPolygon=-1),
                       ATPNode(view=3536, noun='TOWN_WALL_N', pDescriber="stone-wall-back"),
-                      ATPNode(view=3537, noun='TOWN_WALL_N', pDescriber="stone-wall-back"),
-                      ATPNode(view=3538, noun='TOWN_WALL_N', pDescriber="stone-wall-back"),
                       ATPNode(view=3539, noun='TOWN_GATE_N', pDescriber="stone-gate-far", pPolygon=-1)]
 
 for i, obj in enumerate(mySet):
@@ -1209,10 +1329,13 @@ Town1Trees = mySet = [
     ATPNode(view=3713, noun='BOUGH_N', pDescriber="tree bough"),
     ATPNode(view=3714, noun='BOUGH_N', pDescriber="tree bough"),
     ATPNode(view=3715, noun='TRUNK_T1_N', pDescriber="tree trunk", pPolygon=-1),
-    ATPNode(view=3741, noun='WALLFOUNT_T1_N', pDescriber="wall fountain"),
     ATPNode(view=3742, noun='BACKTREE_T1_N', pDescriber="Half-Bkgd", pPolygon=-1),
     ATPNode(view=3743, noun='BACKTREE_T1_N', pDescriber="Full-Tree-M", pPlacement='BACK_FULL', pPolygon=-1),
-    ATPNode(view=3953, noun='HOUSEOAK_N', pDescriber="oak tree")]
+    ATPNode(view=3953, noun='HOUSEOAK_N', pDescriber="oak tree"),
+    ATPNode(view=7152, noun='BOUGH_N', pDescriber="tree bough"),
+    ATPNode(view=7153, noun='BOUGH_N', pDescriber="tree bough")
+]
+
 
 for i, obj in enumerate(mySet):
     obj.pMsgFile = 102
@@ -1221,24 +1344,30 @@ for i, obj in enumerate(mySet):
     if not obj.pDescriber:
         obj.pDescriber = "Tree"
 
-Town1Plants = mySet = [ATPNode(view=1112, noun='GRASS1_N', pDescriber="grass", pDoScaler=True, pPolygon=-1),
-                       ATPNode(view=1113, noun='GRASS2_N', pDescriber="grass", pDoScaler=True, pPolygon=-1),
-                       ATPNode(view=1060, noun='BUSH_N', pDescriber="Bush", pDoScaler=True),
-                       # elpha - added pDoScaler=True
-                       ATPNode(view=1063, noun='BUSH_PINK_N', pDescriber="Pink flowers", pDoScaler=True),
-                       ATPNode(view=1064, noun='BUSH_YELLO_N', pDescriber="Yellow flowers", pDoScaler=True),
-                       ATPNode(view=1111, noun='GRASS2_N', pDescriber="grass", pDoScaler=True),
-                       # elpha - pDoScaler=True added
-                       ATPNode(view=3711, noun='BUSH_SML_N', pDescriber="Grn sm bush"),
-                       ATPNode(view=3712, noun='BUSH_SML_N', pDescriber="Bush"),
-                       ATPNode(view=3716, noun='GRASS1_N', pDescriber="grass"),
-                       ATPNode(view=3717, noun='GRASS1_N', pDescriber="grass-b", pPolygon=-1),
-                       ATPNode(view=3954, noun='BUSH_BIG_N', pDescriber="lg bush"),
-                       ATPNode(view=3955, noun='BUSH_LEAFY_N', pDescriber="low bush"),
-                       ATPNode(view=3956, noun='BUSH_SML_N', pDescriber="sm bush"),
-                       ATPNode(view=3957, noun='GRASS2_N', pDescriber="grass-a", pPolygon=-1),
-                       ATPNode(view=3958, noun='GRASS2_N', pDescriber="grass-b", pPolygon=-1),
-                       ATPNode(view=3974, noun='BUSH_SML_N', pDescriber="sm bush")]
+Town1Plants = mySet = [
+    ATPNode(view=1112, noun='GRASS1_N', pDescriber="grass", pDoScaler=True, pPolygon=-1),
+    ATPNode(view=1113, noun='GRASS2_N', pDescriber="grass", pDoScaler=True, pPolygon=-1),
+    ATPNode(view=1060, noun='BUSH_N', pDescriber="Bush", pDoScaler=True),
+    # elpha - added pDoScaler=True
+    ATPNode(view=1063, noun='BUSH_PINK_N', pDescriber="Pink flowers", pDoScaler=True),
+    ATPNode(view=1064, noun='BUSH_YELLO_N', pDescriber="Yellow flowers", pDoScaler=True),
+    ATPNode(view=1111, noun='GRASS2_N', pDescriber="grass", pDoScaler=True),
+    # elpha - pDoScaler=True added
+    ATPNode(view=3711, noun='BUSH_SML_N', pDescriber="Grn sm bush"),
+    ATPNode(view=3712, noun='BUSH_SML_N', pDescriber="Bush"),
+    ATPNode(view=3716, noun='GRASS1_N', pDescriber="grass"),
+    ATPNode(view=3717, noun='GRASS1_N', pDescriber="grass-b", pPolygon=-1),
+    ATPNode(view=3954, noun='BUSH_BIG_N', pDescriber="lg bush"),
+    ATPNode(view=3955, noun='BUSH_LEAFY_N', pDescriber="low bush"),
+    ATPNode(view=3956, noun='BUSH_SML_N', pDescriber="sm bush"),
+    ATPNode(view=3957, noun='GRASS2_N', pDescriber="grass-a", pPolygon=-1),
+    ATPNode(view=3958, noun='GRASS2_N', pDescriber="grass-b", pPolygon=-1),
+    ATPNode(view=7155, noun='GRASS1_N', pDescriber="grass-b", pPolygon=-1),
+    ATPNode(view=7163, noun='BUSH_BIG_N', pDescriber="lg bush"),
+    ATPNode(view=7166, noun='GRASS2_N', pDescriber="grass-a", pPolygon=-1),
+    ATPNode(view=7167, noun='GRASS2_N', pDescriber="grass-b", pPolygon=-1)
+]
+
 
 for i, obj in enumerate(mySet):
     obj.pMsgFile = 101
@@ -1329,39 +1458,45 @@ for i, obj in enumerate(mySet):
     if not obj.pDescriber:
         obj.pDescriber = "Beam"
 
-Town1IntWalls = mySet = [ATPNode(view=3001, noun='WALL_T1_N', pDescriber="Lt-Wall"),
-                         ATPNode(view=3002, noun='WALL_T1_N', pDescriber="Lt-Wall-Mid"),
-                         ATPNode(view=3003, noun='WALL_T1_N', pDescriber="Lt-Wall-Gable"),
-                         ATPNode(view=3004, noun='WALL_T1_N', pDescriber="Lt-Wall-Roof"),
-                         ATPNode(view=3005, noun='WALL_T1_N', pDescriber="Lt-Wall-dbl"),
-                         ATPNode(view=3006, noun='WALL_T1_N', pDescriber="Lt-Wall-Mid-dbl"),
-                         ATPNode(view=3007, noun='WALL_T1_N', pDescriber="Lt-Wall-Gable-dbl"),
-                         ATPNode(view=3008, noun='WALL_T1_N', pDescriber="Lt-Wall-Roof-dbl"),
-                         ATPNode(view=3009, noun='WALL_T1_N', pDescriber="Lt-Wall-low"),
-                         ATPNode(view=3010, noun='WALL_T1_N', pDescriber="Lt-Wall-Mid-low"),
-                         ATPNode(view=3011, noun='WALL_T1_N', pDescriber="Lt-Wall-Gable-low"),
-                         ATPNode(view=3012, noun='WALL_T1_N', pDescriber="Lt-Wall-Side-low"),
-                         ATPNode(view=3013, noun='WALL_T1_N', pDescriber="Dk-Wall"),
-                         ATPNode(view=3014, noun='WALL_T1_N', pDescriber="Dk-Wall-Mid"),
-                         ATPNode(view=3015, noun='WALL_T1_N', pDescriber="Dk-Wall-Gable"),
-                         ATPNode(view=3016, noun='WALL_T1_N', pDescriber="Dk-Wall-Roof"),
-                         ATPNode(view=3017, noun='WALL_T1_N', pDescriber="Dk-Wall-dbl"),
-                         ATPNode(view=3018, noun='WALL_T1_N', pDescriber="Dk-Wall-Mid-dbl"),
-                         ATPNode(view=3019, noun='WALL_T1_N', pDescriber="Dk-Wall-Gable-dbl"),
-                         ATPNode(view=3020, noun='WALL_T1_N', pDescriber="Dk-Wall-Roof-dbl"),
-                         ATPNode(view=3021, noun='WALL_T1_N', pDescriber="Dk-Wall-low"),
-                         ATPNode(view=3022, noun='WALL_T1_N', pDescriber="Dk-Wall-Mid-low"),
-                         ATPNode(view=3023, noun='WALL_T1_N', pDescriber="Dk-Wall-Gable-low"),
-                         ATPNode(view=3024, noun='WALL_T1_N', pDescriber="Dk-Wall-Side-low"),
-                         ATPNode(view=3025, noun='WALL_T1_N', pDescriber="Med-Wall"),
-                         ATPNode(view=3026, noun='WALL_T1_N', pDescriber="Med-Wall-Mid"),
-                         ATPNode(view=3027, noun='WALL_T1_N', pDescriber="Med-Wall-Gable"),
-                         ATPNode(view=3028, noun='WALL_T1_N', pDescriber="Med-Wall-dbl"),
-                         ATPNode(view=3029, noun='WALL_T1_N', pDescriber="Med-Wall-Mid-dbl"),
-                         ATPNode(view=3030, noun='WALL_T1_N', pDescriber="Med-Wall-Gable-dbl"),
-                         ATPNode(view=3031, noun='WALL_T1_N', pDescriber="Med-Wall-low"),
-                         ATPNode(view=3032, noun='WALL_T1_N', pDescriber="Med-Wall-Mid-low"),
-                         ATPNode(view=3033, noun='WALL_T1_N', pDescriber="Med-Wall-Gable-low")]
+Town1IntWalls = mySet = [
+    ATPNode(view=3001, noun='WALL_T1_N', pDescriber="Lt-Wall"),
+    ATPNode(view=3002, noun='WALL_T1_N', pDescriber="Lt-Wall-Mid"),
+    ATPNode(view=3003, noun='WALL_T1_N', pDescriber="Lt-Wall-Gable"),
+    ATPNode(view=3004, noun='WALL_T1_N', pDescriber="Lt-Wall-Roof"),
+    ATPNode(view=3005, noun='WALL_T1_N', pDescriber="Lt-Wall-dbl"),
+    ATPNode(view=3006, noun='WALL_T1_N', pDescriber="Lt-Wall-Mid-dbl"),
+    ATPNode(view=3007, noun='WALL_T1_N', pDescriber="Lt-Wall-Gable-dbl"),
+    ATPNode(view=3008, noun='WALL_T1_N', pDescriber="Lt-Wall-Roof-dbl"),
+    ATPNode(view=3009, noun='WALL_T1_N', pDescriber="Lt-Wall-low"),
+    ATPNode(view=3010, noun='WALL_T1_N', pDescriber="Lt-Wall-Mid-low"),
+    ATPNode(view=3011, noun='WALL_T1_N', pDescriber="Lt-Wall-Gable-low"),
+    ATPNode(view=3012, noun='WALL_T1_N', pDescriber="Lt-Wall-Side-low"),
+    ATPNode(view=3013, noun='WALL_T1_N', pDescriber="Dk-Wall"),
+    ATPNode(view=3014, noun='WALL_T1_N', pDescriber="Dk-Wall-Mid"),
+    ATPNode(view=3015, noun='WALL_T1_N', pDescriber="Dk-Wall-Gable"),
+    ATPNode(view=3016, noun='WALL_T1_N', pDescriber="Dk-Wall-Roof"),
+    ATPNode(view=3017, noun='WALL_T1_N', pDescriber="Dk-Wall-dbl"),
+    ATPNode(view=3018, noun='WALL_T1_N', pDescriber="Dk-Wall-Mid-dbl"),
+    ATPNode(view=3019, noun='WALL_T1_N', pDescriber="Dk-Wall-Gable-dbl"),
+    ATPNode(view=3020, noun='WALL_T1_N', pDescriber="Dk-Wall-Roof-dbl"),
+    ATPNode(view=3021, noun='WALL_T1_N', pDescriber="Dk-Wall-low"),
+    ATPNode(view=3022, noun='WALL_T1_N', pDescriber="Dk-Wall-Mid-low"),
+    ATPNode(view=3023, noun='WALL_T1_N', pDescriber="Dk-Wall-Gable-low"),
+    ATPNode(view=3024, noun='WALL_T1_N', pDescriber="Dk-Wall-Side-low"),
+    ATPNode(view=3025, noun='WALL_T1_N', pDescriber="Med-Wall"),
+    ATPNode(view=3026, noun='WALL_T1_N', pDescriber="Med-Wall-Mid"),
+    ATPNode(view=3027, noun='WALL_T1_N', pDescriber="Med-Wall-Gable"),
+    ATPNode(view=3028, noun='WALL_T1_N', pDescriber="Med-Wall-dbl"),
+    ATPNode(view=3029, noun='WALL_T1_N', pDescriber="Med-Wall-Mid-dbl"),
+    ATPNode(view=3030, noun='WALL_T1_N', pDescriber="Med-Wall-Gable-dbl"),
+    ATPNode(view=3031, noun='WALL_T1_N', pDescriber="Med-Wall-low"),
+    ATPNode(view=3032, noun='WALL_T1_N', pDescriber="Med-Wall-Mid-low"),
+    ATPNode(view=3033, noun='WALL_T1_N', pDescriber="Med-Wall-Gable-low"),
+    ATPNode(view=27904, noun='WALL_T1_N', pDescriber="Gry-Lt-Wall-Roof"),
+    ATPNode(view=27916, noun='WALL_T1_N', pDescriber="Gry-Dk-Wall-Roof"),
+    ATPNode(view=27925, noun='WALL_T1_N', pDescriber="Gry-Med-Wall"),
+    ATPNode(view=27926, noun='WALL_T1_N', pDescriber="Gry-Med-Wall-Mid")
+]
 
 for i, obj in enumerate(mySet):
     obj.pMsgFile = 102
@@ -1370,37 +1505,45 @@ for i, obj in enumerate(mySet):
     if not obj.pDescriber:
         obj.pDescriber = "Wall"
 
-Town1IntWindows = mySet = [ATPNode(view=3041, noun='WINARCH_T1_N', pDescriber="Dk-arch-open"),
-                           ATPNode(view=3042, noun='WINARCH_T1_N', pDescriber="Lt-arch-open"),
-                           ATPNode(view=3043, noun='WINARCH_T1_N', pDescriber="Med-arch-open"),
-                           ATPNode(view=3047, noun='WINSTNFR_T1_N', pDescriber="Stone frame-a"),
-                           ATPNode(view=3048, noun='WINSTNFR_T1_N', pDescriber="Stone frame-b"),
-                           ATPNode(view=3049, noun='WINSTNFR_T1_N', pDescriber="Stone frame-c"),
-                           ATPNode(view=3050, noun='WINWOODFR_T1_N', pDescriber="Wood frame-a"),
-                           ATPNode(view=3051, noun='WINWOODFR_T1_N', pDescriber="Wood frame-b"),
-                           ATPNode(view=3052, noun='WINWOODFR_T1_N', pDescriber="Wood frame-c"),
-                           ATPNode(view=3080, noun='WINRECT_T1_N', pDescriber="Dk-rect-open"),
-                           ATPNode(view=3081, noun='WINRECT_T1_N', pDescriber="Lt-rect-open"),
-                           ATPNode(view=3082, noun='WINRECT_T1_N', pDescriber="Med-rect-open"),
-                           ATPNode(view=3085, noun='WINSTNFR_T1_N', pDescriber="Stone frame-d"),
-                           ATPNode(view=3086, noun='WINWOODFR_T1_N', pDescriber="Wood frame2-a"),
-                           ATPNode(view=3087, noun='WINWOODFR_T1_N', pDescriber="Wood frame2-b"),
-                           ATPNode(view=3088, noun='WINWOODFR_T1_N', pDescriber="Wood frame2-c"),
-                           ATPNode(view=3544, noun='WINSHUTR_T1_N', pDescriber="Dk-shutter"),
-                           ATPNode(view=3545, noun='WINSHUTR_T1_N', pDescriber="Lt-shutter"),
-                           ATPNode(view=3546, noun='WINSHUTR_T1_N', pDescriber="Med-shutter"),
-                           ATPNode(view=3553, noun='WINMULL_T1_N', pDescriber="glass+mullions-a"),
-                           ATPNode(view=3554, noun='WINMULL_T1_N', pDescriber="glass+mullions-b"),
-                           ATPNode(view=3555, noun='WINMULL_T1_N', pDescriber="glass+mullions-c"),
-                           ATPNode(view=3556, noun='WINDIAMAR_T1_N', pDescriber="glass+diamond-a"),
-                           ATPNode(view=3557, noun='WINDIAMAR_T1_N', pDescriber="glass+diamond-b"),
-                           ATPNode(view=3558, noun='WINDIAMAR_T1_N', pDescriber="glass+diamond-c"),
-                           ATPNode(view=3592, noun='WINMULL_T1_N', pDescriber="Mullion-a"),
-                           ATPNode(view=3593, noun='WINMULL_T1_N', pDescriber="Mullion-b"),
-                           ATPNode(view=3594, noun='WINMULL_T1_N', pDescriber="Mullion-c"),
-                           ATPNode(view=3595, noun='WINDIAM_T1_N', pDescriber="Diamond-a"),
-                           ATPNode(view=3596, noun='WINDIAM_T1_N', pDescriber="Diamond-b"),
-                           ATPNode(view=3597, noun='WINDIAM_T1_N', pDescriber="Diamond-c")]
+Town1IntWindows = mySet = [
+    ATPNode(view=3041, noun='WINARCH_T1_N', pDescriber="Dk-arch-open"),
+    ATPNode(view=3042, noun='WINARCH_T1_N', pDescriber="Lt-arch-open"),
+    ATPNode(view=3043, noun='WINARCH_T1_N', pDescriber="Med-arch-open"),
+    ATPNode(view=3047, noun='WINSTNFR_T1_N', pDescriber="Stone frame-a"),
+    ATPNode(view=3048, noun='WINSTNFR_T1_N', pDescriber="Stone frame-b"),
+    ATPNode(view=3049, noun='WINSTNFR_T1_N', pDescriber="Stone frame-c"),
+    ATPNode(view=3050, noun='WINWOODFR_T1_N', pDescriber="Wood frame-a"),
+    ATPNode(view=3051, noun='WINWOODFR_T1_N', pDescriber="Wood frame-b"),
+    ATPNode(view=3052, noun='WINWOODFR_T1_N', pDescriber="Wood frame-c"),
+    ATPNode(view=3080, noun='WINRECT_T1_N', pDescriber="Dk-rect-open"),
+    ATPNode(view=3081, noun='WINRECT_T1_N', pDescriber="Lt-rect-open"),
+    ATPNode(view=3082, noun='WINRECT_T1_N', pDescriber="Med-rect-open"),
+    ATPNode(view=3085, noun='WINSTNFR_T1_N', pDescriber="Stone frame-d"),
+    ATPNode(view=3086, noun='WINWOODFR_T1_N', pDescriber="Wood frame2-a"),
+    ATPNode(view=3087, noun='WINWOODFR_T1_N', pDescriber="Wood frame2-b"),
+    ATPNode(view=3088, noun='WINWOODFR_T1_N', pDescriber="Wood frame2-c"),
+    ATPNode(view=3544, noun='WINSHUTR_T1_N', pDescriber="Dk-shutter"),
+    ATPNode(view=3545, noun='WINSHUTR_T1_N', pDescriber="Lt-shutter"),
+    ATPNode(view=3546, noun='WINSHUTR_T1_N', pDescriber="Med-shutter"),
+    ATPNode(view=3553, noun='WINMULL_T1_N', pDescriber="glass+mullions-a"),
+    ATPNode(view=3554, noun='WINMULL_T1_N', pDescriber="glass+mullions-b"),
+    ATPNode(view=3555, noun='WINMULL_T1_N', pDescriber="glass+mullions-c"),
+    ATPNode(view=3556, noun='WINDIAMAR_T1_N', pDescriber="glass+diamond-a"),
+    ATPNode(view=3557, noun='WINDIAMAR_T1_N', pDescriber="glass+diamond-b"),
+    ATPNode(view=3558, noun='WINDIAMAR_T1_N', pDescriber="glass+diamond-c"),
+    ATPNode(view=3592, noun='WINMULL_T1_N', pDescriber="Mullion-a"),
+    ATPNode(view=3593, noun='WINMULL_T1_N', pDescriber="Mullion-b"),
+    ATPNode(view=3594, noun='WINMULL_T1_N', pDescriber="Mullion-c"),
+    ATPNode(view=3595, noun='WINDIAM_T1_N', pDescriber="Diamond-a"),
+    ATPNode(view=3596, noun='WINDIAM_T1_N', pDescriber="Diamond-b"),
+    ATPNode(view=3597, noun='WINDIAM_T1_N', pDescriber="Diamond-c"),
+    ATPNode(view=27884, noun='WINARCH_T1_N', pDescriber="Gry-Lt-arch-open"),
+    ATPNode(view=27885, noun='WINARCH_T1_N', pDescriber="Gry-Med-arch-open"),
+    ATPNode(view=27887, noun='WINSTNFR_T1_N', pDescriber="Gry-Stone frame-b"),
+    ATPNode(view=27888, noun='WINSTNFR_T1_N', pDescriber="Gry-Stone frame-c"),
+    ATPNode(view=27892, noun='WINSTNFR_T1_N', pDescriber="Gry-Stone frame-d")
+]
+
 
 for i, obj in enumerate(mySet):
     obj.pMsgFile = 102
@@ -1532,8 +1675,6 @@ TempleWalls = mySet = [ATPNode(view=3335, noun='WALL1_TMP_N', pDescriber="sd wal
                        ATPNode(view=3363, noun='WALL3_TMP_N', pDescriber="lt wall end"),
                        ATPNode(view=3364, noun='WALL2_TMP_N', pDescriber="dk wall end detail"),
                        ATPNode(view=3365, noun='WALL2_TMP_N', pDescriber="lt wall end detail"),
-                       ATPNode(view=3366, noun='WALL2_TMP_N', pDescriber="lt wall end detail"),
-                       ATPNode(view=3367, noun='WALL2_TMP_N', pDescriber="lt wall end detail"),
                        ATPNode(view=3380, noun='0', pDescriber="outside fence end piece"),
                        ATPNode(view=3381, noun='0', pDescriber="outside stone fence doorway"),
                        ATPNode(view=3382, noun='0', pDescriber="outside fence wall (stone)"),
@@ -1722,15 +1863,6 @@ House1IntMisc = mySet = [ATPNode(view=3110, noun='SHELF_T1_N', pDescriber="Dark 
                          ATPNode(view=3426, noun='HOUSEMATTRES_N', pDescriber="Mattress angle"),
                          ATPNode(view=3427, noun='HOUSEPILLOW_N', pDescriber="Pillow side"),
                          ATPNode(view=3428, noun='HOUSEPILLOW_N', pDescriber="Pillow angle"),
-                         ATPNode(view=3437, noun='HOUSEPILLOW_N', pDescriber="Pillow angle"),
-                         ATPNode(view=3438, noun='HOUSEPILLOW_N', pDescriber="Pillow angle"),
-                         ATPNode(view=3439, noun='HOUSEPILLOW_N', pDescriber="Pillow angle"),
-                         ATPNode(view=3461, noun='HOUSEPILLOW_N', pDescriber="Pillow angle"),
-                         ATPNode(view=3462, noun='HOUSEPILLOW_N', pDescriber="Pillow angle"),
-                         ATPNode(view=3463, noun='HOUSEPILLOW_N', pDescriber="Pillow angle"),
-                         ATPNode(view=3464, noun='HOUSEPILLOW_N', pDescriber="Pillow angle"),
-                         ATPNode(view=3465, noun='HOUSEPILLOW_N', pDescriber="Pillow angle"),
-                         ATPNode(view=3466, noun='HOUSEPILLOW_N', pDescriber="Pillow angle"),
                          ATPNode(view=3467, noun='HOUSECANDHLD_N', pDescriber="Candle holder", pPolygon=-1),
                          ATPNode(view=3598, noun='TABLESQR_T1_N', pDescriber="Square Table"),
                          ATPNode(view=3599, noun='TABLERND_T1_N', pDescriber="Round Table"),
@@ -1934,7 +2066,7 @@ for i, atpSet in enumerate(ForestRegion):
     for obj in atpSet:
         obj.set_room_type('FOREST')
 
-BeachRegion = [BeachStuff, Polygons, Transitions]
+BeachRegion = [BeachStuff]
 for i, atpSet in enumerate(BeachRegion):
     BeachRegion[i] = atpSet = copy.deepcopy(atpSet)
     for obj in atpSet:
@@ -2017,10 +2149,6 @@ for roomType, region in ATPList.items():
             ATP_BY_PIC[roomType]['view'][atp.view] = atp
             ATP_BY_PIC[roomType]['atp'][atp.number] = atp
 
-import json
-
-json_dir = "/home/caleb/Git/Realm_World_Creator/Resources/atpinfo"
-
 ATP_CATEGORIES = {}
 keys = list(ATPList.keys())
 for k in keys:
@@ -2038,5 +2166,3 @@ for k in keys:
             atps[atp.number] = {}
             for atr in atp.attributes:
                 atps[atp.number][atr] = getattr(atp, atr)
-    # with open(json_dir + f"/{k}.json_output", "w") as f:
-    #     json_output.dump(info, f, indent=2)

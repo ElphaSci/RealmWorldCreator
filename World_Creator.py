@@ -1,3 +1,7 @@
+import concurrent
+
+from concurrent.futures.thread import ThreadPoolExecutor
+
 import os
 import pathlib
 import random
@@ -14,7 +18,6 @@ import appdirs
 
 import atp_info
 import stock_objects
-import ui
 from kaitaisci.picture import Picture
 from kaitaisci.sci_resource import Ressci, ResType
 from kaitaisci.view import View
@@ -51,6 +54,9 @@ for f in Path('Resources/objects/python/test').parent.glob("*.py"):
 del importlib.util, Path
 
 stkObjDict = {obj.name: obj for obj in StockObjList}
+
+search_thread_executor = ThreadPoolExecutor(max_workers=1)
+futures = []
 
 
 class WorldCreator(tk.Tk):
@@ -746,35 +752,50 @@ class WorldCreator(tk.Tk):
 
         def fuzzy_sort(names, query, limit):
             # Calculate fuzzy similarity and get top matches
-            top_matches = process.extract(query, names, scorer=fuzz.ratio, limit=limit)
+            top_matches = process.extract(query, names, scorer=fuzz.partial_token_sort_ratio, limit=limit)
 
             return [(sort_names[idx], idx) for name, score, idx in top_matches]
 
         def on_search_string_change(*args):
+            global futures
+            for prev in futures:
+                prev.cancel()
+            futures.clear()
+
+
+
             search_string = search_string_var.get()
+            future = search_thread_executor.submit(fuzzy_sort, lower_names, search_string.lower(), limit=40)
+            futures.append(future)
 
-            search_results = fuzzy_sort(lower_names, search_string.lower(), limit=40)
+            def callback(future):
+                try:
+                    search_results = future.result()
+                except concurrent.futures._base.CancelledError:
+                    return
 
-            search_results_listbox.delete(0, tk.END)
+                search_results_listbox.delete(0, tk.END)
+                # put search results into the list box
+                for (name, idx) in search_results:
+                    search_results_listbox.insert(tk.END, name)
 
-            # put search results into the list box
-            for (name, idx) in search_results:
-                search_results_listbox.insert(tk.END, name)
+                def get_nearest_item(event=None):
+                    cur_idx = search_results_listbox.nearest(event.y)
+                    atp_obj_idx = search_results[cur_idx][1]
+                    return atp_objs[atp_obj_idx]
 
-            def get_nearest_item(event=None):
-                cur_idx = search_results_listbox.nearest(event.y)
-                atp_obj_idx = search_results[cur_idx][1]
-                return atp_objs[atp_obj_idx]
+                def add_view_from_search_list(event):
+                    atp_or_obj = get_nearest_item(event)
+                    if isinstance(atp_or_obj, atp_info.ATPNode):
+                        self.draw_atp(ATP(atp_or_obj.number))
+                    elif isinstance(atp_or_obj, stock_objects.StockObject):
+                        self.draw_object(WorldObject(atp_or_obj.name))
 
-            def add_view_from_search_list(event):
-                atp_or_obj = get_nearest_item(event)
-                if isinstance(atp_or_obj, atp_info.ATPNode):
-                    self.draw_atp(ATP(atp_or_obj.number))
-                elif isinstance(atp_or_obj, stock_objects.StockObject):
-                    self.draw_object(WorldObject(atp_or_obj.name))
+                search_results_listbox.bind('<Double-Button-1>', add_view_from_search_list)
+                search_results_listbox.bind('<Button-3>', lambda x: favorites_menu(x, get_nearest_item(x)))
 
-            search_results_listbox.bind('<Double-Button-1>', add_view_from_search_list)
-            search_results_listbox.bind('<Button-3>', lambda x: favorites_menu(x, get_nearest_item(x)))
+            future.add_done_callback(callback)
+
 
         # Add trace to the search string var to call on_search_string_change every time it's changed
         search_string_var.trace('w', on_search_string_change)
@@ -1059,6 +1080,9 @@ class WorldCreator(tk.Tk):
         add_tag = 'object'
         loop = (int(obj.loop) if obj.loop else 0)
         view_num = self.stk_objs[obj.object_class].view
+
+        if "of GateKeeper" in f"{obj}":
+            view_num += 1
 
         try:
             view = self.get_view_resource(view_num)

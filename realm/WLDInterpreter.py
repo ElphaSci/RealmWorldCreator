@@ -142,12 +142,12 @@ class Room:
         data.append('\tproperties')
         for k, v in self.properties.items():
             if k == 'exits':
-                for direction, exit_num in v.items():
-                    if exit_num is None:
-                        continue
-                    if isinstance(exit_num, list):
-                        exit_num = ' '.join(exit_num)
-                    data.append('\t\t{} {}'.format(direction, exit_num))
+                for direction in ["north", "east", "south", "west"]:
+                    if direction in v.keys() and v[direction] is not None:
+                        exit_num = v[direction]
+                        if isinstance(exit_num, list):
+                            exit_num = ' '.join(exit_num)
+                        data.append('\t\t{} {}'.format(direction, exit_num))
             else:
                 data.append('\t\t{} {}'.format(k, v))
         data.append('\tend')
@@ -163,12 +163,16 @@ class Room:
                 atp_realm_representation = '\t\t' + atp_obj.realm_representation
                 atp_info.append(atp_realm_representation)
             if isinstance(atp_obj, WorldObject):
-                if atp_obj.object_class not in object_class_count.keys():
-                    object_class_count[atp_obj.object_class] = -1
-                object_class_count[atp_obj.object_class] += 1
-                number = object_class_count[atp_obj.object_class]
-                name = atp_obj.object_class[0].lower() + atp_obj.object_class[1:]
-                object_header = 'object {}{}-{} of {}'.format(name, self.number, number, atp_obj.object_class)
+                if atp_obj.name is not None and len(atp_obj.name) > 0:
+                    object_header = f"{atp_obj}"
+                else:
+                    if atp_obj.object_class not in object_class_count.keys():
+                        object_class_count[atp_obj.object_class] = -1
+                    object_class_count[atp_obj.object_class] += 1
+                    number = object_class_count[atp_obj.object_class]
+                    name = atp_obj.object_class[0].lower() + atp_obj.object_class[1:]
+                    object_header = 'object {}{}-{} of {}'.format(name, self.number, number, atp_obj.object_class)
+
                 obj_realm_representation = atp_obj.realm_representation
                 obj_realm_representation = ['\t\t\t{}'.format(x) for x in obj_realm_representation]
                 objects.append('\t\t{}'.format(object_header))

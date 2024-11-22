@@ -649,6 +649,8 @@ class WorldCreator(tk.Tk):
 
     def load_favorites(self) -> list[atp_info.ATPNode | stock_objects.StockObject]:
         atp_objs = []
+        if not os.path.exists(self.favoirtes_path()):
+            return atp_objs
         with open(self.favorites_path(), 'r') as favorites:
             for fav in favorites.readlines():
                 (type, id) = fav.strip().split(sep='\t')

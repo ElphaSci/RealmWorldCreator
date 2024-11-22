@@ -1,0 +1,24 @@
+# Created by .ignore support plugin (hsz.mobi)
+.idea/
+__pycache__
+scires/.idea/
+scires/PySCIs/__pycache__/
+scires/TraduSCI/
+scires/World_Creator_old/
+scires/source/__pycache__/
+scires/tags
+Resources/56_Files/
+Resources/world
+Resources/zones
+Resources/ressci
+Resources/objects/__pycache__/
+Resources/objects/python
+build/
+*.p56
+*.v56
+*.sc
+*.sh
+.direnv
+.venv
+Resources_dng
+*.egg-info

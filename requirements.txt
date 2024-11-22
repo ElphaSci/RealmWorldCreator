@@ -1,0 +1,4 @@
+Pillow
+PySimpleGUI
+kaitaisci
+cx_Freeze

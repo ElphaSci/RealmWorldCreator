@@ -70,7 +70,8 @@ def stk_to_obj(lines):
             obj = lines[i].replace(')', '').split()[-1]
             lines[i] = 'StockObjList.append(' + obj + '())\n'
         elif '(method (init)' in line_str:
-            lines[i] = 'StockObjList = []\n'
+            comment = '# This is where the .sc file creates the list, but we use a global reference'
+            lines[i] = f'#StockObjList = [] {comment}\n'
             t = i + 1
             while lines[t].strip() != ')':
                 l = 'StockObjList.append(' + lines[t].replace(')', '').split()[-1] + '())\n'

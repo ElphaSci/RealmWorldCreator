@@ -69,4 +69,5 @@ class ATPList:
 
 
 if __name__ == '__main__':
-    atplist = ATPList("/Resources/objects/ATPLIST.SC")
+    atplist = ATPList("../Resources/ATPLIST.SC")
+    print(atplist.tokens)

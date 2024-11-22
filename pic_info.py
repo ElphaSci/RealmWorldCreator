@@ -58,7 +58,10 @@ def parse_pic_info_file(pic_info_file):
     polylist_match = r"\s*polyList\s*:\s*\(.*?\),"
     num_polys = len(re.findall(polylist_match, data))
     no_polylist = re.subn(polylist_match, '', data, num_polys, re.DOTALL)[0]
+    comment_match = r";.*(?=\n)"
+    no_comments = re.sub(comment_match, '', no_polylist)
     picinfo_match = r"\s*\(\(\s*PicInfo\s*new\s*:\s*\).*?\)"
-    matches = re.findall(picinfo_match, no_polylist, re.DOTALL)
+    matches = re.findall(picinfo_match, no_comments, re.DOTALL)
+    
     return [parse_pic_info_entry(x) for x in matches]
 

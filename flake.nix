@@ -34,6 +34,8 @@
                 ipython
                 pip
                 kaitaisci
+                rapidfuzz
+                appdirs
                 matplotlib
                 pysimplegui
                 cx_Freeze

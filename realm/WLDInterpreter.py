@@ -21,7 +21,7 @@ def parse_wld_data(input_data=None, parent=None):
                     data_list.append(data)
                 else:
                     if line in [['drop'], ['mana'], ['special']]:
-                        line += 'True'
+                        line += ['True']
                     data_list.append(line)
                 if len(wld) == 0:
                     break
@@ -52,10 +52,22 @@ def get_next_line(wld):
     line = line.split()
     while '"' in line:
         first = line.index('"')
-        second = line.index('"', first + 1)
+        '''
+        This is hack to account for a malformed file that seemingly Realm is fine with, so I have
+        to handle it to :(
+        
+        It was in ARIMATHI.WLD and it had the following text:
+                title	"the sorcery shopkeeper
+                    
+        It's missing the second " So below we will just append if we ever see this happen 
+        '''
+        try:
+            second = line.index('"', first + 1)
+        except ValueError:
+            line.append('"')
+            second = line.index('"', first + 1)
         line[first:second + 1] = [' '.join(line[first:second + 1]).replace('" ', '"').replace(' "', '"')]
     return line, wld
-
 
 def process_wld_file(filename):
     with open(filename, 'r', encoding='utf8') as f:
@@ -484,8 +496,3 @@ class WorldObject:
 
     def __repr__(self):
         return "object {} of {}".format(self.name, self.object_class)
-
-
-if __name__ == '__main__':
-    f = 'C:\\Users\\caleb\\PycharmProjects\\World_Editor\\Resources\\world\\Leineast.wld'
-    world = World(f)

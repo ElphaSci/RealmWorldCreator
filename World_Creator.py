@@ -8,7 +8,7 @@ import PySimpleGUI as sg
 from PIL import ImageTk, ImageOps
 
 from kaitaisci.picture import Picture
-from kaitaisci.ressci import Ressci, ResType
+from kaitaisci.sci_resource import Ressci, ResType
 from kaitaisci.view import View
 from atp_info import ATP_CATEGORIES, ATP_BY_PIC
 from pic_info import parse_pic_info_file

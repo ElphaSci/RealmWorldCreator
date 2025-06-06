@@ -33,3 +33,6 @@ devenv.local.nix
 # pre-commit
 .pre-commit-config.yaml
 
+/DA_Res/*
+/dist/*
+/Resources_dev/*

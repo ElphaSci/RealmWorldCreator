@@ -7,6 +7,8 @@
     nix2container.url = "github:nlewo/nix2container";
     nix2container.inputs.nixpkgs.follows = "nixpkgs";
     mk-shell-bin.url = "github:rrbutani/nix-mk-shell-bin";
+
+    nix-alien.url = "github:thiagokokada/nix-alien";
   };
 
   nixConfig = {
@@ -26,26 +28,22 @@
         # Per-system attributes can be defined here. The self' and inputs'
         # module parameters provide easy access to attributes of the same
         # system.
+          _module.args.pkgs = import inputs.nixpkgs {
+            inherit system;
+            overlays = [
+              inputs.nix-alien.overlays.default
+            ];
+          };
 
         devenv.shells.default = {
           name = "world-creator-dev";
 
           languages.python = {
-            package = pkgs.python310Full;
-            enable = true;
-            venv = {
               enable = true;
-              quiet = true;
-              requirements = ''
-                Pillow==10.3.0
-                PySimpleGUI==4.60.5
-                cx_Freeze==7.0.0
-                ipython
-                matplotlib
-                rapidfuzz
-                appdirs
-                kaitaistruct==0.10
-              '';
+            package = pkgs.python310Full;
+              poetry = {
+            enable = true;
+                activate.enable = true;
             };
           };
 
@@ -58,7 +56,10 @@
 #          config.languages.python.package.withPackages(ps: with ps; [ tkinter]))
 
           # https://devenv.sh/reference/options/
-          packages = [
+            packages = with pkgs; [
+              upx
+              nix-alien
+              antlr
           ];
 
           enterShell = ''

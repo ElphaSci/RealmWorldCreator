@@ -39,11 +39,11 @@
           name = "world-creator-dev";
 
           languages.python = {
-              enable = true;
-            package = pkgs.python310Full;
-              poetry = {
             enable = true;
-                activate.enable = true;
+            package = pkgs.python310Full;
+            poetry = {
+              enable = true;
+              activate.enable = true;
             };
           };
 

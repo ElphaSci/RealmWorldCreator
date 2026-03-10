@@ -342,6 +342,22 @@ qa = ["flake8 (==5.0.4)", "mypy (==0.971)", "types-setuptools (==67.2.0.1)"]
 testing = ["Django", "attrs", "colorama", "docopt", "pytest (<9.0.0)"]
 
 [[package]]
+name = "kaitaisci"
+version = "1.0"
+description = ""
+optional = false
+python-versions = "*"
+groups = ["main"]
+files = []
+develop = false
+
+[package.source]
+type = "git"
+url = "https://github.com/ElphaSci/KaitaiSci.git"
+reference = "HEAD"
+resolved_reference = "92b5eef0d00b7abba57662ecfedc6de2ae3ccd38"
+
+[[package]]
 name = "kaitaistruct"
 version = "0.10"
 description = "Kaitai Struct declarative parser generator for binary data: runtime library for Python"
@@ -1104,4 +1120,4 @@ files = [
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.10"
-content-hash = "369d9560c202375bd9cdec394a84f7fd4ccc892c966986274ec536f1f4dabaa4"
+content-hash = "96a6dd822db031236c2d88d4efeb8023c522c22dff4d1236cd0cc72b2e33e373"

@@ -63,7 +63,6 @@
           ];
 
           enterShell = ''
-            pip install -e ../KaitaiSCI >> /dev/null
           '';
         };
 

@@ -18,8 +18,8 @@ dependencies = [
     "appdirs",
     "kaitaistruct==0.10",
     "antlr4-python3-runtime",
-    "pyinstaller"
-
+    "pyinstaller",
+    "kaitaisci @ git+https://github.com/ElphaSci/KaitaiSci.git"
 ]
 
 
